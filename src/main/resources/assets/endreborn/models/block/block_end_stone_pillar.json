@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "endreborn:blocks/block_end_stone_smooth",
+        "side": "endreborn:blocks/block_end_stone_pillar"
+    }
+}

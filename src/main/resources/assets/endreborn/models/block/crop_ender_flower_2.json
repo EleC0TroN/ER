@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "endreborn:blocks/crop_ender_flower_2"
+    }
+}

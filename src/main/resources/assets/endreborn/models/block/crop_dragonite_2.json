@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "endreborn:blocks/crop_dragonite_2"
+    }
+}
