@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:death_essence"
+        },
+        "title": {
+            "translate": "advancements.endreborn.entropy.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.entropy.description"
+        }
+        
+    },
+    "parent": "endreborn:endreborn/dragon_scales",
+    "criteria": {
+        "elytra": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:death_essence"
+                    }
+                ]
+            }
+        }
+    }
+}

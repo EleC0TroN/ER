@@ -1,0 +1,29 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:ender_pearl"
+        },
+        "title": {
+            "translate": "advancements.endreborn.root.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.root.description"
+        },
+        "frame": "goal",
+        "background": "minecraft:textures/gui/advancements/backgrounds/endreborn.png",
+        "show_toast": true,
+        "announce_to_chat": false
+    },
+    "criteria": {
+        "crafting_table": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:ender_pearl"
+                    }
+                ]
+            }
+        }
+    }
+}

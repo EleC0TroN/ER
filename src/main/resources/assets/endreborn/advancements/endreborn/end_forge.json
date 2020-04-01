@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:block_end_forge"
+        },
+        "title": {
+            "translate": "advancements.endreborn.end_forge.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.end_forge.description"
+        }
+        
+    },
+    "parent": "endreborn:endreborn/end_stone",
+    "criteria": {
+        "elytra": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:block_end_forge"
+                    }
+                ]
+            }
+        }
+    }
+}

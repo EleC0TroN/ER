@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:item_raw_endorium"
+        },
+        "title": {
+            "translate": "advancements.endreborn.raw_endorium.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.raw_endorium.description"
+        }
+        
+    },
+    "parent": "endreborn:endreborn/iron_hammer",
+    "criteria": {
+        "elytra": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:item_raw_endorium"
+                    }
+                ]
+            }
+        }
+    }
+}

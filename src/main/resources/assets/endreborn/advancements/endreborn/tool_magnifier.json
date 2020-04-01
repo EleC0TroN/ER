@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:tool_magnifier"
+        },
+        "title": {
+            "translate": "advancements.endreborn.tool_magnifier.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.tool_magnifier.description"
+        }
+    },
+    "parent": "endreborn:endreborn/raw_endorium",
+    "criteria": {
+        "diamond": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:tool_magnifier"
+                    }
+                ]
+            }
+        }
+    }
+}

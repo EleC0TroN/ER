@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:ender_sword"
+        },
+        "title": {
+            "translate": "advancements.endreborn.ender_sword.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.ender_sword.description"
+        }
+
+    },
+    "parent": "endreborn:endreborn/mine_essence",
+    "criteria": {
+        "elytra": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:ender_sword"
+                    }
+                ]
+            }
+        }
+    }
+}

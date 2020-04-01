@@ -1,0 +1,57 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:armour_chestplate_obsidian"
+        },
+        "title": {
+            "translate": "advancements.endreborn.obsidian_armor.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.obsidian_armor.description"
+        },
+        "frame": "goal"
+    },
+    "parent": "endreborn:endreborn/raw_endorium",
+    "criteria": {
+        "armour_helmet_obsidian": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:armour_helmet_helmet"
+                    }
+                ]
+            }
+        },
+        "armour_chestplate_obsidian": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:armour_chestplate_obsidian"
+                    }
+                ]
+            }
+        },
+        "armour_leggings_obsidian": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:armour_leggings_obsidian"
+                    }
+                ]
+            }
+        },
+        "armour_boots_obsidian": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:armour_boots_obsidian"
+                    }
+                ]
+            }
+        }
+    }
+}

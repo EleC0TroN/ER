@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:item_ingot_wolframium"
+        },
+        "title": {
+            "translate": "advancements.endreborn.item_ingot_wolframium.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.item_ingot_wolframium.description"
+        }
+    },
+    "parent": "endreborn:endreborn/root",
+    "criteria": {
+        "diamond": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:item_ingot_wolframium"
+                    }
+                ]
+            }
+        }
+    }
+}

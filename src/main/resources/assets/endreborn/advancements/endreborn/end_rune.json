@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "endreborn:item_end_rune"
+        },
+        "title": {
+            "translate": "advancements.endreborn.end_rune.title"
+        },
+        "description": {
+            "translate": "advancements.endreborn.end_rune.description"
+        }
+        
+    },
+    "parent": "endreborn:endreborn/raw_endorium",
+    "criteria": {
+        "elytra": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "endreborn:item_end_rune"
+                    }
+                ]
+            }
+        }
+    }
+}
