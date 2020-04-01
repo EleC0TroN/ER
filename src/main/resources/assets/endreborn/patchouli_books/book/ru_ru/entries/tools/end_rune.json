@@ -1,0 +1,17 @@
+﻿{
+    "name": "Руна края",
+    "icon": "endreborn:item_end_rune",
+    "category": "tools",
+	"advancement": "endreborn:endreborn/end_rune",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Те осколки из стражей очень похожи на пазл... Да, действительно, они сложились в странный символ и начали светиться... где-то я это уже видел"
+        },
+	{
+            "type": "crafting",
+            "recipe": "endreborn:items/item_end_rune"
+        }
+    ]
+}

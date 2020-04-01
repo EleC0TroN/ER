@@ -1,0 +1,18 @@
+{
+    "name": "item.endreborn.book.name",
+    "landing_text": "info.endreborn.book.landing",
+    "advancement_namespaces": [
+        "endreborn"
+    ],
+    "creative_tab": "endertab",
+    "advancements_tab": "endreborn:endreborn",
+    "book_texture": "endreborn:textures/gui/book.png",
+    "filler_texture": "endreborn:textures/gui/book_filler.png",
+    "proress_bar_background": "d6f9a4",
+    "proress_bar_color": "6ab203",
+    "model": "endreborn:book",
+    "subtitle": "info.endreborn.book.subtitle",
+    "macros": {
+
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "End-Mage Barclay",
+    "icon": "endreborn:ender_sword",
+    "category": "being",
+	"advancement": "endreborn:endreborn/lord",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "I consider it a great achievement to even meet him ... wait, and who is he? In the battle with him, I heard his name, his name - Barclay. Also, his skin slowly begins to collapse... Who him and from... someday I find out."
+        },
+	{
+            "type": "spotlight",
+            "item": "endreborn:item_ender_string",
+            "link_recipe": true
+        }
+    ]
+}

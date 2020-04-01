@@ -1,0 +1,17 @@
+﻿{
+    "name": "Страж края",
+    "icon": "endreborn:item_end_shard",
+    "category": "being",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Они как големы, но защищают собственное измерение. Единственный вопрос, кто появился первым: ифрит или страж."
+        },
+	{
+            "type": "spotlight",
+            "item": "endreborn:item_end_shard",
+            "link_recipe": true
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+﻿{
+    "name": "Дракон Края",
+    "icon": "minecraft:dragon_egg",
+    "category": "being",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Огромное существо, охраняющее главный остров, но зачем? Кто мог подчинить или создать его? Одни вопросы..."
+        },
+	{
+            "type": "spotlight",
+            "item": "minecraft:dragon_egg",
+            "link_recipe": true
+        }
+    ]
+}

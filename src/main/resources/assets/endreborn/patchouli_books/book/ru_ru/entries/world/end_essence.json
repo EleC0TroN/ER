@@ -1,0 +1,18 @@
+﻿{
+    "name": "Эссенция края",
+    "icon": "endreborn:item_end_essence",
+    "category": "world",
+	"advancement": "endreborn:endreborn/mine_essence",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Я недавно заметил странные блоки обсидиана, которые светились, похоже обсидиан не только очень прочный... Надо взять с собой немного этого материала. Хотя это не нужно, он появляется и в моем мире, но реже."
+        },
+	{
+            "type": "spotlight",
+            "item": "endreborn:block_essence_ore",
+            "link_recipe": true
+        }
+    ]
+}

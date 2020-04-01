@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "burning=false,facing=north": { "model": "endreborn:entropy_user" },
+        "burning=false,facing=east": { "model": "endreborn:entropy_user", "y": 90 },
+        "burning=false,facing=south": { "model": "endreborn:entropy_user", "y": 180 },
+        "burning=false,facing=west": { "model": "endreborn:entropy_user", "y": 270 },
+        "burning=true,facing=north": { "model": "endreborn:entropy_user_burn" },
+        "burning=true,facing=east": { "model": "endreborn:entropy_user_burn", "y": 90 },
+        "burning=true,facing=south": { "model": "endreborn:entropy_user_burn", "y": 180 },
+        "burning=true,facing=west": { "model": "endreborn:entropy_user_burn", "y":270  }
+    }
+}

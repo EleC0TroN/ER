@@ -1,0 +1,17 @@
+{
+    "name": "Enderman",
+    "icon": "minecraft:ender_pearl",
+    "category": "being",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Standard creatures of The End, but sometimes they are falls into other worlds. According to my observations, they hate the appearance of human eyes, becouse of some reason that not known for me. After a long stay next to them, I begin to feel some kind of connection... Really strange creatures."
+        },
+	{
+            "type": "spotlight",
+            "item": "minecraft:ender_pearl",
+            "link_recipe": true
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+﻿{
+    "name": "Магнитизер",
+    "icon": "endreborn:tool_magnifier",
+    "category": "tools",
+    "advancement": "endreborn:endreborn/tool_magnifier",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "У меня есть вольфрам, у меня есть эндориум... Ладно, я просто заметил, что они сранно взаимодействуют. Пора провести некоторые эксперименты."
+        },
+	{
+            "type": "crafting",
+            "recipe": "endreborn:tools/tool_magnifier"
+        }
+    ]
+}

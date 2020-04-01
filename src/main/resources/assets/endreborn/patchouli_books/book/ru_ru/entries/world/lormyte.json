@@ -1,0 +1,18 @@
+﻿{
+    "name": "Лормит",
+    "icon": "endreborn:block_lormyte_crystal",
+    "category": "world",
+	"advancement": "endreborn:endreborn/lormyte_crystal",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Хм, я раньше не замечал этих кристаллов в Краю. Они не поддаются гравитации, и неплохо выглядят."
+        },
+		{
+            "type": "spotlight",
+            "item": "endreborn:block_lormyte_crystal",
+            "link_recipe": true
+        }
+    ]
+}

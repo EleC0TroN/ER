@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "endreborn:crop_dragonite_0" },
+        "age=1": { "model": "endreborn:crop_dragonite_1" },
+        "age=2": { "model": "endreborn:crop_dragonite_1" },
+        "age=3": { "model": "endreborn:crop_dragonite_2" },
+        "age=4": { "model": "endreborn:crop_dragonite_2" },
+        "age=5": { "model": "endreborn:crop_dragonite_3" },
+        "age=6": { "model": "endreborn:crop_dragonite_3" },
+        "age=7": { "model": "endreborn:crop_dragonite_4" }
+    }
+}

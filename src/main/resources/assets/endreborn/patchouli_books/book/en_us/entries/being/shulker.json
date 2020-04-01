@@ -1,0 +1,17 @@
+{
+    "name": "Shulker",
+    "icon": "minecraft:shulker_shell",
+    "category": "being",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "The defenders of the long-abandoned cities ... They have enough durable armor, and who created them?"
+        },
+	{
+            "type": "spotlight",
+            "item": "minecraft:shulker_shell",
+            "link_recipe": true
+        }
+    ]
+}

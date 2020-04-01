@@ -1,0 +1,22 @@
+﻿{
+    "name": "Остров края",
+    "icon": "endreborn:block_entropy_end_stone",
+    "category": "world",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Это самолет, нет, это человек... А нет, это остров в небе, который похож на миниатюрный Край. Он состоит из эндерняка, часть которого разрушенна временем... и каких-то растений, странно..."
+        },
+		{
+            "type": "spotlight",
+            "item": "endreborn:block_entropy_end_stone",
+            "link_recipe": true
+        },
+		{
+            "type": "spotlight",
+            "item": "endreborn:crop_ender_flower",
+            "link_recipe": true
+        }
+    ]
+}

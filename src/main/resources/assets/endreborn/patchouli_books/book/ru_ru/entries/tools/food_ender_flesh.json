@@ -1,0 +1,16 @@
+﻿{
+    "name": "Плоть Эндера",
+    "icon": "endreborn:food_ender_flesh",
+    "category": "tools",
+    "priority": true,
+    "pages": [
+        {
+            "type": "text",
+            "text": "Все ученые пробуют свои открытия на себе, я же попробую на вкус... Мне плохо... но кажется, я стал видеть в темноте."
+        },
+	{
+            "type": "crafting",
+            "recipe": "endreborn:items/food_ender_flesh"
+        }
+    ]
+}
