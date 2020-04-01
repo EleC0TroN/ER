@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "endreborn:blocks/end_bricks_glow",
+        "top": "endreborn:blocks/end_bricks_glow",
+        "side": "endreborn:blocks/end_bricks_glow"
+    }
+}

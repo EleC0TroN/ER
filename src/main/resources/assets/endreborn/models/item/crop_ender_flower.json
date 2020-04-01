@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+	"textures": {
+	    "layer0": "endreborn:blocks/crop_ender_flower_3"
+    }
+}

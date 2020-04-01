@@ -1,0 +1,6 @@
+{
+    "parent": "endreborn:item/ender_bow",
+    "textures": {
+        "layer0": "endreborn:items/ender_bow_pulling_0"
+    }
+}

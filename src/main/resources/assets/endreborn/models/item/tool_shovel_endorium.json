@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+	"textures": {
+	    "layer0": "endreborn:items/tool_shovel_endorium"
+    }
+}
