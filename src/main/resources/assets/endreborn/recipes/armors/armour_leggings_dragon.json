@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "010", 
+        "0 0",
+	"0 0"  
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:dragon_scales"
+        },
+
+        "1":
+        {
+            "item": "endreborn:item_ender_string"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:armour_leggings_dragon",
+        "count": 1
+    }
+}

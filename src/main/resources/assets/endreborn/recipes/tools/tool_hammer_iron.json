@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "010",
+        "010",
+        " 1 "        
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+        
+        "1":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:tool_hammer_iron",
+        "count": 1
+    }
+}

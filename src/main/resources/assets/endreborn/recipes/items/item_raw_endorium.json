@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_pearl"
+    },
+	{
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "endreborn:tool_hammer_iron",
+	  "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:item_raw_endorium",
+        "count": 1
+    }
+}

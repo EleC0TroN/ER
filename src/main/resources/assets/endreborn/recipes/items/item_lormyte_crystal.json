@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endreborn:block_lormyte_crystal"
+    },
+    {
+      "item": "endreborn:tool_hammer_iron",
+	  "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:item_lormyte_crystal",
+        "count": 2
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "   ", 
+        "000",
+        "000"      
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:block_end_stone_smooth"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:smooth_end_stone_wall",
+        "count": 6
+    }
+}

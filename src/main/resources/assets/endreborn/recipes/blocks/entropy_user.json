@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "000",
+	"030", 
+        "030"     
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:block_end_stone_smooth"
+        },
+	"3":
+        {
+            "item": "endreborn:death_essence"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:entropy_user",
+        "count": 1
+    }
+}

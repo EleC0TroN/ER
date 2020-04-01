@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "   ", 
+        "000",
+        "000"      
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "minecraft:purpur_block"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:e_purpur_wall",
+        "count": 6
+    }
+}

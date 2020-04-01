@@ -1,0 +1,44 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "1", 
+        "0"    
+    ],
+    
+    "key":
+    {
+        "0":
+		[
+        {
+			"item": "minecraft:stone",
+			"data": 0
+		},
+		{
+			"item": "minecraft:stone",
+			"data": 1
+		},
+		{
+			"item": "minecraft:stone",
+			"data": 3
+		},
+		{
+			"item": "minecraft:stone",
+			"data": 5
+		}
+		],
+
+        "1":
+        {
+            "item": "endreborn:tool_hammer_iron",
+	    "data": 32767
+        }
+    },
+    
+    "result":
+    {
+        "item": "minecraft:cobblestone",
+        "count": 1
+    }
+}0 1 3 5

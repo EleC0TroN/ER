@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:item_advanced_ender_pearl",
+        "count": 1
+    }
+}

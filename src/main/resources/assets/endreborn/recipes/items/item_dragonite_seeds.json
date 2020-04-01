@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    },
+	{
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:item_dragonite_seeds",
+        "count": 8
+    }
+}

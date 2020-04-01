@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "0", 
+        "0"     
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "minecraft:end_stone"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:block_end_stone_pillar",
+        "count": 2
+    }
+}

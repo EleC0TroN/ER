@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "B"      
+    ],
+    
+    "key":
+    {
+        "B":
+        {
+            "item": "endreborn:block_wolframium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:item_ingot_wolframium",
+        "count": 9
+    }
+}

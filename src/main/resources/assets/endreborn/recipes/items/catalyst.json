@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endreborn:item_shard_obsidian"
+    },
+    {
+      "item": "endreborn:item_shard_obsidian"
+    },
+    {
+      "item": "endreborn:tool_hammer_iron",
+	  "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:catalyst",
+        "count": 3
+    }
+}

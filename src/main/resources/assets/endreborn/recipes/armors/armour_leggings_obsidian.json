@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "010", 
+        "0 0",
+	"0 0"  
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:item_shard_obsidian"
+        },
+
+        "1":
+        {
+            "item": "endreborn:item_ingot_endorium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:armour_leggings_obsidian",
+        "count": 1
+    }
+}

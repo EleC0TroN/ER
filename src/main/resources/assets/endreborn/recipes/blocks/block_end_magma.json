@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " 0 ",
+	"010", 
+        " 0 "     
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "minecraft:end_stone"
+        },
+	"1":
+        {
+            "item": "minecraft:magma"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:block_end_magma",
+        "count": 4
+    }
+}

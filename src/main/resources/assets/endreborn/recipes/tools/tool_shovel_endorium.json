@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "0",
+        "1",
+        "1"        
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:item_ingot_endorium"
+        },
+        
+         "1":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:tool_shovel_endorium",
+        "count": 1
+    }
+}

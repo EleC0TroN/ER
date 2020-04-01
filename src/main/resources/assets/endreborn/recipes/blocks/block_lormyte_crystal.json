@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "0", 
+        "0"    
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "endreborn:item_lormyte_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:block_lormyte_crystal",
+        "count": 1
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "000", 
+        "212",
+        "000"      
+    ],
+    
+    "key":
+    {
+        "0":
+        {
+            "item": "minecraft:purpur_block"
+        },
+
+        "1":
+        {
+            "item": "minecraft:magma"
+        },
+
+        "2":
+        {
+            "item": "minecraft:torch"
+        }
+    },
+    
+    "result":
+    {
+        "item": "endreborn:block_purpur_lamp",
+        "count": 1
+    }
+}
