@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "endreborn:blocks/broken_ender_flower"
+    }
+}
