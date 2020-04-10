@@ -166,6 +166,11 @@ public class BlockDragonEssence extends BlockCrops implements IHasModel
 
 
     @Override
+    public boolean canPlaceBlockAt(World world, BlockPos pos) {
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.down()).getBlock() == Blocks.END_STONE;
+    }
+	
+	@Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state) {
         return world.getBlockState(pos.down()).getBlock() == Blocks.END_STONE;
     }

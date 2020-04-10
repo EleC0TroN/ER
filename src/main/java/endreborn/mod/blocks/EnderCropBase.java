@@ -7,15 +7,24 @@ import endreborn.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
+
+import javax.annotation.Nullable;
 
 public class EnderCropBase extends BlockCrops implements IHasModel
 {
@@ -30,6 +39,21 @@ public class EnderCropBase extends BlockCrops implements IHasModel
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	{
+		if(!worldIn.isRemote)
+		{
+			if(this.isMaxAge(state))
+			{
+				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.ENDER_PEARL, 1)));
+				worldIn.setBlockState(pos, BlockInit.BROKEN_FLOWER.getDefaultState());
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	protected Item getSeed() 
 	{
@@ -133,7 +157,16 @@ public class EnderCropBase extends BlockCrops implements IHasModel
 	{
     return Block.EnumOffsetType.XYZ;
 	}
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return BUSH_AABB;
+    }
 
+    @Nullable
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return NULL_AABB;
+    }
 	@Override
 	public void registerModels() 
 	{
