@@ -34,6 +34,7 @@ public class BlockInit
 	public static final Block BLOCK_END_FORGE = new BlockEndForge("block_end_forge");
 	public static final Block DRAGON_ESSENCE = new BlockDragonEssence("dragon_essence");
 	public static final Block BLOCK_E_USER = new BlockEntropyUser("entropy_user");
+	public static final Block BROKEN_FLOWER = new CutoutBlock("broken_ender_flower", Material.PLANTS);
 
 	public static final Block STAIRS_END_BRICKS = new BlockStairsBase("e_end_bricks_stairs", Blocks.END_BRICKS);
 	public static final Block STAIRS_SMOOTH_END_STONE = new BlockStairsBase("smooth_end_stone_stairs", BlockInit.END_STONE_SMOOTH);
