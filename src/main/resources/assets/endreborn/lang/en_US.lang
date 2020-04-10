@@ -22,6 +22,8 @@ item.dragon_scales.name=Dragon Scales
 item.death_essence.name=Xorcite 
 item.catalyst.name=Obsidian Dust
 item.end_record.name=End Record
+item.sword_shard.name=Broken Sword Part
+item.ingot_infused.name=Infused Endorium
 
 # Blocks -
 tile.block_endorium.name=Endorium Block
@@ -47,8 +49,7 @@ tile.block_end_magma.name=End Magma
 tile.block_end_forge.name=Void Forge
 tile.dragon_essence.name=Xorcite Cluster
 tile.entropy_user.name=Materializer
-item.sword_shard.name=Broken Sword Part
-item.ingot_infused.name=Infused Metall
+tile.broken_ender_flower.name=Broken Ender Flower
 
 # Tools -
 item.tool_axe_endorium.name=Endorium Axe
@@ -118,12 +119,12 @@ tile.deather_mode.on=Repulsion
 tile.mirror.tooltip_0=Teleports to zero coordinates
 tile.mirror.tooltip_1=We are not responsible for the consequences
 tile.soup.tooltip=Has positive effects
-tile.lormyte.tooltip=Appears in Nether
+tile.lormyte.tooltip=Appears in the Nether
 tile.flesh.tooltip=A delicacy that improves eyesight
 tile.dragon_essence.tooltip=The rift of a world that is slowly growing
 tile.essence.tooltip=Substance appearing among obsidian
 tile.user.tooltip=Allows double ore
-tile.tea.tooltip=Works like a simple chorus
+tile.tea.tooltip=A Chorus Fruit alternative
 tile.block_rune.tooltip=Summons an entity if surrounded by eight purple blocks...
 tile.block_forge.tooltip=The heat of this forge changes the properties of the endorium
 tile.wand.tooltip=Changes some blocks to their destroyed state
