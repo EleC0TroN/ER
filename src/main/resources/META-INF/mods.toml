@@ -1,0 +1,25 @@
+modLoader="javafml" #mandatory
+loaderVersion="[28,)" #mandatory (28 is current forge version)
+issueTrackerURL="http://my.issue.tracker/" #optional
+[[mods]] #mandatory
+modId="endreborn" #mandatory
+version="0.4.1" #mandatory
+displayName="End: Reborn" #mandatory
+updateJSONURL="http://myurl.me/" #optional
+displayURL="http://example.com/" #optional
+logoFile="examplemod.png" #optional
+credits="Mod for MC." #optional
+authors="EleC0TroN" #optional
+description="The dragon was only the beginning. And the End more than your brain can imagine"
+[[dependencies.endreborn]] #optional
+    modId="forge" 
+    mandatory=true #mandatory
+    versionRange="[28,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.endreborn]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"

@@ -1,6 +1,0 @@
-{
-  "parent": "block/wall_inventory",
-  "textures": {
-    "wall": "endreborn:blocks/block_end_stone_smooth"
-  }
-}

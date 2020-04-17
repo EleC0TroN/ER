@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+    {
+      "item": "endreborn:iron_hammer",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    }
+  ],
+  "result": {
+    "item": "endreborn:endorium_nugget",
+    "count": 2
+  }
+}
