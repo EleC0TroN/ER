@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " @ ",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "endreborn:burned_end_stone"
+    }
+  },
+  "result": {
+    "item": "endreborn:end_stone_pickaxe"
+  }
+}

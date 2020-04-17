@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-	"textures": {
-	    "layer0": "endreborn:blocks/crop_dragonite_4"
-    }
-}
