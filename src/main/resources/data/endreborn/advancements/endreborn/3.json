@@ -1,0 +1,33 @@
+{
+  "parent": "endreborn:endreborn/1",
+  "display": {
+    "icon": {
+      "item": "minecraft:gold_nugget"
+    },
+    "title": {
+      "translate": "advancements.endreborn.3.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.3.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "endreborn:limus"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

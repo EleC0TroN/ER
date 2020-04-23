@@ -3,6 +3,8 @@
  "itemGroup.endgroup": "End: Reborn",
  "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
  "tooltip.ender_boots": "Reduces taken damage and teleports",
+ "entity.endreborn.limus": "Limus",
+
 //Items
  "item.endreborn.wolframium_nugget": "Tungsten Nugget",
  "item.endreborn.wolframium_ingot": "Tungsten Ingot",
@@ -13,12 +15,14 @@
  "item.endreborn.obsidian_shard": "Obsidian Shard",
  "item.endreborn.iron_hammer": "Sledgehammer",
  "item.endreborn.ogana": "Ogana Fruit",
+
 //Armor
  "item.endreborn.wolframium_helmet": "Tungsten Helmet",
  "item.endreborn.wolframium_chestplate": "Tungsten Chestplate",
  "item.endreborn.wolframium_leggings": "Tungsten Leggings",
  "item.endreborn.wolframium_boots": "Tungsten Boots",
  "item.endreborn.ender_boots": "Ender Boots",
+
 //Tools
  "item.endreborn.wolframium_sword": "Tungsten Sword",
  "item.endreborn.wolframium_pickaxe": "Tungsten Pickaxe",
@@ -35,17 +39,40 @@
  "item.endreborn.endorium_axe": "Endorium Axe",
  "item.endreborn.endorium_shovel": "Endorium Shovel",
  "item.endreborn.endorium_hoe": "Endorium Hoe",
+
 //Blocks
  "block.endreborn.wolframium_block": "Tungsten Block",
  "block.endreborn.wolframium_door": "Tungsten Door",
  "block.endreborn.wolframium_trapdoor": "Tungsten Trapdoor",
  "block.endreborn.wolframium_bars": "Tungsten Bars",
  "block.endreborn.wolframium_ore": "Tungsten Ore",
+ "block.endreborn.cracked_purpur": "Cracked Purpur Block",
+ "block.endreborn.purpur_lantern": "Purpur Lantern",
+ "block.endreborn.mossy_end_bricks": "Mossy End Stone Bricks",
+ "block.endreborn.obsidian_glass": "Obsidian Decorated Glass",
  "block.endreborn.burned_end_stone": "Burned End Stone",
  "block.endreborn.quartz_ore": "Quartz Ore",
  "block.endreborn.end_moss": "Mossy End Stone",
  "block.endreborn.ogana_fruit": "Ogana Plant",
  "block.endreborn.dragonite": "Dragonite",
  "block.endreborn.ogana_weed": "Ogana Weed",
- "block.endreborn.obsidian_ore": "Obsidian Ore"
+ "block.endreborn.obsidian_ore": "Obsidian Ore",
+ "block.endreborn.end_stone_pillar": "End Stone Pillar",
+
+//Advancements
+ "advancements.endreborn.root.title": "End: Reborn",
+ "advancements.endreborn.root.description": "The End is just the beginning",
+ "advancements.endreborn.1.title": "Souvenir",
+ "advancements.endreborn.1.description": "Get: End Stone",
+ "advancements.endreborn.2.title": "Not a Mjolnir but...",
+ "advancements.endreborn.2.description": "Get: Sledgehammer",
+ "advancements.endreborn.3.title": "Lighners",
+ "advancements.endreborn.3.description": "Catch a Limus",
+ "advancements.endreborn.4.title": "Harder than vibranium",
+ "advancements.endreborn.4.description": "Get: Endorium Ingot",
+ "advancements.endreborn.5.title": "The last chance",
+ "advancements.endreborn.5.description": "Use Sledgehammer as a weapon",
+ "advancements.endreborn.6.title": "Gummy fruit!",
+ "advancements.endreborn.6.description": "Get: Ogana Fruit"
+
 }

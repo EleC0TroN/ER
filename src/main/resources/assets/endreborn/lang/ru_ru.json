@@ -3,6 +3,7 @@
  "itemGroup.endgroup": "End: Reborn",
  "tooltip.wolframium_armor": "Убирает действие левитации при ношении любой части",
  "tooltip.ender_boots": "Снижает полученный урон и телепортирует в ближайшее место",
+ "entity.endreborn.limus": "Лит",
 //Items
  "item.endreborn.wolframium_nugget": "Вольфрамовый самородок",
  "item.endreborn.wolframium_ingot": "Вольфрамовый слиток",
@@ -41,11 +42,33 @@
  "block.endreborn.wolframium_trapdoor": "Вольфрамовый люк",
  "block.endreborn.wolframium_bars": "Вольфрамовые прутья",
  "block.endreborn.wolframium_ore": "Вольфрамовая руда",
+ "block.endreborn.cracked_purpur": "Сломанный пурпурный блок",
+ "block.endreborn.purpur_lantern": "Пурпурный фонарь",
+ "block.endreborn.mossy_end_bricks": "Замшелые эндерняковые кирпичи",
+ "block.endreborn.obsidian_glass": "Обрамленное обсидианом стекло",
  "block.endreborn.burned_end_stone": "Горелый эндерняк",
  "block.endreborn.quartz_ore": "Кварцевая руда",
  "block.endreborn.end_moss": "Замшеный эндерняк",
  "block.endreborn.ogana_fruit": "Росток оганы",
  "block.endreborn.dragonite": "Драгонит",
  "block.endreborn.ogana_weed": "Сорняк оганы",
- "block.endreborn.obsidian_ore": "Обсидиановая руда"
+ "block.endreborn.obsidian_ore": "Обсидиановая руда",
+ "block.endreborn.end_stone_pillar": "Эндерняковая колонна",
+
+//Advancements
+ "advancements.endreborn.root.title": "End: Reborn",
+ "advancements.endreborn.root.description": "Новое начало",
+ "advancements.endreborn.1.title": "Сувенир",
+ "advancements.endreborn.1.description": "Соберите Эндерняк",
+ "advancements.endreborn.2.title": "Не Мьёльнир, но тоже неплохо...",
+ "advancements.endreborn.2.description": "Создайте Куваду",
+ "advancements.endreborn.3.title": "Звезды рая",
+ "advancements.endreborn.3.description": "Поймайте Лита",
+ "advancements.endreborn.4.title": "Крепче чем вибраниум",
+ "advancements.endreborn.4.description": "Создайте Слиток эндориума",
+ "advancements.endreborn.5.title": "Последний шанс",
+ "advancements.endreborn.5.description": "Используйте Кувалду как оружие",
+ "advancements.endreborn.6.title": "Инопланетное желе!",
+ "advancements.endreborn.6.description": "Соберите Плод оганы"
+
 }

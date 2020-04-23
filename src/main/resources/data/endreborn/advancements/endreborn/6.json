@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/1",
+  "display": {
+    "icon": {
+      "item": "endreborn:ogana"
+    },
+    "title": {
+      "translate": "advancements.endreborn.6.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.6.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:ogana"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

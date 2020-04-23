@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/2",
+  "display": {
+    "icon": {
+      "item": "endreborn:endorium_ingot"
+    },
+    "title": {
+      "translate": "advancements.endreborn.4.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.4.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:endorium_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

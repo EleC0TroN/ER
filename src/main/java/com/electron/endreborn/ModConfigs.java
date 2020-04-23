@@ -23,12 +23,32 @@ public class ModConfigs {
             public static String name = "balance";
 
             public static ConfigValue<Integer> obsidian_ore_rarity;
+            public static ConfigValue<Integer> limus_rarity;
+            public static ConfigValue<Integer> moss_rarity;
+            public static ConfigValue<Integer> wolframium_rarity;
+            public static ConfigValue<Integer> dragonite_rarity;
+            public static ConfigValue<Integer> quartz_rarity;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")
                         .defineInRange("obsidian_ore_rarity", 12, 0, 64);
+                limus_rarity = builder
+                        .comment("Limus mob spawn rarity")
+                        .defineInRange("limus_rarity", 10, 0, 64);
+                moss_rarity = builder
+                        .comment("End Moss and Mossy End Stone spawn rarity")
+                        .defineInRange("moss_rarity", 4, 0, 64);
+                wolframium_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("wolframium_rarity", 4, 0, 64);
+                dragonite_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("dragonite_rarity", 1, 0, 64);
+                quartz_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("quartz_rarity", 4, 0, 64);
                 builder.pop();
             }
         }

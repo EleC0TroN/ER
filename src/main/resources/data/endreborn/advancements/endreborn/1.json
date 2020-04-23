@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:end_stone"
+    },
+    "title": {
+      "translate": "advancements.endreborn.1.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.1.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:end_stone"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

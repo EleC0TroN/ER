@@ -1,14 +1,6 @@
 package com.electron.endreborn;
 
-import com.electron.endreborn.blocks.WolframiumBars;
-import com.electron.endreborn.blocks.EndMoss;
-import com.electron.endreborn.blocks.EndPlant;
-import com.electron.endreborn.blocks.MetalBlock;
-import com.electron.endreborn.blocks.ObsidianOre;
-import com.electron.endreborn.blocks.PlantBlock;
-import com.electron.endreborn.blocks.RockBlock;
-import com.electron.endreborn.blocks.WolframiumDoor;
-import com.electron.endreborn.blocks.WolframiumTrapdoor;
+import com.electron.endreborn.blocks.*;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.RegistryObject;
@@ -30,4 +22,10 @@ public class ModBlocks {
 	public static final RegistryObject<Block> END_MOSS = BLOCKS.register("end_moss", EndMoss::new);
 	public static final RegistryObject<Block> OGANA_PLANT = BLOCKS.register("ogana_fruit", EndPlant::new);
 	public static final RegistryObject<Block> OGANA_WEED = BLOCKS.register("ogana_weed", EndPlant::new);
+	public static final RegistryObject<Block> END_STONE_PILLAR = BLOCKS.register("end_stone_pillar", PillarBlock::new);
+	public static final RegistryObject<Block> PURPUR_LANTERN = BLOCKS.register("purpur_lantern", EndLantern::new);
+	public static final RegistryObject<Block> CRACKED_PURPUR = BLOCKS.register("cracked_purpur", RockBlock::new);
+	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", ObsidianOre::new);
+
+	public static final RegistryObject<Block> MOSSY_END_STONE = BLOCKS.register("mossy_end_stone", RockBlock::new);
 }
