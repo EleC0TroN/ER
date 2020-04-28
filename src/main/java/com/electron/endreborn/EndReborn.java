@@ -21,7 +21,6 @@ public class EndReborn
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON_SPEC);
         ModBlocks.BLOCKS.register(modEventBus);
-
         ModMobs.ENTITY_TYPES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);

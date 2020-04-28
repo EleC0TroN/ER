@@ -3,6 +3,7 @@ package com.electron.endreborn;
 import com.electron.endreborn.mobs.LimusMob;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;

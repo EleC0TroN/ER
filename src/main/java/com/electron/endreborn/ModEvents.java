@@ -22,9 +22,9 @@ public class ModEvents {
 	            if (!event.getEntityLiving().world.isRemote) {
 
 	                for(int i = 0; i < 16; ++i) {
-	                   double d3 = event.getEntityLiving().posX + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
-	                   double d4 = MathHelper.clamp(event.getEntityLiving().posY + (double)(event.getEntityLiving().getRNG().nextInt(16) - 8), 0.0D, (double)(event.getEntityLiving().world.getActualHeight() - 1));
-	                   double d5 = event.getEntityLiving().posZ + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
+	                   double d3 = event.getEntityLiving().getPosX() + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
+	                   double d4 = MathHelper.clamp(event.getEntityLiving().getPosY() + (double)(event.getEntityLiving().getRNG().nextInt(16) - 8), 0.0D, (double)(event.getEntityLiving().world.getActualHeight() - 1));
+	                   double d5 = event.getEntityLiving().getPosZ() + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
 	                   if (event.getEntityLiving().isPassenger()) {
 	                	   event.getEntityLiving().stopRiding();
 	                   }

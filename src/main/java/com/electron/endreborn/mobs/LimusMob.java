@@ -29,9 +29,11 @@ public class LimusMob extends AmbientEntity {
     public double getYOffset() {
         return 0.1D;
     }
-    @Override
-    public void fall(float distance, float damageMultiplier) {
+
+    public boolean onLivingFall(float distance, float damageMultiplier) {
+        return false;
     }
+
     public LimusMob(World world, double x, double y, double z) {
         this(ModMobs.LIMUS.get(), world);
         this.setPosition(x, y, z);
@@ -68,7 +70,7 @@ public class LimusMob extends AmbientEntity {
             if (this.action == MovementController.Action.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
                     this.courseChangeCooldown += this.parentEntity.getRNG().nextInt(5) + 6;
-                    Vec3d vec3d = new Vec3d(this.posX - this.parentEntity.posX, this.posY - this.parentEntity.posY, this.posZ - this.parentEntity.posZ);
+                    Vec3d vec3d = new Vec3d(this.posX - this.parentEntity.getPosX(), this.posY - this.parentEntity.getPosY(), this.posZ - this.parentEntity.getPosZ());
                     double d0 = vec3d.length();
                     vec3d = vec3d.normalize();
                     if (this.func_220673_a(vec3d, MathHelper.ceil(d0))) {
@@ -86,7 +88,7 @@ public class LimusMob extends AmbientEntity {
 
             for(int i = 1; i < p_220673_2_; ++i) {
                 axisalignedbb = axisalignedbb.offset(p_220673_1_);
-                if (!this.parentEntity.world.isCollisionBoxesEmpty(this.parentEntity, axisalignedbb)) {
+                if (!this.parentEntity.world.func_226665_a__(this.parentEntity, axisalignedbb)) {
                     return false;
                 }
             }
@@ -110,9 +112,9 @@ public class LimusMob extends AmbientEntity {
             if (!movementcontroller.isUpdating()) {
                 return true;
             } else {
-                double d0 = movementcontroller.getX() - this.parentEntity.posX;
-                double d1 = movementcontroller.getY() - this.parentEntity.posY;
-                double d2 = movementcontroller.getZ() - this.parentEntity.posZ;
+                double d0 = movementcontroller.getX() - this.parentEntity.getPosX();
+                double d1 = movementcontroller.getY() - this.parentEntity.getPosY();
+                double d2 = movementcontroller.getZ() - this.parentEntity.getPosZ();
                 double d3 = d0 * d0 + d1 * d1 + d2 * d2;
                 return d3 < 1.0D || d3 > 3600.0D;
             }
@@ -130,9 +132,9 @@ public class LimusMob extends AmbientEntity {
          */
         public void startExecuting() {
             Random random = this.parentEntity.getRNG();
-            double d0 = this.parentEntity.posX + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d1 = this.parentEntity.posY + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d2 = this.parentEntity.posZ + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d0 = this.parentEntity.getPosX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = this.parentEntity.getPosY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d2 = this.parentEntity.getPosZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.parentEntity.getMoveHelper().setMoveTo(d0, d1, d2, 1.0D);
         }
     }

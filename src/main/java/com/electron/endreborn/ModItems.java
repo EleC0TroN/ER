@@ -12,7 +12,7 @@ public class ModItems {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, EndReborn.MODID);
 	
 	//Items
-	public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", EssenceItem::new);
 	public static final RegistryObject<Item> SIMPLE_QUARTZ = ITEMS.register("simple_quartz", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<Item> WOLFRAMIUM_INGOT = ITEMS.register("wolframium_ingot", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<Item> WOLFRAMIUM_NUGGET = ITEMS.register("wolframium_nugget", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
@@ -59,8 +59,9 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> PURPUR_LANTERN = ITEMS.register("purpur_lantern", () -> new BlockItem(ModBlocks.PURPUR_LANTERN.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_STONE_PILLAR = ITEMS.register("end_stone_pillar", () -> new BlockItem(ModBlocks.END_STONE_PILLAR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> CRACKED_PURPUR = ITEMS.register("cracked_purpur", () -> new BlockItem(ModBlocks.CRACKED_PURPUR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<BlockItem> MOSSY_END_STONE = ITEMS.register("mossy_end_stone", () -> new BlockItem(ModBlocks.MOSSY_END_STONE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OGANA_WEED = ITEMS.register("ogana_weed", () -> new BlockItem(ModBlocks.OGANA_WEED.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS = ITEMS.register("obsidian_glass", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> CRACKED_END_BRICKS = ITEMS.register("cracked_end_bricks", () -> new BlockItem(ModBlocks.CRACKED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> CHISELED_END_BRICKS = ITEMS.register("chiseled_end_bricks", () -> new BlockItem(ModBlocks.CHISELED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
 }

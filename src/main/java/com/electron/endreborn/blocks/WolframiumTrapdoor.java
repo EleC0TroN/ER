@@ -12,7 +12,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class WolframiumTrapdoor extends TrapDoorBlock implements IForgeBlock {
 
     public WolframiumTrapdoor() {
-        super(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.25f, 5.5f).sound(SoundType.METAL));
+        super(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.25f, 5.5f).sound(SoundType.METAL).notSolid());
     }
 
     @Override

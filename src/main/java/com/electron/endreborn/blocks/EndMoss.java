@@ -19,7 +19,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class EndMoss extends Block implements IForgeBlock {
 	
 	public EndMoss() {
-        super(Block.Properties.create(Material.DRAGON_EGG, MaterialColor.GRASS).hardnessAndResistance(3.25f, 5.5f).sound(SoundType.STONE)
+        super(Block.Properties.create(Material.PORTAL, MaterialColor.GRASS).hardnessAndResistance(3.25f, 5.5f).sound(SoundType.STONE)
         		);
     }
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
@@ -32,7 +32,7 @@ public class EndMoss extends Block implements IForgeBlock {
     }
 	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
 	      double d0 = Math.abs(entityIn.getMotion().y);
-	      if (d0 < 0.1D && !entityIn.isSneaking()) {
+	      if (d0 < 0.1D && !entityIn.isSprinting()) {
 	         double d1 = 0.8D + d0 * 0.2D;
 	         entityIn.setMotion(entityIn.getMotion().mul(d1, 1.0D, d1));
 	      

@@ -4,72 +4,51 @@ import com.electron.endreborn.ModBlocks;
 import com.electron.endreborn.ModConfigs;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
+import net.minecraft.world.gen.blockstateprovider.ForestFlowerBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class NatureGen {
 	private static final ObsidianOreFeature OBSIDIAN_ORE = new ObsidianOreFeature(null);
-	public static final Feature<BushConfig> END_MOSS = new EndMossFeature(BushConfig::deserialize);
 
 	public static void initGen() {
-		addFeature(Biomes.DARK_FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.DRAGONITE.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.dragonite_rarity.get())));
-		addFeature(Biomes.FOREST, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.DRAGONITE.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.dragonite_rarity.get())));
-		
-		addFeature(Biomes.THE_END, GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(NatureFeatures.END_MOSS, new BushConfig(null), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.moss_rarity.get())));
-		addFeature(Biomes.END_MIDLANDS, GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(NatureFeatures.END_MOSS, new BushConfig(null), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.moss_rarity.get())));
-		addFeature(Biomes.SMALL_END_ISLANDS, GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(NatureFeatures.END_MOSS, new BushConfig(null), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.moss_rarity.get())));
-		addFeature(Biomes.END_HIGHLANDS, GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(NatureFeatures.END_MOSS, new BushConfig(null), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(ModConfigs.COMMON.balance.moss_rarity.get())));
 
-		addFeature(Biomes.END_HIGHLANDS, GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(NatureFeatures.CRACKED_PURPUR, new BushConfig(null), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(4)));
+		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+			if (biome == Biomes.FOREST || biome == Biomes.DARK_FOREST) {
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(NatureFeatures.DRAGONITE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(ModConfigs.COMMON.balance.dragonite_rarity.get()))));
+			}
 
-		addFeature(Biomes.THE_END, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_PLANT.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
-		addFeature(Biomes.END_MIDLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_PLANT.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
-		addFeature(Biomes.SMALL_END_ISLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_PLANT.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
-		addFeature(Biomes.THE_END, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_WEED.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
-		addFeature(Biomes.END_MIDLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_WEED.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
-		addFeature(Biomes.SMALL_END_ISLANDS, GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.BUSH, new BushConfig(ModBlocks.OGANA_WEED.get().getDefaultState()), Placement.COUNT_HEIGHTMAP_DOUBLE, new FrequencyConfig(12)));
+			if (biome.getCategory().equals(Biome.Category.THEEND)) {
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new EndDecoratorFeature(NoFeatureConfig::deserialize).withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(ModConfigs.COMMON.balance.moss_rarity.get()))));
+
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(NatureFeatures.OGANA_WEED_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(12))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(NatureFeatures.OGANA_PLANT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(12))));
+			}
+		}
+		Biomes.END_MIDLANDS.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new CrackedDecoratorFeature(NoFeatureConfig::deserialize).withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(ModConfigs.COMMON.balance.decorator_rarity.get()))));
+
+		Biomes.THE_END.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new ObsidianOreFeature(NoFeatureConfig::deserialize).withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(ModConfigs.COMMON.balance.obsidian_ore_rarity.get()))));
 	}
 	public static void initOres() {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
 			if (!biome.getCategory().equals(Biome.Category.NETHER) && !biome.getCategory().equals(Biome.Category.THEEND)) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-						Biome.createDecoratedFeature(Feature.ORE,
-								new OreFeatureConfig(
-										OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-										ModBlocks.QUARTZ_ORE.get().getDefaultState(),
-										2
-								),
-								Placement.COUNT_RANGE, new CountRangeConfig(ModConfigs.COMMON.balance.quartz_rarity.get(), 0, 0, 64)
-						)
-				);
-
+				ConfiguredPlacement customConfig = Placement.COUNT_RANGE
+						.configure(new CountRangeConfig(ModConfigs.COMMON.balance.quartz_rarity.get(), 0, 0, 64));
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE
+						.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.QUARTZ_ORE.get().getDefaultState(), 3))
+						.withPlacement(customConfig));
 			}
 			if (!biome.getCategory().equals(Biome.Category.NETHER) && !biome.getCategory().equals(Biome.Category.THEEND)) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-						Biome.createDecoratedFeature(Feature.ORE,
-								new OreFeatureConfig(
-										OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-										ModBlocks.WOLFRAMIUM_ORE.get().getDefaultState(),
-										4
-								),
-								Placement.COUNT_RANGE, new CountRangeConfig(ModConfigs.COMMON.balance.wolframium_rarity.get(), 0, 0, 64)
-						)
-				);
+				ConfiguredPlacement customConfig = Placement.COUNT_RANGE
+						.configure(new CountRangeConfig(ModConfigs.COMMON.balance.wolframium_rarity.get(), 0, 0, 64));
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE
+						.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.WOLFRAMIUM_ORE.get().getDefaultState(), 4))
+						.withPlacement(customConfig));
 			}
-			Biomes.THE_END.addFeature(
-					GenerationStage.Decoration.VEGETAL_DECORATION,
-					Biome.createDecoratedFeature(OBSIDIAN_ORE,
-							new OreFeatureConfig(
-									OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-									ModBlocks.OBSIDIAN_ORE.get().getDefaultState(), 4),
-							Placement.COUNT_RANGE, new CountRangeConfig(ModConfigs.COMMON.balance.obsidian_ore_rarity.get(), 50, 100, 200)));
 		}
-	}
-	public static void addFeature(Biome biome, GenerationStage.Decoration decorationStage, ConfiguredFeature<?> featureIn) {
-		biome.addFeature(decorationStage, featureIn);
 	}
 }

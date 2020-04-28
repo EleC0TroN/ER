@@ -58,7 +58,8 @@
  "block.endreborn.ogana_weed": "Ogana Weed",
  "block.endreborn.obsidian_ore": "Obsidian Ore",
  "block.endreborn.end_stone_pillar": "End Stone Pillar",
-
+ "block.endreborn.cracked_end_bricks": "Cracked End Bricks",
+ "block.endreborn.chiseled_end_bricks": "Chiseled End Bricks",
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
  "advancements.endreborn.root.description": "The End is just the beginning",
