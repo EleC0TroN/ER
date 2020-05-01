@@ -28,8 +28,7 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		switch(world.provider.getDimension())
 		{
 			case 1:
-				if(ConfigsHandler.GENERAL.spawnLormyte)
-					
+	
 				break;
 				
 			case 0:

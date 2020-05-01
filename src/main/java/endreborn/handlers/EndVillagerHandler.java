@@ -94,6 +94,7 @@ public class EndVillagerHandler
 		public ItemStack sellingItem;
 		public EntityVillager.PriceInfo priceInfo;
 
+		@SuppressWarnings("unused")
 		public ItemstackForEmerald(Item par1Item, EntityVillager.PriceInfo priceInfo)
 		{
 			this.sellingItem = new ItemStack(par1Item);

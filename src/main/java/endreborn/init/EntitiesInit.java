@@ -18,7 +18,6 @@ public class EntitiesInit {
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, "watcher"), EntityWatcher.class, "watcher", id++, EndReborn.instance, 64, 3, false, 461076, 2236447);
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, "endlord"), EntityLord.class, "endlord", id++, EndReborn.instance, 64, 3, false, 461076, 681365);
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, "chronologist"), EntityChronologist.class, "chronologist", id++, EndReborn.instance, 64, 3, false, 461076, 13680725);
-
     }
     
     @SideOnly(Side.CLIENT)

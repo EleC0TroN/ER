@@ -80,7 +80,7 @@ public class EndReborn
             }
         }
         RegistryHandler.initRegistries(event);
-    	if(event.getSide() == Side.CLIENT)
+    	if(event.getSide() == Side.CLIENT && ConfigsHandler.GENERAL.spawnNewVillagers)
         {
     	EndVillagerHandler.initIEVillagerTrades();
     	EndVillagerHandler.initIEVillagerHouse();

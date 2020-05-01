@@ -35,6 +35,7 @@ public class TeleporterEnd extends Teleporter
 	
 	public static void teleportToDimension(EntityPlayer player, int dimension, double x, double y, double z)
 	{
+		@SuppressWarnings("unused")
 		int oldDimension = player.getEntityWorld().provider.getDimension();
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
 		MinecraftServer server = player.getEntityWorld().getMinecraftServer();

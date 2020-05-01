@@ -32,9 +32,7 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import java.util.Calendar;
-import java.util.Random;
 
 
 @EventBusSubscriber
@@ -121,7 +119,7 @@ public class EventHandler
 	@SubscribeEvent
 	public static void onLivingSpawn(LivingSpawnEvent event) {
 		EntityLivingBase entity = event.getEntityLiving();
-		if(entity instanceof EntityEnderman) {
+		if(entity instanceof EntityEnderman && ConfigsHandler.GENERAL.spawnWatcher) {
 			if(entity.world.provider.getDimension() == 1 && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL && !entity.world.isRemote) {
 				if(entity.getRNG().nextInt(ConfigsHandler.BALANCE.watcherRare) == 1) {
 					EntityWatcher watch = new EntityWatcher(entity.world);
@@ -131,7 +129,7 @@ public class EventHandler
 				} 
 			}
 		}
-		if(entity instanceof EntityEnderman) {
+		if(entity instanceof EntityEnderman && ConfigsHandler.GENERAL.spawnChronologist) {
 			if(entity.world.provider.getDimension() == 0 && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL && !entity.world.isRemote) {
 				if(entity.getRNG().nextInt(ConfigsHandler.BALANCE.chronRare) == 1) {
 					EntityChronologist chron = new EntityChronologist(entity.world);
@@ -141,7 +139,7 @@ public class EventHandler
 				} 
 			}
 		}
-		if(entity instanceof EntityEnderman) {
+		if(entity instanceof EntityEnderman && ConfigsHandler.GENERAL.spawnEndGuard) {
 			if(entity.world.provider.getDimension() == 1 && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL && !entity.world.isRemote) {
 				if(entity.getRNG().nextInt(ConfigsHandler.BALANCE.guardRare) == 1) {
 					EntityEGuard guard = new EntityEGuard(entity.world);
@@ -177,22 +175,27 @@ public class EventHandler
 		}
 	}
 	
+	@SuppressWarnings("static-access")
 	public static boolean isDayI() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.MONTH) == calendar.MAY && calendar.get(Calendar.DAY_OF_MONTH) == 10;
 	}
+	@SuppressWarnings("static-access")
 	public static boolean isDayS() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.MONTH) == calendar.AUGUST && calendar.get(Calendar.DAY_OF_MONTH) == 20;
 	}
+	@SuppressWarnings("static-access")
 	public static boolean isDayB() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.MONTH) == calendar.SEPTEMBER && calendar.get(Calendar.DAY_OF_MONTH) == 7;
 	}
+	@SuppressWarnings("static-access")
 	public static boolean isDayY() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.MONTH) == calendar.FEBRUARY && calendar.get(Calendar.DAY_OF_MONTH) == 11;
 	}
+	@SuppressWarnings("static-access")
 	public static boolean isDayN() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.MONTH) == calendar.JANUARY && calendar.get(Calendar.DAY_OF_MONTH) == 26;

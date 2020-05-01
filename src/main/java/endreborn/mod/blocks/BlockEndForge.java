@@ -23,6 +23,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -62,6 +63,22 @@ public class BlockEndForge extends Block implements IHasModel
         }
 
         super.onEntityWalk(worldIn, pos, entityIn);
+    }
+	@Override
+	@SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+	public boolean isOpaqueCube(IBlockState state)
+    {
+	    return false;
+	}
+
+	@Override
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
     }
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)

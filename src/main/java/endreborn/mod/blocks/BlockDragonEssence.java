@@ -5,13 +5,20 @@ import endreborn.init.BlockInit;
 import endreborn.init.ItemInit;
 import endreborn.utils.IHasModel;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockCrops;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -19,6 +26,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -122,14 +130,11 @@ public class BlockDragonEssence extends BlockCrops implements IHasModel
                 if (iblockstate.getBlock().canSustainPlant(iblockstate, worldIn, blockpos.add(i, 0, j), net.minecraft.util.EnumFacing.UP, (net.minecraftforge.common.IPlantable)blockIn))
                 {
                     f1 = 3.0F;
-
                 }
-
                 if (i != 0 || j != 0)
                 {
                     f1 /= 4.0F;
                 }
-
                 f += f1;
             }
         }
@@ -163,16 +168,14 @@ public class BlockDragonEssence extends BlockCrops implements IHasModel
         return false;
     }
 
-
-
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos pos) {
-        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && world.getBlockState(pos.down()).getBlock() == Blocks.END_STONE;
+        return true;
     }
-	
+
 	@Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state) {
-        return world.getBlockState(pos.down()).getBlock() == Blocks.END_STONE;
+        return true;
     }
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
@@ -184,7 +187,7 @@ public class BlockDragonEssence extends BlockCrops implements IHasModel
                 double d8 = d0 + (double) rand.nextFloat();
                 double d4 = d1 + stateIn.getBoundingBox(worldIn, pos).maxY;
                 double d6 = d2 + (double) rand.nextFloat();
-                worldIn.spawnParticle(EnumParticleTypes.PORTAL, d8, d4, d6, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.PORTAL, d8, d4, d6, 0.0D, 0.5D, 0.0D);
                 worldIn.playSound(d8, d4, d6, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F, false);
             }
 

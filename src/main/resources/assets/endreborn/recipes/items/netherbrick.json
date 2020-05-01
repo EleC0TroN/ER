@@ -6,12 +6,12 @@
     },
     {
       "item": "endreborn:tool_hammer_iron",
-	  "data": 32767
+      "data": 32767
     }
   ],
   "result":
     {
-        "item": "minecraft:netherbrick",
+        "item": "minecraft:nether_brick",
         "count": 4
     }
 }
