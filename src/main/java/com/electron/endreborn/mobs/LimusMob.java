@@ -1,24 +1,31 @@
 package com.electron.endreborn.mobs;
 
+import com.electron.endreborn.ModItems;
 import com.electron.endreborn.ModMobs;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.AmbientEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.EnumSet;
 import java.util.Random;
 
 public class LimusMob extends AmbientEntity {
-    // Attributes
 
-    // Constructors
     public LimusMob(EntityType entityType, World world) {
         super(entityType, world);
         this.experienceValue = 1;
@@ -52,10 +59,28 @@ public class LimusMob extends AmbientEntity {
     public boolean hasNoGravity() {
         return true;
     }
+    public SoundCategory getSoundCategory() {
+        return SoundCategory.AMBIENT;
+    }
 
-    @Override
-    public void tick() {
-        super.tick();
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP;
+    }
+    public boolean processInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
+        if (itemstack.getItem() == Items.GLASS_BOTTLE) {
+            player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5F, 0.5F);
+            itemstack.shrink(1);
+            this.remove();
+            if (itemstack.isEmpty()) {
+                player.setHeldItem(hand, new ItemStack(ModItems.LIMUS_BOTTLE.get()));
+            } else if (!player.inventory.addItemStackToInventory(new ItemStack(ModItems.LIMUS_BOTTLE.get()))) {
+                player.dropItem(new ItemStack(ModItems.LIMUS_BOTTLE.get()), false);
+            }
+            return true;
+        } else {
+            return super.processInteract(player, hand);
+        }
     }
     static class MoveHelperController extends MovementController {
         private final LimusMob parentEntity;
@@ -65,16 +90,16 @@ public class LimusMob extends AmbientEntity {
             super(mob);
             this.parentEntity = mob;
         }
-
         public void tick() {
             if (this.action == MovementController.Action.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
-                    this.courseChangeCooldown += this.parentEntity.getRNG().nextInt(5) + 6;
+                    this.courseChangeCooldown += this.parentEntity.getRNG().nextInt(6) + 8;
                     Vec3d vec3d = new Vec3d(this.posX - this.parentEntity.getPosX(), this.posY - this.parentEntity.getPosY(), this.posZ - this.parentEntity.getPosZ());
                     double d0 = vec3d.length();
                     vec3d = vec3d.normalize();
                     if (this.func_220673_a(vec3d, MathHelper.ceil(d0))) {
                         this.parentEntity.setMotion(this.parentEntity.getMotion().add(vec3d.scale(0.1D)));
+                        ((ServerWorld)this.parentEntity.world).spawnParticle(ParticleTypes.END_ROD, this.parentEntity.getPosX(), this.parentEntity.getPosY(), this.parentEntity.getPosZ(), 0, 0,0, 0, (double)0.1F);
                     } else {
                         this.action = MovementController.Action.WAIT;
                     }
@@ -104,9 +129,6 @@ public class LimusMob extends AmbientEntity {
             this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
-        /**
-         * Returns whether the EntityAIBase should begin execution.
-         */
         public boolean shouldExecute() {
             MovementController movementcontroller = this.parentEntity.getMoveHelper();
             if (!movementcontroller.isUpdating()) {
@@ -120,16 +142,10 @@ public class LimusMob extends AmbientEntity {
             }
         }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
         public boolean shouldContinueExecuting() {
             return false;
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
         public void startExecuting() {
             Random random = this.parentEntity.getRNG();
             double d0 = this.parentEntity.getPosX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
@@ -137,8 +153,5 @@ public class LimusMob extends AmbientEntity {
             double d2 = this.parentEntity.getPosZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.parentEntity.getMoveHelper().setMoveTo(d0, d1, d2, 1.0D);
         }
-    }
-    public void kill() {
-        super.remove();
     }
 }

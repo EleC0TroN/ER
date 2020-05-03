@@ -6,6 +6,7 @@ import com.mojang.datafixers.DataFixUtils;
 import com.mojang.datafixers.types.Type;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Items;
 import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -28,5 +29,4 @@ public class ModClient {
         ModBlocks.initRender(event);
         RenderingRegistry.registerEntityRenderingHandler(ModMobs.LIMUS.get(), new LimusRender.RenderFactory());
     }
-
 }

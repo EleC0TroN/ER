@@ -4,6 +4,7 @@
  "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
  "tooltip.ender_boots": "Reduces taken damage and teleports",
  "entity.endreborn.limus": "Limus",
+ "container.ender_transmitter": "Ender Transmitter",
 
 //Items
  "item.endreborn.wolframium_nugget": "Tungsten Nugget",
@@ -15,6 +16,9 @@
  "item.endreborn.obsidian_shard": "Obsidian Shard",
  "item.endreborn.iron_hammer": "Sledgehammer",
  "item.endreborn.ogana": "Ogana Fruit",
+ "item.endreborn.limus_bottle": "Bottled Limus",
+ "item.endreborn.purpur_eye": "Purpur Navigator",
+ "item.endreborn.ender_transmitter": "Ender Transmitter",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Tungsten Helmet",

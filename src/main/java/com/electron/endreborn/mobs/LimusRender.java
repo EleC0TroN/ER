@@ -40,10 +40,6 @@ public class LimusRender extends EntityRenderer<LimusMob> {
         float f1 = (float)(i % 4 * 16 + 16) / 64.0F;
         float f2 = (float)(i / 4 * 16 + 0) / 64.0F;
         float f3 = (float)(i / 4 * 16 + 16) / 64.0F;
-        float f4 = 1.0F;
-        float f5 = 0.5F;
-        float f6 = 0.25F;
-        float f7 = 255.0F;
         float f8 = 1.0F / 2.0F;
         int j = (int)((MathHelper.sin(f8 + 0.0F) + 1.0F) * 0.5F * 255.0F);
         int k = 255;
@@ -65,7 +61,7 @@ public class LimusRender extends EntityRenderer<LimusMob> {
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
     }
     private static void vertex(IVertexBuilder bufferIn, Matrix4f matrixIn, Matrix3f matrixNormalIn, float x, float y, int red, int green, int blue, float texU, float texV, int packedLight) {
-        bufferIn.pos(matrixIn, x, y, 0.0F).color(red, green, blue, 255).tex(texU, texV).overlay(OverlayTexture.NO_OVERLAY).lightmap(packedLight).normal(matrixNormalIn, 0.0F, 1.0F, 0.0F).endVertex();
+        bufferIn.pos(matrixIn, x, y, 0.0F).color(124, 182, 136, 255).tex(texU, texV).overlay(OverlayTexture.NO_OVERLAY).lightmap(packedLight).normal(matrixNormalIn, 0.0F, 1.0F, 0.0F).endVertex();
     }
     public static class RenderFactory implements IRenderFactory<LimusMob>
     {

@@ -20,7 +20,6 @@ public class IronHammer extends Item {
 
 	@Override
 	public ItemStack getContainerItem(ItemStack itemStack) {
-
 		ItemStack container = itemStack.copy();
 		container.attemptDamageItem(2, new Random(), null);
 		return container;

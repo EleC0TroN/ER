@@ -13,7 +13,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class ObsidianTypeBlock extends Block implements IForgeBlock {
 
     public ObsidianTypeBlock() {
-        super(Block.Properties.create(Material.ROCK, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.STONE).notSolid());
+        super(Block.Properties.create(Material.PORTAL, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.STONE).notSolid());
     }
     public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return false;

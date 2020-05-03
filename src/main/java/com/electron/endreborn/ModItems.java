@@ -2,6 +2,7 @@ package com.electron.endreborn;
 
 import com.electron.endreborn.items.*;
 import com.electron.endreborn.items.materials.ModMaterials;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -36,6 +37,9 @@ public class ModItems {
 	public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<OganaFruit> OGANA_FRUIT = ITEMS.register("ogana", OganaFruit::new);
 	public static final RegistryObject<IronHammer> IRON_HAMMER = ITEMS.register("iron_hammer", IronHammer::new);
+	public static final RegistryObject<LimusEgg> LIMUS_BOTTLE = ITEMS.register("limus_bottle", () -> new LimusEgg(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<PurpurEye> PURPUR_EYE = ITEMS.register("purpur_eye", () -> new PurpurEye(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(16)));
 
 	//Armor
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_HELMET = ITEMS.register("wolframium_helmet", () -> new WolframiumArmor(EquipmentSlotType.HEAD));
@@ -63,5 +67,4 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS = ITEMS.register("obsidian_glass", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> CRACKED_END_BRICKS = ITEMS.register("cracked_end_bricks", () -> new BlockItem(ModBlocks.CRACKED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> CHISELED_END_BRICKS = ITEMS.register("chiseled_end_bricks", () -> new BlockItem(ModBlocks.CHISELED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
-
 }

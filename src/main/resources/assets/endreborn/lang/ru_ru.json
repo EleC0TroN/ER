@@ -4,6 +4,8 @@
  "tooltip.wolframium_armor": "Убирает действие левитации при ношении любой части",
  "tooltip.ender_boots": "Снижает полученный урон и телепортирует в ближайшее место",
  "entity.endreborn.limus": "Лит",
+ "container.ender_transmitter": "Ender Transmitter",
+
 //Items
  "item.endreborn.wolframium_nugget": "Вольфрамовый самородок",
  "item.endreborn.wolframium_ingot": "Вольфрамовый слиток",
@@ -14,12 +16,17 @@
  "item.endreborn.obsidian_shard": "Осколок обсидана",
  "item.endreborn.iron_hammer": "Кувалда",
  "item.endreborn.ogana": "Плод оганы",
+ "item.endreborn.limus_bottle": "Лит в пузырьке",
+ "item.endreborn.purpur_eye": "Пурпурный навигатор",
+ "item.endreborn.ender_transmitter": "Трансмиттер Края",
+
 //Armor
  "item.endreborn.wolframium_helmet": "Вольфрамовый шлем",
  "item.endreborn.wolframium_chestplate": "Вольфрамовый нагрудник",
  "item.endreborn.wolframium_leggings": "Вольфрамовые поножи",
  "item.endreborn.wolframium_boots": "Вольфрамовые ботинки",
  "item.endreborn.ender_boots": "Ботинки Эндера",
+
 //Tools
  "item.endreborn.wolframium_sword": "Вольфрамовый меч",
  "item.endreborn.wolframium_pickaxe": "Вольфрамовая кирка",
@@ -36,6 +43,7 @@
  "item.endreborn.endorium_axe": "Эндориумовый топор",
  "item.endreborn.endorium_shovel": "Эндориумовая лопата",
  "item.endreborn.endorium_hoe": "Эндориумовая мотыга",
+
 //Blocks
  "block.endreborn.wolframium_block": "Вольфрамовый блок",
  "block.endreborn.wolframium_door": "Вольфрамовая дверь",

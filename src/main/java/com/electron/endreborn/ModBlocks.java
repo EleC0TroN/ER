@@ -3,6 +3,8 @@ package com.electron.endreborn;
 import com.electron.endreborn.blocks.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SkullBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.fml.RegistryObject;
