@@ -25,6 +25,7 @@ public class ModConfigs {
             public static ConfigValue<Integer> obsidian_ore_rarity;
             public static ConfigValue<Integer> limus_rarity;
             public static ConfigValue<Integer> moss_rarity;
+            public static ConfigValue<Integer> decorator_rarity;
             public static ConfigValue<Integer> wolframium_rarity;
             public static ConfigValue<Integer> dragonite_rarity;
             public static ConfigValue<Integer> quartz_rarity;
@@ -33,12 +34,15 @@ public class ModConfigs {
                 builder.push(name);
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")
-                        .defineInRange("obsidian_ore_rarity", 12, 0, 64);
+                        .defineInRange("obsidian_ore_rarity", 1, 0, 64);
                 limus_rarity = builder
                         .comment("Limus mob spawn rarity")
                         .defineInRange("limus_rarity", 10, 0, 64);
                 moss_rarity = builder
-                        .comment("End Moss and Mossy End Stone spawn rarity")
+                        .comment("End Moss spawn rarity")
+                        .defineInRange("moss_rarity", 4, 0, 64);
+                decorator_rarity = builder
+                        .comment("Cracked Purpur and Cracked End Bricks spawn rarity")
                         .defineInRange("moss_rarity", 4, 0, 64);
                 wolframium_rarity = builder
                         .comment("Tungsten Ore spawn rarity")

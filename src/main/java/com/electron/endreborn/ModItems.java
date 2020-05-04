@@ -1,9 +1,14 @@
 package com.electron.endreborn;
 
+import com.electron.endreborn.blocks.ObsidianOre;
 import com.electron.endreborn.items.*;
 import com.electron.endreborn.items.materials.ModMaterials;
+import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,6 +41,9 @@ public class ModItems {
 	public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<OganaFruit> OGANA_FRUIT = ITEMS.register("ogana", OganaFruit::new);
 	public static final RegistryObject<IronHammer> IRON_HAMMER = ITEMS.register("iron_hammer", IronHammer::new);
+	public static final RegistryObject<LimusEgg> LIMUS_BOTTLE = ITEMS.register("limus_bottle", () -> new LimusEgg(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<PurpurEye> PURPUR_EYE = ITEMS.register("purpur_eye", () -> new PurpurEye(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(16)));
 
 	//Armor
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_HELMET = ITEMS.register("wolframium_helmet", () -> new WolframiumArmor(EquipmentSlotType.HEAD));
@@ -43,6 +51,7 @@ public class ModItems {
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_LEGGINGS = ITEMS.register("wolframium_leggings", () -> new WolframiumArmor(EquipmentSlotType.LEGS));
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_BOOTS = ITEMS.register("wolframium_boots", () -> new WolframiumArmor(EquipmentSlotType.FEET));
 	public static final RegistryObject<EnderBoots> ENDER_BOOTS = ITEMS.register("ender_boots", () -> new EnderBoots(EquipmentSlotType.FEET));
+	//Tags
 
 	//Blocks
 	public static final RegistryObject<BlockItem> WOLFRAMIUM_DOOR = ITEMS.register("wolframium_door", () -> new BlockItem(ModBlocks.WOLFRAMIUM_DOOR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
@@ -59,8 +68,13 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> PURPUR_LANTERN = ITEMS.register("purpur_lantern", () -> new BlockItem(ModBlocks.PURPUR_LANTERN.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_STONE_PILLAR = ITEMS.register("end_stone_pillar", () -> new BlockItem(ModBlocks.END_STONE_PILLAR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> CRACKED_PURPUR = ITEMS.register("cracked_purpur", () -> new BlockItem(ModBlocks.CRACKED_PURPUR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<BlockItem> MOSSY_END_STONE = ITEMS.register("mossy_end_stone", () -> new BlockItem(ModBlocks.MOSSY_END_STONE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OGANA_WEED = ITEMS.register("ogana_weed", () -> new BlockItem(ModBlocks.OGANA_WEED.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS = ITEMS.register("obsidian_glass", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> CRACKED_END_BRICKS = ITEMS.register("cracked_end_bricks", () -> new BlockItem(ModBlocks.CRACKED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> CHISELED_END_BRICKS = ITEMS.register("chiseled_end_bricks", () -> new BlockItem(ModBlocks.CHISELED_END_BRICKS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
+	private static Tag<Block> tag(String name)
+	{
+		return new BlockTags.Wrapper(new ResourceLocation("forge", name));
+	}
 }

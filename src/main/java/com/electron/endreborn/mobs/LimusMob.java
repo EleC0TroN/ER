@@ -1,5 +1,6 @@
 package com.electron.endreborn.mobs;
 
+import com.electron.endreborn.ModItems;
 import com.electron.endreborn.ModMobs;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -7,10 +8,19 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.AmbientEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.EnumSet;
 import java.util.Random;
@@ -50,7 +60,29 @@ public class LimusMob extends AmbientEntity {
     public boolean hasNoGravity() {
         return true;
     }
+    public SoundCategory getSoundCategory() {
+        return SoundCategory.AMBIENT;
+    }
 
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP;
+    }
+    public boolean processInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
+        if (itemstack.getItem() == Items.GLASS_BOTTLE) {
+            player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5F, 0.5F);
+            itemstack.shrink(1);
+            this.remove();
+            if (itemstack.isEmpty()) {
+                player.setHeldItem(hand, new ItemStack(ModItems.LIMUS_BOTTLE.get()));
+            } else if (!player.inventory.addItemStackToInventory(new ItemStack(ModItems.LIMUS_BOTTLE.get()))) {
+                player.dropItem(new ItemStack(ModItems.LIMUS_BOTTLE.get()), false);
+            }
+            return true;
+        } else {
+            return super.processInteract(player, hand);
+        }
+    }
     @Override
     public void tick() {
         super.tick();
@@ -73,6 +105,7 @@ public class LimusMob extends AmbientEntity {
                     vec3d = vec3d.normalize();
                     if (this.func_220673_a(vec3d, MathHelper.ceil(d0))) {
                         this.parentEntity.setMotion(this.parentEntity.getMotion().add(vec3d.scale(0.1D)));
+                        ((ServerWorld)this.parentEntity.world).spawnParticle(ParticleTypes.END_ROD, this.parentEntity.posX, this.parentEntity.posY, this.parentEntity.posZ, 0, 0,0, 0, (double)0.1F);
                     } else {
                         this.action = MovementController.Action.WAIT;
                     }

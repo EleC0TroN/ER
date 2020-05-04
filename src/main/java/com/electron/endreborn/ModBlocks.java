@@ -3,6 +3,9 @@ package com.electron.endreborn;
 import com.electron.endreborn.blocks.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -10,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModBlocks {
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, EndReborn.MODID);
 
+	//Blocks
 	public static final RegistryObject<Block> END_STONE_SMOOTH = BLOCKS.register("burned_end_stone", RockBlock::new);
 	public static final RegistryObject<Block> QUARTZ_ORE = BLOCKS.register("quartz_ore", RockBlock::new);
 	public static final RegistryObject<Block> OBSIDIAN_ORE = BLOCKS.register("obsidian_ore", ObsidianOre::new);
@@ -26,6 +30,7 @@ public class ModBlocks {
 	public static final RegistryObject<Block> PURPUR_LANTERN = BLOCKS.register("purpur_lantern", EndLantern::new);
 	public static final RegistryObject<Block> CRACKED_PURPUR = BLOCKS.register("cracked_purpur", RockBlock::new);
 	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", ObsidianOre::new);
+	public static final RegistryObject<Block> CRACKED_END_BRICKS = BLOCKS.register("cracked_end_bricks", RockBlock::new);
+	public static final RegistryObject<Block> CHISELED_END_BRICKS = BLOCKS.register("chiseled_end_bricks", RockBlock::new);
 
-	public static final RegistryObject<Block> MOSSY_END_STONE = BLOCKS.register("mossy_end_stone", RockBlock::new);
 }
