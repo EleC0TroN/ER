@@ -5,6 +5,8 @@ import java.util.Random;
 import endreborn.EndReborn;
 import endreborn.init.BlockInit;
 import endreborn.init.ItemInit;
+import endreborn.mod.entity.EntityChronologist;
+import endreborn.mod.entity.EntityWatcher;
 import endreborn.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -14,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -52,7 +55,10 @@ public class BlockEndMagma extends Block implements IHasModel
     }
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
     {
-        if (!entityIn.isImmuneToFire() && entityIn instanceof EntityLivingBase && !EnchantmentHelper.hasFrostWalkerEnchantment((EntityLivingBase)entityIn))
+    	if (entityIn instanceof EntityEnderman || entityIn instanceof EntityWatcher || entityIn instanceof EntityChronologist)
+    	{
+    	
+    	} else if (!entityIn.isImmuneToFire() && entityIn instanceof EntityLivingBase && !EnchantmentHelper.hasFrostWalkerEnchantment((EntityLivingBase)entityIn))
         {
             entityIn.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
         }

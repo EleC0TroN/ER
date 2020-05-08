@@ -78,7 +78,7 @@ public class EndVillagerHouse extends Village
 		IBlockState slabCeiling = Blocks.WOODEN_SLAB.getDefaultState();
 		fillWithBlocks(world, structBoundingBox, 1, 4, 1, 7, 4, 4, slabCeiling, slabCeiling, false);
 
-		IBlockState logBracing = Blocks.LOG.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.X);
+		IBlockState logBracing = Blocks.STONEBRICK.getDefaultState();
 		fillWithBlocks(world, structBoundingBox, 0, 4, 1, 8, 4, 1, logBracing, logBracing, false);
 		fillWithBlocks(world, structBoundingBox, 0, 4, 4, 8, 4, 4, logBracing, logBracing, false);
 
@@ -97,7 +97,7 @@ public class EndVillagerHouse extends Village
 		setBlockState(world, planks, 8, 2, 1, structBoundingBox);
 		setBlockState(world, planks, 8, 2, 4, structBoundingBox);
 
-		IBlockState glassPaneState = Blocks.GLASS_PANE.getDefaultState();
+		IBlockState glassPaneState = Blocks.IRON_BARS.getDefaultState();
 
 		// Windows on east side
 		setBlockState(world, glassPaneState, 0, 2, 2, structBoundingBox);
@@ -150,16 +150,6 @@ public class EndVillagerHouse extends Village
 				replaceAirAndLiquidDownwards(world, Blocks.COBBLESTONE.getDefaultState(), j, -1, i, structBoundingBox);
 			}
 		}
-
-		
-
-		// Inside Corners
-		IBlockState fence = Blocks.OAK_FENCE.getDefaultState();
-		fillWithBlocks(world, structBoundingBox, 1, 1, 1, 1, 3, 1, fence, fence, false);
-		fillWithBlocks(world, structBoundingBox, 1, 1, 4, 1, 3, 4, fence, fence, false);
-		fillWithBlocks(world, structBoundingBox, 7, 1, 1, 7, 3, 1, fence, fence, false);
-		fillWithBlocks(world, structBoundingBox, 7, 1, 4, 7, 3, 4, fence, fence, false);
-
 
 		return true;
 	}

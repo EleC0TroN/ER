@@ -290,7 +290,7 @@ public class EntityLordBase extends EntityMob
             private double getFollowDistance()
             {
                 IAttributeInstance iattributeinstance = this.blaze.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
-                return iattributeinstance == null ? 32.0D : iattributeinstance.getAttributeValue();
+                return iattributeinstance == null ? 64.0D : iattributeinstance.getAttributeValue();
             }
         }
 }

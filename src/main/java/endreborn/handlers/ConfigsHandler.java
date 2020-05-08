@@ -17,6 +17,11 @@ public final class ConfigsHandler
         @Config.Comment({"Allows to spawn."})
         public boolean spawnEssenceOre = true;
         
+        @Config.Name("End Ruines")
+        @Config.RequiresMcRestart
+        @Config.Comment({"Allows to spawn."})
+        public boolean spawnEndRuines = true;
+        
         @Config.Name("New Villagers")
         @Config.RequiresMcRestart
         @Config.Comment({"Allows to spawn."})
@@ -82,11 +87,21 @@ public final class ConfigsHandler
 
     public static class BalanceConfig
     {
-
+        @Config.Name("Observatory Rarity")
+        @Config.RangeInt(min = 1, max = 1000)
+        @Config.Comment({"The higher the value, the higher the rarity. To disable check the general config"})
+        public int obsRare = 600;
+        
         @Config.Name("Island Rarity")
         @Config.RangeInt(min = 1, max = 1000)
         @Config.Comment({"The higher the value, the higher the rarity. To disable check the general config"})
         public int islandRare = 200;
+        
+        @Config.Name("End Ruines Rarity")
+        @Config.RangeInt(min = 1, max = 1000)
+        @Config.Comment({"The higher the value, the higher the rarity. To disable check the general config"})
+        public int ruinesRare = 300;
+        
         
         @Config.Name("Essence Rarity In The End")
         @Config.RangeInt(min = 1, max = 1000)

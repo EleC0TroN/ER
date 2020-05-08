@@ -1,7 +1,5 @@
 package endreborn.mod.entity;
 
-import javax.annotation.Nullable;
-
 import endreborn.handlers.LootTableHandler;
 import endreborn.utils.EndHelper;
 import net.minecraft.entity.Entity;
@@ -103,7 +101,6 @@ public class EntityLord extends EntityLordBase {
     @Override
     protected void onDeathUpdate() {
         this.experienceValue = 100;
-        world.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, this.posX, this.posY, this.posZ, 2.0F, 2.0F, 2.0F, null);
         this.setDead();
         EndHelper.LordGroup(world, "Lord: Ha-ha-ha...");
         if (!world.isRemote) {
@@ -114,7 +111,6 @@ public class EntityLord extends EntityLordBase {
     }
 
     @Override
-    @Nullable
     protected ResourceLocation getLootTable() {
         return LootTableHandler.LORD;
     }
@@ -180,8 +176,6 @@ public class EntityLord extends EntityLordBase {
                     world.removeEntity(entity);
                     if (entity.isDead)
                         EndHelper.LordGroup(world, "Lord: You can not compare the creation and creator!");
-
-                        world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, entity.posX + f, entity.posY + 2.0D + f1, entity.posZ + f2, 0.0D, 0.0D, 0.0D);
                 }
             }
         }
@@ -192,8 +186,6 @@ public class EntityLord extends EntityLordBase {
                     world.removeEntity(entity);
                     if (entity.isDead)
                         EndHelper.LordGroup(world, "Lord: This is not fair now!");
-                 else
-                    world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, entity.posX + f, entity.posY + 2.0D + f1, entity.posZ + f2, 0.0D, 0.0D, 0.0D);
                 }
         	}
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());

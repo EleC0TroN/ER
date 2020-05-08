@@ -23,7 +23,7 @@ public final class EndForge
         IBlockState state = world.getBlockState(pos);
         if (stack.getItem() == ItemInit.INGOT_ENDORIUM)
         {
-            return state.getMaterial() == BlockInit.END_FORGE && state.isNormalCube() && face == EnumFacing.UP;
+            return state.getMaterial() == BlockInit.END_FORGE;
         }
 
         return false;

@@ -28,7 +28,10 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		switch(world.provider.getDimension())
 		{
 			case 1:
-	
+				if(ConfigsHandler.GENERAL.spawnEndRuines)
+				{
+				generateStructure2(new WorldGenStructure("end_deco"), world, rand, chunkX, chunkZ, ConfigsHandler.BALANCE.ruinesRare, Blocks.END_STONE, BiomeEnd.class);
+				}
 				break;
 				
 			case 0:
@@ -41,10 +44,10 @@ public class WorldGenCustomStructures implements IWorldGenerator
 				}
 				if(ConfigsHandler.GENERAL.spawnObservatory)
 				{
-				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, 500, Blocks.STONE, BiomeSwamp.class);
-				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, 500, Blocks.STONE, BiomeForest.class);
-				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, 600, Blocks.STONE, BiomeDesert.class);
-				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, 600, Blocks.STONE, BiomeOcean.class);
+				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, ConfigsHandler.BALANCE.obsRare, Blocks.STONE, BiomeSwamp.class);
+				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, ConfigsHandler.BALANCE.obsRare, Blocks.STONE, BiomeForest.class);
+				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, ConfigsHandler.BALANCE.obsRare, Blocks.STONE, BiomeDesert.class);
+				generateStructure3(new WorldGenStructure("observ"), world, rand, chunkX, chunkZ, ConfigsHandler.BALANCE.obsRare, Blocks.STONE, BiomeOcean.class);
 				}
 		
 				break;
@@ -65,10 +68,29 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		List<Class<?>> classesList = Arrays.asList(classes);
 		int x = (chunkX * 16) + rand.nextInt(15);
 		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = 100;
+		int y = 90 + rand.nextInt(15);
 		BlockPos pos = new BlockPos(x, y, z);
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		if(world.getWorldType() != WorldType.FLAT)
+		{
+			if(classesList.contains(biome))
+			{
+				if(rand.nextInt(chance) == 0)
+				{
+					generator.generate(world, rand, pos);
+				}
+			}
+		}
+	}
+	private void generateStructure2(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes)
+	{
+		List<Class<?>> classesList = Arrays.asList(classes);
+		int x = (chunkX * 16) + rand.nextInt(15);
+		int z = (chunkZ * 16) + rand.nextInt(15);
+		int y = 50 + rand.nextInt(15);
+		BlockPos pos = new BlockPos(x, y, z);
+		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
+		if(world.getWorldType() != WorldType.FLAT && world.isBlockFullCube(pos.down()))
 		{
 			if(classesList.contains(biome))
 			{
