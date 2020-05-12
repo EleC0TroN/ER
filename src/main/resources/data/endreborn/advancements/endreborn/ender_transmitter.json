@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/endorium_ingot",
+  "display": {
+    "icon": {
+      "item": "endreborn:ender_transmitter"
+    },
+    "title": {
+      "translate": "advancements.endreborn.ender_transmitter.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.ender_transmitter.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:ender_transmitter"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

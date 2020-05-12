@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-	"textures": {
-	    "all": "endreborn:blocks/dragon_essence_3"
-    }
-}

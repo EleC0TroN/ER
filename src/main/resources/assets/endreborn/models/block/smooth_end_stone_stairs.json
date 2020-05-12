@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "endreborn:blocks/block_end_stone_smooth",
-        "top": "endreborn:blocks/block_end_stone_smooth",
-        "side": "endreborn:blocks/block_end_stone_smooth"
-    }
-}

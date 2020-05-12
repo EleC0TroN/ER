@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " @ ",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "endreborn:endorium_ingot"
+    }
+  },
+  "result": {
+    "item": "endreborn:endorium_pickaxe"
+  }
+}
