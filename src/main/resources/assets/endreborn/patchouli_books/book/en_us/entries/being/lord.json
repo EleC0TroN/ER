@@ -7,11 +7,11 @@
     "pages": [
         {
             "type": "text",
-            "text": "I consider it a great achievement to even meet him ... wait, and who is he? In the battle with him, I heard his name, his name - Barclay. Also, his skin slowly begins to collapse... Who him and from... someday I find out."
+            "text": "I mean it a great achievement to even meet him... but who is he? In the battle, I heard his name - Barclay. Also, his skin slowly begins to collapse... After my victory, he left the strange sword shard."
         },
 	{
             "type": "spotlight",
-            "item": "endreborn:item_ender_string",
+            "item": "endreborn:ingot_infused",
             "link_recipe": true
         }
     ]

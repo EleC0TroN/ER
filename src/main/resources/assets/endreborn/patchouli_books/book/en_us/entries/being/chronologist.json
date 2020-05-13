@@ -7,12 +7,12 @@
     "pages": [
         {
             "type": "text",
-            "text": "The next kind of endermans... They guard the portals. But wait why do they attack other endermen?"
+            "text": "Another one type of endermans... They appears in my world. But why do they attack other endermen?"
         },
 	{
             "type": "spotlight",
-            "item": "endreborn:tech_portal",
-            "link_recipe": true
+            "item": "endreborn:catalyst",
+            "link_recipe": false
         }
     ]
 }
