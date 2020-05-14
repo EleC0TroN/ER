@@ -1,14 +1,14 @@
 {
-  "parent": "endreborn:endreborn/1",
+  "parent": "endreborn:endreborn/end_stone",
   "display": {
     "icon": {
       "item": "minecraft:gold_nugget"
     },
     "title": {
-      "translate": "advancements.endreborn.3.title"
+      "translate": "advancements.endreborn.limus.title"
     },
     "description": {
-      "translate": "advancements.endreborn.3.description"
+      "translate": "advancements.endreborn.limus.description"
     },
     "frame": "goal",
     "show_toast": true,

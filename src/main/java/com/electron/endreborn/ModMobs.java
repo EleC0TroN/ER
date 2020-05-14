@@ -20,8 +20,9 @@ public class ModMobs {
                             .size(0.9f, 0.9f)
                             .build(new ResourceLocation(EndReborn.MODID, "limus").toString()));
    public static void registerEntityWorldSpawns() {
-        Biomes.END_MIDLANDS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(ModMobs.LIMUS.get(), ModConfigs.COMMON.balance.limus_rarity.get(), 1, 5));
-        Biomes.END_HIGHLANDS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(ModMobs.LIMUS.get(), ModConfigs.COMMON.balance.limus_rarity.get(), 1, 5));
-
+       if(ModConfigs.COMMON.balance.limus.get()) {
+           Biomes.END_MIDLANDS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(ModMobs.LIMUS.get(), ModConfigs.COMMON.balance.limus_rarity.get(), 1, 5));
+           Biomes.END_HIGHLANDS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(ModMobs.LIMUS.get(), ModConfigs.COMMON.balance.limus_rarity.get(), 1, 5));
+       }
     }
 }

@@ -4,6 +4,7 @@ import com.electron.endreborn.EndReborn;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 
 public class OganaFruit extends Item {
 	public OganaFruit() {
-		super(new Item.Properties().group(EndReborn.ENDGROUP));
+		super(new Item.Properties().group(EndReborn.ENDGROUP).food(Foods.SWEET_BERRIES));
 	}
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);

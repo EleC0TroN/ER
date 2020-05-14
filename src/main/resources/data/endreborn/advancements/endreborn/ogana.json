@@ -1,14 +1,14 @@
 {
-  "parent": "endreborn:endreborn/root",
+  "parent": "endreborn:endreborn/end_stone",
   "display": {
     "icon": {
-      "item": "endreborn:iron_hammer"
+      "item": "endreborn:ogana"
     },
     "title": {
-      "translate": "advancements.endreborn.2.title"
+      "translate": "advancements.endreborn.ogana.title"
     },
     "description": {
-      "translate": "advancements.endreborn.2.description"
+      "translate": "advancements.endreborn.ogana.description"
     },
     "frame": "goal",
     "show_toast": true,
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "item": "endreborn:iron_hammer"
+            "item": "endreborn:ogana"
           }
         ]
       }

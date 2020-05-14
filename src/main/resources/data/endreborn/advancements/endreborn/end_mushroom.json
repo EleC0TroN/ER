@@ -1,14 +1,14 @@
 {
-  "parent": "endreborn:endreborn/1",
+  "parent": "endreborn:endreborn/ogana",
   "display": {
     "icon": {
-      "item": "endreborn:ogana"
+      "item": "endreborn:end_mushroom"
     },
     "title": {
-      "translate": "advancements.endreborn.6.title"
+      "translate": "advancements.endreborn.end_mushroom.title"
     },
     "description": {
-      "translate": "advancements.endreborn.6.description"
+      "translate": "advancements.endreborn.end_mushroom.description"
     },
     "frame": "goal",
     "show_toast": true,
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "item": "endreborn:ogana"
+            "item": "endreborn:end_mushroom"
           }
         ]
       }

@@ -11,7 +11,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class RockBlock extends Block implements IForgeBlock {
 
     public RockBlock() {
-        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(3.25f, 5.5f).sound(SoundType.STONE));
+        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE));
     }
 
     @Override

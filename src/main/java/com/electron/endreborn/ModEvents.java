@@ -1,13 +1,17 @@
 package com.electron.endreborn;
 
+import com.electron.endreborn.world.NatureStructures;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.Level;
 
 @Mod.EventBusSubscriber(modid = EndReborn.MODID)
 public class ModEvents {
@@ -37,6 +41,23 @@ public class ModEvents {
 	                }
 	            }
 			}
+		}
+	}
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents
+	{
+
+		/**
+		 * This method will be called by Forge when it is time for the mod to register features.
+		 */
+		@SubscribeEvent
+		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
+		{
+			//registers the structures/features.
+			//If you don't do this, you'll crash.
+			NatureStructures.registerStructures(event);
+
+			EndReborn.LOGGER.log(Level.INFO, "features/structures registered.");
 		}
 	}
 }

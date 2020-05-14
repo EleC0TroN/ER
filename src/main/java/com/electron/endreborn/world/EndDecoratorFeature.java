@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
@@ -24,13 +23,26 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 		      int i = 0;
 
 		      BlockState blockstate = ModBlocks.END_MOSS.get().getDefaultState();
-		      for(int j = 0; j < 1024; ++j) {
-		         BlockPos blockpos = pos.add(rand.nextInt(16) - rand.nextInt(12), pos.getY(), rand.nextInt(16) - rand.nextInt(8));
-		         if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) && !worldIn.isAirBlock(blockpos) && worldIn.isAirBlock(blockpos.up())) {
-		         	worldIn.setBlockState(blockpos, blockstate, 2);
-		         	++i;
-				 }
-		   }
+		      BlockState blockstate2 = ModBlocks.END_MOSS_BLOCK.get().getDefaultState();
+				  for (int j = 0; j < 1024; ++j) {
+					  BlockPos blockpos = pos.add(rand.nextInt(16) - rand.nextInt(12), pos.getY(), rand.nextInt(16) - rand.nextInt(8));
+					  if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) &&  blockpos.getY() >=55) {
+						  if (!worldIn.isAirBlock(blockpos.down()) && !worldIn.isAirBlock(blockpos) && worldIn.isAirBlock(blockpos.up())) {
+							  worldIn.setBlockState(blockpos, blockstate, 2);
+						  }
+						  ++i;
+
+						  if (worldIn.isAirBlock(blockpos.down()) && worldIn.isAirBlock(blockpos.up())) {
+							  worldIn.setBlockState(blockpos, blockstate2, 2);
+							  for (int f = 0; f < rand.nextInt(6) + 1; ++f) {
+								  if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK.get()) {
+									  worldIn.setBlockState(blockpos.down(f), blockstate2, 2);
+								  }
+							  }
+						  }
+					  }
+
+			  }
 		return i > 0;
 	 }
 }

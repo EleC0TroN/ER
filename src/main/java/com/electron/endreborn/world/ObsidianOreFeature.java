@@ -1,25 +1,18 @@
 package com.electron.endreborn.world;
 
-import java.util.BitSet;
-import java.util.Random;
-import java.util.function.Function;
-
 import com.electron.endreborn.ModBlocks;
 import com.mojang.datafixers.Dynamic;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+
+import java.util.Random;
+import java.util.function.Function;
 
 public class ObsidianOreFeature extends Feature<NoFeatureConfig> {
 	public ObsidianOreFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> p_i49908_1_) {

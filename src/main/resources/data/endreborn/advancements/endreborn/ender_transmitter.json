@@ -1,14 +1,14 @@
 {
-  "parent": "endreborn:endreborn/root",
+  "parent": "endreborn:endreborn/iron_hammer",
   "display": {
     "icon": {
-      "item": "minecraft:end_stone"
+      "item": "endreborn:ender_transmitter"
     },
     "title": {
-      "translate": "advancements.endreborn.1.title"
+      "translate": "advancements.endreborn.ender_transmitter.title"
     },
     "description": {
-      "translate": "advancements.endreborn.1.description"
+      "translate": "advancements.endreborn.ender_transmitter.description"
     },
     "frame": "goal",
     "show_toast": true,
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:end_stone"
+            "item": "endreborn:ender_transmitter"
           }
         ]
       }
