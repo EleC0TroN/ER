@@ -3,7 +3,6 @@ package com.electron.endreborn.world;
 import com.electron.endreborn.EndReborn;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.Rotation;
-import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -11,17 +10,18 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeManager;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.structure.ScatteredStructure;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 import java.util.function.Function;
 
-public class EndShipwreckStructure extends ScatteredStructure<NoFeatureConfig>
+public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
 {
-    public EndShipwreckStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
+    public EndCryptStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
     {
         super(config);
     }
@@ -29,7 +29,7 @@ public class EndShipwreckStructure extends ScatteredStructure<NoFeatureConfig>
     @Override
     public String getStructureName()
     {
-        return EndReborn.MODID + ":end_shipwreck";
+        return EndReborn.MODID + ":end_crypt";
     }
 
     @Override
@@ -41,12 +41,12 @@ public class EndShipwreckStructure extends ScatteredStructure<NoFeatureConfig>
     @Override
     public Structure.IStartFactory getStartFactory()
     {
-        return EndShipwreckStructure.Start::new;
+        return EndCryptStructure.Start::new;
     }
 
     protected int getSeedModifier()
     {
-        return 125412789;
+        return 121812329;
     }
 
     @Override
@@ -80,10 +80,10 @@ public class EndShipwreckStructure extends ScatteredStructure<NoFeatureConfig>
             int z = (chunkZ << 4) + 7;
 
             int surfaceY = generator.func_222531_c(x, z, Heightmap.Type.WORLD_SURFACE_WG);
-            if (surfaceY >= 55) {
-                BlockPos blockpos = new BlockPos(x, surfaceY - 2, z);
+            if (surfaceY >= 60) {
+                BlockPos blockpos = new BlockPos(x, surfaceY - 16, z);
 
-                EndShipwreckPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
+                EndCryptPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
 
                 this.recalculateStructureSize();
             }

@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, EndReborn.MODID);
-	
+
 	//Items
 	public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", EssenceItem::new);
 	public static final RegistryObject<Item> SIMPLE_QUARTZ = ITEMS.register("simple_quartz", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
@@ -37,9 +37,9 @@ public class ModItems {
 	public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<OganaFruit> OGANA_FRUIT = ITEMS.register("ogana", OganaFruit::new);
 	public static final RegistryObject<IronHammer> IRON_HAMMER = ITEMS.register("iron_hammer", IronHammer::new);
-	public static final RegistryObject<LimusEgg> LIMUS_BOTTLE = ITEMS.register("limus_bottle", () -> new LimusEgg(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<PurpurEye> PURPUR_EYE = ITEMS.register("purpur_eye", () -> new PurpurEye(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(16)));
+	public static final RegistryObject<Item> ENDGUARD_EGG = ITEMS.register("endguard_egg", () -> new SpawnEggItem(ModMobs.ENDGUARD, 5060690, 9725844, (new Item.Properties()).group(ItemGroup.MISC)));
 
 	//Armor
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_HELMET = ITEMS.register("wolframium_helmet", () -> new WolframiumArmor(EquipmentSlotType.HEAD));

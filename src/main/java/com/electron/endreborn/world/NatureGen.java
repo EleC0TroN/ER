@@ -47,6 +47,11 @@ public class NatureGen {
 			Biomes.END_HIGHLANDS.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, NatureStructures.END_SHIPWRECK.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 			Biomes.END_MIDLANDS.addStructure(NatureStructures.END_SHIPWRECK.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			Biomes.END_HIGHLANDS.addStructure(NatureStructures.END_SHIPWRECK.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+
+			Biomes.END_MIDLANDS.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
+			Biomes.END_HIGHLANDS.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
+			Biomes.END_MIDLANDS.addStructure(NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			Biomes.END_HIGHLANDS.addStructure(NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		}
 	}
 	public static void initOres() {

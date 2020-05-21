@@ -1,0 +1,33 @@
+{
+  "parent": "endreborn:endreborn/end_stone",
+  "display": {
+    "icon": {
+      "item": "minecraft:purpur_block"
+    },
+    "title": {
+      "translate": "advancements.endreborn.endguard.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.endguard.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "endreborn:endguard"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

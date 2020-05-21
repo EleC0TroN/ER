@@ -2,13 +2,13 @@
   "parent": "endreborn:endreborn/end_stone",
   "display": {
     "icon": {
-      "item": "minecraft:gold_nugget"
+      "item": "endreborn:purpur_lantern"
     },
     "title": {
-      "translate": "advancements.endreborn.limus.title"
+      "translate": "advancements.endreborn.lantern.title"
     },
     "description": {
-      "translate": "advancements.endreborn.limus.description"
+      "translate": "advancements.endreborn.lantern.description"
     },
     "frame": "goal",
     "show_toast": true,
@@ -17,11 +17,13 @@
   },
   "criteria": {
     "item": {
-      "trigger": "minecraft:player_killed_entity",
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
-        "entity": {
-          "type": "endreborn:limus"
-        }
+        "items": [
+          {
+            "item": "endreborn:purpur_lantern"
+          }
+        ]
       }
     }
   },

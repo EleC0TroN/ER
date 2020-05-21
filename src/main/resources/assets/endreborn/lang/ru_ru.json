@@ -3,8 +3,8 @@
  "itemGroup.endgroup": "End: Reborn",
  "tooltip.wolframium_armor": "Убирает действие левитации при ношении любой части",
  "tooltip.ender_boots": "Снижает полученный урон и телепортирует в ближайшее место",
- "entity.endreborn.limus": "Лит",
- "container.ender_transmitter": "Ender Transmitter",
+ "entity.endreborn.enguard": "Пурпурный страж",
+ "container.ender_transmitter": "Трансмиттер Края",
 
 //Items
  "item.endreborn.wolframium_nugget": "Вольфрамовый самородок",
@@ -16,9 +16,9 @@
  "item.endreborn.obsidian_shard": "Осколок обсидана",
  "item.endreborn.iron_hammer": "Кувалда",
  "item.endreborn.ogana": "Плод оганы",
- "item.endreborn.limus_bottle": "Лит в пузырьке",
  "item.endreborn.purpur_eye": "Пурпурный навигатор",
  "item.endreborn.ender_transmitter": "Трансмиттер Края",
+ "item.endreborn.endguard_egg": "Яйцо призыва Пурпурного стража",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Вольфрамовый шлем",
@@ -76,8 +76,10 @@
  "advancements.endreborn.end_stone.description": "Соберите Эндерняк",
  "advancements.endreborn.iron_hammer.title": "Не Мьёльнир, но тоже неплохо...",
  "advancements.endreborn.iron_hammer.description": "Создайте Куваду",
- "advancements.endreborn.limus.title": "Звезды рая",
- "advancements.endreborn.limus.description": "Поймайте Лита",
+ "advancements.endreborn.endguard.title": "Очередной титан повержен",
+ "advancements.endreborn.endguard.description": "Уничтожьте Пурпурного стража",
+ "advancements.endreborn.lantern.title": "Дитя Света",
+ "advancements.endreborn.lantern.description": "Создайте Пурпурный фонарь",
  "advancements.endreborn.endorium_ingot.title": "Крепче чем вибраниум",
  "advancements.endreborn.endorium_ingot.description": "Создайте Слиток эндориума",
  "advancements.endreborn.ogana.title": "Инопланетное желе!",

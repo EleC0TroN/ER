@@ -21,6 +21,8 @@ import java.util.Locale;
 public class NatureStructures {
     public static Structure<NoFeatureConfig> END_SHIPWRECK = new EndShipwreckStructure(NoFeatureConfig::deserialize);
     public static IStructurePieceType END_SHIPWRECK_PIECE = EndShipwreckPieces.Piece::new;
+    public static Structure<NoFeatureConfig> END_CRYPT = new EndCryptStructure(NoFeatureConfig::deserialize);
+    public static IStructurePieceType END_CRYPT_PIECE = EndCryptPieces.Piece::new;
 
     public static void registerStructures(RegistryEvent.Register<Feature<?>> event)
     {
@@ -28,6 +30,9 @@ public class NatureStructures {
 
         register(registry, END_SHIPWRECK, "end_shipwreck");
         registerPieces(END_SHIPWRECK_PIECE, "end_shipwreck_piece");
+
+        register(registry, END_CRYPT, "end_crypt");
+        registerPieces(END_CRYPT_PIECE, "end_crypt_piece");
     }
 
     static IStructurePieceType registerPieces(IStructurePieceType structurePiece, String key)
