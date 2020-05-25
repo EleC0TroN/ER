@@ -37,7 +37,7 @@ public class MushroomBlock extends Block implements net.minecraftforge.common.IS
     private void func_226946_a_(Entity p_226946_1_) {
         Vec3d vec3d = p_226946_1_.getMotion();
         if (vec3d.y < 0.0D) {
-            double d0 = p_226946_1_ instanceof LivingEntity ? 1.0D : 0.8D;
+            double d0 = p_226946_1_ instanceof LivingEntity ? 0.8D : 0.6D;
             p_226946_1_.setMotion(vec3d.x, -vec3d.y * d0, vec3d.z);
         }
 

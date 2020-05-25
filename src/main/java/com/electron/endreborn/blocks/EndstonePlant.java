@@ -13,11 +13,11 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
-public class EndstonePlant extends FlowerBlock implements IForgeBlock {
+public class EndstonePlant extends BushBlock implements IForgeBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 15.0D, 5.0D, 15.0D);
 
     public EndstonePlant() {
-        super(Effects.BLINDNESS, 5, Block.Properties.create(Material.ROCK, MaterialColor.STONE).doesNotBlockMovement().sound(SoundType.PLANT));
+        super(Block.Properties.create(Material.PLANTS, MaterialColor.STONE).doesNotBlockMovement().sound(SoundType.PLANT));
     }
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {

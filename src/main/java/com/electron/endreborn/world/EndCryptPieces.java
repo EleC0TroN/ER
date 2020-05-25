@@ -1,6 +1,7 @@
 package com.electron.endreborn.world;
 
 import com.electron.endreborn.EndReborn;
+import com.electron.endreborn.ModConfigs;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.LockableLootTileEntity;
@@ -42,7 +43,7 @@ public class EndCryptPieces {
     {
         int x = pos.getX();
         int z = pos.getZ();
-        int r = random.nextInt(8) + 1;
+        int r = random.nextInt(ModConfigs.COMMON.balance.crypt_size.get()) + 2;
         int c = 0;
 
         BlockPos rotationOffSet = new BlockPos(0, 0, 0).rotate(rotation);

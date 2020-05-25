@@ -18,7 +18,7 @@
  "item.endreborn.ogana": "Плод оганы",
  "item.endreborn.purpur_eye": "Пурпурный навигатор",
  "item.endreborn.ender_transmitter": "Трансмиттер Края",
- "item.endreborn.endguard_egg": "Яйцо призыва Пурпурного стража",
+ "item.endreborn.endguard_egg": "Яйцо призыва пурпурного стража",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Вольфрамовый шлем",
@@ -26,6 +26,7 @@
  "item.endreborn.wolframium_leggings": "Вольфрамовые поножи",
  "item.endreborn.wolframium_boots": "Вольфрамовые ботинки",
  "item.endreborn.ender_boots": "Ботинки Эндера",
+ "item.endreborn.wolframium_horse_armor": "Вольфрамовая конская броня",
 
 //Tools
  "item.endreborn.wolframium_sword": "Вольфрамовый меч",
@@ -68,6 +69,7 @@
  "block.endreborn.end_coral": "Эндерняковый коралл",
  "block.endreborn.end_mushroom": "Краевик",
  "block.endreborn.mushroom_roots": "Корни краевика",
+ "block.endreborn.endorium_block": "Эндориумовый блок",
 
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
@@ -89,6 +91,7 @@
  "advancements.endreborn.endorium_sword.title": "Новый Лорд",
  "advancements.endreborn.endorium_sword.description": "Создайте эндориумовый меч",
  "advancements.endreborn.end_mushroom.title": "Опять эти грибы",
- "advancements.endreborn.end_mushroom.description": "Соберите краевик"
-
+ "advancements.endreborn.end_mushroom.description": "Соберите краевик",
+ "advancements.endreborn.endorium_block.title": "Скрудж одобряет",
+ "advancements.endreborn.endorium_block.description": "Создайте Эндориумовый блок"
 }

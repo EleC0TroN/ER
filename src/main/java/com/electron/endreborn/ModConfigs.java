@@ -1,8 +1,5 @@
 package com.electron.endreborn;
 
-import net.minecraft.client.renderer.entity.IronGolemRenderer;
-import net.minecraft.client.renderer.entity.model.IronGolemModel;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod;
@@ -27,7 +24,6 @@ public class ModConfigs {
             public static String name = "balance";
 
             public static ConfigValue<Integer> obsidian_ore_rarity;
-            public static ConfigValue<Integer> limus_rarity;
             public static ConfigValue<Integer> moss_rarity;
             public static ConfigValue<Integer> decorator_rarity;
             public static ConfigValue<Integer> wolframium_rarity;
@@ -35,22 +31,19 @@ public class ModConfigs {
             public static ConfigValue<Integer> quartz_rarity;
             public static ConfigValue<Integer> endshrooms_rarity;
             public static ConfigValue<Boolean> new_structures_end;
-            public static ConfigValue<Boolean> limus;
+            public static ConfigValue<Integer> crypt_size;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
-                limus = builder
-                        .comment("Limus mob")
-                        .define("limus", false);
                 new_structures_end = builder
                         .comment("The End new structures")
                         .define("new_structures_end", true);
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")
                         .defineInRange("obsidian_ore_rarity", 6, 0, 64);
-                limus_rarity = builder
-                        .comment("Limus mob spawn rarity")
-                        .defineInRange("limus_rarity", 6, 1, 64);
+                crypt_size = builder
+                        .comment("End Crypt maximum size")
+                        .defineInRange("crypt_size", 10, 0, 64);
                 moss_rarity = builder
                         .comment("End Moss spawn rarity")
                         .defineInRange("moss_rarity", 4, 0, 64);

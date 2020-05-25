@@ -26,6 +26,7 @@
  "item.endreborn.wolframium_leggings": "Tungsten Leggings",
  "item.endreborn.wolframium_boots": "Tungsten Boots",
  "item.endreborn.ender_boots": "Ender Boots",
+ "item.endreborn.wolframium_horse_armor": "Tungsten Horse Armor",
 
 //Tools
  "item.endreborn.wolframium_sword": "Tungsten Sword",
@@ -68,7 +69,8 @@
  "block.endreborn.end_coral": "Endstone Coral",
  "block.endreborn.end_mushroom": "Endshroom",
  "block.endreborn.mushroom_roots": "Endshroom Roots",
- 
+ "block.endreborn.endorium_block": "Endorium Block",
+
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
  "advancements.endreborn.root.description": "The End is just the beginning",
@@ -89,5 +91,7 @@
  "advancements.endreborn.endorium_sword.title": "Lord of The End",
  "advancements.endreborn.endorium_sword.description": "Get: Endorium Sword",
  "advancements.endreborn.end_mushroom.title": "Mushroom Party!",
- "advancements.endreborn.end_mushroom.description": "Get: Endshroom"
+ "advancements.endreborn.end_mushroom.description": "Get: Endshroom",
+ "advancements.endreborn.endorium_block.title": "Stonks",
+ "advancements.endreborn.endorium_block.description": "Get: Endorium Block"
 }

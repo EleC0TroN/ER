@@ -1,6 +1,5 @@
 package com.electron.endreborn.items;
 
-import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.inventory.container.ChestContainer;

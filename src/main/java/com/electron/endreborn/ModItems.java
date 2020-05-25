@@ -2,6 +2,7 @@ package com.electron.endreborn;
 
 import com.electron.endreborn.items.*;
 import com.electron.endreborn.items.materials.ModMaterials;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -47,6 +48,7 @@ public class ModItems {
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_LEGGINGS = ITEMS.register("wolframium_leggings", () -> new WolframiumArmor(EquipmentSlotType.LEGS));
 	public static final RegistryObject<WolframiumArmor> WOLFRAMIUM_BOOTS = ITEMS.register("wolframium_boots", () -> new WolframiumArmor(EquipmentSlotType.FEET));
 	public static final RegistryObject<EnderBoots> ENDER_BOOTS = ITEMS.register("ender_boots", () -> new EnderBoots(EquipmentSlotType.FEET));
+	public static final RegistryObject<HorseArmorItem> WOLFRAMIUM_HORSE_ARMOR = ITEMS.register("wolframium_horse_armor", () -> new HorseArmorItem(6, "wolframium", new Item.Properties().group(EndReborn.ENDGROUP)));
 
 	//Blocks
 	public static final RegistryObject<BlockItem> WOLFRAMIUM_DOOR = ITEMS.register("wolframium_door", () -> new BlockItem(ModBlocks.WOLFRAMIUM_DOOR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
@@ -71,5 +73,6 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> END_CORAL = ITEMS.register("end_coral", () -> new BlockItem(ModBlocks.END_CORAL.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_MUSHROOM = ITEMS.register("end_mushroom", () -> new BlockItem(ModBlocks.END_MUSHROOM.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> ROOTS = ITEMS.register("mushroom_roots", () -> new BlockItem(ModBlocks.ROOTS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> ENDORIUM_BLOCK = ITEMS.register("endorium_block", () -> new BlockItem(ModBlocks.ENDORIUM_BLOCK.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
 }

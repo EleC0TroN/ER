@@ -6,6 +6,10 @@
     },
     {
       "item": "minecraft:obsidian"
+    },
+    {
+      "item": "endreborn:iron_hammer",
+      "data": 32767
     }
   ],
   "result": {

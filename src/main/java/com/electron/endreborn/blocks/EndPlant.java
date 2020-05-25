@@ -18,9 +18,10 @@ import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
 public class EndPlant extends FlowerBlock implements IForgeBlock {
+	protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 15.0D, 10.0D, 15.0D);
 
 	public EndPlant() {
-        super(Effects.LEVITATION, 5, Block.Properties.create(Material.DRAGON_EGG, MaterialColor.GRASS).doesNotBlockMovement().sound(SoundType.PLANT));
+        super(Effects.LEVITATION, 5, Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().sound(SoundType.PLANT));
     }
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {

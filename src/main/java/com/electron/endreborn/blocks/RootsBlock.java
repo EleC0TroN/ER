@@ -17,7 +17,7 @@ public class RootsBlock extends FlowerBlock implements net.minecraftforge.common
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 5.0D, 5.0D, 15.0D, 16.0D, 15.0D);
 
     public RootsBlock() {
-        super(Effects.BLINDNESS, 5, Block.Properties.create(Material.ROCK, MaterialColor.STONE).doesNotBlockMovement().sound(SoundType.PLANT));
+        super(Effects.BLINDNESS, 5, Block.Properties.create(Material.PLANTS, MaterialColor.STONE).doesNotBlockMovement().sound(SoundType.PLANT));
     }
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {

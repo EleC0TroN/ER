@@ -2,7 +2,6 @@ package com.electron.endreborn;
 
 import com.electron.endreborn.blocks.*;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.GlassBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -39,6 +38,7 @@ public class ModBlocks {
 	public static final RegistryObject<Block> END_MUSHROOM = BLOCKS.register("end_mushroom", MushroomBlock::new);
 	public static final RegistryObject<Block> END_CORAL = BLOCKS.register("end_coral", EndstonePlant::new);
 	public static final RegistryObject<Block> ROOTS = BLOCKS.register("mushroom_roots", RootsBlock::new);
+	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", MetalBlock::new);
 
 	public static void initRender(FMLClientSetupEvent event) {
 		renderCutout(OGANA_PLANT.get());
@@ -49,6 +49,7 @@ public class ModBlocks {
 		renderCutout(WOLFRAMIUM_BARS.get());
 		renderCutout(WOLFRAMIUM_DOOR.get());
 		renderCutout(END_CORAL.get());
+		renderCutout(PURPUR_LANTERN.get());
 		renderCutout(WOLFRAMIUM_TRAPDOOR.get());
 	}
 	private static void renderCutout(Block block) {
