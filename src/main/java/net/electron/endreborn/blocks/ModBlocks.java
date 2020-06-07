@@ -1,16 +1,13 @@
 package net.electron.endreborn.blocks;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.LanternBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.PillarBlock;
+import net.minecraft.block.*;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Blocks
+public class ModBlocks
 {
     public static final Block WOLF_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0F).build());
     public static final Block WOLF_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
@@ -19,7 +16,7 @@ public class Blocks
     public static final Block WOLF_BARS = new PaneBase(FabricBlockSettings.of(Material.METAL).hardness(4.0F).build());
     public static final Block BURNED_END_STONE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block OBSIDIAN_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(50.0f).resistance(6000.0f).build());
-    public static final Block OBSIDIAN_GLASS = new Block(FabricBlockSettings.of(Material.STONE).hardness(50.0f).resistance(6000.0f).nonOpaque().build());
+    public static final Block OBSIDIAN_GLASS = new GlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(50.0f).resistance(6000.0f).nonOpaque().build());
     public static final Block QUARTZ_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block OGANA_PLANT = new OganaPlant(FabricBlockSettings.copy(net.minecraft.block.Blocks.DEAD_BUSH).build());
     public static final Block OGANA_WEED = new OganaPlant(FabricBlockSettings.copy(net.minecraft.block.Blocks.DEAD_BUSH).build());
@@ -30,7 +27,12 @@ public class Blocks
     public static final Block PURPUR_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block END_STONE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block END_MOSS = new EndMoss();
+    public static final Block END_CORAL = new EndstonePlant(FabricBlockSettings.copy(net.minecraft.block.Blocks.DEAD_BUSH).build());
+    public static final Block ENDORIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.0F).build());
     public static final Block END_MOSS_BLOCK = new EndMoss();
+    public static final Block ENDSHROOM = new EndshroomBlock(FabricBlockSettings.of(Material.PLANT).hardness(2.0F).build());
+    public static final Block ENDSHROOM_ROOTS = new RootsBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakByHand(true).build());
+
     public static void registerBlocks()
     {
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "wolframium_block"), WOLF_BLOCK);
@@ -52,6 +54,10 @@ public class Blocks
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "purpur_lantern"), PURPUR_LANTERN);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_moss_block"), END_MOSS_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_stone_pillar"), END_STONE_PILLAR);
+        Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_coral"), END_CORAL);
+        Registry.register(Registry.BLOCK, new Identifier("endreborn", "endorium_block"), ENDORIUM_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_mushroom"), ENDSHROOM);
+        Registry.register(Registry.BLOCK, new Identifier("endreborn", "mushroom_roots"), ENDSHROOM_ROOTS);
 
     }
 }

@@ -1,19 +1,17 @@
 package net.electron.endreborn.items;
 
 import net.electron.endreborn.EndReborn;
-import net.electron.endreborn.blocks.Blocks;
+import net.electron.endreborn.blocks.ModBlocks;
 import net.electron.endreborn.items.materials.Materials;
+import net.electron.endreborn.mobs.Mobs;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Items
+public class ModItems
 {
-    //Items
+    //ModItems
     public static final Item WOLF_INGOT = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item WOLF_NUGGET = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item ESSENCE = new Item(new Item.Settings().group(EndReborn.END_GROUP));
@@ -24,7 +22,7 @@ public class Items
     public static final Item OGANA_FRUIT = new OganaFruit();
     public static final Item ENDER_TRANSMITTER = new EnderTransmitter();
     public static final Item PURPUR_EYE = new PurpurEye();
-    public static final Item LIMUS_BOTTLE = new LimusEgg();
+    public static final Item ENDGUARD_EGG = new SpawnEggItem(Mobs.ENDGUARD, 5060690, 9725844, (new Item.Settings()).group(ItemGroup.MISC));
 
     //Tools
 	public static final Item WOLF_SWORD = new SwordItem(Materials.WOLF_TOOL, 3, -2.4F, new Item.Settings().group(EndReborn.END_GROUP));
@@ -76,7 +74,6 @@ public class Items
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_shard"), OBSIDIAN_SHARD);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "ender_transmitter"), ENDER_TRANSMITTER);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "purpur_eye"), PURPUR_EYE);
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "limus_bottle"), LIMUS_BOTTLE);
 
         Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_helmet"), WOLF_HELMET);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_chestplate"), WOLF_CHEST);
@@ -84,24 +81,29 @@ public class Items
         Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_boots"), WOLF_BOOTS);
 
         //Blocks
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_block"), new BlockItem(Blocks.WOLF_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "burned_end_stone"), new BlockItem(Blocks.BURNED_END_STONE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_door"), new BlockItem(Blocks.WOLF_DOOR, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_trapdoor"), new BlockItem(Blocks.WOLF_TRAPDOOR, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_bars"), new BlockItem(Blocks.WOLF_BARS, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_ore"), new BlockItem(Blocks.WOLF_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_ore"), new BlockItem(Blocks.OBSIDIAN_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "quartz_ore"), new BlockItem(Blocks.QUARTZ_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss"), new BlockItem(Blocks.END_MOSS, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "ogana_fruit"), new BlockItem(Blocks.OGANA_PLANT, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "ogana_weed"), new BlockItem(Blocks.OGANA_WEED, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "dragonite"), new BlockItem(Blocks.DRAGONITE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "chiseled_end_bricks"), new BlockItem(Blocks.CHISELED_END_BRICKS, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "cracked_end_bricks"), new BlockItem(Blocks.CRACKED_END_BRICKS, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "cracked_purpur"), new BlockItem(Blocks.CRACKED_PURPUR, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass"), new BlockItem(Blocks.OBSIDIAN_GLASS, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "purpur_lantern"), new BlockItem(Blocks.PURPUR_LANTERN, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss_block"), new BlockItem(Blocks.END_MOSS_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_stone_pillar"), new BlockItem(Blocks.END_STONE_PILLAR, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_block"), new BlockItem(ModBlocks.WOLF_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "burned_end_stone"), new BlockItem(ModBlocks.BURNED_END_STONE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_door"), new BlockItem(ModBlocks.WOLF_DOOR, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_trapdoor"), new BlockItem(ModBlocks.WOLF_TRAPDOOR, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_bars"), new BlockItem(ModBlocks.WOLF_BARS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "wolframium_ore"), new BlockItem(ModBlocks.WOLF_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_ore"), new BlockItem(ModBlocks.OBSIDIAN_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "quartz_ore"), new BlockItem(ModBlocks.QUARTZ_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss"), new BlockItem(ModBlocks.END_MOSS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "ogana_fruit"), new BlockItem(ModBlocks.OGANA_PLANT, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "ogana_weed"), new BlockItem(ModBlocks.OGANA_WEED, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "dragonite"), new BlockItem(ModBlocks.DRAGONITE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "chiseled_end_bricks"), new BlockItem(ModBlocks.CHISELED_END_BRICKS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "cracked_end_bricks"), new BlockItem(ModBlocks.CRACKED_END_BRICKS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "cracked_purpur"), new BlockItem(ModBlocks.CRACKED_PURPUR, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass"), new BlockItem(ModBlocks.OBSIDIAN_GLASS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "purpur_lantern"), new BlockItem(ModBlocks.PURPUR_LANTERN, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss_block"), new BlockItem(ModBlocks.END_MOSS_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_stone_pillar"), new BlockItem(ModBlocks.END_STONE_PILLAR, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_coral"), new BlockItem(ModBlocks.END_CORAL, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "endorium_block"), new BlockItem(ModBlocks.ENDORIUM_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "end_mushroom"), new BlockItem(ModBlocks.ENDSHROOM, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "mushroom_roots"), new BlockItem(ModBlocks.ENDSHROOM_ROOTS, new Item.Settings().group(EndReborn.END_GROUP)));
+
     }
 }

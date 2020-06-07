@@ -1,15 +1,19 @@
 {
-  "type": "minecraft:crafting_shapeless",
-   "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%#",
+    "# "
+  ],
+  "key": {
+    "#": {
       "item": "minecraft:obsidian"
     },
-    {
-      "item": "minecraft:obsidian"
+    "%": {
+      "item": "minecraft:iron_ingot"
     }
-  ],
+  },
   "result": {
     "item": "endreborn:obsidian_shard",
-    "count": 2
+    "count": 3
   }
 }

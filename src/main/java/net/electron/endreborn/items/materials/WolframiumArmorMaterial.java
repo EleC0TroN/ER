@@ -1,6 +1,6 @@
 package net.electron.endreborn.items.materials;
 
-import net.electron.endreborn.items.Items;
+import net.electron.endreborn.items.ModItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -40,7 +40,7 @@ public class WolframiumArmorMaterial implements ArmorMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(Items.WOLF_INGOT);
+        return Ingredient.ofItems(ModItems.WOLF_INGOT);
     }
 
     @Override

@@ -1,7 +1,7 @@
 
 package net.electron.endreborn.items.materials;
 
-import net.electron.endreborn.items.Items;
+import net.electron.endreborn.items.ModItems;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -34,7 +34,7 @@ public class EndorumMaterial implements ToolMaterial{
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		Ingredient repairMaterial = Ingredient.ofItems(Items.END_NUGGET);
+		Ingredient repairMaterial = Ingredient.ofItems(ModItems.END_NUGGET);
         return repairMaterial;
 	}
 

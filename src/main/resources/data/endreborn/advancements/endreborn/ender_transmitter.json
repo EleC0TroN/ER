@@ -1,5 +1,5 @@
 {
-  "parent": "endreborn:endreborn/endorium_ingot",
+  "parent": "endreborn:endreborn/root",
   "display": {
     "icon": {
       "item": "endreborn:ender_transmitter"

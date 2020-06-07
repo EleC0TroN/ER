@@ -3,7 +3,7 @@
  "itemGroup.endreborn.general": "End: Reborn",
  "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
  "tooltip.ender_boots": "Reduces taken damage and teleports",
- "entity.endreborn.limus": "Limus",
+ "entity.endreborn.enguard": "Purpur Guardian",
  "container.ender_transmitter": "Ender Transmitter",
 
 //Items
@@ -16,9 +16,9 @@
  "item.endreborn.obsidian_shard": "Obsidian Shard",
  "item.endreborn.iron_hammer": "Sledgehammer",
  "item.endreborn.ogana": "Ogana Fruit",
- "item.endreborn.limus_bottle": "Bottled Limus",
  "item.endreborn.purpur_eye": "Purpur Navigator",
  "item.endreborn.ender_transmitter": "Ender Transmitter",
+ "item.endreborn.endguard_egg": "Purpur Guardian Spawn Egg",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Tungsten Helmet",
@@ -26,6 +26,7 @@
  "item.endreborn.wolframium_leggings": "Tungsten Leggings",
  "item.endreborn.wolframium_boots": "Tungsten Boots",
  "item.endreborn.ender_boots": "Ender Boots",
+ "item.endreborn.wolframium_horse_armor": "Tungsten Horse Armor",
 
 //Tools
  "item.endreborn.wolframium_sword": "Tungsten Sword",
@@ -65,7 +66,11 @@
  "block.endreborn.cracked_end_bricks": "Cracked End Bricks",
  "block.endreborn.chiseled_end_bricks": "Chiseled End Bricks",
  "block.endreborn.end_moss_block": "End Moss",
- 
+ "block.endreborn.end_coral": "Endstone Coral",
+ "block.endreborn.end_mushroom": "Endshroom",
+ "block.endreborn.mushroom_roots": "Endshroom Roots",
+ "block.endreborn.endorium_block": "Endorium Block",
+
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
  "advancements.endreborn.root.description": "The End is just the beginning",
@@ -73,13 +78,20 @@
  "advancements.endreborn.end_stone.description": "Get: End Stone",
  "advancements.endreborn.iron_hammer.title": "Not a Mjolnir but...",
  "advancements.endreborn.iron_hammer.description": "Get: Sledgehammer",
- "advancements.endreborn.limus.title": "Lighners",
- "advancements.endreborn.limus.description": "Catch a Limus",
+ "advancements.endreborn.endguard.title": "Another Titan Fall",
+ "advancements.endreborn.endguard.description": "Kill: Purpur Guardian",
+ "advancements.endreborn.lantern.title": "Lightners",
+ "advancements.endreborn.lantern.description": "Get: Purpur Lantern",
  "advancements.endreborn.endorium_ingot.title": "Harder than vibranium",
  "advancements.endreborn.endorium_ingot.description": "Get: Endorium Ingot",
  "advancements.endreborn.ogana.title": "Gummy fruit!",
  "advancements.endreborn.ogana.description": "Get: Ogana Fruit",
  "advancements.endreborn.ender_transmitter.title": "Infinity Pocket",
- "advancements.endreborn.ender_transmitter.description": "Get: Ender Transmitter"
-
+ "advancements.endreborn.ender_transmitter.description": "Get: Ender Transmitter",
+ "advancements.endreborn.endorium_sword.title": "Lord of The End",
+ "advancements.endreborn.endorium_sword.description": "Get: Endorium Sword",
+ "advancements.endreborn.end_mushroom.title": "Mushroom Party!",
+ "advancements.endreborn.end_mushroom.description": "Get: Endshroom",
+ "advancements.endreborn.endorium_block.title": "Stonks",
+ "advancements.endreborn.endorium_block.description": "Get: Endorium Block"
 }

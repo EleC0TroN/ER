@@ -1,30 +1,27 @@
 package net.electron.endreborn.world;
 
-import com.mojang.datafixers.Dynamic;
-
+import com.mojang.serialization.Codec;
+import net.electron.endreborn.blocks.ModBlocks;
 import net.minecraft.block.BlockState;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
-import java.util.function.Function;
 
 
 public class ObsidianOreFeature extends Feature<DefaultFeatureConfig> {
-	public ObsidianOreFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> p_i49908_1_) {
-		super(p_i49908_1_);
+	public ObsidianOreFeature(Codec<DefaultFeatureConfig> codec) {
+		super(codec);
 	}
 
-	public boolean generate(IWorld worldIn, StructureAccessor accessor, ChunkGenerator<? extends ChunkGeneratorConfig> generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+	public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
 		int i = 0;
-		BlockState blockstate = net.electron.endreborn.blocks.Blocks.OBSIDIAN_ORE.getDefaultState();
+		BlockState blockstate = ModBlocks.OBSIDIAN_ORE.getDefaultState();
 		for (int j = 0; j < 256; ++j) {
 			BlockPos blockpos = pos.add(rand.nextInt(4) - rand.nextInt(2), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(2));
 			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.OBSIDIAN) {

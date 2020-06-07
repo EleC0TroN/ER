@@ -9,6 +9,7 @@ import net.minecraft.block.EndPortalFrameBlock;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.EyeOfEnderEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.EnderEyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -25,6 +26,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.StructureFeature;
 
 public class PurpurEye extends Item {
     public PurpurEye() {
@@ -39,11 +41,12 @@ public class PurpurEye extends Item {
         } else {
             user.setCurrentHand(hand);
             if (world instanceof ServerWorld) {
-                BlockPos blockPos = ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, "EndCity", user.getBlockPos(), 50, false);
+                BlockPos blockPos = ((ServerWorld)world).getChunkManager().getChunkGenerator().locateStructure((ServerWorld)world, StructureFeature.END_CITY, user.getBlockPos(), 50, false);
                 if (blockPos != null) {
                     EyeOfEnderEntity eyeOfEnderEntity = new EyeOfEnderEntity(world, user.getX(), user.getBodyY(0.5D), user.getZ());
                     eyeOfEnderEntity.setItem(itemStack);
                     eyeOfEnderEntity.moveTowards(blockPos);
+
                     world.spawnEntity(eyeOfEnderEntity);
                     if (user instanceof ServerPlayerEntity) {
                         Criteria.USED_ENDER_EYE.trigger((ServerPlayerEntity)user, blockPos);

@@ -3,8 +3,8 @@
  "itemGroup.endgroup": "End: Reborn",
  "tooltip.wolframium_armor": "Убирает действие левитации при ношении любой части",
  "tooltip.ender_boots": "Снижает полученный урон и телепортирует в ближайшее место",
- "entity.endreborn.limus": "Лит",
- "container.ender_transmitter": "Ender Transmitter",
+ "entity.endreborn.enguard": "Пурпурный страж",
+ "container.ender_transmitter": "Трансмиттер Края",
 
 //Items
  "item.endreborn.wolframium_nugget": "Вольфрамовый самородок",
@@ -16,9 +16,9 @@
  "item.endreborn.obsidian_shard": "Осколок обсидана",
  "item.endreborn.iron_hammer": "Кувалда",
  "item.endreborn.ogana": "Плод оганы",
- "item.endreborn.limus_bottle": "Лит в пузырьке",
  "item.endreborn.purpur_eye": "Пурпурный навигатор",
  "item.endreborn.ender_transmitter": "Трансмиттер Края",
+ "item.endreborn.endguard_egg": "Яйцо призыва пурпурного стража",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Вольфрамовый шлем",
@@ -26,6 +26,7 @@
  "item.endreborn.wolframium_leggings": "Вольфрамовые поножи",
  "item.endreborn.wolframium_boots": "Вольфрамовые ботинки",
  "item.endreborn.ender_boots": "Ботинки Эндера",
+ "item.endreborn.wolframium_horse_armor": "Вольфрамовая конская броня",
 
 //Tools
  "item.endreborn.wolframium_sword": "Вольфрамовый меч",
@@ -56,7 +57,7 @@
  "block.endreborn.obsidian_glass": "Обрамленное обсидианом стекло",
  "block.endreborn.burned_end_stone": "Горелый эндерняк",
  "block.endreborn.quartz_ore": "Кварцевая руда",
- "block.endreborn.end_moss": "Замшелый эндерняк",
+ "block.endreborn.end_moss": "Замшеный эндерняк",
  "block.endreborn.ogana_fruit": "Росток оганы",
  "block.endreborn.dragonite": "Драгонит",
  "block.endreborn.ogana_weed": "Сорняк оганы",
@@ -65,6 +66,10 @@
  "block.endreborn.cracked_end_bricks": "Старые эндерняковые кирпичи",
  "block.endreborn.chiseled_end_bricks": "Резные эндерняковые кирпичи",
  "block.endreborn.end_moss_block": "Мох Края",
+ "block.endreborn.end_coral": "Эндерняковый коралл",
+ "block.endreborn.end_mushroom": "Краевик",
+ "block.endreborn.mushroom_roots": "Корни краевика",
+ "block.endreborn.endorium_block": "Эндориумовый блок",
 
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
@@ -73,13 +78,20 @@
  "advancements.endreborn.end_stone.description": "Соберите Эндерняк",
  "advancements.endreborn.iron_hammer.title": "Не Мьёльнир, но тоже неплохо...",
  "advancements.endreborn.iron_hammer.description": "Создайте Куваду",
- "advancements.endreborn.limus.title": "Звезды рая",
- "advancements.endreborn.limus.description": "Поймайте Лита",
+ "advancements.endreborn.endguard.title": "Очередной титан повержен",
+ "advancements.endreborn.endguard.description": "Уничтожьте Пурпурного стража",
+ "advancements.endreborn.lantern.title": "Дитя Света",
+ "advancements.endreborn.lantern.description": "Создайте Пурпурный фонарь",
  "advancements.endreborn.endorium_ingot.title": "Крепче чем вибраниум",
  "advancements.endreborn.endorium_ingot.description": "Создайте Слиток эндориума",
  "advancements.endreborn.ogana.title": "Инопланетное желе!",
  "advancements.endreborn.ogana.description": "Соберите Плод оганы",
  "advancements.endreborn.ender_transmitter.title": "Карман бесконечности",
- "advancements.endreborn.ender_transmitter.description": "Создайте Трансмиттер Края"
-
+ "advancements.endreborn.ender_transmitter.description": "Создайте Трансмиттер Края",
+ "advancements.endreborn.endorium_sword.title": "Новый Лорд",
+ "advancements.endreborn.endorium_sword.description": "Создайте эндориумовый меч",
+ "advancements.endreborn.end_mushroom.title": "Опять эти грибы",
+ "advancements.endreborn.end_mushroom.description": "Соберите краевик",
+ "advancements.endreborn.endorium_block.title": "Скрудж одобряет",
+ "advancements.endreborn.endorium_block.description": "Создайте Эндориумовый блок"
 }

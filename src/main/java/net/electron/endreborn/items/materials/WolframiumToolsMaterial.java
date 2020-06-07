@@ -1,6 +1,6 @@
 package net.electron.endreborn.items.materials;
 
-import net.electron.endreborn.items.Items;
+import net.electron.endreborn.items.ModItems;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -33,7 +33,7 @@ public class WolframiumToolsMaterial implements ToolMaterial{
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		Ingredient repairMaterial = Ingredient.ofItems(Items.WOLF_INGOT);
+		Ingredient repairMaterial = Ingredient.ofItems(ModItems.WOLF_INGOT);
         return repairMaterial;
 	}
 

@@ -1,6 +1,6 @@
 package net.electron.endreborn.items.materials;
 
-import net.electron.endreborn.blocks.Blocks;
+import net.electron.endreborn.blocks.ModBlocks;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -33,7 +33,7 @@ public class EndstoneMaterial implements ToolMaterial{
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		Ingredient repairMaterial = Ingredient.ofItems(Blocks.BURNED_END_STONE);
+		Ingredient repairMaterial = Ingredient.ofItems(ModBlocks.BURNED_END_STONE);
         return repairMaterial;
 	}
 

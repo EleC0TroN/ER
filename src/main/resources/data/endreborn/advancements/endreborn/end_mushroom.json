@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/ogana",
+  "display": {
+    "icon": {
+      "item": "endreborn:end_mushroom"
+    },
+    "title": {
+      "translate": "advancements.endreborn.end_mushroom.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.end_mushroom.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:end_mushroom"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}
