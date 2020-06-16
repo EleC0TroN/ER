@@ -1,0 +1,20 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "immersiveengineering"
+  }],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "immersiveengineering:hammer"
+    },
+    {
+      "item": "endreborn:endorium_ingot"
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:endorium_plate",
+        "count": 1
+    }
+}

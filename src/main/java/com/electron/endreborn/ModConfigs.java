@@ -32,36 +32,51 @@ public class ModConfigs {
             public static ConfigValue<Integer> endshrooms_rarity;
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
+            public static ConfigValue<Boolean> enderman_tweaks;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
                 new_structures_end = builder
+                        .comment("#####")
                         .comment("The End new structures")
                         .define("new_structures_end", true);
+
+                enderman_tweaks = builder
+                        .comment("Random model size | If False - Some of existed Endermans in the world transforms to Pig until normal mobs spawn")
+                        .define("enderman_tweaks", true);
+
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")
                         .defineInRange("obsidian_ore_rarity", 6, 0, 64);
+
                 crypt_size = builder
                         .comment("End Crypt maximum size")
                         .defineInRange("crypt_size", 10, 0, 64);
+
                 moss_rarity = builder
                         .comment("End Moss spawn rarity")
                         .defineInRange("moss_rarity", 4, 0, 64);
+
                 decorator_rarity = builder
                         .comment("Cracked Purpur and Cracked End Bricks spawn rarity")
                         .defineInRange("decorator_rarity", 4, 0, 64);
+
                 wolframium_rarity = builder
                         .comment("Tungsten Ore spawn rarity")
                         .defineInRange("wolframium_rarity", 4, 0, 64);
+
                 dragonite_rarity = builder
-                        .comment("Tungsten Ore spawn rarity")
+                        .comment("Dragonite flower spawn rarity")
                         .defineInRange("dragonite_rarity", 1, 0, 64);
+
                 quartz_rarity = builder
                         .comment("Tungsten Ore spawn rarity")
-                        .defineInRange("quartz_arity", 4, 0, 64);
+                        .defineInRange("quartz_rarity", 4, 0, 64);
+
                 endshrooms_rarity = builder
                         .comment("Endshrooms spawn rarity")
                         .defineInRange("endshrooms_rarity", 4, 0, 64);
+
                 builder.pop();
             }
         }

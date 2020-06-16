@@ -1,0 +1,10 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "immersiveengineering"
+  }],
+  "replace": false,
+  "values": [
+    "endreborn:endorium_dust"
+  ]
+}

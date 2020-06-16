@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endreborn:burned_end_stone"
+    }
+  ],
+  "result": 
+    {
+        "item": "endreborn:end_stone_button",
+        "count": 1
+    }
+}

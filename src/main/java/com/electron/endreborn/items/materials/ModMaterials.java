@@ -168,7 +168,6 @@ public class ModMaterials {
         public String getName() {
             return "ender";
         }
-
         @Override
         public int getEnchantability() {
             return 10;

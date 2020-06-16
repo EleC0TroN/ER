@@ -1,6 +1,7 @@
 {
 //Misc
  "itemGroup.endgroup": "End: Reborn",
+ "itemGroup.endcompatgroup": "End: Reborn Compat",
  "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
  "tooltip.ender_boots": "Reduces taken damage and teleports",
  "entity.endreborn.enguard": "Purpur Guardian",
@@ -18,7 +19,12 @@
  "item.endreborn.ogana": "Ogana Fruit",
  "item.endreborn.purpur_eye": "Purpur Navigator",
  "item.endreborn.ender_transmitter": "Ender Transmitter",
- "item.endreborn.endguard_egg": "Purpur Guardian Spawn Egg",
+ "item.endreborn.wolframium_plate": "Tungsten Plate",
+ "item.endreborn.wolframium_rod": "Tungsten Rod",
+ "item.endreborn.wolframium_dust": "Tungsten Dust",
+ "item.endreborn.endorium_plate": "Endorium Plate",
+ "item.endreborn.endorium_rod": "Endorium Rod",
+ "item.endreborn.endorium_dust": "Endorium Dust",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Tungsten Helmet",
@@ -70,6 +76,12 @@
  "block.endreborn.end_mushroom": "Endshroom",
  "block.endreborn.mushroom_roots": "Endshroom Roots",
  "block.endreborn.endorium_block": "Endorium Block",
+
+ "block.endreborn.sheetmetal_endorium": "Endorium Sheetmetal",
+ "block.endreborn.sheetmetal_wolframium": "Tungsten Sheetmetal",
+ "block.endreborn.framed_obsidian_glass": "Obsidian Framed Glass",
+ "block.endreborn.purpur_wall": "Purpur Wall",
+ "block.endreborn.end_stone_button": "End Stone Button",
 
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",

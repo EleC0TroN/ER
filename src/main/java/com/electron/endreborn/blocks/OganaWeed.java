@@ -2,6 +2,7 @@ package com.electron.endreborn.blocks;
 
 import com.electron.endreborn.ModBlocks;
 
+import com.electron.endreborn.compatibility.EndergeticExpansiom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
@@ -17,16 +18,16 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
-public class EndPlant extends FlowerBlock implements IForgeBlock {
+public class OganaWeed extends FlowerBlock implements IForgeBlock {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 15.0D, 10.0D, 15.0D);
 
-	public EndPlant() {
+	public OganaWeed() {
         super(Effects.LEVITATION, 5, Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().sound(SoundType.PLANT));
     }
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 	    Block block = state.getBlock();
-	    return block == ModBlocks.END_MOSS.get();
+	    return block == ModBlocks.END_MOSS.get() || block == EndergeticExpansiom.POISEMOSS;
 	}
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {

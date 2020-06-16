@@ -41,8 +41,8 @@ public class EndMushroomFeature extends Feature<NoFeatureConfig> {
             f = (float)((double)f - ((double)rand.nextInt(2) + 1.0D));
         }
         int i = 0;
-        for(int j = 0; j < 64; ++j) {
-            BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8) - rand.nextInt(6));
+        for(int j = 0; j < 32; ++j) {
+            BlockPos blockpos = pos.add(rand.nextInt(3) - rand.nextInt(1), rand.nextInt(3) - rand.nextInt(1), rand.nextInt(3) - rand.nextInt(1));
             if (worldIn.getBlockState(blockpos.up()).getBlock() == ModBlocks.END_MUSHROOM.get() && worldIn.isAirBlock(blockpos) ) {
                     worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState(), 2);
                     ++i;

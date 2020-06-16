@@ -1,15 +1,20 @@
 package com.electron.endreborn;
 
+import com.electron.endreborn.mobs.EndormanMob;
 import com.electron.endreborn.world.NatureStructures;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,6 +22,20 @@ import org.apache.logging.log4j.Level;
 
 @Mod.EventBusSubscriber(modid = EndReborn.MODID)
 public class ModEvents {
+	@SubscribeEvent
+	public static void onEnderSpawn(LivingSpawnEvent event) {
+		if (ModConfigs.COMMON.balance.enderman_tweaks.get() && !event.getEntityLiving().world.isRemote()) {
+			LivingEntity entity = event.getEntityLiving();
+			if (entity instanceof EndermanEntity) {
+				EndormanMob endor = new EndormanMob(ModMobs.ENDOR, entity.world);
+				endor.copyLocationAndAnglesFrom(entity);
+				int i = entity.world.getRandom().nextInt(5);
+				endor.setEndorSize(i);
+				entity.world.addEntity(endor);
+				entity.remove();
+			}
+		}
+	}
 
 	@SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event) {

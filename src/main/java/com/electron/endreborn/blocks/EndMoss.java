@@ -24,7 +24,7 @@ public class EndMoss extends Block implements IForgeBlock {
     }
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 	      Block block = state.getBlock();
-	      return block == Blocks.BEDROCK || block == Blocks.OBSIDIAN || block == ModBlocks.OGANA_PLANT.get() || block == ModBlocks.OGANA_WEED.get();
+	      return block == Blocks.BEDROCK || block == Blocks.OBSIDIAN || block == ModBlocks.OGANA_WEED.get();
 	   }
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {

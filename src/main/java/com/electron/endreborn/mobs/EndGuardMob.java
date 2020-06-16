@@ -1,7 +1,9 @@
 package com.electron.endreborn.mobs;
 
-import com.electron.endreborn.blocks.EndPlant;
+import com.electron.endreborn.ModMobs;
 import com.electron.endreborn.blocks.EndstonePlant;
+import com.electron.endreborn.blocks.OganaPlant;
+import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -111,7 +113,7 @@ public class EndGuardMob extends MonsterEntity {
             for(BlockPos blockpos : BlockPos.getAllInBoxMutable(MathHelper.floor(axisalignedbb.minX), MathHelper.floor(axisalignedbb.minY), MathHelper.floor(axisalignedbb.minZ), MathHelper.floor(axisalignedbb.maxX), MathHelper.floor(axisalignedbb.maxY), MathHelper.floor(axisalignedbb.maxZ))) {
                 BlockState blockstate = this.world.getBlockState(blockpos);
                 Block block = blockstate.getBlock();
-                if (block instanceof LeavesBlock || block instanceof EndPlant || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
+                if (block instanceof LeavesBlock || block instanceof OganaWeed || block instanceof OganaPlant || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
                     flag = this.world.func_225521_a_(blockpos, true, this) || flag;
                 }
             }
@@ -120,7 +122,7 @@ public class EndGuardMob extends MonsterEntity {
     }
 
     public boolean canAttack(EntityType<?> typeIn) {
-        if (typeIn == EntityType.ENDERMAN || typeIn == EntityType.SHULKER) {
+        if (typeIn == ModMobs.ENDOR || typeIn == EntityType.ENDERMAN || typeIn == EntityType.SHULKER) {
             return false;
         } else {
             return typeIn == EntityType.CREEPER ? false : super.canAttack(typeIn);

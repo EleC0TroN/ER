@@ -2,6 +2,7 @@ package com.electron.endreborn.world;
 
 import com.electron.endreborn.ModBlocks;
 import com.electron.endreborn.ModConfigs;
+import com.electron.endreborn.compatibility.EndergeticExpansiom;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -31,7 +32,6 @@ public class NatureGen {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new ObsidianOreFeature(NoFeatureConfig::deserialize).withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(ModConfigs.COMMON.balance.obsidian_ore_rarity.get()))));
 
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(NatureFeatures.OGANA_WEED_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(15))));
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(NatureFeatures.OGANA_PLANT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(12))));
 
 			}
 		}
@@ -52,6 +52,9 @@ public class NatureGen {
 			Biomes.END_HIGHLANDS.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 			Biomes.END_MIDLANDS.addStructure(NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			Biomes.END_HIGHLANDS.addStructure(NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			if (EndergeticExpansiom.isInstalled()) {
+				EndergeticExpansiom.POISE_BIOME.addStructure(NatureStructures.END_CRYPT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			}
 		}
 	}
 	public static void initOres() {
