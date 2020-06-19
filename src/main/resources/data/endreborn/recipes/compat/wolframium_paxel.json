@@ -1,0 +1,29 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "APS",
+    " @ ",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "endreborn:wolframium_axe"
+    },
+    "P": {
+      "item": "endreborn:wolframium_pickaxe"
+    },
+    "S": {
+      "item": "endreborn:wolframium_shovel"
+    }
+  },
+  "result": {
+    "item": "endreborn:wolframium_paxel"
+  }
+}

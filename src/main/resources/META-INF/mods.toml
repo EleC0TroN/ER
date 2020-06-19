@@ -3,10 +3,11 @@ loaderVersion="[31,)" #mandatory (31 is current forge version)
 issueTrackerURL="http://my.issue.tracker/" #optional
 [[mods]] #mandatory
 modId="endreborn" #mandatory
-version="0.5.6" #mandatory
+version="0.5.7
+" #mandatory
 displayName="End: Reborn" #mandatory
-updateJSONURL="http://myurl.me/" #optional
-displayURL="http://example.com/" #optional
+updateJSONURL="https://github.com/EleC0TroN/ER" #optional
+displayURL="https://github.com/EleC0TroN/ER" #optional
 logoFile="examplemod.png" #optional
 credits="Mod for MC." #optional
 authors="EleC0TroN" #optional

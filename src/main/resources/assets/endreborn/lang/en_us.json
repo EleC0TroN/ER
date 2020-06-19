@@ -4,7 +4,8 @@
  "itemGroup.endcompatgroup": "End: Reborn Compat",
  "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
  "tooltip.ender_boots": "Reduces taken damage and teleports",
- "entity.endreborn.enguard": "Purpur Guardian",
+ "entity.endreborn.endguard": "Purpur Guardian",
+ "entity.endreborn.enderman": "Enderman",
  "container.ender_transmitter": "Ender Transmitter",
 
 //Items
@@ -19,12 +20,20 @@
  "item.endreborn.ogana": "Ogana Fruit",
  "item.endreborn.purpur_eye": "Purpur Navigator",
  "item.endreborn.ender_transmitter": "Ender Transmitter",
+ "item.endreborn.endguard_egg": "Purpur Guard Spawn Egg",
+
  "item.endreborn.wolframium_plate": "Tungsten Plate",
  "item.endreborn.wolframium_rod": "Tungsten Rod",
  "item.endreborn.wolframium_dust": "Tungsten Dust",
+ "item.endreborn.wolframium_paxel": "Tungsten Paxel",
  "item.endreborn.endorium_plate": "Endorium Plate",
  "item.endreborn.endorium_rod": "Endorium Rod",
  "item.endreborn.endorium_dust": "Endorium Dust",
+ "item.endreborn.endorium_crystals": "Endorium Crystal",
+ "item.endreborn.endorium_dirty_dusts": "Endorium Dirty Dust",
+ "item.endreborn.endorium_shards": "Endorium Shard",
+ "item.endreborn.endorium_clumps": "Endorium Clump",
+ "item.endreborn.endorium_paxel": "Endorium Paxel",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Tungsten Helmet",

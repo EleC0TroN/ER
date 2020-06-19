@@ -47,7 +47,7 @@ public class ModMaterials {
         }
         @Override
         public int getMaxUses() {
-            return 350;
+            return 440;
         }
         @Override
         public int getHarvestLevel() {
@@ -59,7 +59,7 @@ public class ModMaterials {
         }
         @Override
         public float getEfficiency() {
-            return 6f;
+            return 7f;
         }
         @Override
         public float getAttackDamage() {
