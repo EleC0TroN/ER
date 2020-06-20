@@ -5,6 +5,7 @@ import com.electron.endreborn.world.NatureStructures;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -20,10 +21,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.Level;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber(modid = EndReborn.MODID)
 public class ModEvents {
 	@SubscribeEvent
-	public static void onEnderSpawn(LivingSpawnEvent event) {
+	public static void onEnderSpawn(LivingSpawnEvent.SpecialSpawn event) {
 		if (ModConfigs.COMMON.balance.enderman_tweaks.get() && !event.getEntityLiving().world.isRemote()) {
 			LivingEntity entity = event.getEntityLiving();
 			if (entity instanceof EndermanEntity) {
@@ -35,6 +38,7 @@ public class ModEvents {
 				entity.remove();
 			}
 		}
+
 	}
 
 	@SubscribeEvent
