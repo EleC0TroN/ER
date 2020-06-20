@@ -3,7 +3,7 @@
     
     "pattern":
     [
-        "000",
+        "020",
 	"030", 
         "030"     
     ],
@@ -17,6 +17,10 @@
 	"3":
         {
             "item": "endreborn:death_essence"
+        },
+	"2":
+        {
+            "item": "minecraft:glass"
         }
     },
     

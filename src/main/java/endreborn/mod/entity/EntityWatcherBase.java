@@ -64,7 +64,7 @@ public class EntityWatcherBase extends EntityMob
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityWatcherBase.AIFindPlayer(this));
-        this.tasks.addTask(3, new EntityAIAvoidEntity<EntityMob>(this, EntityMob.class, 8.0F, 1.0D, 1.2D));
+        this.tasks.addTask(3, new EntityAIAvoidEntity<EntityMob>(this, EntityMob.class, 8.0F, 0.80D, 0.80D));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityEndermite.class, 10, true, false, new Predicate<EntityEndermite>()
         {

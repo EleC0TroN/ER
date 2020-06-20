@@ -6,9 +6,10 @@ import java.util.Map.Entry;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
+import endreborn.handlers.ConfigsHandler;
 import endreborn.init.ItemInit;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipesUser
 {
@@ -19,16 +20,50 @@ public class RecipesUser
     {
         return INSTANCE;
     }
-
     private RecipesUser()
     {
-        //Transmutation Orb Recipes (Resources)
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT));
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.GOLD_INGOT));
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(Items.REDSTONE), new ItemStack(Items.REDSTONE));
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.GLOWSTONE_DUST));
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(ItemInit.INGOT_WOLFRAMIUM), new ItemStack(ItemInit.INGOT_WOLFRAMIUM));
-        addAltarRecipe(new ItemStack(ItemInit.CATALYST), new ItemStack(ItemInit.INGOT_ENDORIUM), new ItemStack(ItemInit.INGOT_ENDORIUM));
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem0)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem0).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem0).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem1)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem1).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem1).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem2)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem2).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem2).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem3)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem3).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem3).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem4)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem4).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem4).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem5)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem5).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem5).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem6)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem6).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem6).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem7)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem7).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem7).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem8)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem8).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem8).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem9)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem9).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem9).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem10)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem10).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem10).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem11)) {
+    	addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem11).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem11).get(0));
+    	}
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem12)) {
+        addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem12).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem12).get(0));
+        }
+    	if (OreDictionary.doesOreNameExist(ConfigsHandler.RECIPES.materializerItem13)) {
+        addAltarRecipe(new ItemStack(ItemInit.CATALYST), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem13).get(0), OreDictionary.getOres(ConfigsHandler.RECIPES.materializerItem13).get(0));
+        }
     }
 
 

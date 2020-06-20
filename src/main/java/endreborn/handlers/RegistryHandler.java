@@ -4,6 +4,7 @@ import endreborn.EndReborn;
 import endreborn.init.BlockInit;
 import endreborn.init.EntitiesInit;
 import endreborn.init.ItemInit;
+import endreborn.init.ProjectileInit;
 import endreborn.utils.IHasModel;
 import endreborn.world.OreGen;
 import endreborn.world.WorldGenCustomStructures;
@@ -62,12 +63,15 @@ public class RegistryHandler
 
 		SoundHandler.preInit();
     	EntitiesInit.init();
+    	ProjectileInit.initEntities();
+    	
     	TileHandler.registerTileEntities();
 		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
     
 		if(event.getSide() == Side.CLIENT)
 		{
 			RenderHandler.registerEntityRenders();
+			ProjectileInit.registerEntityRenderers();
 		}
 		
 	}

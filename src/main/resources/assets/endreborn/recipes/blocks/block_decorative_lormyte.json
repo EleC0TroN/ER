@@ -3,17 +3,12 @@
     
     "pattern":
     [
-        " 0 ", 
-        "010",
-        " 0 "      
+        "11", 
+        "11"     
     ],
     
     "key":
     {
-        "0":
-        {
-            "item": "minecraft:purpur_block"
-        },
         "1":
         {
             "item": "endreborn:block_lormyte_crystal"

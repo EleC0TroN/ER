@@ -4,7 +4,6 @@ import endreborn.init.ItemInit;
 import endreborn.utils.RecipesUser;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
@@ -45,40 +44,9 @@ public class TileEntropyUser extends TileEntity implements IInventory, ITickable
         Item result = recipe.getItem();
 
         //Resources
-        if(result == Items.IRON_INGOT)
-        {
-            return 50;
-        }
-        if(result == Items.REDSTONE)
-        {
-            return 50;
-        }
-        if(result == Items.GLOWSTONE_DUST)
-        {
-            return 50;
-        }
-        if(result == Items.GOLD_INGOT)
-        {
-            return 100;
-        }
-        if(result == ItemInit.INGOT_WOLFRAMIUM)
-        {
-            return 50;
-        }
-        if(result == ItemInit.INGOT_ENDORIUM)
-        {
-            return 200;
-        }
-
-        if(recipe.isEmpty())
-        {
-            return 0;
-        }
-
-        else
-        {
-            return 300;
-        }
+      
+           return 100;
+        
     }
 
     public void smeltItem()
@@ -94,10 +62,6 @@ public class TileEntropyUser extends TileEntity implements IInventory, ITickable
             if(output.isEmpty()) this.inventory.set(3, resultStack.copy());
             else if(output.getItem() == resultStack.getItem()) output.grow(resultStack.getCount());
 
-            if(result == Items.GOLD_INGOT || result == Items.IRON_INGOT || result == Items.REDSTONE || result == Items.GLOWSTONE_DUST || result == ItemInit.INGOT_WOLFRAMIUM || result == ItemInit.INGOT_ENDORIUM)
-            {
-                input2.shrink(1);
-            }
         }
     }
 

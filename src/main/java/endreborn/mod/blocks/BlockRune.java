@@ -47,7 +47,7 @@ public class BlockRune extends Block implements IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setHardness(5.0F);
-		setLightLevel(0.75F);
+
 		setCreativeTab(EndReborn.endertab);
 
 		BlockInit.BLOCKS.add(this);

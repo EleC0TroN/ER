@@ -6,6 +6,7 @@ import java.util.List;
 import endreborn.mod.blocks.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -25,8 +26,8 @@ public class BlockInit
 	public static final Block ESSENCE_ORE = new BlockEssenceOre("block_essence_ore", Material.ROCK);
 	public static final Block PHANTOM_BLOCK = new BlockPhantom("block_phantom", Material.BARRIER, false);
 	public static final Block ENTROPY_END_STONE = new BlockEndBase("block_entropy_end_stone", Material.ROCK);
-	public static final Block LORMYTE_CRYSTAL = new BlockCrystal("block_lormyte_crystal", Material.ROCK);
-	public static final Block DECORATIVE_LORMYTE = new BlockCrystal("block_decorative_lormyte", Material.ROCK);
+	public static final Block LORMYTE_CRYSTAL = new BlockEndBase("block_lormyte_crystal", Material.ROCK);
+	public static final Block DECORATIVE_LORMYTE = new BlockEndBase("block_decorative_lormyte", Material.ROCK);
 	public static final Block BLOCK_WOLFRAMIUM = new BlockEndBase("block_wolframium", Material.IRON);
 	public static final Block ORE_WOLFRAMIUM = new BlockWolframiumOre("block_wolframium_ore", Material.ROCK);
 	public static final Block BLOCK_RUNE = new BlockRune("block_rune", Material.ROCK);
@@ -35,7 +36,9 @@ public class BlockInit
 	public static final Block DRAGON_ESSENCE = new BlockDragonEssence("dragon_essence");
 	public static final Block BLOCK_E_USER = new BlockEntropyUser("entropy_user");
 	public static final Block BROKEN_FLOWER = new CutoutBlock("broken_ender_flower", Material.PLANTS);
-
+	public static final Block END_STONE_CHISELED = new BlockEndBase("chiseled_end_bricks", Material.ROCK);
+	public static final Block COLD_FIRE = new BlockColdFire("end_fire");
+	
 	public static final Block STAIRS_END_BRICKS = new BlockStairsBase("e_end_bricks_stairs", Blocks.END_BRICKS);
 	public static final Block STAIRS_SMOOTH_END_STONE = new BlockStairsBase("smooth_end_stone_stairs", BlockInit.END_STONE_SMOOTH);
 	

@@ -1,0 +1,7 @@
+{
+    "parent": "block/fire_floor",
+    "textures": {
+        "particle": "endreborn:blocks/end_fire_layer_1",
+        "fire": "endreborn:blocks/end_fire_layer_1"
+    }
+}

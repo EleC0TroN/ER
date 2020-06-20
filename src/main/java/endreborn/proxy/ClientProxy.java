@@ -1,6 +1,7 @@
 package endreborn.proxy;
 
 import endreborn.init.EntitiesInit;
+import endreborn.init.ProjectileInit;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -16,7 +17,7 @@ public class ClientProxy extends CommonProxy
 	}
 	@SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-;
+
     	EntitiesInit.initModels();
     }
 }

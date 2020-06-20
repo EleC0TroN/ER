@@ -1,22 +1,101 @@
 package endreborn.handlers;
 
+import java.util.List;
+
 import endreborn.Reference;
 import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.Configuration;
 
 
 @Config(modid = Reference.MODID, category = "")
 public final class ConfigsHandler
 {
+
     public static final GeneralConfig GENERAL = new GeneralConfig();
     public static final BalanceConfig BALANCE = new BalanceConfig();
+    public static final RecipesConfig RECIPES = new RecipesConfig();
 
+    public static class RecipesConfig 
+    {
+    	 @Config.Name("Materializer Recipes | Item 1")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem0 = "ingotIron";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 2")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem1 = "ingotGold";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 3")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem2 = "ingotCobalt";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 4")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem3 = "ingotTungsten";
+
+    	 @Config.Name("Materializer Recipes | Item 5")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem4 = "ingotSteel";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 6")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem5 = "ingotEndorium";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 7")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem6 = "ingotCopper";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 8")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem7 = "ingotTin";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 9")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem8 = "ingotAluminium";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 10")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem9 = "dustRedstone";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 11")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem10 = "dustGlowstone";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 12")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem11 = "ingotLead";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 12")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem12 = "ingotThaumium";
+    	 
+    	 @Config.Name("Materializer Recipes | Item 12")
+         @Config.RequiresMcRestart
+         @Config.Comment({"Ore Dictionary | To disable item just leave empty"})
+         public String materializerItem13 = "ingotManasteel";
+    	 
+    	 private RecipesConfig() {}
+    }
     public static class GeneralConfig
     {
         @Config.Name("Essence Ore")
         @Config.RequiresMcRestart
         @Config.Comment({"Allows to spawn."})
         public boolean spawnEssenceOre = true;
-        
+      
         @Config.Name("End Ruines")
         @Config.RequiresMcRestart
         @Config.Comment({"Allows to spawn."})
@@ -45,7 +124,7 @@ public final class ConfigsHandler
         @Config.Name("Chronologist Mob")
         @Config.RequiresMcRestart
         @Config.Comment({"Allows to spawn."})
-        public boolean spawnChronologist = true;
+        public boolean spawnChronologist = false;
 
         @Config.Name("End Islands")
         @Config.RequiresMcRestart

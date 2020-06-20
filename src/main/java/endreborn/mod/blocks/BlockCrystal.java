@@ -23,7 +23,6 @@ public class BlockCrystal extends BlockBase {
 		setSoundType(SoundType.STONE);
 		setHardness(3.0F);
 		setResistance(25.0F);
-		setLightLevel(1.0F);
 		setHarvestLevel("pickaxe", 2);
 		
 	} 

@@ -1,7 +1,0 @@
-{
-    "parent": "block/carpet",
-    "textures": {
-        "particle": "endreborn:blocks/ash_block",
-        "wool": "endreborn:blocks/ash_block"
-    }
-}

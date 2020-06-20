@@ -1,20 +1,11 @@
 {
-    "type": "minecraft:crafting_shaped",
-    
-    "pattern":
-    [
-        "B"      
-    ],
-    
-    "key":
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
     {
-        "B":
-        {
-            "item": "endreborn:block_wolframium"
-        }
-    },
-    
-    "result":
+      "item": "endreborn:block_wolframium"
+    }
+  ],
+  "result": 
     {
         "item": "endreborn:item_ingot_wolframium",
         "count": 9

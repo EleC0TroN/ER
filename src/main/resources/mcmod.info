@@ -1,8 +1,8 @@
 [{
   "modid": "endreborn",
-  "name": "End: Reborn III",
+  "name": "End: Reborn",
   "description": "The dragon was only the beginning. And the End more than your brain can imagine...",
-  "version": "0.3.5",
+  "version": "0.3.8",
   "logoFile": "logo.png",
   "mcversion": "1.12+",
   "url": "https://minecraft.curseforge.com/projects/end-reborn",

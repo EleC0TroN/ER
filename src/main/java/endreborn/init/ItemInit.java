@@ -27,15 +27,15 @@ public class ItemInit
     public static final List<Item> ITEMS = new ArrayList<Item>();
     
     //Materials
-    public static final ToolMaterial TOOL_ENDORIUM = EnumHelper.addToolMaterial("tool_endorium", 4, 1024, 5.5F, 4.0F, 13);
+    public static final ToolMaterial TOOL_ENDORIUM = EnumHelper.addToolMaterial("tool_endorium", 4, 1024, 6.5F, 4.0F, 13);
     public static final ToolMaterial TOOL_MAGNIFIER = EnumHelper.addToolMaterial("tool_magnifier", 4, 256, 5.5F, 1.0F, 13);
     public static final ToolMaterial TOOL_END = EnumHelper.addToolMaterial("tool_end", 5, 1024, 6.5F, 9.0F, 14);
     public static final ToolMaterial TOOL_HAMMER = EnumHelper.addToolMaterial("tool_hammer", 2, 300, 1.0F, 4.0F, 9);
     public static final ToolMaterial TOOL_WOLFRAMIUM = EnumHelper.addToolMaterial("tool_wolframium", 3, 512, 5.5F, 2.5F, 11);
     public static final ArmorMaterial ARMOUR_OBSIDIAN = EnumHelper.addArmorMaterial("armour_obsidian", Reference.MODID + ":obsidian", 33, new int[]{4, 7, 8, 4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
     public static final ArmorMaterial ARMOUR_HELMET = EnumHelper.addArmorMaterial("armour_helmet", Reference.MODID + ":helmet", 33, new int[]{4, 7, 8, 4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
-    public static final ArmorMaterial ARMOUR_DRAGON = EnumHelper.addArmorMaterial("armour_dragon", Reference.MODID + ":dragon", 44, new int[]{6, 8, 9, 6}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F);
-    public static final ArmorMaterial ARMOUR_HELMET_D = EnumHelper.addArmorMaterial("armour_helmet_d", Reference.MODID + ":dragon_helmet", 44, new int[]{6, 8, 9, 6}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F);
+    public static final ArmorMaterial ARMOUR_DRAGON = EnumHelper.addArmorMaterial("armour_dragon", Reference.MODID + ":dragon", 44, new int[]{6, 9, 10, 6}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F);
+    public static final ArmorMaterial ARMOUR_HELMET_D = EnumHelper.addArmorMaterial("armour_helmet_d", Reference.MODID + ":dragon_helmet", 44, new int[]{6, 9, 10, 6}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F);
     
     //Items
     public static final Item INGOT_ENDORIUM = new ItemBase("item_ingot_endorium");
@@ -58,7 +58,8 @@ public class ItemInit
     public static final Item SWORD_SHARD = new ItemBase("sword_shard");
     public static final Item CATALYST = new ItemCatalyst("catalyst");
     public static final Item RECORD = new ItemEndRecord("end_record", SoundHandler.THE_VOID);
-
+    public static final Item NUGGET_WOLFRAMIUM = new ItemBase("wolframium_nugget");
+    
     //Tools
     public static final Item PICKAXE_ENDORIUM = new ToolPickaxe("tool_pickaxe_endorium", TOOL_ENDORIUM);
     public static final Item SWORD_ENDORIUM = new ToolSword("tool_sword_endorium", TOOL_ENDORIUM);

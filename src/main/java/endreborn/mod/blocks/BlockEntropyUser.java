@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -22,6 +23,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -36,7 +38,7 @@ public class BlockEntropyUser extends BlockBase
 
     public BlockEntropyUser(String name)
     {
-        super(name, Material.IRON);
+    	super(name, Material.IRON);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
     }
 
@@ -45,7 +47,22 @@ public class BlockEntropyUser extends BlockBase
     {
         return Item.getItemFromBlock(BlockInit.BLOCK_E_USER);
     }
+	@Override
+	@SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+	public boolean isOpaqueCube(IBlockState state)
+    {
+	    return false;
+	}
 
+	@Override
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
@@ -83,18 +100,20 @@ public class BlockEntropyUser extends BlockBase
             worldIn.setBlockState(pos, state.withProperty(FACING, face), 2);
         }
     }
-
+  
+ 
     public static void setState(boolean active, World worldIn, BlockPos pos)
     {
         IBlockState state = worldIn.getBlockState(pos);
         TileEntity tileentity = worldIn.getTileEntity(pos);
 
         if(active) {
+
             worldIn.playSound((EntityPlayer)null, pos, SoundEvents.BLOCK_PORTAL_TRAVEL, SoundCategory.BLOCKS, 0.5F, 2.6F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.8F);
             worldIn.setBlockState(pos, BlockInit.BLOCK_E_USER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
-        }
-        else worldIn.setBlockState(pos, BlockInit.BLOCK_E_USER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
 
+        }
+        else worldIn.setBlockState(pos, BlockInit.BLOCK_E_USER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);;
         if(tileentity != null)
         {
             tileentity.validate();
