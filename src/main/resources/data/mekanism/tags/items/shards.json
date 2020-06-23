@@ -1,10 +1,7 @@
 {
-  "conditions": [{
-  "type": "forge:mod_loaded",
-  "modid": "mekanism"
-  }],
   "replace": false,
-  "values":[
+  "values": [ ],
+  "optional": [
     "#mekanism:shards/endorium"
   ]
 }
