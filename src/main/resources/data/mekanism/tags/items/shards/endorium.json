@@ -1,1 +1,7 @@
-{"values":["endreborn:endorium_shards"]}
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],
+  "values":["endreborn:endorium_shards"]
+}

@@ -1,4 +1,8 @@
 {
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],
   "replace": false,
   "values":[
     "#mekanism:crystals/endorium"
