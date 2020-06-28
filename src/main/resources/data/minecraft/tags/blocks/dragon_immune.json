@@ -12,5 +12,8 @@
     "endreborn:chiseled_end_bricks",
     "endreborn:obsidian_glass",
     "endreborn:burned_end_stone"
+  ],
+  "optional": [
+    "endreborn:framed_obsidian_glass"
   ]
 }

@@ -1,14 +1,12 @@
 package com.electron.endreborn;
 
 import com.electron.endreborn.compatibility.CompatTab;
-import com.electron.endreborn.compatibility.EndergeticExpansiom;
 import com.electron.endreborn.compatibility.ImmersiveEngineering;
 import com.electron.endreborn.compatibility.Quark;
 import com.electron.endreborn.world.NatureGen;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;

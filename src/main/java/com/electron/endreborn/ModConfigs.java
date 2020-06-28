@@ -37,13 +37,12 @@ public class ModConfigs {
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
                 new_structures_end = builder
-                        .comment("#####")
                         .comment("The End new structures")
                         .define("new_structures_end", true);
 
                 enderman_tweaks = builder
-                        .comment("Random model size | If False - Some of existed Endermans in the world transforms to Pig until normal mobs spawn")
-                        .define("enderman_tweaks", true);
+                        .comment("Random model size | If enabled, server logs can warning about enderman spawning")
+                        .define("enderman_tweaks", false);
 
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")

@@ -4,12 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.entity.model.ZombieModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.gen.feature.structure.EndCityPieces;
-import net.minecraft.world.gen.feature.structure.FortressPieces;
-import net.minecraft.world.gen.feature.structure.MineshaftPieces;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

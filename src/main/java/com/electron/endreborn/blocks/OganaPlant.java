@@ -1,7 +1,6 @@
 package com.electron.endreborn.blocks;
 
 import com.electron.endreborn.ModBlocks;
-import com.electron.endreborn.compatibility.EndergeticExpansiom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;

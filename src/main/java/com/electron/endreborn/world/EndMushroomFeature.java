@@ -3,8 +3,7 @@ package com.electron.endreborn.world;
 import com.electron.endreborn.ModBlocks;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.ChorusFruitItem;
-import net.minecraft.item.Items;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -41,11 +40,15 @@ public class EndMushroomFeature extends Feature<NoFeatureConfig> {
             f = (float)((double)f - ((double)rand.nextInt(2) + 1.0D));
         }
         int i = 0;
-        for(int j = 0; j < 32; ++j) {
-            BlockPos blockpos = pos.add(rand.nextInt(3) - rand.nextInt(1), rand.nextInt(3) - rand.nextInt(1), rand.nextInt(3) - rand.nextInt(1));
+        for(int j = 0; j < 128; ++j) {
+            BlockPos blockpos = pos.add(rand.nextInt(5) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(3), rand.nextInt(5) - rand.nextInt(4));
             if (worldIn.getBlockState(blockpos.up()).getBlock() == ModBlocks.END_MUSHROOM.get() && worldIn.isAirBlock(blockpos) ) {
-                    worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState(), 2);
+                    worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState().with(BlockStateProperties.ATTACHED, false), 2);
                     ++i;
+            }
+            if (worldIn.getBlockState(blockpos.up()).getBlock() == ModBlocks.ROOTS.get() && worldIn.isAirBlock(blockpos) ) {
+                worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState().with(BlockStateProperties.ATTACHED, true), 2);
+                ++i;
             }
         }
         return true;

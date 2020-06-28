@@ -87,6 +87,7 @@ public class EndGuardMob extends MonsterEntity {
         if (this.attackTimer > 0) {
             --this.attackTimer;
         }
+
         if (this.world.isRemote && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getPosX(), this.getPosY() + 2.75D, this.getPosZ(), 0.0D, 0.0D, 0.0D);
 
