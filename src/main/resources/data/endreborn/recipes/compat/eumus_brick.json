@@ -1,0 +1,20 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "endergetic"
+  }],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endergetic:eumus_bricks"
+    },
+    {
+      "item": "endreborn:iron_hammer"
+    }
+  ],
+  "result": 
+    {
+        "item": "endergetic:eumus_brick",
+        "count": 4
+    }
+}

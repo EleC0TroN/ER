@@ -1,0 +1,18 @@
+{
+//Misc
+ "itemGroup.endreborn.general":"End: Reborn",
+//Items
+ "item.endreborn.wolframium_ingot": "钨锭",
+ "item.endreborn.essence": "末地精华",
+//Armor
+//Tools
+ "item.endreborn.wolframium_sword": "钨剑",
+ "item.endreborn.wolframium_pickaxe": "钨镐",
+ "item.endreborn.wolframium_axe": "钨斧",
+ "item.endreborn.wolframium_shovel": "钨铲",
+ "item.endreborn.wolframium_hoe": "钨锄",
+//Blocks
+ "block.endreborn.wolframium_block": "钨块",
+ "block.endreborn.wolframium_ore": "钨矿",
+ "block.endreborn.burned_end_stone": "平滑末地石"
+}

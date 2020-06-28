@@ -1,5 +1,5 @@
 {
   "variants": {
-    "normal": { "model": "endreborn:chiseled_end_bricks" }
+    "": { "model": "endreborn:block/chiseled_end_bricks" }
   }
 }

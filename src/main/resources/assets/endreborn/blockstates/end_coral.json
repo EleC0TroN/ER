@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "endreborn:end_coral" }
+        "": { "model": "endreborn:block/end_coral" }
     }
 }

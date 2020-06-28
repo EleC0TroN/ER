@@ -1,0 +1,13 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  }],
+  "type":"mekanism:injecting",
+  "itemInput":{"ingredient":{
+    "tag":"mekanism:crystals/endorium"}
+  },"gasInput":{
+  "amount":1,
+  "gas":"mekanism:hydrogen_chloride"},
+  "output":{"item":"endreborn:endorium_shards"}
+}

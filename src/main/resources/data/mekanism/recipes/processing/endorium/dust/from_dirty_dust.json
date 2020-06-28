@@ -1,0 +1,13 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],
+  "type":"mekanism:enriching",
+  "input":{
+    "ingredient":{
+      "tag":"mekanism:dirty_dusts/endorium"}
+  },
+  "output":{
+    "item":"endreborn:endorium_dust"}
+}

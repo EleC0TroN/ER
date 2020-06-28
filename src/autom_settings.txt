@@ -1,0 +1,7 @@
+endreborn
+en_us
+main/resources
+
+//modid
+//lang format
+//path to "resources" directory

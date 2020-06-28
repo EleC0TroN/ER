@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "endreborn:obsidian_glass"
+  ],
+  "optional": [
+    "endreborn:framed_obsidian_glass"
+  ]
+}

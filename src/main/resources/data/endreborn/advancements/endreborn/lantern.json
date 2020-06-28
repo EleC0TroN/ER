@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/end_stone",
+  "display": {
+    "icon": {
+      "item": "endreborn:purpur_lantern"
+    },
+    "title": {
+      "translate": "advancements.endreborn.lantern.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.lantern.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:purpur_lantern"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

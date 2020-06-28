@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/root",
+  "display": {
+    "icon": {
+      "item": "endreborn:iron_hammer"
+    },
+    "title": {
+      "translate": "advancements.endreborn.iron_hammer.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.iron_hammer.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:iron_hammer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1 1",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "endreborn:endorium_ingot"
+    },
+    "1": {
+      "item": "endreborn:obsidian_shard"
+    }
+  },
+  "result": {
+    "item": "endreborn:ender_boots"
+  }
+}
