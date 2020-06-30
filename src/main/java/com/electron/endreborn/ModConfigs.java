@@ -26,10 +26,10 @@ public class ModConfigs {
             public static ConfigValue<Integer> obsidian_ore_rarity;
             public static ConfigValue<Integer> moss_rarity;
             public static ConfigValue<Integer> decorator_rarity;
-            public static ConfigValue<Integer> wolframium_rarity;
+            public static ConfigValue<Integer> tungsten_rarity;
             public static ConfigValue<Integer> dragonite_rarity;
             public static ConfigValue<Integer> quartz_rarity;
-            public static ConfigValue<Integer> xorcite_spikes_rarity;
+            public static ConfigValue<Integer> xorcite_cluster_rarity;
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
             public static ConfigValue<Boolean> enderman_tweaks;
@@ -65,12 +65,16 @@ public class ModConfigs {
                         .defineInRange("dragonite_rarity", 1, 0, 64);
 
                 quartz_rarity = builder
-                        .comment("Tungsten Ore spawn rarity")
+                        .comment("Quartz Ore spawn rarity")
                         .defineInRange("quartz_rarity", 4, 0, 64);
 
-                xorcite_spikes_rarity = builder
+                xorcite_cluster_rarity = builder
                         .comment("Xorcite Spikes spawn rarity")
                         .defineInRange("xorcite_spikes_rarity", 3, 0, 64);
+
+                tungsten_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("tungsten_rarity", 3, 0, 64);
 
                 builder.pop();
             }

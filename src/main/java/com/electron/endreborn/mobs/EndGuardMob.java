@@ -1,39 +1,43 @@
 package com.electron.endreborn.mobs;
 
-import com.electron.endreborn.ModMobs;
 import com.electron.endreborn.blocks.EndstonePlant;
 import com.electron.endreborn.blocks.OganaPlant;
 import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.spawner.WorldEntitySpawner;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class EndGuardMob extends MonsterEntity {
+import javax.annotation.Nullable;
+import java.util.UUID;
+
+public class EndGuardMob extends MonsterEntity implements IAngerable {
     private int attackTimer;
+    private static final RangedInteger field_234196_bu_ = TickRangeConverter.func_233037_a_(20, 39);
+    private int field_234197_bv_;
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(EndGuardMob.class, DataSerializers.BOOLEAN);
+    private UUID field_234198_bw_;
 
     public EndGuardMob(EntityType<? extends EndGuardMob> type, World worldIn) {
         super(type, worldIn);
@@ -52,10 +56,9 @@ public class EndGuardMob extends MonsterEntity {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, MobEntity.class, 5, false, false, (p_213619_0_) -> {
             return p_213619_0_ instanceof IMob && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob) && !(p_213619_0_ instanceof EndermanEntity) && !(p_213619_0_ instanceof EndormanMob) && !(p_213619_0_ instanceof ShulkerEntity);
         }));
+        this.targetSelector.addGoal(4, new ResetAngerGoal<>(this, false));
     }
-    public static AttributeModifierMap.MutableAttribute endguardAtr() {
-        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 200.0D).func_233815_a_(Attributes.field_233821_d_, 0.28D).func_233815_a_(Attributes.field_233820_c_, 1.0D).func_233815_a_(Attributes.field_233823_f_, 16.0D).func_233815_a_(Attributes.field_233824_g_, 2.5D);
-    }
+
 
     @OnlyIn(Dist.CLIENT)
     public boolean isAttacking() {
@@ -68,12 +71,17 @@ public class EndGuardMob extends MonsterEntity {
         super.registerData();
         this.dataManager.register(ATTACKING, false);
     }
+
+    public static AttributeModifierMap.MutableAttribute func_234200_m_() {
+        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 200.0D).func_233815_a_(Attributes.field_233821_d_, 0.28D).func_233815_a_(Attributes.field_233820_c_, 1.0D).func_233815_a_(Attributes.field_233823_f_, 16.0D);
+    }
+
     protected int decreaseAirSupply(int air) {
         return air;
     }
 
     protected void collideWithEntity(Entity entityIn) {
-        if (entityIn instanceof PlayerEntity && !(entityIn instanceof ShulkerEntity) && !(entityIn instanceof EndGuardMob)) {
+        if (entityIn instanceof PlayerEntity) {
             this.setAttackTarget((LivingEntity)entityIn);
         }
 
@@ -85,7 +93,6 @@ public class EndGuardMob extends MonsterEntity {
         if (this.attackTimer > 0) {
             --this.attackTimer;
         }
-
         if (this.world.isRemote && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getPosX(), this.getPosY() + 2.75D, this.getPosZ(), 0.0D, 0.0D, 0.0D);
 
@@ -116,19 +123,54 @@ public class EndGuardMob extends MonsterEntity {
                     flag = this.world.destroyBlock(blockpos, true, this) || flag;
                 }
             }
-
         }
-    }
+        if (!this.world.isRemote) {
+            this.func_241359_a_((ServerWorld)this.world, true);
+        }
 
-    private float func_226511_et_() {
-        return (float)this.getAttribute(Attributes.field_233821_d_).getValue();
     }
-
     public boolean onLivingFall(float distance, float damageMultiplier) {
         return false;
     }
     public boolean canDespawn(double distanceToClosestPlayer) {
         return false;
+    }
+
+    public void writeAdditional(CompoundNBT compound) {
+        super.writeAdditional(compound);
+        this.func_233682_c_(compound);
+    }
+
+    /**
+     * (abstract) Protected helper method to read subclass entity data from NBT.
+     */
+    public void readAdditional(CompoundNBT compound) {
+        super.readAdditional(compound);
+        this.func_241358_a_((ServerWorld)this.world, compound);
+    }
+
+    public void func_230258_H__() {
+        this.func_230260_a__(field_234196_bu_.func_233018_a_(this.rand));
+    }
+
+    public void func_230260_a__(int p_230260_1_) {
+        this.field_234197_bv_ = p_230260_1_;
+    }
+
+    public int func_230256_F__() {
+        return this.field_234197_bv_;
+    }
+
+    public void func_230259_a_(@Nullable UUID p_230259_1_) {
+        this.field_234198_bw_ = p_230259_1_;
+    }
+
+    public UUID func_230257_G__() {
+        return this.field_234198_bw_;
+    }
+
+    private float func_226511_et_() {
+        return (float)this.func_233637_b_(Attributes.field_233823_f_);
     }
 
     public boolean attackEntityAsMob(Entity entityIn) {
@@ -146,6 +188,10 @@ public class EndGuardMob extends MonsterEntity {
         return flag;
     }
 
+    /**
+     * Called when the entity is attacked.
+     */
+
 
     @OnlyIn(Dist.CLIENT)
     public void handleStatusUpdate(byte id) {
@@ -157,6 +203,7 @@ public class EndGuardMob extends MonsterEntity {
         }
 
     }
+
     @OnlyIn(Dist.CLIENT)
     public int getAttackTimer() {
         return this.attackTimer;
@@ -173,4 +220,32 @@ public class EndGuardMob extends MonsterEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0F, 1.0F);
     }
+
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource cause) {
+        super.onDeath(cause);
+    }
+
+    public boolean isNotColliding(IWorldReader worldIn) {
+        BlockPos blockpos = this.func_233580_cy_();
+        BlockPos blockpos1 = blockpos.down();
+        BlockState blockstate = worldIn.getBlockState(blockpos1);
+        if (!blockstate.func_235719_a_(worldIn, blockpos1, this)) {
+            return false;
+        } else {
+            for(int i = 1; i < 3; ++i) {
+                BlockPos blockpos2 = blockpos.up(i);
+                BlockState blockstate1 = worldIn.getBlockState(blockpos2);
+                if (!WorldEntitySpawner.func_234968_a_(worldIn, blockpos2, blockstate1, blockstate1.getFluidState(), EntityType.IRON_GOLEM)) {
+                    return false;
+                }
+            }
+
+            return WorldEntitySpawner.func_234968_a_(worldIn, blockpos, worldIn.getBlockState(blockpos), Fluids.EMPTY.getDefaultState(), EntityType.IRON_GOLEM) && worldIn.checkNoEntityCollision(this);
+        }
+    }
+
+
 }

@@ -42,5 +42,4 @@ public class XorciteClusterFeature extends Feature<NoFeatureConfig> {
         }
         return i > 0;
     }
-
 }

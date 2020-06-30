@@ -33,7 +33,7 @@ public class RootsBlock extends FlowerBlock{
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == ModBlocks.XORCITE.get() || block == ModBlocks.XORCITE_DECORATIVE.get();
+        return block == ModBlocks.ROOTS.get() || block == ModBlocks.XORCITE.get() || block == ModBlocks.XORCITE_DECORATIVE.get();
     }
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (facing != Direction.DOWN) {

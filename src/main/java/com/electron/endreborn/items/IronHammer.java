@@ -10,8 +10,8 @@ import net.minecraft.item.*;
 import javax.annotation.Nonnull;
 
 public class IronHammer extends Item {
-	public IronHammer() {
-		super(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(32));
+	public IronHammer(Properties builder) {
+		super(builder);
 	}
 	@Override
     public boolean hasContainerItem(ItemStack stack) {

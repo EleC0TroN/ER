@@ -13,7 +13,7 @@ public class ModMobs {
     public static final EntityType<EndormanMob> ENDOR = EntityType.Builder.create(EndormanMob::new, EntityClassification.MONSTER).setTrackingRange(32).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(0.6F, 2.9F).build(prefix("enderman"));
     @SubscribeEvent
     public static void registerEntity(IForgeRegistry<EntityType<?>> event) {
-        GlobalEntityTypeAttributes.put(ENDGUARD, EndGuardMob.endguardAtr().func_233813_a_());
+        GlobalEntityTypeAttributes.put(ENDGUARD, EndGuardMob.func_234200_m_().func_233813_a_());
         GlobalEntityTypeAttributes.put(ENDOR, EndormanMob.func_234287_m_().func_233813_a_());
 
         event.register(ENDGUARD.setRegistryName("endguard"));

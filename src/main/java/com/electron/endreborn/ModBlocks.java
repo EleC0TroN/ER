@@ -34,13 +34,16 @@ public class ModBlocks {
 	public static final RegistryObject<Block> CRACKED_PURPUR = BLOCKS.register("cracked_purpur", RockBlock::new);
 	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
 	public static final RegistryObject<Block> END_MOSS_BLOCK = BLOCKS.register("end_moss_block", EndMoss::new);
+	public static final RegistryObject<Block> PURPUR_CHAIN = BLOCKS.register("purpur_chain", () -> new ChainBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.AIR).func_235861_h_().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.field_235597_S_).notSolid()));
+	public static final RegistryObject<Block> TUNGSTEN_ORE = BLOCKS.register("tungsten_ore", RockBlock::new);
+	public static final RegistryObject<Block> TUNGSTEN_END_ORE = BLOCKS.register("end_tungsten_ore", RockBlock::new);
 
 	public static final RegistryObject<Block> END_CORAL = BLOCKS.register("end_coral", EndstonePlant::new);
 	public static final RegistryObject<Block> ROOTS = BLOCKS.register("mushroom_roots", RootsBlock::new);
 	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", MetalBlock::new);
 	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0f, 0.0f).notSolid()));
+	public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", MetalBlock::new);
 
-	public static final RegistryObject<Block> WOLFRAMIUM_SHEETMETAL = BLOCKS.register("sheetmetal_wolframium", MetalBlock::new);
 	public static final RegistryObject<Block> ENDORIUM_SHEETMETAL = BLOCKS.register("sheetmetal_endorium", MetalBlock::new);
 	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS = BLOCKS.register("framed_obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
 	public static final RegistryObject<Block> PURPUR_WALL = BLOCKS.register("purpur_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE).notSolid()));
@@ -55,6 +58,7 @@ public class ModBlocks {
 		renderCutout(FRAMED_OBSIDIAN_GLASS.get());
 		renderCutout(POTTED_DRAGONITE.get());
 		renderCutout(ROOTS.get());
+		renderCutout(PURPUR_CHAIN.get());
 		renderCutout(DRAGONITE.get());
 		renderCutout(OBSIDIAN_GLASS.get());
 		renderCutout(WOLFRAMIUM_BARS.get());

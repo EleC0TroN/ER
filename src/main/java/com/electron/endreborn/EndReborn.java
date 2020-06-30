@@ -1,24 +1,17 @@
 package com.electron.endreborn;
 
 import com.electron.endreborn.compatibility.CompatTab;
-import com.electron.endreborn.compatibility.EndergeticExpansiom;
 import com.electron.endreborn.compatibility.ImmersiveEngineering;
 import com.electron.endreborn.compatibility.Quark;
-import com.electron.endreborn.world.NatureFeatures;
 import com.electron.endreborn.world.NatureGen;
 import com.electron.endreborn.world.NatureStructures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.BasaltDeltasBiome;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -67,8 +60,7 @@ public class EndReborn
         NatureStructures.registerStructures(registry);
     }
     private void setup(final FMLCommonSetupEvent event) {
-    	NatureGen.initGen();
-        NatureGen.initOres();
+
     }
 
 }

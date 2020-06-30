@@ -15,6 +15,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.structure.IglooPieces;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
@@ -37,10 +38,6 @@ public class EndCryptPieces {
 
     private static final Map<ResourceLocation, BlockPos> OFFSET = ImmutableMap.of(TOP, new BlockPos(0, 1, 0), FRONT, new BlockPos(0, 1, 0), LEFT, new BlockPos(0, 1, 0), CROSS, new BlockPos(0, 1, 0), ROOM, new BlockPos(0, 1, 0));
 
-
-    /*
-     * Begins assembling your structure and where the pieces needs to go.
-     */
     public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random)
     {
         int x = pos.getX();
