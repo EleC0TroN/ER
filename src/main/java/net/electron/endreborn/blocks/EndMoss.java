@@ -21,7 +21,7 @@ public class EndMoss extends Block {
     }
 	protected boolean canPlantOnTop(BlockState floor, BlockView view, BlockPos pos) {
 	      Block block = floor.getBlock();
-	      return block == Blocks.BEDROCK || block == Blocks.OBSIDIAN || block == ModBlocks.OGANA_PLANT || block == ModBlocks.OGANA_WEED;
+	      return block == Blocks.BEDROCK || block == Blocks.OBSIDIAN || block == ModBlocks.OGANA_WEED;
 	   }
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {

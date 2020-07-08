@@ -46,7 +46,7 @@ public class WolframiumArmorMaterial implements ArmorMaterial
     @Override
     public String getName()
     {
-        return "wolframium";
+        return "tungsten";
     }
 
     @Override

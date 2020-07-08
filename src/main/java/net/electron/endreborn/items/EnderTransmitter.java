@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class EnderTransmitter extends Item {
     public EnderTransmitter()  {
-        super(new Item.Settings().group(EndReborn.END_GROUP));
+        super(new Item.Settings().group(EndReborn.END_GROUP).maxCount(1).maxDamage(16));
     }
     public static final TranslatableText field_220115_d = new TranslatableText("container.ender_transmitter");
 

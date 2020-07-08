@@ -20,7 +20,7 @@ public class EndstonePlant extends PlantBlock {
     }
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.END_STONE) || floor.isOf(Blocks.END_STONE_BRICKS);
+        return floor.isOf(Blocks.END_STONE) || floor.isOf(Blocks.END_STONE_BRICKS) || floor.isOf(ModBlocks.END_STONE_PILLAR) || floor.isOf(ModBlocks.END_TUNGSTEN_ORE) || floor.isOf(ModBlocks.BURNED_END_STONE);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

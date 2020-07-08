@@ -21,7 +21,7 @@ public class ObsidianOreFeature extends Feature<DefaultFeatureConfig> {
 
 	public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
 		int i = 0;
-		BlockState blockstate = ModBlocks.OBSIDIAN_ORE.getDefaultState();
+		BlockState blockstate =  Blocks.CRYING_OBSIDIAN.getDefaultState();
 		for (int j = 0; j < 256; ++j) {
 			BlockPos blockpos = pos.add(rand.nextInt(4) - rand.nextInt(2), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(2));
 			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.OBSIDIAN) {

@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "id": "endreborn",
-  "version": "1.4",
+  "version": "1.5",
 
   "name": "End: Rebellion",
-  "description": "The continue for End: Reborn mod",
+  "description": "Fabric version of the End: Reborn mod",
   "authors": [
     "EleC0TroN"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/end-reborn",
-    "sources": "https://www.curseforge.com/minecraft/mc-mods/end-reborn"
+    "homepage": "https://github.com/EleC0TroN/ER",
+    "sources": "https://github.com/EleC0TroN/ER"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "logo.png",
 
   "environment": "*",
   "entrypoints": {

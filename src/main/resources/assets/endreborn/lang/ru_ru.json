@@ -1,6 +1,7 @@
 {
 //Misc
  "itemGroup.endgroup": "End: Reborn",
+ "itemGroup.endcompatgroup": "End: Reborn Compat",
  "tooltip.wolframium_armor": "Убирает действие левитации при ношении любой части",
  "tooltip.ender_boots": "Снижает полученный урон и телепортирует в ближайшее место",
  "entity.endreborn.enguard": "Пурпурный страж",
@@ -19,6 +20,19 @@
  "item.endreborn.purpur_eye": "Пурпурный навигатор",
  "item.endreborn.ender_transmitter": "Трансмиттер Края",
  "item.endreborn.endguard_egg": "Яйцо призыва пурпурного стража",
+
+ "item.endreborn.wolframium_plate": "Вольфрамовая пластина",
+ "item.endreborn.wolframium_rod": "Вольфрамовый стержень",
+ "item.endreborn.wolframium_dust": "Вольфрамовая пыль",
+ "item.endreborn.wolframium_paxel": "Вольфрамовыый паксель",
+ "item.endreborn.endorium_plate": "Эндориумовая пластина",
+ "item.endreborn.endorium_rod": "Эндориумовый стержень",
+ "item.endreborn.endorium_dust": "Эндориумовая пыль",
+ "item.endreborn.endorium_crystals": "Эндориумовый кристалл",
+ "item.endreborn.endorium_dirty_dusts": "Эндориумовая загрязненная пыль",
+ "item.endreborn.endorium_shards": "Эндерняковый осколок",
+ "item.endreborn.endorium_clumps": "Эндориумовая глыба",
+ "item.endreborn.endorium_paxel": "Эндориумовый паксель",
 
 //Armor
  "item.endreborn.wolframium_helmet": "Вольфрамовый шлем",
