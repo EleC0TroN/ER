@@ -3,6 +3,7 @@ package com.electron.endreborn;
 import com.electron.endreborn.compatibility.CompatTab;
 import com.electron.endreborn.compatibility.ImmersiveEngineering;
 import com.electron.endreborn.compatibility.Quark;
+import com.electron.endreborn.compatibility.VanillaBoom;
 import com.electron.endreborn.world.NatureGen;
 import com.electron.endreborn.world.NatureStructures;
 import net.minecraft.entity.EntityType;
@@ -38,7 +39,10 @@ public class EndReborn
         ModItems.ITEMS.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(EntityType.class, this::onEntityRegistry);
         FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Structure.class, this::onStructureRegistry);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         MinecraftForge.EVENT_BUS.register(this);
         if (ImmersiveEngineering.isInstalled()) {
             ImmersiveEngineering.ITEMS.register(modEventBus);
@@ -46,8 +50,20 @@ public class EndReborn
         if (Quark.isInstalled()) {
             Quark.ITEMS.register(modEventBus);
         }
+        if (VanillaBoom.isInstalled()) {
+            VanillaBoom.ITEMS.register(modEventBus);
+        }
     }
 
+    @SubscribeEvent
+    public void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
+        IForgeRegistry<EntityType<?>> registry = event.getRegistry();
+        ModMobs.registerEntity(registry);
+    }
+    @SubscribeEvent
+    public void onStructureRegistry(final RegistryEvent.Register<Structure<?>> event) {
+
+<<<<<<< Updated upstream
     @SubscribeEvent
     public void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
         IForgeRegistry<EntityType<?>> registry = event.getRegistry();
@@ -61,6 +77,11 @@ public class EndReborn
     }
     private void setup(final FMLCommonSetupEvent event) {
 
+=======
+    }
+    private void setup(final FMLCommonSetupEvent event) {
+        NatureGen.initGen();
+>>>>>>> Stashed changes
     }
 
 }

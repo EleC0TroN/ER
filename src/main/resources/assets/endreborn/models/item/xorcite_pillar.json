@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "endreborn:block/decorative_xorcite",
+        "side": "endreborn:block/xorcite_pillar"
+    }
+}

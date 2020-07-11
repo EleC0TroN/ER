@@ -20,12 +20,15 @@ public class ModBlocks {
 	public static final RegistryObject<Block> CRACKED_END_BRICKS = BLOCKS.register("cracked_end_bricks", RockBlock::new);
 	public static final RegistryObject<Block> CHISELED_END_BRICKS = BLOCKS.register("chiseled_end_bricks", RockBlock::new);
 	public static final RegistryObject<Block> QUARTZ_ORE = BLOCKS.register("quartz_ore", RockBlock::new);
+<<<<<<< Updated upstream
 	public static final RegistryObject<Block> OBSIDIAN_ORE = BLOCKS.register("obsidian_ore", RockBlock::new);
 	public static final RegistryObject<Block> WOLFRAMIUM_ORE = BLOCKS.register("wolframium_ore", RockBlock::new);
 	public static final RegistryObject<WolframiumDoor> WOLFRAMIUM_DOOR = BLOCKS.register("wolframium_door", WolframiumDoor::new);
 	public static final RegistryObject<WolframiumTrapdoor> WOLFRAMIUM_TRAPDOOR = BLOCKS.register("wolframium_trapdoor", WolframiumTrapdoor::new);
 	public static final RegistryObject<Block> WOLFRAMIUM_BLOCK = BLOCKS.register("wolframium_block", MetalBlock::new);
 	public static final RegistryObject<WolframiumBars> WOLFRAMIUM_BARS = BLOCKS.register("wolframium_bars", WolframiumBars::new);
+=======
+>>>>>>> Stashed changes
 	public static final RegistryObject<Block> DRAGONITE = BLOCKS.register("dragonite", PlantBlock::new);
 	public static final RegistryObject<Block> END_MOSS = BLOCKS.register("end_moss", EndMoss::new);
 	public static final RegistryObject<Block> OGANA_WEED = BLOCKS.register("ogana_weed", OganaWeed::new);
@@ -52,6 +55,12 @@ public class ModBlocks {
 	public static final RegistryObject<Block> XORCITE = BLOCKS.register("xorcite", RockBlock::new);
 	public static final RegistryObject<Block> XORCITE_DECORATIVE = BLOCKS.register("decorative_xorcite", RockBlock::new);
 
+<<<<<<< Updated upstream
+=======
+	public static final RegistryObject<Block> ESSENCE_BLOCK = BLOCKS.register("essence_block", RockBlock::new);
+	public static final RegistryObject<Block> XORCITE_PILLAR = BLOCKS.register("xorcite_pillar", PillarBlock::new);
+
+>>>>>>> Stashed changes
 	public static void initRender(FMLClientSetupEvent event) {
 		renderCutout(OGANA_WEED.get());
 		renderCutout(PURPUR_WALL.get());
@@ -61,11 +70,8 @@ public class ModBlocks {
 		renderCutout(PURPUR_CHAIN.get());
 		renderCutout(DRAGONITE.get());
 		renderCutout(OBSIDIAN_GLASS.get());
-		renderCutout(WOLFRAMIUM_BARS.get());
-		renderCutout(WOLFRAMIUM_DOOR.get());
 		renderCutout(END_CORAL.get());
 		renderCutout(PURPUR_LANTERN.get());
-		renderCutout(WOLFRAMIUM_TRAPDOOR.get());
 	}
 	private static void renderCutout(Block block) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());

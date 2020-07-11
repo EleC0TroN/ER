@@ -26,10 +26,17 @@ public class ModConfigs {
             public static ConfigValue<Integer> obsidian_ore_rarity;
             public static ConfigValue<Integer> moss_rarity;
             public static ConfigValue<Integer> decorator_rarity;
+<<<<<<< Updated upstream
             public static ConfigValue<Integer> tungsten_rarity;
             public static ConfigValue<Integer> dragonite_rarity;
             public static ConfigValue<Integer> quartz_rarity;
             public static ConfigValue<Integer> xorcite_cluster_rarity;
+=======
+            public static ConfigValue<Integer> tungsten_ore_rarity;
+            public static ConfigValue<Integer> dragonite_rarity;
+            public static ConfigValue<Integer> quartz_rarity;
+            public static ConfigValue<Integer> xorcite_clusters_rarity;
+>>>>>>> Stashed changes
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
             public static ConfigValue<Boolean> enderman_tweaks;
@@ -68,6 +75,7 @@ public class ModConfigs {
                         .comment("Quartz Ore spawn rarity")
                         .defineInRange("quartz_rarity", 4, 0, 64);
 
+<<<<<<< Updated upstream
                 xorcite_cluster_rarity = builder
                         .comment("Xorcite Spikes spawn rarity")
                         .defineInRange("xorcite_spikes_rarity", 3, 0, 64);
@@ -75,6 +83,15 @@ public class ModConfigs {
                 tungsten_rarity = builder
                         .comment("Tungsten Ore spawn rarity")
                         .defineInRange("tungsten_rarity", 3, 0, 64);
+=======
+                xorcite_clusters_rarity = builder
+                        .comment("Xorcite Clusters spawn rarity")
+                        .defineInRange("xorcite_clusters_rarity", 6, 0, 64);
+
+                tungsten_ore_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("tungsten_rarity", 4, 0, 64);
+>>>>>>> Stashed changes
 
                 builder.pop();
             }

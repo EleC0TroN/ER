@@ -1,0 +1,23 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "vanillaboom"
+  }],
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "endreborn:xorcite_pillar"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,11 @@ loaderVersion="[32,)" #mandatory (31 is current forge version)
 issueTrackerURL="http://my.issue.tracker/" #optional
 [[mods]] #mandatory
 modId="endreborn" #mandatory
+<<<<<<< Updated upstream
 version="0.7.1" #mandatory
+=======
+version="0.7.2" #mandatory
+>>>>>>> Stashed changes
 displayName="End: Reborn" #mandatory
 updateJSONURL="https://github.com/EleC0TroN/ER" #optional
 displayURL="https://github.com/EleC0TroN/ER" #optional

@@ -1,7 +1,10 @@
 package com.electron.endreborn.world;
 
 import com.electron.endreborn.EndReborn;
+<<<<<<< Updated upstream
 import com.google.common.collect.ImmutableMap;
+=======
+>>>>>>> Stashed changes
 import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.LockableLootTileEntity;
@@ -17,7 +20,13 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
+<<<<<<< Updated upstream
 import net.minecraft.world.gen.feature.structure.*;
+=======
+import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
+>>>>>>> Stashed changes
 import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
@@ -29,8 +38,17 @@ import java.util.Random;
 
 public class EndShipwreckPieces {
     private static final ResourceLocation[] SHIP = new ResourceLocation[]{new ResourceLocation(EndReborn.MODID + ":end_shipwreck"), new ResourceLocation(EndReborn.MODID + ":end_beacon")};
+<<<<<<< Updated upstream
     private static final BlockPos OFFSET = new BlockPos(4, 0, 15);
     public static void addStructure(TemplateManager p_207617_0_, BlockPos p_207617_1_, Rotation p_207617_2_, List<StructurePiece> p_207617_3_, Random random) {
+=======
+
+    public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random) {
+
+        int x = pos.getX();
+        int z = pos.getZ();
+
+>>>>>>> Stashed changes
         ResourceLocation resourcelocation = SHIP[random.nextInt(SHIP.length)];
         int nope = random.nextInt(100);
         if(nope >= 50) {
@@ -39,11 +57,16 @@ public class EndShipwreckPieces {
     }
 
 
+<<<<<<< Updated upstream
     public static class Piece extends TemplateStructurePiece {
         private final ResourceLocation field_207615_d;
         private final Rotation field_207616_e;
 
         public Piece(TemplateManager p_i49313_1_, ResourceLocation p_i49313_2_, BlockPos p_i49313_3_, Rotation p_i49313_4_, int p_i49313_5_) {
+=======
+        public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn)
+        {
+>>>>>>> Stashed changes
             super(NatureStructures.END_SHIPWRECK_PIECE, 0);
             this.field_207615_d = p_i49313_2_;
             BlockPos blockpos = EndShipwreckPieces.OFFSET;
@@ -74,6 +97,10 @@ public class EndShipwreckPieces {
             tagCompound.putString("Rot", this.field_207616_e.name());
         }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         protected void handleDataMarker(String function, BlockPos pos, IWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if (function.startsWith("Chest")) {
                 BlockPos blockpos = pos.down();
@@ -83,6 +110,7 @@ public class EndShipwreckPieces {
             }
         }
 
+<<<<<<< Updated upstream
         @Override
         public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator p_230383_3_, Random p_230383_4_, MutableBoundingBox p_230383_5_, ChunkPos p_230383_6_, BlockPos p_230383_7_) {
             BlockPos blockpos = this.template.getSize();
@@ -95,6 +123,15 @@ public class EndShipwreckPieces {
 
             this.templatePosition = blockpos2;
 
+=======
+        public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos)
+        {
+            BlockPos blockpos = this.template.getSize();
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
+            this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
+
+            boolean flag = super.func_230383_a_(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
+>>>>>>> Stashed changes
             return flag;
         }
     }
