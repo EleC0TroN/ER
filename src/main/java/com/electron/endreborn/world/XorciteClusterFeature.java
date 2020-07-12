@@ -23,15 +23,9 @@ public class XorciteClusterFeature extends Feature<NoFeatureConfig> {
         int i = 0;
         BlockState blockstate = ModBlocks.XORCITE.get().getDefaultState();
 
-<<<<<<< Updated upstream
-            if (pos.getY() <= 55 && pos.getY() >= 46 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE && worldIn.isAirBlock(pos.up())) {
-                for (int j = 0; j < 1024; ++j) {
-                BlockPos blockpos4 = pos.add(rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8), rand.nextInt(8) - rand.nextInt(6));
-=======
             if (pos.getY() <= 53 && pos.getY() >= 46 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE && worldIn.isAirBlock(pos.up())) {
                 for (int j = 0; j < 2024; ++j) {
                 BlockPos blockpos4 = pos.add(rand.nextInt(16) - rand.nextInt(15), rand.nextInt(6), rand.nextInt(16) - rand.nextInt(16));
->>>>>>> Stashed changes
                 if (worldIn.getBlockState(blockpos4).getBlock() == Blocks.END_STONE) {
                     worldIn.setBlockState(blockpos4, blockstate, 2);
                     ++i;
@@ -39,11 +33,7 @@ public class XorciteClusterFeature extends Feature<NoFeatureConfig> {
             }
 
                 for (int j = 0; j < 256; ++j) {
-<<<<<<< Updated upstream
-                    BlockPos blockpos4 = pos.add(rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8), rand.nextInt(8) - rand.nextInt(6));
-=======
                     BlockPos blockpos4 = pos.add(rand.nextInt(16) - rand.nextInt(15), rand.nextInt(6), rand.nextInt(16) - rand.nextInt(16));
->>>>>>> Stashed changes
                     if (worldIn.getBlockState(blockpos4.up()).getBlock() == ModBlocks.XORCITE.get() && worldIn.isAirBlock(blockpos4)) {
                         worldIn.setBlockState(blockpos4, ModBlocks.ROOTS.get().getDefaultState().with(BlockStateProperties.ATTACHED, false), 2);
                         ++i;

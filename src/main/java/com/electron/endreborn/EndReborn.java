@@ -39,10 +39,6 @@ public class EndReborn
         ModItems.ITEMS.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(EntityType.class, this::onEntityRegistry);
         FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Structure.class, this::onStructureRegistry);
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         MinecraftForge.EVENT_BUS.register(this);
         if (ImmersiveEngineering.isInstalled()) {
             ImmersiveEngineering.ITEMS.register(modEventBus);
@@ -63,25 +59,9 @@ public class EndReborn
     @SubscribeEvent
     public void onStructureRegistry(final RegistryEvent.Register<Structure<?>> event) {
 
-<<<<<<< Updated upstream
-    @SubscribeEvent
-    public void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
-        IForgeRegistry<EntityType<?>> registry = event.getRegistry();
-        ModMobs.registerEntity(registry);
-    }
-
-    @SubscribeEvent
-    public void onStructureRegistry(final RegistryEvent.Register<Structure<?>> event) {
-        IForgeRegistry<Structure<?>> registry = event.getRegistry();
-        NatureStructures.registerStructures(registry);
-    }
-    private void setup(final FMLCommonSetupEvent event) {
-
-=======
     }
     private void setup(final FMLCommonSetupEvent event) {
         NatureGen.initGen();
->>>>>>> Stashed changes
     }
 
 }
