@@ -23,7 +23,7 @@ public class XorciteClusterFeature extends Feature<NoFeatureConfig> {
         int i = 0;
         BlockState blockstate = ModBlocks.XORCITE.get().getDefaultState();
 
-            if (pos.getY() <= 53 && pos.getY() >= 46 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE && worldIn.isAirBlock(pos.up())) {
+            if (pos.getY() <= 36 && pos.getY() >= 30 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE && worldIn.isAirBlock(pos.up())) {
                 for (int j = 0; j < 2024; ++j) {
                 BlockPos blockpos4 = pos.add(rand.nextInt(16) - rand.nextInt(15), rand.nextInt(6), rand.nextInt(16) - rand.nextInt(16));
                 if (worldIn.getBlockState(blockpos4).getBlock() == Blocks.END_STONE) {

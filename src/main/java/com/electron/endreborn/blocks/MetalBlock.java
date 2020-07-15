@@ -2,6 +2,7 @@ package com.electron.endreborn.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -16,11 +17,6 @@ public class MetalBlock extends Block implements IForgeBlock {
         super(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.25f, 5.5f).sound(SoundType.METAL));
     }
 
-    @Override
-    public boolean isBeaconBase(BlockState state, IWorldReader world, BlockPos pos, BlockPos beacon) {
-        return true;
-    }
-    
     @Override
     public int getHarvestLevel(BlockState state) {
         return 2;

@@ -1,12 +1,14 @@
 {
 //Misc
  "itemGroup.endgroup": "End: Reborn",
- "itemGroup.endcompatgroup": "End: Reborn Compat",
+ "itemGroup.endcompatgroup": "End: Reborn Compatibility",
  "tooltip.tungsten_armor": "The user becomes immune to Levitation, Slow Falling",
  "tooltip.ender_boots": "Randomly teleports the user upon receiving damage",
  "entity.endreborn.endguard": "Purpur Guardian",
  "entity.endreborn.enderman": "Enderman",
  "container.ender_transmitter": "Ender Transmitter",
+ "slurry.endreborn.clean_tungsten": "Clean Tungsten Slurry",
+ "slurry.endreborn.dirty_tungsten": "Dirty Tungsten Slurry",
 
 //Items
  "item.endreborn.endorium_nugget": "Endorium Nugget",
@@ -22,14 +24,19 @@
  "item.endreborn.endorium_plate": "Endorium Plate",
  "item.endreborn.endorium_rod": "Endorium Rod",
  "item.endreborn.endorium_dust": "Endorium Dust",
- "item.endreborn.endorium_crystals": "Endorium Crystal",
- "item.endreborn.endorium_dirty_dusts": "Endorium Dirty Dust",
- "item.endreborn.endorium_shards": "Endorium Shard",
- "item.endreborn.endorium_clumps": "Endorium Clump",
  "item.endreborn.endorium_paxel": "Endorium Paxel",
  "item.endreborn.tungsten_ingot": "Tungsten Ingot",
  "item.endreborn.tungsten_nugget": "Tungsten Nugget",
  "item.endreborn.tungsten_hammer": "Tungsten Sledgehammer",
+ "item.endreborn.tungsten_dust": "Tungsten Dust",
+ "item.endreborn.tungsten_crystal": "Tungsten Crystal",
+ "item.endreborn.tungsten_dirty_dust": "Tungsten Dirty Dust",
+ "item.endreborn.tungsten_clump": "Tungsten Clump",
+ "item.endreborn.tungsten_paxel": "Tungsten Paxel",
+ "item.endreborn.tungsten_qio_drive": "Star-Endium QIO Drive",
+ "item.endreborn.tungsten_shard": "Tungsten Shard",
+ "item.endreborn.tungsten_plate": "Tungsten Plate",
+ "item.endreborn.tungsten_rod": "Tungsten Rod",
 
 //Armor
  "item.endreborn.ender_boots": "Ender Boots",
@@ -87,14 +94,15 @@
  "block.endreborn.end_stone_button": "End Stone Button",
  "block.endreborn.essence_block": "Essence Block",
  "block.endreborn.xorcite_pillar": "Xorcite Pillar",
-
+ "block.endreborn.sheetmetal_tungsten": "Tungsten Sheetmetal",
+ 
 //Advancements
  "advancements.endreborn.root.title": "End: Reborn",
  "advancements.endreborn.root.description": "The End is just the beginning",
  "advancements.endreborn.end_stone.title": "Souvenir",
  "advancements.endreborn.end_stone.description": "Collect: End Stone",
- "advancements.endreborn.iron_hammer.title": "Not a Mjolnir but...",
- "advancements.endreborn.iron_hammer.description": "Collect: Sledgehammer",
+ "advancements.endreborn.iron_hammer.title": "DIY Mjolnir",
+ "advancements.endreborn.iron_hammer.description": "Collect: Iron Sledgehammer",
  "advancements.endreborn.endguard.title": "Another Titan Fall",
  "advancements.endreborn.endguard.description": "Kill: Purpur Guardian",
  "advancements.endreborn.lantern.title": "Lightners",
@@ -110,8 +118,7 @@
  "advancements.endreborn.end_mushroom.title": "Mushroom Party!",
  "advancements.endreborn.end_mushroom.description": "Collect: Endshroom",
  "advancements.endreborn.endorium_block.title": "Stonks",
- "advancements.endreborn.endorium_block.description": "Collect: Endorium Block",
+ "advancements.endreborn.endorium_block.description": "Collect: Block of Endorium",
  "advancements.endreborn.end_stone_pillar.title": "Awaken, My Masters",
  "advancements.endreborn.end_stone_pillar.description": "Collect: End Stone Pillar, Quartz Pillar, Purpur Pillar"
-
 }

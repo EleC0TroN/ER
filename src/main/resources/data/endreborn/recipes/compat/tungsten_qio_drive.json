@@ -1,0 +1,5 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  }],"type":"minecraft:crafting_shaped","result":{"item":"endreborn:tungsten_qio_drive"},"pattern":["I%I","P#P","I%I"],"key":{"I":{"tag":"forge:ingots/tungsten"},"#":{"tag":"forge:nuggets/endorium"},"%":{"item":"mekanism:qio_drive_time_dilating"},"P":{"item":"mekanism:qio_drive_hyper_dense"}}}

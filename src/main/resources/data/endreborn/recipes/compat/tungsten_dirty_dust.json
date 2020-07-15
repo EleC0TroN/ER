@@ -1,0 +1,4 @@
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],"type":"mekanism:crushing","input":{"ingredient":{"tag":"mekanism:clumps/tungsten"}},"output":{"item":"endreborn:tungsten_dirty_dust"}}

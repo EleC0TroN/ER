@@ -3,9 +3,12 @@ package com.electron.endreborn.world;
 import com.electron.endreborn.EndReborn;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -18,16 +21,19 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
         super(p_i231989_1_);
     }
 
+    @Override
+    protected boolean func_230363_a_(ChunkGenerator chunkGenerator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int x, int z, Biome biome, ChunkPos chunkPos, NoFeatureConfig config) {
+        random.setLargeFeatureSeed(seed, x, z);
+        return random.nextDouble() < 50;
+    }
+    @Override
     public Structure.IStartFactory getStartFactory() {
         return EndShipwreckStructure.Start::new;
     }
 
+    @Override
     public String getStructureName() {
         return EndReborn.MODID + ":end_shipwreck";
-    }
-
-    public int getSize() {
-        return 3;
     }
 
     public static class Start extends StructureStart<NoFeatureConfig> {

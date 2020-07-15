@@ -39,6 +39,7 @@ public class ModBlocks {
 	public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", MetalBlock::new);
 
 	public static final RegistryObject<Block> ENDORIUM_SHEETMETAL = BLOCKS.register("sheetmetal_endorium", MetalBlock::new);
+	public static final RegistryObject<Block> TUNGSTEN_SHEETMETAL = BLOCKS.register("sheetmetal_tungsten", MetalBlock::new);
 	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS = BLOCKS.register("framed_obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
 	public static final RegistryObject<Block> PURPUR_WALL = BLOCKS.register("purpur_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE).notSolid()));
 	public static final RegistryObject<Block> ENDSTONE_BUTTON = BLOCKS.register("end_stone_button", () -> new CustomButtonBlock(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE).notSolid()));

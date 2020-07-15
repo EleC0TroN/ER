@@ -1,0 +1,4 @@
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],"type":"mekanism:washing","fluidInput":{"amount":5,"tag":"minecraft:water"},"slurryInput":{"amount":1,"slurry":"endreborn:dirty_tungsten"},"output":{"slurry":"endreborn:clean_tungsten","amount":1}}

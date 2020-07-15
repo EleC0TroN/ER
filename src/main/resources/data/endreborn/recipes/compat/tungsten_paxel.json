@@ -1,0 +1,29 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "APS",
+    " @ ",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "endreborn:tungsten_axe"
+    },
+    "P": {
+      "item": "endreborn:tungsten_pickaxe"
+    },
+    "S": {
+      "item": "endreborn:tungsten_shovel"
+    }
+  },
+  "result": {
+    "item": "endreborn:tungsten_paxel"
+  }
+}

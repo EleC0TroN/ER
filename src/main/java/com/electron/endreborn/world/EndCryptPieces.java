@@ -110,7 +110,7 @@ public class EndCryptPieces {
 
         public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn)
         {
-            super(NatureStructures.END_CRYPT_PIECE, 0);
+            super(StructurePieces.END_CRYPT_PIECE, 0);
             this.resourceLocation = resourceLocationIn;
             BlockPos blockpos = EndCryptPieces.OFFSET.get(resourceLocation);
             this.templatePosition = pos.add(blockpos.getX(), blockpos.getY(), blockpos.getZ());
@@ -119,7 +119,7 @@ public class EndCryptPieces {
         }
 
         public Piece(TemplateManager templateManagerIn, CompoundNBT tagCompound) {
-            super(NatureStructures.END_CRYPT_PIECE, tagCompound);
+            super(StructurePieces.END_CRYPT_PIECE, tagCompound);
             this.resourceLocation = new ResourceLocation(tagCompound.getString("Template"));
             this.rotation = Rotation.valueOf(tagCompound.getString("Rot"));
             this.setupPiece(templateManagerIn);

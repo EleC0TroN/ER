@@ -49,7 +49,7 @@ public class EndShipwreckPieces {
 
         public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn)
         {
-            super(NatureStructures.END_SHIPWRECK_PIECE, 0);
+            super(StructurePieces.END_SHIPWRECK_PIECE, 0);
             this.resourceLocation = resourceLocationIn;
 
             this.templatePosition = pos;
@@ -59,7 +59,7 @@ public class EndShipwreckPieces {
 
         public Piece(TemplateManager templateManagerIn, CompoundNBT tagCompound)
         {
-            super(NatureStructures.END_SHIPWRECK_PIECE, tagCompound);
+            super(StructurePieces.END_SHIPWRECK_PIECE, tagCompound);
             this.resourceLocation = new ResourceLocation(tagCompound.getString("Template"));
             this.rotation = Rotation.valueOf(tagCompound.getString("Rot"));
             this.setupPiece(templateManagerIn);

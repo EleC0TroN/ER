@@ -1,0 +1,4 @@
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],"type":"mekanism:dissolution","itemInput":{"ingredient":{"tag":"forge:ores/tungsten"}},"gasInput":{"amount":1,"gas":"mekanism:sulfuric_acid"},"output":{"slurry":"endreborn:dirty_tungsten","amount":1000,"chemicalType":"slurry"}}

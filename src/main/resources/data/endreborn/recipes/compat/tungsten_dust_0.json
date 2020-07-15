@@ -1,0 +1,4 @@
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],"type":"mekanism:enriching","input":{"ingredient":{"tag":"mekanism:dirty_dusts/tungsten"}},"output":{"item":"endreborn:tungsten_dust"}}
