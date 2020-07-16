@@ -30,10 +30,8 @@ public class EndReborn
 	public static final CreativeTabs endertab = new EndRebornTab("endertab");
 
     private static boolean compat = true;
-    public static boolean voidcraftLoaded = false;
     public static boolean thaumcraftLoaded = false;
     public static boolean activateEndGeneration;
-    public static boolean activateVanillaEndOres;
 	
     
 	@Instance(Reference.MODID)

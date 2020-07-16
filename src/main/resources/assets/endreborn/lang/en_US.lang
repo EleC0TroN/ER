@@ -8,7 +8,7 @@ item.item_shard_obsidian.name=Obsidian Shard
 item.item_raw_endorium.name=Endorium Nugget
 item.item_dragonite_seeds.name=Dragonite Seeds
 item.ender_bow.name=Endorium Bow
-item.ender_sword.name=End-Mage Barclay`s Sword
+item.ender_sword.name=End-Mage Barclay Sword
 item.item_end_essence.name=Essence
 item.item_advanced_ender_pearl.name=Advanced Ender Pearl
 item.item_end_shard.name=Purpur Shards
@@ -33,7 +33,7 @@ tile.block_end_stone_pillar.name=End Stone Pillar
 tile.block_end_stone_smooth.name=Smooth End Stone 
 tile.block_purpur_lamp.name=Purpur Lamp
 tile.crop_dragonite.name=Dragonite
-tile.crop_ender_flower.name=Ender`s Flower
+tile.crop_ender_flower.name=Enderemus
 tile.block_essence_ore.name=Essence Ore
 tile.block_phantom.name=Phantom Block
 tile.block_lormyte_crystal.name=Lormyte Stone
@@ -50,7 +50,7 @@ tile.block_end_magma.name=End Magma
 tile.block_end_forge.name=Void Forge
 tile.dragon_essence.name=Xorcite Cluster
 tile.entropy_user.name=Materializer
-tile.broken_ender_flower.name=Broken Ender`s Flower
+tile.broken_ender_flower.name=Broken Enderemus
 tile.chiseled_end_bricks.name=Chiseled End Bricks
 
 # Tools -
@@ -96,10 +96,10 @@ entity.Villager.endreborn.overworld_explorer.name=World Explorer
 #Compat
 modifier.endorium.name=Rage
 modifier.endorium.desc=§oWhere is physics!?§r\nCritical strike increases attack speed.
-modifier.Tungsten.name=Moon Voice
-modifier.Tungsten.desc=§oThe loneliness echo...§r\nGives strength on a full moon.
+modifier.wolframium.name=Moon Voice
+modifier.wolframium.desc=§oThe loneliness echo...§r\nGives strength on a full moon.
 material.endorium.name=Endorium
-material.Tungsten.name=Tungsten
+material.wolframium.name=Tungsten
 
 #Book
 item.endreborn.book.name=Book of The End

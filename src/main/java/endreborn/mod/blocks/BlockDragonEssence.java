@@ -17,6 +17,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
@@ -59,7 +61,20 @@ public class BlockDragonEssence extends BlockCrops implements IHasModel
     {
         return null;
     }
-
+    @Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	{
+		if(!worldIn.isRemote)
+		{
+			if(this.isMaxAge(state))
+			{
+				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ItemInit.DEATH_ESSENCE, 1)));
+				worldIn.setBlockState(pos, BlockInit.ENTROPY_END_STONE.getDefaultState());
+				return true;
+			}
+		}
+		return false;
+	}
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
         return ESSENCE_AABB;

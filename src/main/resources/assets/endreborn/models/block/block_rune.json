@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_column",
     "textures": {
-        "end": "blocks/purpur_pillar_top",
+        "end": "blocks/purpur_block",
         "side": "endreborn:blocks/block_rune"
     },
     "elements": [

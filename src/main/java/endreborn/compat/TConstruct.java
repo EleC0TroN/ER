@@ -11,13 +11,13 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 
 public class TConstruct {
     public static Material endorium    = new Material("endorium",  0x1b_7b_6b);
-    public static Material wolframium    = new Material("wolframium", 0x9C_A9_8C);
+    public static Material wolframium    = new Material("wolframium", 0x2F_33_2A);
 
     public static final AbstractTrait endoriumTrait      = new EndoriumTrait();
     public static final AbstractTrait wolframiumTrait      = new WolframiumTrait();
 
     static void preInit()
-    {
+    { 
         TinkerRegistry.addMaterialStats(TConstruct.endorium,
                 new HeadMaterialStats(1024, 5.5f, 8.0f, HarvestLevels.OBSIDIAN),
                 new BowMaterialStats(1.2f, 2f, 5),
