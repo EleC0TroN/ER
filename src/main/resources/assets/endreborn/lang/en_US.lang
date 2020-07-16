@@ -137,7 +137,7 @@ tile.ender_lord.rage_4=Lord: To rise you need to fall!
 tile.ender_lord.wither=You can not compare the creation and creator!
 tile.ender_lord.lord=Lord: This is not fair now!
 tile.ender_lord.name=Lord
-tile.catalyst.tooltip=Works as a catalyst for Materializer
+tile.catalyst.tooltip=Materializer recipes ñatalyst
 container.entropy_user=Materializer
 item.endreborn.record.end.desc=Yozhh - The Void
 
@@ -193,64 +193,64 @@ item.banner.endreborn_pearl.orange=Orange Pearl
 
 #Advancements 
 advancements.endreborn.root.title=End: Reborn
-advancements.endreborn.root.description=The beginning!
+advancements.endreborn.root.description=The new beginning!
 
 advancements.endreborn.end_stone.title=Souvenir
-advancements.endreborn.end_stone.description=You need to get: End Stone
+advancements.endreborn.end_stone.description=Collect: End Stone
 
 advancements.endreborn.raw_endorium.title=The Densest Material
-advancements.endreborn.raw_endorium.description=You need to create: Endorium
+advancements.endreborn.raw_endorium.description=Collect: Endorium
 
 advancements.endreborn.crop_ender_flower.title=Mutation
-advancements.endreborn.crop_ender_flower.description=You need to create: Ender`s Flower
+advancements.endreborn.crop_ender_flower.description=Collect: Ender`s Flower
 
 advancements.endreborn.obsidian_armor.title=I need moonlight!
-advancements.endreborn.obsidian_armor.description=You need to wear: Obsidian Armor
+advancements.endreborn.obsidian_armor.description=Equip: Obsidian Armor
 
 advancements.endreborn.endermen_curse.title=How ironic...
-advancements.endreborn.endermen_curse.description=You need to create: Endorium Sword
+advancements.endreborn.endermen_curse.description=Collect: Endorium Sword
 
 advancements.endreborn.ender_flesh.title=Delicacy
-advancements.endreborn.ender_flesh.description=You need to eat: Ender`s Flesh
+advancements.endreborn.ender_flesh.description=Eat: Ender`s Flesh
 
 advancements.endreborn.iron_hammer.title=Hephaestus
-advancements.endreborn.iron_hammer.description=You need to create: Sledgehammer
+advancements.endreborn.iron_hammer.description=Collect: Sledgehammer
 
 advancements.endreborn.ender_sword.title=Lord of the End
-advancements.endreborn.ender_sword.description=You need to create: End-Mage Barclay`s Sword
+advancements.endreborn.ender_sword.description=Collect: End-Mage Barclay`s Sword
 
 advancements.endreborn.mine_essence.title=Power of Obsidian 
 advancements.endreborn.mine_essence.description=Obtain: Essence Ore
 
 advancements.endreborn.end_rune.title=I see you...
-advancements.endreborn.end_rune.description=You need to create: Purpur Rune
+advancements.endreborn.end_rune.description=Collect: Purpur Rune
 
 advancements.endreborn.lormyte_crystal.title=Something new
 advancements.endreborn.lormyte_crystal.description=Obtain: Lormyte Crystal
 
 advancements.endreborn.tool_magnifier.title=Duet of Metals
-advancements.endreborn.tool_magnifier.description=You need to get: Magnetor
+advancements.endreborn.tool_magnifier.description=Collect: Magnetor
 
 advancements.endreborn.item_ingot_wolframium.title=He melted!
-advancements.endreborn.item_ingot_wolframium.description=You need to get: Tungsten Ingot
+advancements.endreborn.item_ingot_wolframium.description=Collect: Tungsten Ingot
 
 advancements.endreborn.lord.title=Last of them
-advancements.endreborn.lord.description=You need to get: String of Life
+advancements.endreborn.lord.description=Collect: String of Life
 
 advancements.endreborn.world_mirror.title=Also try Terraria
-advancements.endreborn.world_mirror.description=You need to create: World Mirror
+advancements.endreborn.world_mirror.description=Collect: World Mirror
 
 advancements.endreborn.food_chorus_soup.title=Like a borscht!
-advancements.endreborn.food_chorus_soup.description=You need to create: Chorus Soup
+advancements.endreborn.food_chorus_soup.description=Collect: Chorus Soup
 
 advancements.endreborn.end_forge.title=World in fire
-advancements.endreborn.end_forge.description=You need to create: Void Forge
+advancements.endreborn.end_forge.description=Collect: Void Forge
 
 advancements.endreborn.dragon_scales.title=EleC0TroN shards
-advancements.endreborn.dragon_scales.description=You need to get: Dragon Scales
+advancements.endreborn.dragon_scales.description=Collect: Dragon Scales
 
 advancements.endreborn.entropy.title=Mighty Collector
-advancements.endreborn.entropy.description=You need to get: Xorcite
+advancements.endreborn.entropy.description=Collect: Xorcite
 
 advancements.endreborn.entropy_user.title=Dangerous toy
-advancements.endreborn.entropy_user.description=You need to get: Materializer
+advancements.endreborn.entropy_user.description=Collect: Materializer

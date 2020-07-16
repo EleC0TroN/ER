@@ -20,72 +20,72 @@ public final class ConfigsHandler
     	 @Config.Name("Materializer Recipes | Item 1")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem0 = "ingotIron";
+         public String materializerItem0 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 2")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem1 = "ingotGold";
+         public String materializerItem1 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 3")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem2 = "ingotCobalt";
+         public String materializerItem2 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 4")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem3 = "ingotTungsten";
+         public String materializerItem3 = "ingotCobalt";
 
     	 @Config.Name("Materializer Recipes | Item 5")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem4 = "ingotSteel";
+         public String materializerItem4 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 6")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem5 = "ingotEndorium";
+         public String materializerItem5 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 7")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem6 = "ingotCopper";
+         public String materializerItem6 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 8")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem7 = "ingotTin";
+         public String materializerItem7 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 9")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem8 = "ingotAluminium";
+         public String materializerItem8 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 10")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem9 = "dustRedstone";
+         public String materializerItem9 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 11")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem10 = "dustGlowstone";
+         public String materializerItem10 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 12")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem11 = "ingotLead";
+         public String materializerItem11 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 12")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem12 = "ingotThaumium";
+         public String materializerItem12 = "";
     	 
     	 @Config.Name("Materializer Recipes | Item 12")
          @Config.RequiresMcRestart
          @Config.Comment({"To turn on check the General page | Ore Dictionary | To disable item just leave empty"})
-         public String materializerItem13 = "ingotManasteel";
+         public String materializerItem13 = "";
     	 
     	 private RecipesConfig() {}
     }
