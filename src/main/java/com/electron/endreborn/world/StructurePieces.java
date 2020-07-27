@@ -12,6 +12,5 @@ public class StructurePieces {
     public static void init() {
         END_SHIPWRECK_PIECE = Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(EndReborn.MODID, "end_shipwreck_piece"), EndShipwreckPieces.Piece::new);
         END_CRYPT_PIECE = Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(EndReborn.MODID, "end_crypt_piece"), EndCryptPieces.Piece::new);
-
     }
 }

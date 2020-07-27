@@ -15,7 +15,6 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.structure.IglooPieces;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
@@ -36,13 +35,13 @@ public class EndCryptPieces {
     private static final ResourceLocation ROOM = new ResourceLocation(EndReborn.MODID + ":end_crypt_room");
     private static final ResourceLocation LEFT = new ResourceLocation(EndReborn.MODID + ":end_crypt_left");
 
-    private static final Map<ResourceLocation, BlockPos> OFFSET = ImmutableMap.of(TOP, new BlockPos(0, 1, 0), FRONT, new BlockPos(0, 1, 0), LEFT, new BlockPos(0, 1, 0), CROSS, new BlockPos(0, 1, 0), ROOM, new BlockPos(0, 1, 0));
+    private static final Map<ResourceLocation, BlockPos> OFFSET = ImmutableMap.of(TOP, BlockPos.ZERO, FRONT, BlockPos.ZERO, LEFT, BlockPos.ZERO, CROSS, BlockPos.ZERO, ROOM, BlockPos.ZERO);
 
     public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random)
     {
         int x = pos.getX();
         int z = pos.getZ();
-        int r = random.nextInt(ModConfigs.COMMON.balance.crypt_size.get()) + 2;
+        int r = random.nextInt(ModConfigs.COMMON.balance.crypt_size.get()) + 1;
         int c = 0;
 
         BlockPos rotationOffSet = new BlockPos(0, 0, 0).rotate(rotation);
@@ -103,17 +102,14 @@ public class EndCryptPieces {
         c = 0;
     }
 
-    public static class Piece extends TemplateStructurePiece
-    {
+    public static class Piece extends TemplateStructurePiece {
         private ResourceLocation resourceLocation;
         private Rotation rotation;
 
-        public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn)
-        {
+        public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn) {
             super(StructurePieces.END_CRYPT_PIECE, 0);
             this.resourceLocation = resourceLocationIn;
-            BlockPos blockpos = EndCryptPieces.OFFSET.get(resourceLocation);
-            this.templatePosition = pos.add(blockpos.getX(), blockpos.getY(), blockpos.getZ());
+            this.templatePosition = pos;
             this.rotation = rotationIn;
             this.setupPiece(templateManagerIn);
         }
@@ -127,11 +123,10 @@ public class EndCryptPieces {
 
         private void setupPiece(TemplateManager templateManager) {
             Template template = templateManager.getTemplateDefaulted(this.resourceLocation);
-            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(BlockPos.ZERO).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             this.setup(template, this.templatePosition, placementsettings);
         }
 
-        @Override
         protected void readAdditional(CompoundNBT tagCompound) {
             super.readAdditional(tagCompound);
             tagCompound.putString("Template", this.resourceLocation.toString());
@@ -146,16 +141,14 @@ public class EndCryptPieces {
                 }
             }
         }
-
-
-        public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos)
-        {
+        @Override
+        public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+            BlockPos blockpos = this.template.getSize();
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
-            BlockPos blockpos = EndCryptPieces.OFFSET.get(this.resourceLocation);
             this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
 
-            return super.func_230383_a_(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
+            boolean flag = super.func_230383_a_(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
+            return flag;
         }
     }
-
 }

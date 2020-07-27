@@ -4,6 +4,7 @@ import mekanism.api.text.EnumColor;
 import mekanism.api.text.TextComponentUtil;
 import mekanism.common.MekanismLang;
 import mekanism.common.content.qio.IQIODriveItem;
+import mekanism.common.registries.MekanismItems;
 import mekanism.common.tier.QIODriveTier;
 import mekanism.common.util.text.TextUtils;
 import net.minecraft.client.util.ITooltipFlag;

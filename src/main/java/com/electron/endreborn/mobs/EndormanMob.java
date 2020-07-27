@@ -77,9 +77,6 @@ public class EndormanMob extends MonsterEntity {
         return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233818_a_, 40.0D).func_233815_a_(Attributes.field_233821_d_, (double)0.3F).func_233815_a_(Attributes.field_233823_f_, 7.0D).func_233815_a_(Attributes.field_233819_b_, 64.0D);
     }
 
-    /**
-     * Sets the active target the Task system uses for tracking
-     */
     public void setAttackTarget(@Nullable LivingEntity entitylivingbaseIn) {
         ModifiableAttributeInstance modifiableattributeinstance = this.getAttribute(Attributes.field_233821_d_);
         if (entitylivingbaseIn == null) {
@@ -147,7 +144,6 @@ public class EndormanMob extends MonsterEntity {
         if (blockstate != null) {
             compound.put("carriedBlockState", NBTUtil.writeBlockState(blockstate));
         }
-
     }
 
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
@@ -168,10 +164,6 @@ public class EndormanMob extends MonsterEntity {
         this.setHeldBlockState(blockstate);
     }
 
-    /**
-     * Checks to see if this enderman should be attacking this player
-     */
-
     private boolean shouldAttackPlayer(PlayerEntity player) {
         ItemStack itemstack = player.inventory.armorInventory.get(3);
         if (itemstack.getItem() == Blocks.CARVED_PUMPKIN.asItem()) {
@@ -190,10 +182,6 @@ public class EndormanMob extends MonsterEntity {
         return sizeIn.height - 0.35F;
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
     public void livingTick() {
 
         if (this.world.isRemote) {
@@ -218,9 +206,6 @@ public class EndormanMob extends MonsterEntity {
         super.updateAITasks();
     }
 
-    /**
-     * Teleport the enderman to a random nearby position
-     */
     protected boolean teleportRandomly() {
         if (!this.world.isRemote() && this.isAlive()) {
             double d0 = this.getPosX() + (this.rand.nextDouble() - 0.5D) * 64.0D;
@@ -232,9 +217,6 @@ public class EndormanMob extends MonsterEntity {
         }
     }
 
-    /**
-     * Teleport the enderman to another entity
-     */
     private boolean teleportToEntity(Entity p_70816_1_) {
         Vector3d vector3d = new Vector3d(this.getPosX() - p_70816_1_.getPosX(), this.getPosYHeight(0.5D) - p_70816_1_.getPosYEye(), this.getPosZ() - p_70816_1_.getPosZ());
         vector3d = vector3d.normalize();
@@ -245,9 +227,6 @@ public class EndormanMob extends MonsterEntity {
         return this.teleportTo(d1, d2, d3);
     }
 
-    /**
-     * Teleport the enderman
-     */
     private boolean teleportTo(double x, double y, double z) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable(x, y, z);
 
@@ -291,7 +270,6 @@ public class EndormanMob extends MonsterEntity {
         if (blockstate != null) {
             this.entityDropItem(blockstate.getBlock());
         }
-
     }
 
     public void setHeldBlockState(@Nullable BlockState state) {
@@ -303,9 +281,6 @@ public class EndormanMob extends MonsterEntity {
         return this.dataManager.get(CARRIED_BLOCK).orElse((BlockState)null);
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
     public boolean attackEntityFrom(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
@@ -356,35 +331,22 @@ public class EndormanMob extends MonsterEntity {
             });
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
         public boolean shouldExecute() {
             this.player = this.enderman.world.getClosestPlayer(this.field_220791_m, this.enderman);
             return this.player != null;
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
         public void startExecuting() {
             this.aggroTime = 5;
             this.teleportTime = 0;
             this.enderman.func_226538_eu_();
         }
 
-        /**
-         * Reset the task's internal state. Called when this task is interrupted by another one
-         */
         public void resetTask() {
             this.player = null;
             super.resetTask();
         }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
         public boolean shouldContinueExecuting() {
             if (this.player != null) {
                 if (!this.enderman.shouldAttackPlayer(this.player)) {
@@ -398,9 +360,6 @@ public class EndormanMob extends MonsterEntity {
             }
         }
 
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
         public void tick() {
             if (this.player != null) {
                 if (--this.aggroTime <= 0) {
@@ -414,16 +373,13 @@ public class EndormanMob extends MonsterEntity {
                         if (this.nearestTarget.getDistanceSq(this.enderman) < 16.0D) {
                             this.enderman.teleportRandomly();
                         }
-
                         this.teleportTime = 0;
                     } else if (this.nearestTarget.getDistanceSq(this.enderman) > 256.0D && this.teleportTime++ >= 30 && this.enderman.teleportToEntity(this.nearestTarget)) {
                         this.teleportTime = 0;
                     }
                 }
-
                 super.tick();
             }
-
         }
     }
 
@@ -434,10 +390,6 @@ public class EndormanMob extends MonsterEntity {
             this.enderman = p_i45843_1_;
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
         public boolean shouldExecute() {
             if (this.enderman.getHeldBlockState() == null) {
                 return false;
@@ -448,9 +400,6 @@ public class EndormanMob extends MonsterEntity {
             }
         }
 
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
         public void tick() {
             Random random = this.enderman.getRNG();
             IWorld iworld = this.enderman.world;
@@ -466,7 +415,6 @@ public class EndormanMob extends MonsterEntity {
                 iworld.setBlockState(blockpos, blockstate2, 3);
                 this.enderman.setHeldBlockState((BlockState)null);
             }
-
         }
 
         private boolean func_220836_a(IWorldReader p_220836_1_, BlockPos p_220836_2_, BlockState p_220836_3_, BlockState p_220836_4_, BlockState p_220836_5_, BlockPos p_220836_6_) {
@@ -483,10 +431,6 @@ public class EndormanMob extends MonsterEntity {
             this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
         public boolean shouldExecute() {
             this.field_226540_b_ = this.field_220835_a.getAttackTarget();
             if (!(this.field_226540_b_ instanceof PlayerEntity)) {
@@ -497,16 +441,10 @@ public class EndormanMob extends MonsterEntity {
             }
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
         public void startExecuting() {
             this.field_220835_a.getNavigator().clearPath();
         }
 
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
         public void tick() {
             this.field_220835_a.getLookController().setLookPosition(this.field_226540_b_.getPosX(), this.field_226540_b_.getPosYEye(), this.field_226540_b_.getPosZ());
         }
@@ -519,10 +457,6 @@ public class EndormanMob extends MonsterEntity {
             this.enderman = p_i45841_1_;
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
         public boolean shouldExecute() {
             if (this.enderman.getHeldBlockState() != null) {
                 return false;
@@ -533,9 +467,6 @@ public class EndormanMob extends MonsterEntity {
             }
         }
 
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
         public void tick() {
             Random random = this.enderman.getRNG();
             World world = this.enderman.world;
@@ -553,7 +484,6 @@ public class EndormanMob extends MonsterEntity {
                 this.enderman.setHeldBlockState(blockstate);
                 world.removeBlock(blockpos, false);
             }
-
         }
     }
 }

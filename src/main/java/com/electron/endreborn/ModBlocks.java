@@ -1,7 +1,6 @@
 package com.electron.endreborn;
 
 import com.electron.endreborn.blocks.*;
-import com.electron.endreborn.blocks.MushroomBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -9,7 +8,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -27,6 +25,9 @@ public class ModBlocks {
 	public static final RegistryObject<Block> PURPUR_LANTERN = BLOCKS.register("purpur_lantern", EndLantern::new);
 	public static final RegistryObject<Block> CRACKED_PURPUR = BLOCKS.register("cracked_purpur", RockBlock::new);
 	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
+	public static final RegistryObject<Block> OBSIDIAN_GLASS_PANE = BLOCKS.register("obsidian_glass_pane", () -> new PaneBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(40.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
+	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS_PANE = BLOCKS.register("framed_obsidian_glass_pane", () -> new PaneBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(40.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
+
 	public static final RegistryObject<Block> END_MOSS_BLOCK = BLOCKS.register("end_moss_block", EndMoss::new);
 	public static final RegistryObject<Block> PURPUR_CHAIN = BLOCKS.register("purpur_chain", () -> new ChainBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.AIR).func_235861_h_().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.field_235597_S_).notSolid()));
 	public static final RegistryObject<Block> TUNGSTEN_ORE = BLOCKS.register("tungsten_ore", RockBlock::new);
@@ -61,6 +62,8 @@ public class ModBlocks {
 		renderCutout(OBSIDIAN_GLASS.get());
 		renderCutout(END_CORAL.get());
 		renderCutout(PURPUR_LANTERN.get());
+		renderCutout(OBSIDIAN_GLASS_PANE.get());
+		renderCutout(FRAMED_OBSIDIAN_GLASS_PANE.get());
 	}
 	private static void renderCutout(Block block) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());

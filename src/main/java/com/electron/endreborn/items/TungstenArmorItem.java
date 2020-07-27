@@ -2,14 +2,12 @@ package com.electron.endreborn.items;
 
 import com.electron.endreborn.EndReborn;
 import com.electron.endreborn.ModItems;
-import com.electron.endreborn.items.materials.ModMaterials;
+import com.electron.endreborn.items.materials.ModArmorMaterials;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.MilkBucketItem;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -19,7 +17,7 @@ import java.util.List;
 
 public class TungstenArmorItem extends ArmorItem {
     public TungstenArmorItem(EquipmentSlotType slot) {
-        super(ModMaterials.ARMOR_TUNGSTEN, slot, new Properties().group(EndReborn.ENDGROUP));
+        super(ModArmorMaterials.ARMOR_TUNGSTEN, slot, new Properties().group(EndReborn.ENDGROUP));
     }
 
     @Override

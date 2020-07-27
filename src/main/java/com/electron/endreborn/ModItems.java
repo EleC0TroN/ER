@@ -1,9 +1,8 @@
 package com.electron.endreborn;
 
+import com.electron.endreborn.compatibility.Quark;
 import com.electron.endreborn.items.*;
-import com.electron.endreborn.items.materials.ModMaterials;
-import net.minecraft.block.FlowerBlock;
-import net.minecraft.entity.EntityType;
+import com.electron.endreborn.items.materials.ModToolMaterials;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -15,21 +14,21 @@ public class ModItems {
 
 	public static final RegistryObject<Item> ENDORIUM_NUGGET = ITEMS.register("endorium_nugget", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<Item> ENDORIUM_INGOT = ITEMS.register("endorium_ingot", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<SwordItem> ENDORIUM_SWORD = ITEMS.register("endorium_sword", () -> new SwordItem(ModMaterials.TOOL_ENDORIUM, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<AxeItem> ENDORIUM_AXE = ITEMS.register("endorium_axe", () -> new AxeItem(ModMaterials.TOOL_ENDORIUM, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<ShovelItem> ENDORIUM_SHOVEL = ITEMS.register("endorium_shovel", () -> new ShovelItem(ModMaterials.TOOL_ENDORIUM, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<HoeItem> ENDORIUM_HOE = ITEMS.register("endorium_hoe", () -> new CustomHoeItem(ModMaterials.TOOL_ENDORIUM,-3, -1f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<PickaxeItem> ENDORIUM_PICKAXE = ITEMS.register("endorium_pickaxe", () -> new PickaxeItem(ModMaterials.TOOL_ENDORIUM, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<SwordItem> ENDORIUM_SWORD = ITEMS.register("endorium_sword", () -> new SwordItem(ModToolMaterials.ENDORIUM, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<AxeItem> ENDORIUM_AXE = ITEMS.register("endorium_axe", () -> new AxeItem(ModToolMaterials.ENDORIUM, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<ShovelItem> ENDORIUM_SHOVEL = ITEMS.register("endorium_shovel", () -> new ShovelItem(ModToolMaterials.ENDORIUM, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<HoeItem> ENDORIUM_HOE = ITEMS.register("endorium_hoe", () -> new CustomHoeItem(ModToolMaterials.ENDORIUM,-3, -1f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<PickaxeItem> ENDORIUM_PICKAXE = ITEMS.register("endorium_pickaxe", () -> new PickaxeItem(ModToolMaterials.ENDORIUM, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> ENDORIUM_BLOCK = ITEMS.register("endorium_block", () -> new BlockItem(ModBlocks.ENDORIUM_BLOCK.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
 	public static final RegistryObject<Item> TUNGSTEN_NUGGET = ITEMS.register("tungsten_nugget", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<Item> TUNGSTEN_INGOT = ITEMS.register("tungsten_ingot", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<IronHammer> TUNGSTEN_HAMMER = ITEMS.register("tungsten_hammer", () -> new IronHammer(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(48)));
-	public static final RegistryObject<SwordItem> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(ModMaterials.TOOL_TUNGSTEN, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<AxeItem> TUNGSTEN_AXE = ITEMS.register("tungsten_axe", () -> new AxeItem(ModMaterials.TOOL_TUNGSTEN, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<ShovelItem> TUNGSTEN_SHOVEL = ITEMS.register("tungsten_shovel", () -> new ShovelItem(ModMaterials.TOOL_TUNGSTEN, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<HoeItem> TUNGSTEN_HOE = ITEMS.register("tungsten_hoe", () -> new CustomHoeItem(ModMaterials.TOOL_TUNGSTEN,-2, -1.0F, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<PickaxeItem> TUNGSTEN_PICKAXE = ITEMS.register("tungsten_pickaxe", () -> new PickaxeItem(ModMaterials.TOOL_TUNGSTEN, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<SwordItem> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(ModToolMaterials.TUNGSTEN, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<AxeItem> TUNGSTEN_AXE = ITEMS.register("tungsten_axe", () -> new AxeItem(ModToolMaterials.TUNGSTEN, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<ShovelItem> TUNGSTEN_SHOVEL = ITEMS.register("tungsten_shovel", () -> new ShovelItem(ModToolMaterials.TUNGSTEN, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<HoeItem> TUNGSTEN_HOE = ITEMS.register("tungsten_hoe", () -> new CustomHoeItem(ModToolMaterials.TUNGSTEN,-2, -1.0F, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<PickaxeItem> TUNGSTEN_PICKAXE = ITEMS.register("tungsten_pickaxe", () -> new PickaxeItem(ModToolMaterials.TUNGSTEN, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<TungstenArmorItem> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet", () -> new TungstenArmorItem(EquipmentSlotType.HEAD));
 	public static final RegistryObject<TungstenArmorItem> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate", () -> new TungstenArmorItem(EquipmentSlotType.CHEST));
 	public static final RegistryObject<TungstenArmorItem> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings", () -> new TungstenArmorItem(EquipmentSlotType.LEGS));
@@ -40,14 +39,14 @@ public class ModItems {
 	public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(16)));
 	public static final RegistryObject<EnderBoots> ENDER_BOOTS = ITEMS.register("ender_boots", () -> new EnderBoots(EquipmentSlotType.FEET));
-
+	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS_PANE = ITEMS.register("obsidian_glass_pane", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS_PANE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS = ITEMS.register("obsidian_glass", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
-	public static final RegistryObject<SwordItem> ENDSTONE_SWORD = ITEMS.register("end_stone_sword", () -> new SwordItem(ModMaterials.TOOL_ENDSTONE, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<AxeItem> ENDSTONE_AXE = ITEMS.register("end_stone_axe", () -> new AxeItem(ModMaterials.TOOL_ENDSTONE, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<ShovelItem> ENDSTONE_SHOVEL = ITEMS.register("end_stone_shovel", () -> new ShovelItem(ModMaterials.TOOL_ENDSTONE, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<HoeItem> ENDSTONE_HOE = ITEMS.register("end_stone_hoe", () -> new CustomHoeItem(ModMaterials.TOOL_ENDSTONE,1, -1f, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<PickaxeItem> ENDSTONE_PICKAXE = ITEMS.register("end_stone_pickaxe", () -> new PickaxeItem(ModMaterials.TOOL_ENDSTONE, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<SwordItem> ENDSTONE_SWORD = ITEMS.register("end_stone_sword", () -> new SwordItem(ModToolMaterials.ENDSTONE, 3, -2.4f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<AxeItem> ENDSTONE_AXE = ITEMS.register("end_stone_axe", () -> new AxeItem(ModToolMaterials.ENDSTONE, 6f, -3.1f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<ShovelItem> ENDSTONE_SHOVEL = ITEMS.register("end_stone_shovel", () -> new ShovelItem(ModToolMaterials.ENDSTONE, 1.5f, -3f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<HoeItem> ENDSTONE_HOE = ITEMS.register("end_stone_hoe", () -> new CustomHoeItem(ModToolMaterials.ENDSTONE,1, -1f, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<PickaxeItem> ENDSTONE_PICKAXE = ITEMS.register("end_stone_pickaxe", () -> new PickaxeItem(ModToolMaterials.ENDSTONE, 1, -2.8f, new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_CORAL = ITEMS.register("end_coral", () -> new BlockItem(ModBlocks.END_CORAL.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> TUNGSTEN_END_ORE = ITEMS.register("end_tungsten_ore", () -> new BlockItem(ModBlocks.TUNGSTEN_END_ORE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_STONE_SMOOTH = ITEMS.register("burned_end_stone", () -> new BlockItem(ModBlocks.END_STONE_SMOOTH.get(), new Item.Properties().group(EndReborn.ENDGROUP)));

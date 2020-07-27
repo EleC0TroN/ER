@@ -9,6 +9,9 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.monster.piglin.PiglinEntity;
+import net.minecraft.entity.passive.GolemEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.CompoundNBT;
@@ -46,13 +49,14 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 1.0D, 32.0F));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 1.0D, 0.6F));
 
         this.goalSelector.addGoal(7, new LookAtGoal(this, MobEntity.class, 2.0F));
-        this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 2.0F));
+        this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 1.0F));
 
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, MobEntity.class, 5, false, false, (p_213619_0_) -> {
             return p_213619_0_ instanceof IMob && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob) && !(p_213619_0_ instanceof EndermanEntity) && !(p_213619_0_ instanceof EndormanMob) && !(p_213619_0_ instanceof ShulkerEntity);
         }));
@@ -81,9 +85,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     protected void collideWithEntity(Entity entityIn) {
-        if (entityIn instanceof PlayerEntity) {
-            this.setAttackTarget((LivingEntity)entityIn);
-        }
 
         super.collideWithEntity(entityIn);
     }
@@ -104,7 +105,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         }
         if (horizontalMag(this.getMotion()) > (double)2.5000003E-7F && this.rand.nextInt(5) == 0) {
             int i = MathHelper.floor(this.getPosX());
-            int j = MathHelper.floor(this.getPosY() - (double)0.2F);
+            int j = MathHelper.floor(this.getPosY() - (double)0.1F);
             int k = MathHelper.floor(this.getPosZ());
             BlockPos pos = new BlockPos(i, j, k);
             BlockState blockstate = this.world.getBlockState(pos);
@@ -141,9 +142,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         this.func_233682_c_(compound);
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
         this.func_241358_a_((ServerWorld)this.world, compound);
@@ -152,11 +150,9 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     public void func_230258_H__() {
         this.func_230260_a__(field_234196_bu_.func_233018_a_(this.rand));
     }
-
     public void func_230260_a__(int p_230260_1_) {
         this.field_234197_bv_ = p_230260_1_;
     }
-
     public int func_230256_F__() {
         return this.field_234197_bv_;
     }
@@ -164,11 +160,9 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     public void func_230259_a_(@Nullable UUID p_230259_1_) {
         this.field_234198_bw_ = p_230259_1_;
     }
-
     public UUID func_230257_G__() {
         return this.field_234198_bw_;
     }
-
     private float func_226511_et_() {
         return (float)this.func_233637_b_(Attributes.field_233823_f_);
     }
@@ -187,11 +181,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         return flag;
     }
-
-    /**
-     * Called when the entity is attacked.
-     */
-
 
     @OnlyIn(Dist.CLIENT)
     public void handleStatusUpdate(byte id) {
@@ -221,9 +210,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0F, 1.0F);
     }
 
-    /**
-     * Called when the mob's health reaches 0.
-     */
     public void onDeath(DamageSource cause) {
         super.onDeath(cause);
     }
@@ -246,6 +232,4 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
             return WorldEntitySpawner.func_234968_a_(worldIn, blockpos, worldIn.getBlockState(blockpos), Fluids.EMPTY.getDefaultState(), EntityType.IRON_GOLEM) && worldIn.checkNoEntityCollision(this);
         }
     }
-
-
 }

@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
-public class ModMaterials {
+public class ModArmorMaterials {
     public static IArmorMaterial ARMOR_TUNGSTEN = new IArmorMaterial() {
         @Override
         public float getToughness() {
@@ -72,89 +72,6 @@ public class ModMaterials {
                     break;
             }
             return 0;
-        }
-    };
-
-    public static IItemTier TOOL_TUNGSTEN = new IItemTier() {
-        @Override
-        public Ingredient getRepairMaterial() {
-            Ingredient repairMaterial = Ingredient.fromItems(ModItems.TUNGSTEN_INGOT.get());
-            return repairMaterial;
-        }
-        @Override
-        public int getMaxUses() {
-            return 200;
-        }
-        @Override
-        public int getHarvestLevel() {
-            return 2;
-        }
-        @Override
-        public int getEnchantability() {
-            return 0;
-        }
-        @Override
-        public float getEfficiency() {
-            return 5f;
-        }
-        @Override
-        public float getAttackDamage() {
-            return 2.5f;
-        }
-    };
-    public static IItemTier TOOL_ENDORIUM = new IItemTier() {
-        @Override
-        public Ingredient getRepairMaterial() {
-            Ingredient repairMaterial = Ingredient.fromItems(ModItems.ENDORIUM_INGOT.get());
-            return repairMaterial;
-        }
-        @Override
-        public int getMaxUses() {
-            return 440;
-        }
-        @Override
-        public int getHarvestLevel() {
-            return 3;
-        }
-        @Override
-        public int getEnchantability() {
-            return 16;
-        }
-        @Override
-        public float getEfficiency() {
-            return 7f;
-        }
-        @Override
-        public float getAttackDamage() {
-            return 4.0f;
-        }
-    };
-    
-    public static IItemTier TOOL_ENDSTONE = new IItemTier() {
-        @Override
-        public Ingredient getRepairMaterial() {
-            Ingredient repairMaterial = Ingredient.fromItems(ModBlocks.END_STONE_SMOOTH.get());
-            return repairMaterial;
-        }
-        @Override
-        public int getMaxUses() {
-            return 200;
-        }
-        @Override
-        public int getHarvestLevel() {
-            return 1;
-        }
-        @Override
-        public int getEnchantability() {
-            return 10;
-        }
-        @Override
-        public float getEfficiency() {
-            return 3f;
-        }
-        @Override
-        public float getAttackDamage() {
-            return 1.0f;
         }
     };
 
