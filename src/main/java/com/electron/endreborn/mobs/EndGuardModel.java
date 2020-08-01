@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import net.minecraft.client.renderer.entity.model.VillagerModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
@@ -27,7 +28,7 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
         this.bipedLeftLeg.setRotationPoint(5.0F, 6.0F, 0.0F);
         this.bipedLeftLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
 
-        this.bipedRightLeg = (new ModelRenderer(this, 68, 49)).setTextureSize(128, 128);;
+        this.bipedRightLeg = (new ModelRenderer(this, 68, 50)).setTextureSize(128, 128);;
         this.bipedRightLeg.setRotationPoint(-5.0F, 6.0F, 0.0F);
         this.bipedRightLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
 
@@ -60,7 +61,6 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
         this.bipedRightArm.setTextureOffset(0, 71).addBox(-4.0F, -9.0F, -4.0F, 0.0F, 5.0F, 8.0F, 0.0F);
     } 
 
-
     public Iterable<ModelRenderer> getParts() {
         return ImmutableList.of(this.bipedHead, this.bipedBody, this.bipedLeftLeg, this.bipedRightLeg, this.bipedRightArm, this.bipedLeftArm, this.chest);
     }
@@ -76,28 +76,28 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
     }
 
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
         this.bipedHead.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
         this.bipedHead.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.bipedLeftLeg.rotateAngleX = -1.5F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.bipedRightLeg.rotateAngleX = 1.5F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.bipedLeftLeg.rotateAngleY = 0.0F;
         this.bipedRightLeg.rotateAngleY = 0.0F;
-        this.bipedLeftArm.rotateAngleX = 1.2F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
-        this.bipedRightArm.rotateAngleX = -1.2F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
+        this.bipedLeftArm.rotateAngleX = 1.1F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
+        this.bipedRightArm.rotateAngleX = -1.1F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.bipedBody.rotateAngleY = -0.25F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.bipedLeftArm.rotateAngleY = 0.0F;
         this.bipedRightArm.rotateAngleY = 0.0F;
 
         float f = MathHelper.sin(this.swingProgress * -(float)Math.PI);
         float f1 = -MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-        this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.bipedRightArm.rotateAngleY += f * 1.1F - f1 * 0.4F;
+        this.bipedRightArm.rotateAngleX += f * 1.1F - f1 * 0.4F;
+        this.bipedRightArm.rotateAngleY += f * 1.0F - f1 * 0.4F;
     }
 
     private float triangleWave(float p_78172_1_, float p_78172_2_) {
         return (Math.abs(p_78172_1_ % p_78172_2_ - p_78172_2_ * 0.5F) - p_78172_2_ * 0.25F) / (p_78172_2_ * 0.25F);
     }
+
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;

@@ -9,7 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModMobs {
-    public static final EntityType<EndGuardMob> ENDGUARD = EntityType.Builder.create(EndGuardMob::new, EntityClassification.MONSTER).setTrackingRange(32).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.7f, 3.4f).build(prefix("endguard"));
+    public static final EntityType<EndGuardMob> ENDGUARD = EntityType.Builder.create(EndGuardMob::new, EntityClassification.MONSTER).setTrackingRange(32).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.55f, 3.4f).build(prefix("endguard"));
     public static final EntityType<EndormanMob> ENDOR = EntityType.Builder.create(EndormanMob::new, EntityClassification.MONSTER).setTrackingRange(32).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(0.6F, 2.9F).build(prefix("enderman"));
     @SubscribeEvent
     public static void registerEntity(IForgeRegistry<EntityType<?>> event) {

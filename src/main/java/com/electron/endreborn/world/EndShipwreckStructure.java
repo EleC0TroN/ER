@@ -39,7 +39,7 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
         public void func_230364_a_(ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
             int surfaceY = generator.func_222531_c(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
             if (surfaceY >= 55) {
-                BlockPos blockpos = new BlockPos(chunkX * 16, surfaceY-1, chunkZ * 16);
+                BlockPos blockpos = new BlockPos(chunkX * 16, surfaceY-3, chunkZ * 16);
                 Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
                 EndShipwreckPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
             }

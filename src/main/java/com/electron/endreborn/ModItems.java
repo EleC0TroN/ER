@@ -55,8 +55,8 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> END_STONE_PILLAR = ITEMS.register("end_stone_pillar", () -> new BlockItem(ModBlocks.END_STONE_PILLAR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
 	public static final RegistryObject<PurpurEye> PURPUR_EYE = ITEMS.register("purpur_eye", () -> new PurpurEye(new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<BlockItem> PURPUR_CHAIN = ITEMS.register("purpur_chain", () -> new BlockItem(ModBlocks.PURPUR_CHAIN.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> PURPUR_LANTERN = ITEMS.register("purpur_lantern", () -> new BlockItem(ModBlocks.PURPUR_LANTERN.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> PURPUR_CHAIN = ITEMS.register("purpur_chain", () -> new BlockItem(ModBlocks.PURPUR_CHAIN.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> PURPUR_WALL = ITEMS.register("purpur_wall", () -> new BlockItem(ModBlocks.PURPUR_WALL.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> CRACKED_PURPUR = ITEMS.register("cracked_purpur", () -> new BlockItem(ModBlocks.CRACKED_PURPUR.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
@@ -65,15 +65,15 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> END_MOSS_BLOCK = ITEMS.register("end_moss_block", () -> new BlockItem(ModBlocks.END_MOSS_BLOCK.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_MOSS = ITEMS.register("end_moss", () -> new BlockItem(ModBlocks.END_MOSS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
-	public static final RegistryObject<BlockItem> ROOTS = ITEMS.register("mushroom_roots", () -> new BlockItem(ModBlocks.ROOTS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> ROOTS = ITEMS.register("mushroom_roots", () -> new BlockItem(ModBlocks.ROOTS.get(), new Item.Properties().group(null)));
 	public static final RegistryObject<BlockItem> XORCITE = ITEMS.register("xorcite", () -> new BlockItem(ModBlocks.XORCITE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> DECORATIVE_XORCITE = ITEMS.register("decorative_xorcite", () -> new BlockItem(ModBlocks.XORCITE_DECORATIVE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
-	public static final RegistryObject<Item> SIMPLE_QUARTZ = ITEMS.register("simple_quartz", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<Item> SIMPLE_QUARTZ = ITEMS.register("simple_quartz", () -> new Item(new Item.Properties().group(null)));
 	public static final RegistryObject<BlockItem> DRAGONITE = ITEMS.register("dragonite", () -> new BlockItem(ModBlocks.DRAGONITE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<IronHammer> IRON_HAMMER = ITEMS.register("iron_hammer", () -> new IronHammer(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(32)));
 	public static final RegistryObject<BlockItem> TUNGSTEN_ORE = ITEMS.register("tungsten_ore", () -> new BlockItem(ModBlocks.TUNGSTEN_ORE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<BlockItem> QUARTZ_ORE = ITEMS.register("quartz_ore", () -> new BlockItem(ModBlocks.QUARTZ_ORE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<BlockItem> QUARTZ_ORE = ITEMS.register("quartz_ore", () -> new BlockItem(ModBlocks.QUARTZ_ORE.get(), new Item.Properties().group(null)));
 	public static final RegistryObject<Item> ENDGUARD_EGG = ITEMS.register("endguard_egg", () -> new SpawnEggItem(ModMobs.ENDGUARD, 5060690, 9725844, (new Item.Properties()).group(ItemGroup.MISC)));
 
 }

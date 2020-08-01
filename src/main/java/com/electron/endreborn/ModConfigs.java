@@ -33,12 +33,17 @@ public class ModConfigs {
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
             public static ConfigValue<Boolean> enderman_tweaks;
+            public static ConfigValue<Boolean> end_decorator;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
                 new_structures_end = builder
-                        .comment("The End new structures")
+                        .comment("The End new structures generation")
                         .define("new_structures_end", true);
+
+                end_decorator = builder
+                        .comment("End Moss, Endstone Coral generation")
+                        .define("tungsten_ore", true);
 
                 enderman_tweaks = builder
                         .comment("Random model size | If enabled, server logs can spam with warning about enderman spawning")
@@ -50,7 +55,7 @@ public class ModConfigs {
 
                 crypt_size = builder
                         .comment("End Crypt maximum size")
-                        .defineInRange("crypt_size", 10, 0, 64);
+                        .defineInRange("crypt_size", 8, 0, 64);
 
                 moss_rarity = builder
                         .comment("End Moss spawn rarity")
@@ -70,7 +75,7 @@ public class ModConfigs {
 
                 xorcite_clusters_rarity = builder
                         .comment("Xorcite Clusters spawn rarity")
-                        .defineInRange("xorcite_clusters_rarity", 6, 0, 64);
+                        .defineInRange("xorcite_clusters_rarity", 8, 0, 64);
 
                 tungsten_ore_rarity = builder
                         .comment("Tungsten Ore spawn rarity")

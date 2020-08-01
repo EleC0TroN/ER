@@ -35,18 +35,17 @@ public class EndCryptPieces {
     private static final ResourceLocation ROOM = new ResourceLocation(EndReborn.MODID + ":end_crypt_room");
     private static final ResourceLocation LEFT = new ResourceLocation(EndReborn.MODID + ":end_crypt_left");
 
-    private static final Map<ResourceLocation, BlockPos> OFFSET = ImmutableMap.of(TOP, BlockPos.ZERO, FRONT, BlockPos.ZERO, LEFT, BlockPos.ZERO, CROSS, BlockPos.ZERO, ROOM, BlockPos.ZERO);
-
-    public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random)
-    {
+    public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random) {
         int x = pos.getX();
         int z = pos.getZ();
         int r = random.nextInt(ModConfigs.COMMON.balance.crypt_size.get()) + 1;
         int c = 0;
 
         BlockPos rotationOffSet = new BlockPos(0, 0, 0).rotate(rotation);
+        BlockPos rotationOffSet1 = new BlockPos(-1, 0, -1).rotate(rotation);
         BlockPos blockpos = rotationOffSet.add(x, pos.getY(), z);
-        pieceList.add(new EndCryptPieces.Piece(templateManager, TOP, blockpos, rotation));
+        BlockPos blockpos1 = rotationOffSet1.add(x, pos.getY(), z);
+        pieceList.add(new EndCryptPieces.Piece(templateManager, TOP, blockpos1, rotation));
         for (int j = r; j > 0; --j) {
             int r1 = random.nextInt(13);
             if (r1 >= 0 && r1 < 7) {

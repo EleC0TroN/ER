@@ -4,14 +4,14 @@ import com.electron.endreborn.blocks.EndstonePlant;
 import com.electron.endreborn.blocks.OganaPlant;
 import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.IAngerable;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.monster.piglin.PiglinEntity;
-import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.CompoundNBT;
@@ -62,8 +62,14 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         }));
         this.targetSelector.addGoal(4, new ResetAngerGoal<>(this, false));
     }
-
-
+    public void writeAdditional(CompoundNBT compound) {
+        super.writeAdditional(compound);
+        compound.putInt("AttackTimer", this.attackTimer);
+    }
+    public void readAdditional(CompoundNBT compound) {
+        super.readAdditional(compound);
+        this.attackTimer = compound.getInt("AttackTimer");
+    }
     @OnlyIn(Dist.CLIENT)
     public boolean isAttacking() {
         return this.dataManager.get(ATTACKING);
@@ -77,7 +83,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     public static AttributeModifierMap.MutableAttribute func_234200_m_() {
-        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 200.0D).func_233815_a_(Attributes.field_233821_d_, 0.28D).func_233815_a_(Attributes.field_233820_c_, 1.0D).func_233815_a_(Attributes.field_233823_f_, 16.0D);
+        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 200.0D).func_233815_a_(Attributes.field_233821_d_, 0.28D).func_233815_a_(Attributes.field_233820_c_, 1.0D).func_233815_a_(Attributes.field_233823_f_, 14.0D);
     }
 
     protected int decreaseAirSupply(int air) {
@@ -93,6 +99,11 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         super.livingTick();
         if (this.attackTimer > 0) {
             --this.attackTimer;
+            this.setAttackTarget(null);
+            this.getAttribute(Attributes.field_233821_d_).setBaseValue(0.0D);
+        }
+        if (this.attackTimer <= 0) {
+            this.getAttribute(Attributes.field_233821_d_).setBaseValue(0.28D);
         }
         if (this.world.isRemote && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getPosX(), this.getPosY() + 2.75D, this.getPosZ(), 0.0D, 0.0D, 0.0D);
@@ -137,16 +148,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
         return false;
     }
 
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
-        this.func_233682_c_(compound);
-    }
-
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
-        this.func_241358_a_((ServerWorld)this.world, compound);
-    }
-
     public void func_230258_H__() {
         this.func_230260_a__(field_234196_bu_.func_233018_a_(this.rand));
     }
@@ -185,7 +186,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     @OnlyIn(Dist.CLIENT)
     public void handleStatusUpdate(byte id) {
         if (id == 4) {
-            this.attackTimer = 20;
+            this.attackTimer = 25;
             this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         } else {
             super.handleStatusUpdate(id);
