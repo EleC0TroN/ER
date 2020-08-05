@@ -1,7 +1,6 @@
 {
 //Misc
  "itemGroup.endreborn.general": "End: Rebellion",
- "itemGroup.endcompatgroup": "End: Reborn Compat",
  "tooltip.tungsten_armor": "The user becomes immune to Levitation, Slow Falling",
  "tooltip.ender_boots": "Randomly teleports the user upon receiving damage",
  "entity.endreborn.endguard": "Purpur Guardian",
@@ -60,6 +59,7 @@
  "block.endreborn.purpur_lantern": "Purpur Lantern",
  "block.endreborn.mossy_end_bricks": "Mossy End Stone Bricks",
  "block.endreborn.obsidian_glass": "Obsidian Decorated Glass",
+ "block.endreborn.obsidian_glass_pane": "Obsidian Decorated Glass Pane",
  "block.endreborn.burned_end_stone": "Burned End Stone",
  "block.endreborn.quartz_ore": "Quartz Ore",
  "block.endreborn.end_moss": "Mossy End Stone",

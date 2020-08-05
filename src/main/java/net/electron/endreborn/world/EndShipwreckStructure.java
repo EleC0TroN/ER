@@ -13,20 +13,18 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Random;
-
-public class EndCryptStructure extends StructureFeature<DefaultFeatureConfig> {
-    public EndCryptStructure(Codec<DefaultFeatureConfig> p_i231989_1_) {
+public class EndShipwreckStructure extends StructureFeature<DefaultFeatureConfig> {
+    public EndShipwreckStructure(Codec<DefaultFeatureConfig> p_i231989_1_) {
         super(p_i231989_1_);
     }
 
     @Override
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return EndCryptStructure.Start::new;
+        return EndShipwreckStructure.Start::new;
     }
 
     public String getName() {
-        return EndReborn.MODID + ":end_crypt";
+        return EndReborn.MODID + ":end_shipwreck";
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
@@ -35,12 +33,13 @@ public class EndCryptStructure extends StructureFeature<DefaultFeatureConfig> {
         }
         public void init(ChunkGenerator chunkGenerator, StructureManager structureManager, int i, int j, Biome biome, DefaultFeatureConfig defaultFeatureConfig) {
             int surfaceY = chunkGenerator.getHeightInGround(i * 16, j * 16, Heightmap.Type.WORLD_SURFACE_WG);
-            if (surfaceY >= 60) {
-                BlockPos blockpos = new BlockPos(i * 16, surfaceY-15, j * 16);
+            if (surfaceY >= 55) {
+                BlockPos blockpos = new BlockPos(i * 16, surfaceY-3, j * 16);
                 BlockRotation blockRotation = BlockRotation.random(this.random);
-                EndCryptPieces.start(structureManager, blockpos, blockRotation, this.children, this.random);
+                EndShipwreckPieces.start(structureManager, blockpos, blockRotation, this.children, this.random);
             }
             this.setBoundingBoxFromChildren();
         }
+
     }
 }

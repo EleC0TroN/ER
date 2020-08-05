@@ -7,10 +7,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-
-
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.entity.EntityType;
@@ -24,7 +21,7 @@ public class RenderLayers  implements ClientModInitializer
 		mobRenderer(Mobs.ENDGUARD, EndGuardRenderer.class);
 	}
 	private void init() {
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.END_CORAL, ModBlocks.OBSIDIAN_GLASS, ModBlocks.DRAGONITE, ModBlocks.OGANA_WEED, ModBlocks.ROOTS, ModBlocks.PURPUR_CHAIN, ModBlocks.POTTED_DRAGONITE);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.END_CORAL, ModBlocks.OBSIDIAN_GLASS, ModBlocks.OBSIDIAN_GLASS_PANE, ModBlocks.DRAGONITE, ModBlocks.OGANA_WEED, ModBlocks.ROOTS, ModBlocks.PURPUR_CHAIN, ModBlocks.POTTED_DRAGONITE);
 	}
 
 	public static void mobRenderer(EntityType<?> entity, Class<? extends EntityRenderer<?>> renderer)

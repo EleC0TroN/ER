@@ -24,19 +24,45 @@ public class EndMossFeature extends Feature<DefaultFeatureConfig> {
 
 		BlockState blockstate = ModBlocks.END_MOSS.getDefaultState();
 		BlockState blockstate2 = ModBlocks.END_MOSS_BLOCK.getDefaultState();
-
-		for(int j = 0; j < 1024; ++j) {
-			BlockPos blockpos = pos.add(rand.nextInt(16) - rand.nextInt(12), pos.getY(), rand.nextInt(16) - rand.nextInt(8));
-			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.canPlaceAt(worldIn, blockpos) && !worldIn.isAir(blockpos) && worldIn.isAir(blockpos.up()) && blockpos.getY() >=55) {
-				if (!worldIn.isAir(blockpos.down())) {
+		for (int j = 0; j < 448; ++j) {
+			BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(7), pos.getY(), rand.nextInt(8) - rand.nextInt(7));
+			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.canPlaceAt(worldIn, blockpos) &&  blockpos.getY() >=55) {
+				if (!worldIn.isAir(blockpos.down()) && !worldIn.isAir(blockpos) && worldIn.isAir(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate, 2);
 				}
 				++i;
-				if (worldIn.isAir(blockpos.down())) {
+
+				if (worldIn.isAir(blockpos.down()) && worldIn.isAir(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate2, 2);
-					for(int f = 0; f < rand.nextInt(6)+1; ++f) {
-						if(worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK) {
-							worldIn.setBlockState(blockpos.down(f), blockstate2, 2);
+					int u = rand.nextInt(6);
+					for (int f = 0; f < u + 1; ++f) {
+						if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK) {
+							if (worldIn.isAir(blockpos.down(f))) {
+								worldIn.setBlockState(blockpos.down(f), blockstate2, 2);
+							}
+						}
+					}
+				}
+			}
+		}
+		BlockPos blockpos_new = pos.add(rand.nextInt(12) - rand.nextInt(4), pos.getY(), rand.nextInt(12) - rand.nextInt(4));
+
+		for (int j = 0; j < 648; ++j) {
+			BlockPos blockpos = blockpos_new.add(rand.nextInt(10) - rand.nextInt(9), pos.getY(), rand.nextInt(10) - rand.nextInt(9));
+			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.canPlaceAt(worldIn, blockpos) &&  blockpos.getY() >=55) {
+				if (!worldIn.isAir(blockpos.down()) && !worldIn.isAir(blockpos) && worldIn.isAir(blockpos.up())) {
+					worldIn.setBlockState(blockpos, blockstate, 2);
+				}
+				++i;
+
+				if (worldIn.isAir(blockpos.down()) && worldIn.isAir(blockpos.up())) {
+					worldIn.setBlockState(blockpos, blockstate2, 2);
+					int u = rand.nextInt(6);
+					for (int f = 0; f < u + 1; ++f) {
+						if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK) {
+							if (worldIn.isAir(blockpos.down(f))) {
+								worldIn.setBlockState(blockpos.down(f), blockstate2, 2);
+							}
 						}
 					}
 				}

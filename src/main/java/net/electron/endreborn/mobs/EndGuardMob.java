@@ -7,12 +7,14 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
@@ -28,9 +30,8 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 
 public class EndGuardMob extends HostileEntity implements Monster {
-
     private int attackTimer;
-
+    private static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(EndGuardMob.class, TrackedDataHandlerRegistry.BOOLEAN);
     public EndGuardMob(EntityType<? extends EndGuardMob> type, World worldIn) {
         super(type, worldIn);
         this.stepHeight = 1.0F;
@@ -39,42 +40,42 @@ public class EndGuardMob extends HostileEntity implements Monster {
 
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(2, new GoToEntityTargetGoal(this, 1.0D, 32.0F));
+        this.goalSelector.add(2, new GoToEntityTargetGoal(this, 1.0D, 0.6F));
 
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 2.0F));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 2.0F));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 1.0F));
 
+        this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(3, new FollowTargetGoal<>(this, MobEntity.class, 5, false, false, (p_213619_0_) -> {
-            return p_213619_0_ instanceof Monster && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob);
+            return p_213619_0_ instanceof Monster && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob) && !(p_213619_0_ instanceof EndermanEntity) && !(p_213619_0_ instanceof ShulkerEntity);
         }));
     }
 
     public static DefaultAttributeContainer.Builder createEndguardAttributes() {
-        return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 200.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.28D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1D).add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2.5D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 16D);
+        return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 200.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.28D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1D).add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2.5D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 14D);
+    }
+    @Environment(EnvType.CLIENT)
+    public boolean isAttacking() {
+        return (Boolean)this.dataTracker.get(ATTACKING);
     }
 
-  
-    protected int decreaseAirSupply(int air) {
-        return air;
-    }
-
-    protected void pushAway(Entity entityIn) {
-        if (entityIn instanceof PlayerEntity && !(entityIn instanceof ShulkerEntity) && !(entityIn instanceof EndGuardMob)) {
-            this.setTarget((LivingEntity)entityIn);
-        }
-
-        super.pushAway(entityIn);
+    public void setAttacking(boolean shooting) {
+        this.dataTracker.set(ATTACKING, shooting);
     }
 
     public void tickMovement() {
         super.tickMovement();
         if (this.attackTimer > 0) {
             --this.attackTimer;
+            this.setTarget(null);
+            this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.0D);
+        }
+        if (this.attackTimer <= 0) {
+            this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.28D);
         }
         if (this.world.isClient() && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 2.75D, this.getZ(), 0.0D, 0.0D, 0.0D);
-
         }
         this.setAttacking(this.attackTimer > 0);
         if (this.isImmobile()) {
@@ -117,18 +118,9 @@ public class EndGuardMob extends HostileEntity implements Monster {
         }
     }
 
-    public boolean canTarget(EntityType<?> typeIn) {
-        if (typeIn == EntityType.ENDERMAN || typeIn == EntityType.SHULKER) {
-            return false;
-        } else {
-            return typeIn == EntityType.CREEPER ? false : super.canTarget(typeIn);
-        }
-    }
-
     private float getAttackDamage() {
         return (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
     }
-
 
     public boolean handleFallDamage(float fallDistance, float damageMultiplier) {
         return false;
@@ -138,13 +130,13 @@ public class EndGuardMob extends HostileEntity implements Monster {
         return false;
     }
     public boolean tryAttack(Entity target) {
-        this.attackTimer = 10;
+        this.attackTimer = 15;
         this.world.sendEntityStatus(this, (byte)4);
         float f = this.getAttackDamage();
         float g = (int)f > 0 ? f / 2.0F + (float)this.random.nextInt((int)f) : f;
         boolean bl = target.damage(DamageSource.mob(this), g);
         if (bl) {
-            target.setVelocity(target.getVelocity().add(0.0D, 0.4000000059604645D, 0.0D));
+            target.setVelocity(target.getVelocity().add(0.0D, 0.1D, 0.0D));
             this.dealDamage(this, target);
         }
 
@@ -155,12 +147,15 @@ public class EndGuardMob extends HostileEntity implements Monster {
     @Environment(EnvType.CLIENT)
     public void handleStatus(byte status) {
         if (status == 4) {
-            this.attackTimer = 10;
+            this.attackTimer = 25;
             this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         } else {
             super.handleStatus(status);
         }
-
+    }
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(ATTACKING, false);
     }
     @Environment(EnvType.CLIENT)
     public int getAttackTimer() {

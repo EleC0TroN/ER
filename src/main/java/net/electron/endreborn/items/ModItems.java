@@ -15,7 +15,7 @@ public class ModItems
     public static final Item WOLF_INGOT = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item WOLF_NUGGET = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item ESSENCE = new Item(new Item.Settings().group(EndReborn.END_GROUP));
-    public static final Item SIMPLE_QUARTZ = new Item(new Item.Settings().group(EndReborn.END_GROUP));
+    public static final Item SIMPLE_QUARTZ = new Item(new Item.Settings().group(null));
     public static final Item END_NUGGET = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item END_INGOT = new Item(new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item OBSIDIAN_SHARD = new Item(new Item.Settings().group(EndReborn.END_GROUP));
@@ -58,6 +58,8 @@ public class ModItems
         Registry.register(Registry.ITEM, new Identifier("endreborn", "endorium_shovel"), ENDOR_SHOVEL);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "endorium_block"), new BlockItem(ModBlocks.ENDORIUM_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
 
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "endguard_egg"), ENDGUARD_EGG);
+
         Registry.register(Registry.ITEM, new Identifier("endreborn", "tungsten_nugget"), WOLF_NUGGET);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "tungsten_ingot"), WOLF_INGOT);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "tungsten_sword"), WOLF_SWORD);
@@ -74,6 +76,7 @@ public class ModItems
         Registry.register(Registry.ITEM, new Identifier("endreborn", "essence"), ESSENCE);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_shard"), OBSIDIAN_SHARD);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "ender_transmitter"), ENDER_TRANSMITTER);
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass_pane"), new BlockItem(ModBlocks.OBSIDIAN_GLASS_PANE, new Item.Settings().group(EndReborn.END_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass"), new BlockItem(ModBlocks.OBSIDIAN_GLASS, new Item.Settings().group(EndReborn.END_GROUP)));
 
         Registry.register(Registry.ITEM, new Identifier("endreborn", "end_stone_sword"), END_SWORD);
@@ -99,14 +102,14 @@ public class ModItems
         Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss_block"), new BlockItem(ModBlocks.END_MOSS_BLOCK, new Item.Settings().group(EndReborn.END_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "end_moss"), new BlockItem(ModBlocks.END_MOSS, new Item.Settings().group(EndReborn.END_GROUP)));
 
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "mushroom_roots"), new BlockItem(ModBlocks.ROOTS, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "mushroom_roots"), new BlockItem(ModBlocks.ROOTS, new Item.Settings().group(null)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "xorcite"), new BlockItem(ModBlocks.XORCITE, new Item.Settings().group(EndReborn.END_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "decorative_xorcite"), new BlockItem(ModBlocks.DECORATIVE_XORCITE, new Item.Settings().group(EndReborn.END_GROUP)));
 
         Registry.register(Registry.ITEM, new Identifier("endreborn", "simple_quartz"), SIMPLE_QUARTZ);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "dragonite"), new BlockItem(ModBlocks.DRAGONITE, new Item.Settings().group(EndReborn.END_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "tungsten_ore"), new BlockItem(ModBlocks.TUNGSTEN_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("endreborn", "quartz_ore"), new BlockItem(ModBlocks.QUARTZ_ORE, new Item.Settings().group(EndReborn.END_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "quartz_ore"), new BlockItem(ModBlocks.QUARTZ_ORE, new Item.Settings().group(null)));
 
     }
 }

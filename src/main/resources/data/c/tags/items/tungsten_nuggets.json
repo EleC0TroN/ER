@@ -1,7 +1,6 @@
 {
     "replace": false,
-    "values": [],
-    "optional": [
-    "endreborn:tungsten_nugget"
-  ]
+    "values": [
+        "endreborn:tungsten_nugget"
+    ]
 }

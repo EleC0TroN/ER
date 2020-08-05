@@ -13,7 +13,6 @@ public class EndGuardRenderer extends MobEntityRenderer<EndGuardMob, EndGuardMod
 
     public EndGuardRenderer(EntityRenderDispatcher renderManagerIn) {
         super(renderManagerIn, new EndGuardModel<>(), 0.9F);
-
     }
     @Override
     public Identifier getTexture(EndGuardMob entity) {

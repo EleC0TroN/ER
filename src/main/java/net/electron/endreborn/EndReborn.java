@@ -4,6 +4,7 @@ import net.electron.endreborn.blocks.ModBlocks;
 import net.electron.endreborn.items.ModItems;
 import net.electron.endreborn.mobs.Mobs;
 import net.electron.endreborn.world.FeatureGen;
+import net.electron.endreborn.world.NatureStructures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Blocks;
@@ -20,11 +21,12 @@ public class EndReborn implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerItems();
 		ModBlocks.registerBlocks();
+		NatureStructures.registerStructures();
 		new Mobs();
 		FeatureGen.initGen();
 		FeatureGen.initOres();
 		Mobs.registerEntityAttributes();
-	}
+    }
 }
 
 

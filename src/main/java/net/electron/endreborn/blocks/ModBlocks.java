@@ -14,6 +14,7 @@ public class ModBlocks
     public static final Block END_TUNGSTEN_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block BURNED_END_STONE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block OBSIDIAN_GLASS = new GlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(50.0f).resistance(6000.0f).nonOpaque().build());
+    public static final Block OBSIDIAN_GLASS_PANE = new PaneBase(FabricBlockSettings.of(Material.GLASS).hardness(25.0f).resistance(6000.0f).nonOpaque().build());
     public static final Block QUARTZ_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block OGANA_WEED = new OganaPlant(FabricBlockSettings.copy(net.minecraft.block.Blocks.DEAD_BUSH).build());
     public static final Block DRAGONITE = new PlantBase(FabricBlockSettings.copy(net.minecraft.block.Blocks.DEAD_BUSH).build());
@@ -46,6 +47,7 @@ public class ModBlocks
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "chiseled_end_bricks"), CHISELED_END_BRICKS);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "cracked_purpur"), CRACKED_PURPUR);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "obsidian_glass"), OBSIDIAN_GLASS);
+        Registry.register(Registry.BLOCK, new Identifier("endreborn", "obsidian_glass_pane"), OBSIDIAN_GLASS_PANE);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "purpur_lantern"), PURPUR_LANTERN);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_moss_block"), END_MOSS_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_stone_pillar"), END_STONE_PILLAR);
