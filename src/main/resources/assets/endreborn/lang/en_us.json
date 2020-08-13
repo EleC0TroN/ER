@@ -1,9 +1,9 @@
 {
 //Misc
  "itemGroup.endgroup": "End: Reborn",
- "itemGroup.endcompatgroup": "End: Reborn Compat",
- "tooltip.wolframium_armor": "Removes levitation effect when worn any part",
- "tooltip.ender_boots": "Reduces taken damage and teleports",
+ "itemGroup.endcompatgroup": "End: Reborn Compatibility",
+ "tooltip.wolframium_armor": "The user becomes immune to Levitation, Slow Falling",
+ "tooltip.ender_boots": "Randomly teleports the user upon receiving damage",
  "entity.endreborn.endguard": "Purpur Guardian",
  "entity.endreborn.enderman": "Enderman",
  "container.ender_transmitter": "Ender Transmitter",
@@ -78,6 +78,7 @@
  "block.endreborn.ogana_weed": "Ogana Plant",
  "block.endreborn.obsidian_ore": "Essence Ore",
  "block.endreborn.end_stone_pillar": "End Stone Pillar",
+ "block.endreborn.end_wolframium_ore": "End Tungsten Ore",
  "block.endreborn.cracked_end_bricks": "Cracked End Bricks",
  "block.endreborn.chiseled_end_bricks": "Chiseled End Bricks",
  "block.endreborn.end_moss_block": "End Moss",

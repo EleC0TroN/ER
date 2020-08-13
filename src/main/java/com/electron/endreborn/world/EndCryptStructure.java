@@ -81,7 +81,7 @@ public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
 
             int surfaceY = generator.func_222531_c(x, z, Heightmap.Type.WORLD_SURFACE_WG);
             if (surfaceY >= 60) {
-                BlockPos blockpos = new BlockPos(x, surfaceY - 16, z);
+                BlockPos blockpos = new BlockPos(x, surfaceY - 15, z);
 
                 EndCryptPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
 

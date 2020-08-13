@@ -20,14 +20,23 @@ public class IronHammer extends Item {
 
 	@Nonnull
 	@Override
-	public ItemStack getContainerItem(@Nonnull ItemStack stack)
-	{
+	public ItemStack getContainerItem(@Nonnull ItemStack stack) {
 		ItemStack container = stack.copy();
 		if(container.attemptDamageItem(1, new Random(), null))
 			return ItemStack.EMPTY;
 		else
 			return container;
 	}
+	@Override
+	public boolean isRepairable(ItemStack stack) {
+		return false;
+	}
+
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
+
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		  stack.damageItem(1, attacker, null);
 	      return true;

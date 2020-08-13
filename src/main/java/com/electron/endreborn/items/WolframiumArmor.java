@@ -29,7 +29,8 @@ public class WolframiumArmor extends ArmorItem {
 	    ItemStack feet = player.getItemStackFromSlot(EquipmentSlotType.FEET);	
 
     	if(head.getItem() == ModItems.WOLFRAMIUM_HELMET.get() || chest.getItem() == ModItems.WOLFRAMIUM_CHESTPLATE.get() || legs.getItem() == ModItems.WOLFRAMIUM_LEGGINGS.get() || feet.getItem() == ModItems.WOLFRAMIUM_BOOTS.get()) {
-			player.removeActivePotionEffect(Effects.LEVITATION); 
+			player.removePotionEffect(Effects.LEVITATION);
+			player.removePotionEffect(Effects.SLOW_FALLING);
 		}
 	}
 	

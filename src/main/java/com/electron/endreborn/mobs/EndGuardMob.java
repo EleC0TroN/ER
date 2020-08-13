@@ -7,10 +7,7 @@ import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.ShulkerEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -46,8 +43,9 @@ public class EndGuardMob extends MonsterEntity {
         this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 2.0F));
 
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, MobEntity.class, 5, false, false, (p_213619_0_) -> {
-            return p_213619_0_ instanceof IMob && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob);
+            return p_213619_0_ instanceof IMob && !(p_213619_0_ instanceof CreeperEntity) && !(p_213619_0_ instanceof EndGuardMob) && !(p_213619_0_ instanceof EndermanEntity) && !(p_213619_0_ instanceof EndormanMob) && !(p_213619_0_ instanceof ShulkerEntity);
         }));
     }
 
@@ -56,7 +54,7 @@ public class EndGuardMob extends MonsterEntity {
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14.0D);
         this.getAttribute(SharedMonsterAttributes.ATTACK_KNOCKBACK).setBaseValue(2.5D);
     }
     @OnlyIn(Dist.CLIENT)
@@ -74,23 +72,18 @@ public class EndGuardMob extends MonsterEntity {
         return air;
     }
 
-    protected void collideWithEntity(Entity entityIn) {
-        if (entityIn instanceof PlayerEntity && !(entityIn instanceof ShulkerEntity) && !(entityIn instanceof EndGuardMob)) {
-            this.setAttackTarget((LivingEntity)entityIn);
-        }
-
-        super.collideWithEntity(entityIn);
-    }
-
     public void livingTick() {
         super.livingTick();
         if (this.attackTimer > 0) {
             --this.attackTimer;
+            this.setAttackTarget(null);
+            this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         }
-
+        if (this.attackTimer <= 0) {
+            this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
+        }
         if (this.world.isRemote && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getPosX(), this.getPosY() + 2.75D, this.getPosZ(), 0.0D, 0.0D, 0.0D);
-
         }
         this.setAttacking(this.attackTimer > 0);
         if (this.isMovementBlocked()) {
@@ -119,14 +112,6 @@ public class EndGuardMob extends MonsterEntity {
                 }
             }
 
-        }
-    }
-
-    public boolean canAttack(EntityType<?> typeIn) {
-        if (typeIn == ModMobs.ENDOR || typeIn == EntityType.ENDERMAN || typeIn == EntityType.SHULKER) {
-            return false;
-        } else {
-            return typeIn == EntityType.CREEPER ? false : super.canAttack(typeIn);
         }
     }
 
@@ -159,7 +144,7 @@ public class EndGuardMob extends MonsterEntity {
     @OnlyIn(Dist.CLIENT)
     public void handleStatusUpdate(byte id) {
         if (id == 4) {
-            this.attackTimer = 20;
+            this.attackTimer = 25;
             this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         } else {
             super.handleStatusUpdate(id);

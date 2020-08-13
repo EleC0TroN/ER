@@ -27,7 +27,7 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
         this.bipedLeftLeg.setRotationPoint(5.0F, 6.0F, 0.0F);
         this.bipedLeftLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
 
-        this.bipedRightLeg = (new ModelRenderer(this, 68, 49)).setTextureSize(128, 128);;
+        this.bipedRightLeg = (new ModelRenderer(this, 68, 50)).setTextureSize(128, 128);;
         this.bipedRightLeg.setRotationPoint(-5.0F, 6.0F, 0.0F);
         this.bipedRightLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
 

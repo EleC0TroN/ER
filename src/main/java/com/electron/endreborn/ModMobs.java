@@ -20,13 +20,10 @@ public class ModMobs {
     public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {
         registerEntity(ENDGUARD);
         registerEntity(ENDOR);
-
     }
-
     public static void preInitEntityTypes() {
-        ENDGUARD = setupEntity("endguard", ENDGUARD, EndGuardMob::new, EntityClassification.MONSTER, 32, 1.7f, 3.4f);
+        ENDGUARD = setupEntity("endguard", ENDGUARD, EndGuardMob::new, EntityClassification.MONSTER, 32, 1.55f, 3.4f);
         ENDOR = setupEntity("enderman", ENDOR, EndormanMob::new, EntityClassification.MONSTER, 32, 0.6F, 2.9F);
-
     }
 
     public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -39,16 +36,7 @@ public class ModMobs {
 
         return entityType;
     }
-    public static <T extends Entity> EntityType<T> overrideEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
-                                                               EntityClassification classification, int range, float width, float height) {
-        entityType = EntityType.Builder.create(entityTypeFactory, classification)
-                .setTrackingRange(range)
-                .size(width, height)
-                .build(name);
-        entityType.setRegistryName(new ResourceLocation("minecraft", name));
 
-        return entityType;
-    }
     public static <T extends Entity> void registerEntity(EntityType<T> entityType) {
         ForgeRegistries.ENTITIES.register(entityType);
     }

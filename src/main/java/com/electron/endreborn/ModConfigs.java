@@ -33,9 +33,14 @@ public class ModConfigs {
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
             public static ConfigValue<Boolean> enderman_tweaks;
+            public static ConfigValue<Integer> tungsten_ore_rarity;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
+                tungsten_ore_rarity = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("tungsten_rarity", 4, 0, 64);
+
                 new_structures_end = builder
                         .comment("The End new structures")
                         .define("new_structures_end", true);
@@ -50,7 +55,7 @@ public class ModConfigs {
 
                 crypt_size = builder
                         .comment("End Crypt maximum size")
-                        .defineInRange("crypt_size", 10, 0, 64);
+                        .defineInRange("crypt_size", 8, 0, 64);
 
                 moss_rarity = builder
                         .comment("End Moss spawn rarity")

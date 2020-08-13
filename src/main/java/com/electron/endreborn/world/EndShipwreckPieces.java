@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 public class EndShipwreckPieces {
-    private static final BlockPos OFFSET = new BlockPos(4, 0, 15);
+    private static final BlockPos OFFSET = new BlockPos(0, 0, 0);
     private static final ResourceLocation[] SHIP = new ResourceLocation[]{new ResourceLocation(EndReborn.MODID + ":end_shipwreck"), new ResourceLocation(EndReborn.MODID + ":end_beacon")};
 
     public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random)

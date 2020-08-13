@@ -38,6 +38,7 @@ public class ModBlocks {
 	public static final RegistryObject<Block> ROOTS = BLOCKS.register("mushroom_roots", RootsBlock::new);
 	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", MetalBlock::new);
 	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0f, 0.0f).notSolid()));
+	public static final RegistryObject<Block> END_WOLFRAMIUM_ORE = BLOCKS.register("end_wolframium_ore", RockBlock::new);
 
 	public static final RegistryObject<Block> WOLFRAMIUM_SHEETMETAL = BLOCKS.register("sheetmetal_wolframium", MetalBlock::new);
 	public static final RegistryObject<Block> ENDORIUM_SHEETMETAL = BLOCKS.register("sheetmetal_endorium", MetalBlock::new);

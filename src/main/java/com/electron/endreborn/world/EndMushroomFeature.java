@@ -46,10 +46,6 @@ public class EndMushroomFeature extends Feature<NoFeatureConfig> {
                     worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState().with(BlockStateProperties.ATTACHED, false), 2);
                     ++i;
             }
-            if (worldIn.getBlockState(blockpos.up()).getBlock() == ModBlocks.ROOTS.get() && worldIn.isAirBlock(blockpos) ) {
-                worldIn.setBlockState(blockpos, ModBlocks.ROOTS.get().getDefaultState().with(BlockStateProperties.ATTACHED, true), 2);
-                ++i;
-            }
         }
         return true;
     }
