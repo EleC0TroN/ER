@@ -2,23 +2,17 @@ package net.electron.endreborn.items;
 
 import net.electron.endreborn.EndReborn;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.EndPortalFrameBlock;
-import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.EyeOfEnderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnderEyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -45,7 +39,7 @@ public class PurpurEye extends Item {
                 if (blockPos != null) {
                     EyeOfEnderEntity eyeOfEnderEntity = new EyeOfEnderEntity(world, user.getX(), user.getBodyY(0.5D), user.getZ());
                     eyeOfEnderEntity.setItem(itemStack);
-                    eyeOfEnderEntity.moveTowards(blockPos);
+                    eyeOfEnderEntity.initTargetPos(blockPos);
 
                     world.spawnEntity(eyeOfEnderEntity);
                     if (user instanceof ServerPlayerEntity) {
@@ -63,7 +57,6 @@ public class PurpurEye extends Item {
                     return TypedActionResult.success(itemStack);
                 }
             }
-
             return TypedActionResult.consume(itemStack);
         }
     }

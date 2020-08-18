@@ -8,7 +8,7 @@ public class EndstoneMaterial implements ToolMaterial{
 
 	@Override
 	public int getDurability() {
-		return 200;
+		return 180;
 	}
 
 	@Override

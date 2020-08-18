@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -18,7 +19,7 @@ public class XorciteClusterFeature extends Feature<DefaultFeatureConfig> {
         super(p_i231932_1_);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int i = 0;
         BlockState blockstate = ModBlocks.XORCITE.getDefaultState();
         if (pos.getY() >= 60 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE && worldIn.isAir(pos.up())) {

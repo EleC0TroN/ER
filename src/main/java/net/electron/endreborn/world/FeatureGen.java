@@ -1,60 +1,77 @@
 package net.electron.endreborn.world;
 
-import net.earthcomputer.libstructure.LibStructure;
-import net.electron.endreborn.EndReborn;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import net.electron.endreborn.blocks.ModBlocks;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.BeachBiome;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.MutableRegistry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.chunk.StructureConfig;
-import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
-import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.placer.SimpleBlockPlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class FeatureGen {
+	public static void initGen(MutableRegistry<Biome> biomes) {
 
-	public static void initGen() {
-		Biomes.FOREST.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.DRAGONITE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.DARK_FOREST.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.DRAGONITE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-
-		Biomes.THE_END.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.WEED_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.END_MIDLANDS.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.WEED_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.END_HIGHLANDS.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.WEED_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-
-		Biomes.THE_END.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.END_CORAL_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(15))));
-		Biomes.END_MIDLANDS.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.END_CORAL_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(15))));
-
-		Biomes.END_MIDLANDS.addFeature(GenerationStep.Feature.RAW_GENERATION, NatureFeatures.MOSS.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(5))));
-		Biomes.THE_END.addFeature(GenerationStep.Feature.RAW_GENERATION, NatureFeatures.MOSS.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(5))));
-		Biomes.END_BARRENS.addFeature(GenerationStep.Feature.RAW_GENERATION, NatureFeatures.MOSS.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(4))));
-
-		Biomes.THE_END.addFeature(GenerationStep.Feature.RAW_GENERATION, NatureFeatures.OBSIDIAN_ORE.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(4))));
-		Biomes.END_MIDLANDS.addFeature(GenerationStep.Feature.RAW_GENERATION, NatureFeatures.END_DECO.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(4))));
-
-		Biomes.END_MIDLANDS.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.END_HIGHLANDS.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.MOUNTAINS.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.GRAVELLY_MOUNTAINS.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.BADLANDS_PLATEAU.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-		Biomes.SAVANNA_PLATEAU.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-
-		Biomes.SMALL_END_ISLANDS.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, NatureFeatures.XORCITE.configure(new DefaultFeatureConfig()).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-
-		Biomes.END_MIDLANDS.addStructureFeature(NatureStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
-		Biomes.END_HIGHLANDS.addStructureFeature(NatureStructures.END_CRYPT.configure(FeatureConfig.DEFAULT));
-
+		for(Biome biome : BuiltinRegistries.BIOME) {
+			if (biome.getCategory() == Biome.Category.FOREST) {
+				addFeature(biome, new Identifier("dragonite"), GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.DRAGONITE_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+			}
+			if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
+				addFeature(biome, new Identifier("tungsten"), GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.TUNGSTEN.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+			}
+			if (biome == biomes.get(BuiltInBiomes.SMALL_END_ISLANDS)) {
+				addFeature(biome, new Identifier("xorcite"), GenerationStep.Feature.RAW_GENERATION, NatureFeatures.XORCITE.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+			}
+			if (biome == biomes.get(BuiltInBiomes.END_MIDLANDS)) {
+				addFeature(biome, new Identifier("end_coral"), GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.END_CORAL_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(15));
+				addFeature(biome, new Identifier("end_deco"), GenerationStep.Feature.RAW_GENERATION, NatureFeatures.END_DECO.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(4));
+				addFeature(biome, new Identifier("end_tungsten"), GenerationStep.Feature.UNDERGROUND_ORES, NatureFeatures.END_TUNGSTEN.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+				biome.getGenerationSettings().getStructureFeatures().add(() -> NatureStructures.END_SHIPWRECK.configure(FeatureConfig.DEFAULT));
+			}
+			if (biome == biomes.get(BuiltInBiomes.END_HIGHLANDS)) {
+				biome.getGenerationSettings().getStructureFeatures().add(() -> NatureStructures.END_CRYPT.configure(FeatureConfig.DEFAULT));
+			}
+			if (biome.getCategory() == Biome.Category.THEEND && biome != biomes.get(BuiltInBiomes.SMALL_END_ISLANDS)) {
+				addFeature(biome, new Identifier("obsidian_ore"), GenerationStep.Feature.RAW_GENERATION, NatureFeatures.OBSIDIAN_ORE.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
+				addFeature(biome, new Identifier("ogana"), GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(NatureFeatures.WEED_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+				addFeature(biome, new Identifier("end_moss"), GenerationStep.Feature.RAW_GENERATION, NatureFeatures.MOSS.configure(new DefaultFeatureConfig()).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).repeat(4));
+			}
+		}
 	}
 	public static void initOres() {
-		Biomes.FLOWER_FOREST.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, ModBlocks.QUARTZ_ORE.getDefaultState(), 2)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(12, 0, 0, 64))));
-		Biomes.FOREST.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, ModBlocks.QUARTZ_ORE.getDefaultState(), 2)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(12, 0, 0, 64))));
-		Biomes.MOUNTAINS.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, ModBlocks.QUARTZ_ORE.getDefaultState(), 2)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(12, 0, 0, 128))));
 
 	}
+	private static void addFeature(Biome biome, Identifier identifier, GenerationStep.Feature feature, ConfiguredFeature<?, ?> configuredFeature) {
+		List<List<Supplier<ConfiguredFeature<?, ?>>>> features = biome.getGenerationSettings().getFeatures();
+
+		int stepIndex = feature.ordinal();
+
+		while (features.size() <= stepIndex) {
+			features.add(Lists.newArrayList());
+		}
+
+		List<Supplier<ConfiguredFeature<?, ?>>> stepList = features.get(feature.ordinal());
+		if (stepList instanceof ImmutableList) {
+			features.set(feature.ordinal(), stepList = new ArrayList<>(stepList));
+		}
+
+		if (!BuiltinRegistries.CONFIGURED_FEATURE.getKey(configuredFeature).isPresent()) {
+			if (BuiltinRegistries.CONFIGURED_FEATURE.getOrEmpty(identifier).isPresent()) {
+				throw new RuntimeException("Duplicate feature: " + identifier.toString());
+			}
+
+			BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_FEATURE, identifier, configuredFeature);
+		}
+
+		stepList.add(() -> configuredFeature);
+	}
+
 }

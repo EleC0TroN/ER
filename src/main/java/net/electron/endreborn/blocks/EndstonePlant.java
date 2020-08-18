@@ -1,11 +1,6 @@
 package net.electron.endreborn.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
@@ -31,6 +26,5 @@ public class EndstonePlant extends PlantBlock {
     public OffsetType getOffsetType() {
         return OffsetType.XZ;
     }
-
 }
 

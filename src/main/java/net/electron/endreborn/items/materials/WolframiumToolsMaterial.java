@@ -8,7 +8,7 @@ public class WolframiumToolsMaterial implements ToolMaterial{
 
 	@Override
 	public int getDurability() {
-		return 250;
+		return 200;
 	}
 
 	@Override

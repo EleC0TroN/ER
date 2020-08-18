@@ -13,8 +13,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.entity.EntityType;
 
 @Environment(EnvType.CLIENT)
-public class RenderLayers  implements ClientModInitializer
-{
+public class RenderLayers  implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		init();

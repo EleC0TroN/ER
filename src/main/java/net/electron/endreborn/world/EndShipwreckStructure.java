@@ -26,7 +26,6 @@ public class EndShipwreckStructure extends StructureFeature<DefaultFeatureConfig
     public String getName() {
         return EndReborn.MODID + ":end_shipwreck";
     }
-
     public static class Start extends StructureStart<DefaultFeatureConfig> {
         public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
             super(structureFeature, i, j, blockBox, k, l);

@@ -9,12 +9,12 @@ public class EndorumMaterial implements ToolMaterial{
 
 	@Override
 	public int getDurability() {
-		return 350;
+		return 540;
 	}
 
 	@Override
 	public float getMiningSpeedMultiplier() {
-		return 6f;
+		return 7f;
 	}
 
 	@Override

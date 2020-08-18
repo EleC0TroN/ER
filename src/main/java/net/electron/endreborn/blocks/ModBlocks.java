@@ -2,13 +2,10 @@ package net.electron.endreborn.blocks;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.tag.ItemTags;
-import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class ModBlocks
-{
+public class ModBlocks {
     public static final Block TUNGSTEN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0F).build());
     public static final Block TUNGSTEN_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block END_TUNGSTEN_ORE = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
@@ -33,8 +30,7 @@ public class ModBlocks
     public static final Block PURPUR_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block PURPUR_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0F).build());
     public static final Block POTTED_DRAGONITE = new FlowerPotBlock(DRAGONITE, AbstractBlock.Settings.of(Material.SUPPORTED).breakInstantly().nonOpaque());
-    public static void registerBlocks()
-    {
+    public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "tungsten_block"), TUNGSTEN_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "tungsten_ore"), TUNGSTEN_ORE);
         Registry.register(Registry.BLOCK, new Identifier("endreborn", "end_tungsten_ore"), END_TUNGSTEN_ORE);

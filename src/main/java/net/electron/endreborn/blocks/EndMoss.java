@@ -1,13 +1,6 @@
 package net.electron.endreborn.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.client.sound.Sound;
-import net.minecraft.client.sound.SoundManager;
-import net.minecraft.client.sound.SoundManager.SoundList;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -17,7 +10,7 @@ import net.minecraft.world.WorldView;
 public class EndMoss extends Block {
 	
 	public EndMoss() {
-        super(Block.Settings.of(Material.PORTAL, MaterialColor.PURPLE).strength(3.0f, 3.0f));
+        super(Block.Settings.of(Material.STONE, MaterialColor.PURPLE).strength(3.0f, 3.0f));
     }
 	protected boolean canPlantOnTop(BlockState floor, BlockView view, BlockPos pos) {
 	      Block block = floor.getBlock();
@@ -36,5 +29,4 @@ public class EndMoss extends Block {
 	      super.onSteppedOn(worldIn, pos, entityIn);
 	      }
 	}
-
 }

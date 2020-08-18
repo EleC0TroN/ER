@@ -5,11 +5,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.WorldView;
 
 public class OganaPlant extends FlowerBlock {
-
 	protected OganaPlant(Block.Settings settings)
 	    {
 	        super(StatusEffects.LEVITATION, 5, settings);
