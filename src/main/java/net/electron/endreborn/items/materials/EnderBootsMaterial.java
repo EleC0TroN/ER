@@ -1,17 +1,15 @@
 package net.electron.endreborn.items.materials;
 
-import net.electron.endreborn.items.ModItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
-import java.lang.Override;
 import net.minecraft.sound.SoundEvents;
 
-public class WolframiumArmorMaterial implements ArmorMaterial
+public class EnderBootsMaterial implements ArmorMaterial
 {
-    private static final int[] BASE_DURABILITY = new int[]{200, 250, 250, 220};
-    private static final int[] PROTECTION_AMOUNTS = new int[]{2, 6, 5, 2};
+    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 320};
+    private static final int[] PROTECTION_AMOUNTS = new int[]{3, 5, 6, 6};
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot)
@@ -28,7 +26,7 @@ public class WolframiumArmorMaterial implements ArmorMaterial
     @Override
     public int getEnchantability()
     {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -40,13 +38,13 @@ public class WolframiumArmorMaterial implements ArmorMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.ofItems(ModItems.WOLF_INGOT);
+        return null;
     }
 
     @Override
     public String getName()
     {
-        return "tungsten";
+        return "ender";
     }
 
     @Override
@@ -57,6 +55,6 @@ public class WolframiumArmorMaterial implements ArmorMaterial
 
     @Override
     public float getKnockbackResistance() {
-        return 0.5f;
+        return 0.0f;
     }
 }

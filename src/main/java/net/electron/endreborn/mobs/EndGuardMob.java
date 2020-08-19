@@ -40,7 +40,7 @@ public class EndGuardMob extends HostileEntity implements Monster {
 
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(2, new GoToEntityTargetGoal(this, 1.0D, 0.6F));
+        this.goalSelector.add(2, new WanderNearTargetGoal(this, 1.0D, 0.6F));
 
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 2.0F));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 1.0F));

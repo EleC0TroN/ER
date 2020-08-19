@@ -46,7 +46,8 @@ public class ModItems
     public static final Item WOLF_CHEST = new ArmorItem(Materials.WOLF_ARMOR, EquipmentSlot.CHEST, new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item WOLF_LEGS = new ArmorItem(Materials.WOLF_ARMOR, EquipmentSlot.LEGS, new Item.Settings().group(EndReborn.END_GROUP));
     public static final Item WOLF_BOOTS = new ArmorItem(Materials.WOLF_ARMOR, EquipmentSlot.FEET, new Item.Settings().group(EndReborn.END_GROUP));
-   
+    public static final Item ENDER_BOOTS = new EnderBootsItem(EquipmentSlot.FEET);
+
     public static void registerItems()
     {
         Registry.register(Registry.ITEM, new Identifier("endreborn", "endorium_nugget"), END_NUGGET);
@@ -76,6 +77,7 @@ public class ModItems
         Registry.register(Registry.ITEM, new Identifier("endreborn", "essence"), ESSENCE);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_shard"), OBSIDIAN_SHARD);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "ender_transmitter"), ENDER_TRANSMITTER);
+        Registry.register(Registry.ITEM, new Identifier("endreborn", "ender_boots"), ENDER_BOOTS);
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass_pane"), new BlockItem(ModBlocks.OBSIDIAN_GLASS_PANE, new Item.Settings().group(EndReborn.END_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("endreborn", "obsidian_glass"), new BlockItem(ModBlocks.OBSIDIAN_GLASS, new Item.Settings().group(EndReborn.END_GROUP)));
 
