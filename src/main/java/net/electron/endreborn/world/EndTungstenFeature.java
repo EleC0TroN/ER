@@ -20,14 +20,15 @@ public class EndTungstenFeature extends Feature<DefaultFeatureConfig> {
     public boolean generate(StructureWorldAccess worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int i = 0;
         BlockState blockstate = ModBlocks.END_TUNGSTEN_ORE.getDefaultState();
-
-        for (int j = 0; j <  rand.nextInt(6); ++j) {
+        if (worldIn.getBlockState(pos).getBlock() == Blocks.END_STONE) {
+            for (int j = 0; j < rand.nextInt(6); ++j) {
                 BlockPos blockpos = pos.add(rand.nextInt(2), rand.nextInt(2), rand.nextInt(2));
-                if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE) {
+                if (!worldIn.getBlockState(blockpos).isAir()) {
                     worldIn.setBlockState(blockpos, blockstate, 2);
                     ++i;
                 }
             }
+        }
         return i > 0;
     }
 }

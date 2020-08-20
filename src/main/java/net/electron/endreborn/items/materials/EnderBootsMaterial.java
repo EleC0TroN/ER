@@ -8,8 +8,8 @@ import net.minecraft.sound.SoundEvents;
 
 public class EnderBootsMaterial implements ArmorMaterial
 {
-    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 320};
-    private static final int[] PROTECTION_AMOUNTS = new int[]{3, 5, 6, 6};
+    private static final int[] BASE_DURABILITY = new int[]{320, 15, 16, 320};
+    private static final int[] PROTECTION_AMOUNTS = new int[]{6, 5, 6, 6};
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot)

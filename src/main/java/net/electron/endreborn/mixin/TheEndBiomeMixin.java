@@ -16,7 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(DefaultBiomeCreator.class)
-public class TheEndBiomeMixin {
+public abstract class TheEndBiomeMixin {
+
     private static Biome method_31065(net.minecraft.world.biome.GenerationSettings.Builder builder) {
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addEndMobs(builder2);
@@ -37,10 +38,30 @@ public class TheEndBiomeMixin {
     private static void createEndMidlands(CallbackInfoReturnable<Biome> cir) {
         net.minecraft.world.biome.GenerationSettings.Builder builder1 = (new net.minecraft.world.biome.GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.END)
                 .structureFeature(ConfiguredStructureFeatures.END_CITY)
+                .structureFeature(NatureConfguredFeatures.END_SHIPWRECK_CONFIGURED)
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, NatureConfguredFeatures.END_CORAL_CONFIGURED)
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, NatureConfguredFeatures.WEED_CONFIGURED)
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, NatureConfguredFeatures.END_DECO_CONFIGURED)
                 .feature(GenerationStep.Feature.UNDERGROUND_ORES, NatureConfguredFeatures.END_TUNGSTEN_CONFIGURED)
                 .feature(GenerationStep.Feature.RAW_GENERATION, NatureConfguredFeatures.END_MOSS_CONFIGURED);
+        cir.setReturnValue(method_31065(builder1));
+    }
+
+    @Inject(at = @At("RETURN"), method = "createSmallEndIslands", cancellable = true)
+    private static void createSmallEndIslands(CallbackInfoReturnable<Biome> cir) {
+        net.minecraft.world.biome.GenerationSettings.Builder builder1 = (new net.minecraft.world.biome.GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.END)
+                .feature(GenerationStep.Feature.RAW_GENERATION, NatureConfguredFeatures.XORCITE_CONFIGURED);
+        cir.setReturnValue(method_31065(builder1));
+    }
+
+    @Inject(at = @At("RETURN"), method = "createEndHighlands", cancellable = true)
+    private static void createEndHighlands(CallbackInfoReturnable<Biome> cir) {
+        net.minecraft.world.biome.GenerationSettings.Builder builder1 = (new net.minecraft.world.biome.GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.END)
+                .structureFeature(ConfiguredStructureFeatures.END_CITY)
+                .structureFeature(NatureConfguredFeatures.END_CRYPT_CONFIGURED)
+                .feature(GenerationStep.Feature.RAW_GENERATION, NatureConfguredFeatures.END_MOSS_CONFIGURED)
+                .feature(GenerationStep.Feature.SURFACE_STRUCTURES, ConfiguredFeatures.END_GATEWAY)
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.CHORUS_PLANT);
         cir.setReturnValue(method_31065(builder1));
     }
 }

@@ -1,5 +1,7 @@
 package net.electron.endreborn.blocks;
 
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
@@ -9,9 +11,10 @@ import net.minecraft.world.WorldView;
 
 public class EndMoss extends Block {
 	
-	public EndMoss() {
-        super(Block.Settings.of(Material.STONE, MaterialColor.PURPLE).strength(3.0f, 3.0f));
-    }
+	public EndMoss(Settings block$Settings_1)
+	{
+		super(block$Settings_1);
+	}
 	protected boolean canPlantOnTop(BlockState floor, BlockView view, BlockPos pos) {
 	      Block block = floor.getBlock();
 	      return block == Blocks.BEDROCK || block == Blocks.OBSIDIAN || block == ModBlocks.OGANA_WEED;

@@ -20,11 +20,12 @@ public class TungstenOreFeature extends Feature<DefaultFeatureConfig> {
     public boolean generate(StructureWorldAccess worldIn, ChunkGenerator chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int i = 0;
         BlockState blockstate2 = ModBlocks.TUNGSTEN_ORE.getDefaultState();
-
-        for (int j = 0; j < rand.nextInt(4); ++j) {
-            BlockPos blockpos = pos.add(rand.nextInt(2), rand.nextInt(2), rand.nextInt(2));
-            if (worldIn.getBlockState(blockpos).getBlock() == Blocks.GRANITE) {
-                worldIn.setBlockState(blockpos, blockstate2, 2);
+        if (worldIn.getBlockState(pos).getBlock() == Blocks.GRANITE) {
+            for (int j = 0; j < rand.nextInt(4); ++j) {
+                BlockPos blockpos = pos.add(rand.nextInt(2), rand.nextInt(2), rand.nextInt(2));
+                if (!worldIn.getBlockState(blockpos).isAir()) {
+                    worldIn.setBlockState(blockpos, blockstate2, 2);
+                }
                 ++i;
             }
         }

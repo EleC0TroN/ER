@@ -1,5 +1,16 @@
 {
   "variants": {
-    "": { "model": "endreborn:block/purpur_chain" }
+    "axis=x": {
+      "model": "endreborn:block/purpur_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "endreborn:block/purpur_chain"
+    },
+    "axis=z": {
+      "model": "endreborn:block/purpur_chain",
+      "x": 90
+    }
   }
 }

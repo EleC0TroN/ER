@@ -2,10 +2,9 @@ package net.electron.endreborn.mixin;
 
 import net.electron.endreborn.items.ModItems;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ChorusFruitItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -30,10 +29,8 @@ public abstract class EnderBootsMixin extends LivingEntity {
 
     @Inject(at = @At("TAIL"), method = "tick")
     private void isWithEnderBoots(CallbackInfo cir) {
-        int i = 0;
-        for (ItemStack item : getArmorItems()) {
-            if (item.getItem() == ModItems.ENDER_BOOTS && this.hurtTime == 10) {
-                i++;
+        if (this.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.ENDER_BOOTS) {
+            if (this.hurtTime == 5) {
                 if (!world.isClient) {
                     double d = this.getX();
                     double e = this.getY();
@@ -49,7 +46,7 @@ public abstract class EnderBootsMixin extends LivingEntity {
 
                         if (this.teleport(g, h, j, true)) {
                             SoundEvent soundEvent = SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT;
-                            world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                            world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.PLAYERS, 0.5F, 1.0F);
                             this.playSound(soundEvent, 1.0F, 1.0F);
                             break;
                         }

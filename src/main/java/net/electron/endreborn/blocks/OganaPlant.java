@@ -14,7 +14,7 @@ public class OganaPlant extends FlowerBlock {
 	    }
 	protected boolean canPlantOnTop(BlockState floor, WorldView world, BlockPos pos) {
 		      Block block = floor.getBlock();
-		      return block == ModBlocks.END_MOSS;
+		      return block == ModBlocks.END_MOSS || block == ModBlocks.END_MOSS_BLOCK;
 	}
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
