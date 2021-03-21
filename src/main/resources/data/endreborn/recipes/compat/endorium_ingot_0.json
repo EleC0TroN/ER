@@ -1,0 +1,13 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "immersiveengineering"
+  }],
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "endreborn:endorium_dust"
+  },
+  "result": "endreborn:endorium_ingot",
+  "experience": 0.15,
+  "cookingtime": 200
+}

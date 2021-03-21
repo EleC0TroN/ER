@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  ],
+  "result": {
+    "item": "endreborn:purpur_eye",
+    "count": 1
+  }
+}

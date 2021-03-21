@@ -1,0 +1,24 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "quark"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%#%",
+    "#%#",
+    "%#%"
+  ],
+  "key": {
+    "#": {
+      "item": "endreborn:obsidian_shard"
+    },
+    "%": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "endreborn:framed_obsidian_glass",
+    "count": 2
+  }
+}

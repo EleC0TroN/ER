@@ -1,0 +1,21 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "endergetic"
+  }],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endergetic:eumus_bricks"
+    },
+    {
+      "tag": "endreborn:inventory_hammers",
+      "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "endergetic:eumus_brick",
+        "count": 4
+    }
+}

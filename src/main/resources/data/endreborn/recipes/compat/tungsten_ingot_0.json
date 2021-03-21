@@ -1,0 +1,20 @@
+{
+  "conditions": [{
+  "type": "forge:or",
+  "values": [
+   {
+    "type": "forge:mod_loaded",
+    "modid": "immersiveengineering"
+   },
+   {
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+   }]}],
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "endreborn:tungsten_dust"
+  },
+  "result": "endreborn:tungsten_ingot",
+  "experience": 0.15,
+  "cookingtime": 200
+}

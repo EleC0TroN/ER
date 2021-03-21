@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "endreborn:blocks/end_coral"
+        "cross": "endreborn:block/end_coral"
     }
 }

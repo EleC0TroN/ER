@@ -1,0 +1,29 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "APS",
+    " @ ",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "endreborn:endorium_axe"
+    },
+    "P": {
+      "item": "endreborn:endorium_pickaxe"
+    },
+    "S": {
+      "item": "endreborn:endorium_shovel"
+    }
+  },
+  "result": {
+    "item": "endreborn:endorium_paxel"
+  }
+}

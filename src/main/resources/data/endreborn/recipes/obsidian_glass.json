@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass"
+    },
+    {
+      "item": "endreborn:obsidian_shard"
+    },
+    {
+      "item": "endreborn:obsidian_shard"
+    }
+  ],
+  "result":
+    {
+        "item": "endreborn:obsidian_glass",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+modLoader="javafml" #mandatory
+loaderVersion="[35,)" #mandatory 
+license="All rights reserved"
+[[mods]] #mandatory
+modId="endreborn" #mandatory
+version="0.7.6" #mandatory
+displayName="End: Reborn" #mandatory
+logoFile="logo.png" #optional
+credits="Mod for MC." #optional
+authors="EleC0TroN" #optional
+description="The dragon was only the beginning."
+[[dependencies.examplemod]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[35,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.endreborn]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4,1.17)"
+    ordering="NONE"
+    side="BOTH"

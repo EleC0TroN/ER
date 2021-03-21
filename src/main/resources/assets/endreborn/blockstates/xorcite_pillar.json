@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "endreborn:block/xorcite_pillar" },
+        "axis=z":   { "model": "endreborn:block/xorcite_pillar", "x": 90 },
+        "axis=x":   { "model": "endreborn:block/xorcite_pillar", "x": 90, "y": 90 }
+    }
+} 

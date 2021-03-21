@@ -1,0 +1,41 @@
+{
+  "parent": "endreborn:endreborn/end_stone",
+  "display": {
+    "icon": {
+      "item": "endreborn:end_stone_pillar"
+    },
+    "title": {
+      "translate": "advancements.endreborn.end_stone_pillar.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.end_stone_pillar.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:end_stone_pillar"
+          },
+ 	  {
+            "item": "minecraft:purpur_pillar"
+          },
+          {
+            "item": "minecraft:quartz_pillar"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

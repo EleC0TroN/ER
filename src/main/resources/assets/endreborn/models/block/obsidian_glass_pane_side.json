@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "pane": "endreborn:block/obsidian_glass",
+    "edge": "endreborn:block/obsidian_glass_pane_top"
+  }
+}

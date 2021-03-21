@@ -1,0 +1,19 @@
+{
+  "conditions": [{
+    "type": "forge:mod_loaded",
+    "modid": "vanillaboom"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "endreborn:essence_block"
+    }
+  },
+  "result": {
+    "item": "endreborn:essence",
+    "count": 9
+  }
+}

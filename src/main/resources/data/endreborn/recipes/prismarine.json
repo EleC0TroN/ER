@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:prismarine",
+	  "data": 0
+    },
+    { 
+      "tag": "endreborn:inventory_hammers",
+      "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "minecraft:prismarine_shard",
+        "count": 3
+    }
+}

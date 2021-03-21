@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "tag": "endreborn:inventory_hammers",
+      "data": 32767
+    }
+  ],
+  "result": {
+    "item": "endreborn:obsidian_shard",
+    "count": 2
+  }
+}

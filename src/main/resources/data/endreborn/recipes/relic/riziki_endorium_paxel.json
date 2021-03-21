@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "endreborn:endorium_paxel"
+  },
+  "addition": {
+    "item": "endreborn:riziki_relic"
+  },
+  "result": {
+    "item": "endreborn:riziki_endorium_paxel"
+  }
+}

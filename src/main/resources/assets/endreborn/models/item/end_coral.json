@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "endreborn:blocks/end_coral"
+    "layer0": "endreborn:block/end_coral"
   }
 }

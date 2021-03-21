@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bricks"
+    },
+    {
+      "tag": "endreborn:inventory_hammers",
+      "data": 32767
+    }
+  ],
+  "result": 
+    {
+        "item": "minecraft:brick",
+        "count": 4
+    }
+}

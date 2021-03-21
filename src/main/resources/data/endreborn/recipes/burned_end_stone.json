@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:end_stone"
+  },
+  "result": "endreborn:burned_end_stone",
+  "experience": 0.15,
+  "cookingtime": 200
+}

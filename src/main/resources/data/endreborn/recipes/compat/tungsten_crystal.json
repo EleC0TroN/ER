@@ -1,0 +1,4 @@
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+  }],"type":"mekanism:crystallizing","chemicalType":"slurry","input":{"amount":200,"slurry":"endreborn:clean_tungsten"},"output":{"item":"endreborn:tungsten_crystal"}}

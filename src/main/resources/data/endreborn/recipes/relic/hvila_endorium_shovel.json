@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "endreborn:endorium_shovel"
+  },
+  "addition": {
+    "item": "endreborn:hvila_relic"
+  },
+  "result": {
+    "item": "endreborn:hvila_endorium_shovel"
+  }
+}

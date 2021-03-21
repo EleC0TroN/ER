@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "endreborn:tungsten_block"
+    }
+  ],
+  "result": {
+    "item": "endreborn:tungsten_ingot",
+    "count": 9
+  }
+}

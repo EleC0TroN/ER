@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/iron_hammer",
+  "display": {
+    "icon": {
+      "item": "endreborn:endorium_ingot"
+    },
+    "title": {
+      "translate": "advancements.endreborn.endorium_ingot.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.endorium_ingot.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:endorium_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}

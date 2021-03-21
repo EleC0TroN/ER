@@ -1,0 +1,1 @@
+python autom_script.py
