@@ -1,5 +1,6 @@
 package com.electron.endreborn.world;
 
+import com.electron.endreborn.EndReborn;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -14,27 +15,40 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class EndCryptStructure extends Structure<NoFeatureConfig> {
-    public EndCryptStructure(Codec<NoFeatureConfig> p_i231989_1_) {
-        super(p_i231989_1_);
+    public EndCryptStructure(Codec<NoFeatureConfig> codec) {
+        super(codec);
     }
 
-    public Structure.IStartFactory getStartFactory() {
+    public String getStructureName() {
+        return EndReborn.MODID + ":end_crypt";
+    }
+
+    @Nonnull
+    @Override
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
         return EndCryptStructure.Start::new;
     }
 
-    public GenerationStage.Decoration func_236396_f_() {
-        return GenerationStage.Decoration.UNDERGROUND_STRUCTURES;
+    @Nonnull
+    @Override
+    public GenerationStage.Decoration getDecorationStage() {
+        return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
-    public static class Start extends StructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> p_i225806_1_, int p_i225806_2_, int p_i225806_3_, MutableBoundingBox p_i225806_4_, int p_i225806_5_, long p_i225806_6_) {
-            super(p_i225806_1_, p_i225806_2_, p_i225806_3_, p_i225806_4_, p_i225806_5_, p_i225806_6_);
+    public static class Start extends StructureStart<NoFeatureConfig>  {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
+        @Override
+        @ParametersAreNonnullByDefault
         public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
             int surfaceY = generator.getHeight(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
-            if (surfaceY >= 60) {
+            if (surfaceY >= 61) {
                 BlockPos blockpos = new BlockPos(chunkX * 16, surfaceY-15, chunkZ * 16);
                 Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
                 EndCryptPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);

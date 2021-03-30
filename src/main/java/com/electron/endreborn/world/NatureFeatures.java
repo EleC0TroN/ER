@@ -5,12 +5,14 @@ import com.electron.endreborn.ModBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidWithNoiseConfig;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class NatureFeatures {
 	protected static final BlockState END_STONE = Blocks.END_STONE.getDefaultState();
@@ -20,6 +22,15 @@ public class NatureFeatures {
 	protected static final BlockState END_MOSS = ModBlocks.END_MOSS.get().getDefaultState();
 	protected static final BlockState OGANA = ModBlocks.OGANA_WEED.get().getDefaultState();
 	protected static final BlockState AIR = Blocks.AIR.getDefaultState();
+
+	public static final Supplier<StructureFeature<?, ?>> CONFIGURED_END_SHIPWRECK = () -> NatureStructures.END_SHIPWRECK.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+	public static final Supplier<StructureFeature<?, ?>> CONFIGURED_END_CRYPT = () -> NatureStructures.END_CRYPT.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+
+	public static void registerConfiguredFeatures() {
+		final Registry<StructureFeature<?, ?>> structureRegistry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
+		Registry.register(structureRegistry, new ResourceLocation(EndReborn.MODID, "end_shipwreck"), CONFIGURED_END_SHIPWRECK.get());
+		Registry.register(structureRegistry, new ResourceLocation(EndReborn.MODID, "end_crypt"), CONFIGURED_END_CRYPT.get());
+	}
 
 	public static final Feature<NoFeatureConfig> OBSIDIAN_ORE_CONFIG = new ObsidianOreFeature(NoFeatureConfig.field_236558_a_);
 	public static final Feature<NoFeatureConfig> END_DECORATOR_CONFIG = new EndDecoratorFeature(NoFeatureConfig.field_236558_a_);

@@ -11,26 +11,31 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.IglooStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
     public EndShipwreckStructure(Codec<NoFeatureConfig> codec) {
         super(codec);
     }
-    
+
     public String getStructureName() {
         return EndReborn.MODID + ":end_shipwreck";
     }
 
+    @Nonnull
     @Override
-    public  IStartFactory<NoFeatureConfig> getStartFactory() {
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
         return EndShipwreckStructure.Start::new;
     }
 
-    public GenerationStage.Decoration func_236396_f_() {
+    @Nonnull
+    @Override
+    public GenerationStage.Decoration getDecorationStage() {
         return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
@@ -39,6 +44,8 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
+        @Override
+        @ParametersAreNonnullByDefault
         public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
             int surfaceY = generator.getHeight(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
             if (surfaceY >= 55) {

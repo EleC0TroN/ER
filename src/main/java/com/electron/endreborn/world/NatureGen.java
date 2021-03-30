@@ -3,11 +3,9 @@ package com.electron.endreborn.world;
 import com.electron.endreborn.EndReborn;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -33,6 +31,13 @@ public class NatureGen {
         ForgeRegistries.FEATURES.register(feature);
         return feature;
     }
+    public static void addStructures(BiomeLoadingEvent event) {
+        if (event.getCategory() == Biome.Category.THEEND) {
+            event.getGeneration().getStructures().add(NatureFeatures.CONFIGURED_END_SHIPWRECK);
+            event.getGeneration().getStructures().add(NatureFeatures.CONFIGURED_END_CRYPT);
+
+        }
+    }
     public static void onBiomeLoad(BiomeLoadingEvent event) {
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
         if (event.getCategory() == Biome.Category.THEEND) {
@@ -50,7 +55,6 @@ public class NatureGen {
             addFirstFeature(generation, NatureFeatures.TUNGSTEN_END_FEATURE);
         }
     }
-
 
     private static void addFirstFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
         if (feature != null) {

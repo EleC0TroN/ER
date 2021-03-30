@@ -2,7 +2,6 @@ package com.electron.endreborn.world;
 
 import com.electron.endreborn.EndReborn;
 import com.electron.endreborn.ModConfigs;
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.LockableLootTileEntity;
@@ -14,7 +13,6 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IServerWorld;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
@@ -25,7 +23,6 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class EndCryptPieces {
