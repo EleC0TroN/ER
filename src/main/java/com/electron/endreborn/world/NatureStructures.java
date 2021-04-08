@@ -26,8 +26,8 @@ public class NatureStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> END_CRYPT = STRUCTURE_FEATURES.register("end_crypt", () -> new EndCryptStructure(NoFeatureConfig.field_236558_a_));
 
     public static void setupStructures() {
-        setupStructure(END_SHIPWRECK.get(), new StructureSeparationSettings(18, 1, 12620210), false);
-        setupStructure(END_CRYPT.get(), new StructureSeparationSettings(20, 1, 10210262), false);
+        setupStructure(END_SHIPWRECK.get(), new StructureSeparationSettings(22, 1, 22620210), false);
+        setupStructure(END_CRYPT.get(), new StructureSeparationSettings(24, 1, 10210262), false);
     }
 
     public static <F extends Structure<?>> void setupStructure(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {

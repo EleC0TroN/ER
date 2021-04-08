@@ -21,7 +21,7 @@ public class ModEvents {
 			LivingEntity entity = event.getEntityLiving();
 			if (entity instanceof EndermanEntity) {
 				entity.remove();
-				EndormanMob endor = new EndormanMob(ModMobs.ENDOR, entity.world);
+				EndormanMob endor = new EndormanMob(ModMobs.ENDOR.get(), entity.world);
 				endor.copyLocationAndAnglesFrom(entity);
 				int i = entity.world.getRandom().nextInt(5);
 				endor.setEndorSize(i);

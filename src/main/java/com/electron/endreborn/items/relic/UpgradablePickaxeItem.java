@@ -40,8 +40,8 @@ public class UpgradablePickaxeItem extends PickaxeItem {
         if (this.sharpness > 0) {
             tooltip.add(new TranslationTextComponent("tooltip.pickaxe_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.pickaxe_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.pickaxe_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
         }
     }
 

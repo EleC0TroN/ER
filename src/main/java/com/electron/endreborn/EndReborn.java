@@ -6,13 +6,16 @@ import com.electron.endreborn.compatibility.Quark;
 import com.electron.endreborn.compatibility.VanillaBoom;
 import com.electron.endreborn.compatibility.mekanism.Mekanism;
 import com.electron.endreborn.mobs.EndGuardMob;
+import com.electron.endreborn.mobs.EndormanMob;
 import com.electron.endreborn.world.NatureFeatures;
 import com.electron.endreborn.world.NatureGen;
 import com.electron.endreborn.world.NatureStructures;
+import com.electron.endreborn.world.StructurePieces;
 import mekanism.api.chemical.slurry.Slurry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,6 +34,7 @@ public class EndReborn {
     public static final String MODID = "endreborn";
 	public static final ItemGroup ENDGROUP = new EndTab();
     public static final ItemGroup ENDOMPAT = new CompatTab();
+    public static final ResourceLocation END_SHIPWRECK_LOOT = new ResourceLocation(MODID, "chests/end_shipwreck");
     public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     public EndReborn() {
@@ -44,7 +48,7 @@ public class EndReborn {
         NatureStructures.STRUCTURE_FEATURES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(EntityType.class, this::onEntityRegistry);
         MinecraftForge.EVENT_BUS.register(this);
-
+        StructurePieces.init();
         if (ModList.get().isLoaded("mekanism")) {
             IEventBus modEventBus2 = FMLJavaModLoadingContext.get().getModEventBus();
             Mekanism.ITEMS.register(modEventBus2);
@@ -67,6 +71,7 @@ public class EndReborn {
     @SubscribeEvent
     public void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
         GlobalEntityTypeAttributes.put(ModMobs.ENDGUARD.get(), EndGuardMob.func_234200_m_().create());
+        GlobalEntityTypeAttributes.put(ModMobs.ENDOR.get(), EndormanMob.func_234287_m_().create());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

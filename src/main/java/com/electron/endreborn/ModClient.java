@@ -1,6 +1,7 @@
 package com.electron.endreborn;
 
 import com.electron.endreborn.mobs.EndGuardRenderer;
+import com.electron.endreborn.mobs.EndormanRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -14,6 +15,7 @@ public class ModClient {
     public static void clientSetup(FMLClientSetupEvent event) {
         ModBlocks.initRender(event);
         RenderingRegistry.registerEntityRenderingHandler(ModMobs.ENDGUARD.get(), new EndGuardRenderer.RenderFactory());
+        RenderingRegistry.registerEntityRenderingHandler(ModMobs.ENDOR.get(), new EndormanRenderer.RenderFactory());
 
     }
 }

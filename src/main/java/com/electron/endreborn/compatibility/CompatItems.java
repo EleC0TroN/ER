@@ -29,8 +29,8 @@ public class CompatItems {
 
     public static final Item ENDORIUM_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, new Item.Properties().group(EndReborn.ENDOMPAT));
     public static final Item TUNGSTEN_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 5, -2.4f, new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item RIZIKI_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, 1, 0, new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item HVILA_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6, -2.4f, 0, 1, new Item.Properties().group(EndReborn.ENDOMPAT));
+    public static final Item RIZIKI_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, 1, 0, new Item.Properties().group(null));
+    public static final Item HVILA_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6, -2.4f, 0, 1, new Item.Properties().group(null));
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -53,9 +53,9 @@ public class CompatItems {
             registerItem(TUNGSTEN_CLUMP, "tungsten_clump");
             registerItem(ENDORIUM_PAXEL, "endorium_paxel");
             registerItem(TUNGSTEN_PAXEL, "tungsten_paxel");
+            registerItem(RIZIKI_ENDORIUM_PAXEL, "riziki_endorium_paxel");
+            registerItem(HVILA_ENDORIUM_PAXEL, "hvila_endorium_paxel");
         }
-        registerItem(RIZIKI_ENDORIUM_PAXEL, "riziki_endorium_paxel");
-        registerItem(HVILA_ENDORIUM_PAXEL, "hvila_endorium_paxel");
     }
     private static void registerItem(Item item, String name) {
         item.setRegistryName(new ResourceLocation(EndReborn.MODID, name));

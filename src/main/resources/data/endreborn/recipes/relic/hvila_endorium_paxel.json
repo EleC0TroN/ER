@@ -1,5 +1,7 @@
-{
-  "type": "minecraft:smithing",
+{"conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "mekanism"
+}],"type": "minecraft:smithing",
   "base": {
     "item": "endreborn:endorium_paxel"
   },

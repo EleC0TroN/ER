@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "attached=false": { "model": "endreborn:block/mushroom_roots" },
-        "attached=true": { "model": "endreborn:block/mushroom_roots_a" }
-    }
-}

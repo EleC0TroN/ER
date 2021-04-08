@@ -77,7 +77,7 @@ public class EndShipwreckPieces {
             if (function.startsWith("Chest")) {
                 BlockPos blockpos = pos.down();
                 if (sbb.isVecInside(blockpos)) {
-                    LockableLootTileEntity.setLootTable(worldIn, rand, blockpos, LootTables.CHESTS_NETHER_BRIDGE);
+                    LockableLootTileEntity.setLootTable(worldIn, rand, blockpos, EndReborn.END_SHIPWRECK_LOOT);
                 }
             }
         }

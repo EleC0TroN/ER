@@ -73,8 +73,8 @@ public class UpgradableAxeItem extends AxeItem {
         if (this.sharpness > 0) {
             tooltip.add(new TranslationTextComponent("tooltip.axe_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.axe_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.axe_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
         }
     }
 

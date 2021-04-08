@@ -47,8 +47,8 @@ public class UpgradableHoeItem extends HoeItem {
         if (this.sharpness > 0) {
             tooltip.add(new TranslationTextComponent("tooltip.hoe_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.hoe_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.hoe_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
         }
     }
 

@@ -20,65 +20,76 @@ public class ModConfigs {
             balance = new Balance(builder);
         }
         public static class Balance {
-            public static String name = "balance";
+            public static String name = "general";
 
-            public static ConfigValue<Integer> obsidian_ore_rarity;
-            public static ConfigValue<Integer> moss_rarity;
-            public static ConfigValue<Integer> decorator_rarity;
-            public static ConfigValue<Integer> tungsten_ore_rarity;
-            public static ConfigValue<Integer> dragonite_rarity;
-            public static ConfigValue<Integer> quartz_rarity;
-            public static ConfigValue<Integer> xorcite_clusters_rarity;
-            public static ConfigValue<Boolean> new_structures_end;
+            public static ConfigValue<Integer> rarity_obsidian_ore;
+            public static ConfigValue<Integer> rarity_moss;
+            public static ConfigValue<Integer> rarity_ogana;
+            public static ConfigValue<Integer> rarity_tungsten_ore;
+            public static ConfigValue<Integer> rarity_tungsten_end;
+            public static ConfigValue<Integer> rarity_dragonite;
+            public static ConfigValue<Integer> rarity_xorcite_clusters;
+
             public static ConfigValue<Integer> crypt_size;
             public static ConfigValue<Boolean> enderman_tweaks;
-            public static ConfigValue<Boolean> end_decorator;
+            public static ConfigValue<Boolean> end_coral;
+            public static ConfigValue<Boolean> end_shipwreck;
+            public static ConfigValue<Boolean> end_deco;
+            public static ConfigValue<Boolean> end_crypt;
 
             public Balance(ForgeConfigSpec.Builder builder) {
                 builder.push(name);
-                new_structures_end = builder
-                        .comment("The End new structures generation")
-                        .define("new_structures_end", true);
+                end_shipwreck = builder
+                        .comment("End Shipwreck and End Beacon generation")
+                        .define("end_shipwreck", true);
 
-                end_decorator = builder
-                        .comment("End Moss, Endstone Coral generation")
-                        .define("tungsten_ore", true);
+                end_deco = builder
+                        .comment("Cracked blocks generation in The End")
+                        .define("end_deco", true);
+
+                end_crypt = builder
+                        .comment("End Crypt generation")
+                        .define("end_crypt", true);
+
+                end_coral = builder
+                        .comment("Endstone Coral generation")
+                        .define("end_coral", true);
 
                 enderman_tweaks = builder
                         .comment("Random model size | If enabled, server logs can spam with warning about enderman spawning")
                         .define("enderman_tweaks", false);
 
-                obsidian_ore_rarity = builder
-                        .comment("Crying Obsidian spawn rarity")
-                        .defineInRange("obsidian_ore_rarity", 6, 0, 64);
-
                 crypt_size = builder
                         .comment("End Crypt maximum size")
-                        .defineInRange("crypt_size", 8, 0, 64);
+                        .defineInRange("crypt_size", 8, 0, 16);
 
-                moss_rarity = builder
+                rarity_obsidian_ore = builder
+                        .comment("Crying Obsidian spawn rarity")
+                        .defineInRange("rarity_obsidian_ore", 15, 0, 32);
+
+                rarity_moss = builder
                         .comment("End Moss spawn rarity")
-                        .defineInRange("moss_rarity", 4, 0, 64);
+                        .defineInRange("rarity_moss", 4, 0, 16);
 
-                decorator_rarity = builder
-                        .comment("Cracked Purpur and Cracked End Bricks spawn rarity")
-                        .defineInRange("decorator_rarity", 4, 0, 64);
+                rarity_ogana = builder
+                        .comment("End Moss spawn rarity")
+                        .defineInRange("rarity_ogana", 5, 0, 16);
 
-                dragonite_rarity = builder
+                rarity_dragonite = builder
                         .comment("Dragonite flower spawn rarity")
-                        .defineInRange("dragonite_rarity", 1, 0, 64);
+                        .defineInRange("rarity_dragonite", 3, 0, 16);
 
-                quartz_rarity = builder
-                        .comment("Quartz Ore spawn rarity")
-                        .defineInRange("quartz_rarity", 4, 0, 64);
-
-                xorcite_clusters_rarity = builder
+                rarity_xorcite_clusters = builder
                         .comment("Xorcite Clusters spawn rarity")
-                        .defineInRange("xorcite_clusters_rarity", 8, 0, 64);
+                        .defineInRange("rarity_xorcite_clusters", 1, 0, 16);
 
-                tungsten_ore_rarity = builder
+                rarity_tungsten_ore = builder
                         .comment("Tungsten Ore spawn rarity")
-                        .defineInRange("tungsten_rarity", 4, 0, 64);
+                        .defineInRange("rarity_tungsten_ore", 3, 0, 16);
+
+                rarity_tungsten_end = builder
+                        .comment("Tungsten Ore spawn rarity")
+                        .defineInRange("rarity_tungsten_end", 2, 0, 16);
 
                 builder.pop();
             }

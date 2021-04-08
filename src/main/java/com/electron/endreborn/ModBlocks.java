@@ -34,7 +34,6 @@ public class ModBlocks {
 	public static final RegistryObject<Block> TUNGSTEN_END_ORE = BLOCKS.register("end_tungsten_ore", RockBlock::new);
 
 	public static final RegistryObject<Block> END_CORAL = BLOCKS.register("end_coral", EndstonePlant::new);
-	public static final RegistryObject<Block> ROOTS = BLOCKS.register("mushroom_roots", RootsBlock::new);
 	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", MetalBlock::new);
 	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0f, 0.0f).notSolid()));
 	public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", MetalBlock::new);
@@ -56,7 +55,6 @@ public class ModBlocks {
 		renderCutout(PURPUR_WALL.get());
 		renderCutout(FRAMED_OBSIDIAN_GLASS.get());
 		renderCutout(POTTED_DRAGONITE.get());
-		renderCutout(ROOTS.get());
 		renderCutout(PURPUR_CHAIN.get());
 		renderCutout(DRAGONITE.get());
 		renderCutout(OBSIDIAN_GLASS.get());

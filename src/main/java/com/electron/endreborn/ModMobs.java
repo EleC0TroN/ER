@@ -9,8 +9,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModMobs {
-    public static final EntityType<EndormanMob> ENDOR = EntityType.Builder.create(EndormanMob::new, EntityClassification.MONSTER).setTrackingRange(32).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(0.6F, 2.9F).build(prefix("enderman"));
-
     private static String prefix(String path) {
         return EndReborn.MODID + "." + path;
     }
@@ -25,4 +23,12 @@ public class ModMobs {
                     .setShouldReceiveVelocityUpdates(true)
                     .size(1.55f, 3.4f)
                     .build(prefix("endguard")));
+    public static final RegistryObject<EntityType<EndormanMob>> ENDOR = ENTITY_TYPES
+            .register("enderman", () -> EntityType.Builder
+                    .create(EndormanMob::new, EntityClassification.MONSTER)
+                    .setTrackingRange(32)
+                    .setUpdateInterval(3)
+                    .setShouldReceiveVelocityUpdates(true)
+                    .size(0.6F, 2.9F)
+                    .build(prefix("enderman")));
 }

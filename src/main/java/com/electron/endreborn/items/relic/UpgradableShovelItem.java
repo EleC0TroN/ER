@@ -87,8 +87,8 @@ public class UpgradableShovelItem extends ShovelItem {
         if (this.sharpness > 0) {
             tooltip.add(new TranslationTextComponent("tooltip.shovel_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.shovel_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.shovel_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
         }
     }
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {

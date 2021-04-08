@@ -1,12 +1,8 @@
 package com.electron.endreborn.items.materials;
 
-import com.electron.endreborn.ModBlocks;
 import com.electron.endreborn.ModItems;
-
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -15,12 +11,12 @@ public class ModArmorMaterials {
     public static IArmorMaterial ARMOR_TUNGSTEN = new IArmorMaterial() {
         @Override
         public float getToughness() {
-            return 2;
+            return 1;
         }
 
         @Override
         public float getKnockbackResistance() {
-            return 1;
+            return 0.1F;
         }
 
         @Override

@@ -4,6 +4,7 @@ import com.electron.endreborn.items.*;
 import com.electron.endreborn.items.materials.ModToolMaterials;
 
 import com.electron.endreborn.items.relic.*;
+import net.minecraft.block.TorchBlock;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -66,7 +67,6 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> END_MOSS_BLOCK = ITEMS.register("end_moss_block", () -> new BlockItem(ModBlocks.END_MOSS_BLOCK.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> END_MOSS = ITEMS.register("end_moss", () -> new BlockItem(ModBlocks.END_MOSS.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
-	public static final RegistryObject<BlockItem> ROOTS = ITEMS.register("mushroom_roots", () -> new BlockItem(ModBlocks.ROOTS.get(), new Item.Properties().group(null)));
 	public static final RegistryObject<BlockItem> XORCITE = ITEMS.register("xorcite", () -> new BlockItem(ModBlocks.XORCITE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> DECORATIVE_XORCITE = ITEMS.register("decorative_xorcite", () -> new BlockItem(ModBlocks.XORCITE_DECORATIVE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 
@@ -76,20 +76,20 @@ public class ModItems {
 	public static final RegistryObject<BlockItem> TUNGSTEN_ORE = ITEMS.register("tungsten_ore", () -> new BlockItem(ModBlocks.TUNGSTEN_ORE.get(), new Item.Properties().group(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> QUARTZ_ORE = ITEMS.register("quartz_ore", () -> new BlockItem(ModBlocks.QUARTZ_ORE.get(), new Item.Properties().group(null)));
 
-	public static final RegistryObject<Item> RIZIKI_RELIC = ITEMS.register("riziki_relic", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<Item> HVILA_RELIC = ITEMS.register("hvila_relic", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<Item> RIZIKI_RELIC = ITEMS.register("riziki_relic", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP).maxStackSize(3)));
+	public static final RegistryObject<Item> HVILA_RELIC = ITEMS.register("hvila_relic", () -> new Item(new Item.Properties().group(EndReborn.ENDGROUP).maxStackSize(3)));
 
-	public static final RegistryObject<UpgradableSwordItem> RIZIKI_ENDORIUM_SWORD = ITEMS.register("riziki_endorium_sword", () -> new UpgradableSwordItem(ModToolMaterials.ENDORIUM, 3, -2.4f, 1, 0, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableAxeItem> RIZIKI_ENDORIUM_AXE = ITEMS.register("riziki_endorium_axe", () -> new UpgradableAxeItem(ModToolMaterials.ENDORIUM, 6f, -3.1f, 1, 0, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableShovelItem> RIZIKI_ENDORIUM_SHOVEL = ITEMS.register("riziki_endorium_shovel", () -> new UpgradableShovelItem(ModToolMaterials.ENDORIUM, 1.5f, -3f, 1, 0, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableHoeItem> RIZIKI_ENDORIUM_HOE = ITEMS.register("riziki_endorium_hoe", () -> new UpgradableHoeItem(ModToolMaterials.ENDORIUM,-3, -1f, 1, 0, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradablePickaxeItem> RIZIKI_ENDORIUM_PICKAXE = ITEMS.register("riziki_endorium_pickaxe", () -> new UpgradablePickaxeItem(ModToolMaterials.ENDORIUM, 1, -2.8f, 1, 0, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<UpgradableSwordItem> RIZIKI_ENDORIUM_SWORD = ITEMS.register("riziki_endorium_sword", () -> new UpgradableSwordItem(ModToolMaterials.ENDORIUM, 3, -2.4f, 1, 0, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableAxeItem> RIZIKI_ENDORIUM_AXE = ITEMS.register("riziki_endorium_axe", () -> new UpgradableAxeItem(ModToolMaterials.ENDORIUM, 6f, -3.1f, 1, 0, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableShovelItem> RIZIKI_ENDORIUM_SHOVEL = ITEMS.register("riziki_endorium_shovel", () -> new UpgradableShovelItem(ModToolMaterials.ENDORIUM, 1.5f, -3f, 1, 0, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableHoeItem> RIZIKI_ENDORIUM_HOE = ITEMS.register("riziki_endorium_hoe", () -> new UpgradableHoeItem(ModToolMaterials.ENDORIUM,-3, -1f, 1, 0, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradablePickaxeItem> RIZIKI_ENDORIUM_PICKAXE = ITEMS.register("riziki_endorium_pickaxe", () -> new UpgradablePickaxeItem(ModToolMaterials.ENDORIUM, 1, -2.8f, 1, 0, new Item.Properties().group(null)));
 
-	public static final RegistryObject<UpgradableSwordItem> HVILA_ENDORIUM_SWORD = ITEMS.register("hvila_endorium_sword", () -> new UpgradableSwordItem(ModToolMaterials.ENDORIUM, 3, -2.4f, 0, 1, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableAxeItem> HVILA_ENDORIUM_AXE = ITEMS.register("hvila_endorium_axe", () -> new UpgradableAxeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6f, -3.1f, 0, 1, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableShovelItem> HVILA_ENDORIUM_SHOVEL = ITEMS.register("hvila_endorium_shovel", () -> new UpgradableShovelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 1.5f, -3f, 0, 1, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradableHoeItem> HVILA_ENDORIUM_HOE = ITEMS.register("hvila_endorium_hoe", () -> new UpgradableHoeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY,-3, -1f, 0, 1, new Item.Properties().group(EndReborn.ENDGROUP)));
-	public static final RegistryObject<UpgradablePickaxeItem> HVILA_ENDORIUM_PICKAXE = ITEMS.register("hvila_endorium_pickaxe", () -> new UpgradablePickaxeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 1, -2.8f, 0, 1, new Item.Properties().group(EndReborn.ENDGROUP)));
+	public static final RegistryObject<UpgradableSwordItem> HVILA_ENDORIUM_SWORD = ITEMS.register("hvila_endorium_sword", () -> new UpgradableSwordItem(ModToolMaterials.ENDORIUM, 3, -2.4f, 0, 1, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableAxeItem> HVILA_ENDORIUM_AXE = ITEMS.register("hvila_endorium_axe", () -> new UpgradableAxeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6f, -3.1f, 0, 1, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableShovelItem> HVILA_ENDORIUM_SHOVEL = ITEMS.register("hvila_endorium_shovel", () -> new UpgradableShovelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 1.5f, -3f, 0, 1, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradableHoeItem> HVILA_ENDORIUM_HOE = ITEMS.register("hvila_endorium_hoe", () -> new UpgradableHoeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY,-3, -1f, 0, 1, new Item.Properties().group(null)));
+	public static final RegistryObject<UpgradablePickaxeItem> HVILA_ENDORIUM_PICKAXE = ITEMS.register("hvila_endorium_pickaxe", () -> new UpgradablePickaxeItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 1, -2.8f, 0, 1, new Item.Properties().group(null)));
 
 	public static final RegistryObject<MobSpawnEgg> ENDGUARD_EGG = ITEMS.register("endguard_egg", () -> new MobSpawnEgg(ModMobs.ENDGUARD, 5060690, 9725844, (new Item.Properties()).group(ItemGroup.MISC)));
 

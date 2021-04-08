@@ -9,7 +9,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.entity.monster.EndermiteEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,8 +26,6 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -39,7 +36,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class EndormanMob extends MonsterEntity {
+public class EndormanMob extends MonsterEntity implements IAngerable {
     private static final DataParameter<Integer> SIZE = EntityDataManager.createKey(EndormanMob.class, DataSerializers.VARINT);
     private static final UUID ATTACKING_SPEED_BOOST_ID = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
     private static final AttributeModifier ATTACKING_SPEED_BOOST = new AttributeModifier(ATTACKING_SPEED_BOOST_ID, "Attacking speed boost", (double)0.15F, AttributeModifier.Operation.ADDITION);
@@ -51,6 +48,9 @@ public class EndormanMob extends MonsterEntity {
     };
     private int field_226536_bz_ = Integer.MIN_VALUE;
     private int targetChangeTime;
+    private static final RangedInteger field_234286_bz_ = TickRangeConverter.convertRange(20, 39);
+    private int field_234284_bA_;
+    private UUID field_234285_bB_;
 
     public EndormanMob(EntityType<? extends EndormanMob> type, World worldIn) {
         super(type, worldIn);
@@ -67,9 +67,10 @@ public class EndormanMob extends MonsterEntity {
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(10, new EndormanMob.PlaceBlockGoal(this));
         this.goalSelector.addGoal(11, new EndormanMob.TakeBlockGoal(this));
-        this.targetSelector.addGoal(1, new EndormanMob.FindPlayerGoal(this));
+        this.targetSelector.addGoal(1, new EndormanMob.FindPlayerGoal(this, this::func_233680_b_));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EndermiteEntity.class, 10, true, false, field_213627_bA));
+        this.targetSelector.addGoal(4, new ResetAngerGoal<>(this, false));
     }
 
     public static AttributeModifierMap.MutableAttribute func_234287_m_() {
@@ -92,6 +93,7 @@ public class EndormanMob extends MonsterEntity {
 
         super.setAttackTarget(entitylivingbaseIn); //Forge: Moved down to allow event handlers to write data manager values.
     }
+
     public void setEndorSize(int sizeIn) {
         this.dataManager.set(SIZE, MathHelper.clamp(sizeIn, 1, 6));
     }
@@ -115,14 +117,33 @@ public class EndormanMob extends MonsterEntity {
         this.dataManager.register(SIZE, 0);
     }
 
+    public void setAngerTime(int time) {
+        this.field_234284_bA_ = time;
+    }
+
+    public int getAngerTime() {
+        return this.field_234284_bA_;
+    }
+
+    public void setAngerTarget(@Nullable UUID target) {
+        this.field_234285_bB_ = target;
+    }
+
+    public void func_230258_H__() {
+        this.setAngerTime(field_234286_bz_.getRandomWithinRange(this.rand));
+    }
+
+    public UUID getAngerTarget() {
+        return this.field_234285_bB_;
+    }
+
     public void func_226539_l_() {
         if (this.ticksExisted >= this.field_226536_bz_ + 400) {
             this.field_226536_bz_ = this.ticksExisted;
             if (!this.isSilent()) {
-                this.world.playSound(this.getPosX(), this.getPosYEye(), this.getPosZ(), SoundEvents.ENTITY_ENDERMAN_STARE, this.getSoundCategory(), 1.5F, 1.0F, false);
+                this.world.playSound(this.getPosX(), this.getPosYEye(), this.getPosZ(), SoundEvents.ENTITY_ENDERMAN_STARE, this.getSoundCategory(), 2.0F, 1.0F, false);
             }
         }
-
     }
 
     public void notifyDataManagerChange(DataParameter<?> key) {
@@ -142,6 +163,7 @@ public class EndormanMob extends MonsterEntity {
         if (blockstate != null) {
             compound.put("carriedBlockState", NBTUtil.writeBlockState(blockstate));
         }
+        this.writeAngerNBT(compound);
     }
 
     public ILivingEntityData onInitialSpawn(ServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
@@ -149,6 +171,7 @@ public class EndormanMob extends MonsterEntity {
         this.setEndorSize(0);
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
+
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
         BlockState blockstate = null;
@@ -158,8 +181,8 @@ public class EndormanMob extends MonsterEntity {
                 blockstate = null;
             }
         }
-        this.setEndorSize(compound.getInt("Size"));
         this.setHeldBlockState(blockstate);
+        this.readAngerNBT((ServerWorld)this.world, compound);
     }
 
     private boolean shouldAttackPlayer(PlayerEntity player) {
@@ -176,12 +199,12 @@ public class EndormanMob extends MonsterEntity {
             return d1 > 1.0D - 0.025D / d0 ? player.canEntityBeSeen(this) : false;
         }
     }
+
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height - 0.35F;
     }
 
     public void livingTick() {
-
         if (this.world.isRemote) {
             for(int i = 0; i < 2; ++i) {
                 this.world.addParticle(ParticleTypes.PORTAL, this.getPosXRandom(0.5D), this.getPosYRandom() - 0.25D, this.getPosZRandom(0.5D), (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D);
@@ -189,7 +212,15 @@ public class EndormanMob extends MonsterEntity {
         }
 
         this.isJumping = false;
+        if (!this.world.isRemote) {
+            this.func_241359_a_((ServerWorld)this.world, true);
+        }
+
         super.livingTick();
+    }
+
+    public boolean isWaterSensitive() {
+        return true;
     }
 
     protected void updateAITasks() {
@@ -292,7 +323,7 @@ public class EndormanMob extends MonsterEntity {
             return false;
         } else {
             boolean flag = super.attackEntityFrom(source, amount);
-            if (!this.world.isRemote() && this.rand.nextInt(10) != 0) {
+            if (!this.world.isRemote() && !(source.getTrueSource() instanceof LivingEntity) && this.rand.nextInt(10) != 0) {
                 this.teleportRandomly();
             }
 
@@ -312,20 +343,24 @@ public class EndormanMob extends MonsterEntity {
         this.dataManager.set(field_226535_bx_, true);
     }
 
+    public boolean preventDespawn() {
+        return super.preventDespawn() || this.getHeldBlockState() != null;
+    }
+
     static class FindPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> {
         private final EndormanMob enderman;
-        /** The player */
+
         private PlayerEntity player;
         private int aggroTime;
         private int teleportTime;
         private final EntityPredicate field_220791_m;
         private final EntityPredicate field_220792_n = (new EntityPredicate()).setLineOfSiteRequired();
 
-        public FindPlayerGoal(EndormanMob p_i45842_1_) {
-            super(p_i45842_1_, PlayerEntity.class, false);
-            this.enderman = p_i45842_1_;
+        public FindPlayerGoal(EndormanMob p_i241912_1_, @Nullable Predicate<LivingEntity> p_i241912_2_) {
+            super(p_i241912_1_, PlayerEntity.class, 10, false, false, p_i241912_2_);
+            this.enderman = p_i241912_1_;
             this.field_220791_m = (new EntityPredicate()).setDistance(this.getTargetDistance()).setCustomPredicate((p_220790_1_) -> {
-                return p_i45842_1_.shouldAttackPlayer((PlayerEntity)p_220790_1_);
+                return p_i241912_1_.shouldAttackPlayer((PlayerEntity)p_220790_1_);
             });
         }
 
@@ -359,6 +394,10 @@ public class EndormanMob extends MonsterEntity {
         }
 
         public void tick() {
+            if (this.enderman.getAttackTarget() == null) {
+                super.setNearestTarget((LivingEntity)null);
+            }
+
             if (this.player != null) {
                 if (--this.aggroTime <= 0) {
                     this.nearestTarget = this.player;
@@ -371,11 +410,13 @@ public class EndormanMob extends MonsterEntity {
                         if (this.nearestTarget.getDistanceSq(this.enderman) < 16.0D) {
                             this.enderman.teleportRandomly();
                         }
+
                         this.teleportTime = 0;
                     } else if (this.nearestTarget.getDistanceSq(this.enderman) > 256.0D && this.teleportTime++ >= 30 && this.enderman.teleportToEntity(this.nearestTarget)) {
                         this.teleportTime = 0;
                     }
                 }
+
                 super.tick();
             }
         }
@@ -425,38 +466,38 @@ public class EndormanMob extends MonsterEntity {
     }
 
     static class StareGoal extends Goal {
-        private final EndormanMob field_220835_a;
-        private LivingEntity field_226540_b_;
+        private final EndormanMob enderman;
+        private LivingEntity targetPlayer;
 
-        public StareGoal(EndormanMob p_i50520_1_) {
-            this.field_220835_a = p_i50520_1_;
+        public StareGoal(EndormanMob endermanIn) {
+            this.enderman = endermanIn;
             this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
         }
 
         public boolean shouldExecute() {
-            this.field_226540_b_ = this.field_220835_a.getAttackTarget();
-            if (!(this.field_226540_b_ instanceof PlayerEntity)) {
+            this.targetPlayer = this.enderman.getAttackTarget();
+            if (!(this.targetPlayer instanceof PlayerEntity)) {
                 return false;
             } else {
-                double d0 = this.field_226540_b_.getDistanceSq(this.field_220835_a);
-                return d0 > 256.0D ? false : this.field_220835_a.shouldAttackPlayer((PlayerEntity)this.field_226540_b_);
+                double d0 = this.targetPlayer.getDistanceSq(this.enderman);
+                return d0 > 256.0D ? false : this.enderman.shouldAttackPlayer((PlayerEntity)this.targetPlayer);
             }
         }
 
         public void startExecuting() {
-            this.field_220835_a.getNavigator().clearPath();
+            this.enderman.getNavigator().clearPath();
         }
 
         public void tick() {
-            this.field_220835_a.getLookController().setLookPosition(this.field_226540_b_.getPosX(), this.field_226540_b_.getPosYEye(), this.field_226540_b_.getPosZ());
+            this.enderman.getLookController().setLookPosition(this.targetPlayer.getPosX(), this.targetPlayer.getPosYEye(), this.targetPlayer.getPosZ());
         }
     }
 
     static class TakeBlockGoal extends Goal {
         private final EndormanMob enderman;
 
-        public TakeBlockGoal(EndormanMob p_i45841_1_) {
-            this.enderman = p_i45841_1_;
+        public TakeBlockGoal(EndormanMob endermanIn) {
+            this.enderman = endermanIn;
         }
 
         public boolean shouldExecute() {
@@ -483,8 +524,8 @@ public class EndormanMob extends MonsterEntity {
             BlockRayTraceResult blockraytraceresult = world.rayTraceBlocks(new RayTraceContext(vector3d, vector3d1, RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, this.enderman));
             boolean flag = blockraytraceresult.getPos().equals(blockpos);
             if (block.isIn(BlockTags.ENDERMAN_HOLDABLE) && flag) {
-                this.enderman.setHeldBlockState(blockstate);
                 world.removeBlock(blockpos, false);
+                this.enderman.setHeldBlockState(blockstate.getBlock().getDefaultState());
             }
         }
     }

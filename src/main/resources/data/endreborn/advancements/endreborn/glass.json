@@ -1,0 +1,35 @@
+{
+  "parent": "endreborn:endreborn/lantern",
+  "display": {
+    "icon": {
+      "item": "endreborn:obsidian_glass_pane"
+    },
+    "title": {
+      "translate": "advancements.endreborn.glass.title"
+    },
+    "description": {
+      "translate": "advancements.endreborn.glass.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "endreborn:obsidian_glass_pane"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ]
+}
