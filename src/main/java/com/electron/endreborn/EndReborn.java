@@ -70,8 +70,8 @@ public class EndReborn {
 
     @SubscribeEvent
     public void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
-        GlobalEntityTypeAttributes.put(ModMobs.ENDGUARD.get(), EndGuardMob.func_234200_m_().create());
-        GlobalEntityTypeAttributes.put(ModMobs.ENDOR.get(), EndormanMob.func_234287_m_().create());
+        GlobalEntityTypeAttributes.put(ModMobs.ENDGUARD.get(), EndGuardMob.func_234200_m_().build());
+        GlobalEntityTypeAttributes.put(ModMobs.ENDOR.get(), EndormanMob.func_234287_m_().build());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

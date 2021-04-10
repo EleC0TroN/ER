@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+  		"type": "forge:mod_loaded",
+ 		"modid": "theurgy"
+ 	   }
+      ],
+      "recipe": {
+        "type": "theurgy:essentia",
+        "ingredient": {
+          "tag": "forge:nuggets/endorium"
+        },
+        "essentia": [
+          {
+            "item": "theurgy:ignis_essentia",
+            "count": 16
+          },
+          {
+            "item": "theurgy:terra_essentia",
+            "count": 16
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -21,13 +21,13 @@ public class IronHammer extends Item {
 	public ItemStack getContainerItem(@Nonnull ItemStack stack)
 	{
 		ItemStack container = stack.copy();
-		if(container.attemptDamageItem(1, new Random(), null))
+		if(container.hurt(1, new Random(), null))
 			return ItemStack.EMPTY;
 		else
 			return container;
 	}
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		  stack.damageItem(1, attacker, null);
+	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		  stack.hurtAndBreak(1, attacker, null);
 	      return true;
 	}
 }

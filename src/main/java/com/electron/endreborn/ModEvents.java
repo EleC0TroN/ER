@@ -17,34 +17,34 @@ public class ModEvents {
 	
 	@SubscribeEvent
 	public static void onEnderSpawn(LivingSpawnEvent.SpecialSpawn event) {
-		if (ModConfigs.COMMON.balance.enderman_tweaks.get() && !event.getEntityLiving().world.isRemote()) {
+		if (ModConfigs.COMMON.balance.enderman_tweaks.get() && !event.getEntityLiving().level.isClientSide()) {
 			LivingEntity entity = event.getEntityLiving();
 			if (entity instanceof EndermanEntity) {
 				entity.remove();
-				EndormanMob endor = new EndormanMob(ModMobs.ENDOR.get(), entity.world);
-				endor.copyLocationAndAnglesFrom(entity);
-				int i = entity.world.getRandom().nextInt(5);
+				EndormanMob endor = new EndormanMob(ModMobs.ENDOR.get(), entity.level);
+				endor.copyPosition(entity);
+				int i = entity.level.getRandom().nextInt(5);
 				endor.setEndorSize(i);
-				entity.world.addEntity(endor);
+				entity.level.addFreshEntity(endor);
 			}
 		}
 	}
 
 	@SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event) {
-		  ItemStack feet = event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET);
+		  ItemStack feet = event.getEntityLiving().getItemBySlot(EquipmentSlotType.FEET);
 		  if(feet.getItem() == ModItems.ENDER_BOOTS.get()) {
-	        if (event.getSource().getTrueSource() instanceof Entity) {
+	        if (event.getSource().getDirectEntity() instanceof Entity) {
 	        	float amount = event.getAmount();
-	            if (!event.getEntityLiving().world.isRemote) {
+	            if (!event.getEntityLiving().level.isClientSide) {
 	                for(int i = 0; i < 16; ++i) {
-	                   double d3 = event.getEntityLiving().getPosX() + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
-	                   double d4 = MathHelper.clamp(event.getEntityLiving().getPosY() + (double)(event.getEntityLiving().getRNG().nextInt(16) - 8), 0.0D, (double)(event.getEntityLiving().world.func_234938_ad_() - 1));
-	                   double d5 = event.getEntityLiving().getPosZ() + (event.getEntityLiving().getRNG().nextDouble() - 0.5D) * 16.0D;
+	                   double d3 = event.getEntityLiving().getX() + (event.getEntityLiving().getRandom().nextDouble() - 0.5D) * 16.0D;
+	                   double d4 = MathHelper.clamp(event.getEntityLiving().getY() + (double)(event.getEntityLiving().getRandom().nextInt(16) - 8), 0.0D, (double)(event.getEntityLiving().level.getHeight() - 1));
+	                   double d5 = event.getEntityLiving().getZ() + (event.getEntityLiving().getRandom().nextDouble() - 0.5D) * 16.0D;
 	                   if (event.getEntityLiving().isPassenger()) {
 	                	   event.getEntityLiving().stopRiding();
 	                   }
-	                   if (event.getEntityLiving().attemptTeleport(d3, d4, d5, true)) {
+	                   if (event.getEntityLiving().randomTeleport(d3, d4, d5, true)) {
 	                	   amount = amount / 2;
 	                       event.setAmount(amount);
 	                      break;

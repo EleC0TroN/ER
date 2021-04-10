@@ -26,38 +26,37 @@ public class PurpurEye extends Item {
         super(builder);
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE);
-        if (raytraceresult.getType() == RayTraceResult.Type.BLOCK && worldIn.getBlockState(((BlockRayTraceResult)raytraceresult).getPos()).isIn(Blocks.END_PORTAL_FRAME)) {
-            return ActionResult.resultPass(itemstack);
+    public ActionResult<ItemStack> use(World p_77659_1_, PlayerEntity p_77659_2_, Hand p_77659_3_) {
+        ItemStack itemstack = p_77659_2_.getItemInHand(p_77659_3_);
+        RayTraceResult raytraceresult = getPlayerPOVHitResult(p_77659_1_, p_77659_2_, RayTraceContext.FluidMode.NONE);
+        if (raytraceresult.getType() == RayTraceResult.Type.BLOCK && p_77659_1_.getBlockState(((BlockRayTraceResult)raytraceresult).getBlockPos()).is(Blocks.END_PORTAL_FRAME)) {
+            return ActionResult.pass(itemstack);
         } else {
-            playerIn.setActiveHand(handIn);
-            if (worldIn instanceof ServerWorld) {
-                BlockPos blockpos = ((ServerWorld)worldIn).getChunkProvider().getChunkGenerator().func_235956_a_((ServerWorld)worldIn, Structure.END_CITY, playerIn.getPosition(), 50, false);
+            p_77659_2_.startUsingItem(p_77659_3_);
+            if (p_77659_1_ instanceof ServerWorld) {
+                BlockPos blockpos = ((ServerWorld)p_77659_1_).getChunkSource().getGenerator().findNearestMapFeature((ServerWorld)p_77659_1_, Structure.END_CITY, p_77659_2_.blockPosition(), 100, false);
                 if (blockpos != null) {
-                    EyeOfEnderEntity eyeofenderentity = new EyeOfEnderEntity(worldIn, playerIn.getPosX(), playerIn.getPosYHeight(0.5D), playerIn.getPosZ());
-                    eyeofenderentity.func_213863_b(itemstack);
-                    eyeofenderentity.moveTowards(blockpos);
-                    worldIn.addEntity(eyeofenderentity);
-                    if (playerIn instanceof ServerPlayerEntity) {
-                        CriteriaTriggers.USED_ENDER_EYE.trigger((ServerPlayerEntity)playerIn, blockpos);
+                    EyeOfEnderEntity eyeofenderentity = new EyeOfEnderEntity(p_77659_1_, p_77659_2_.getX(), p_77659_2_.getY(0.5D), p_77659_2_.getZ());
+                    eyeofenderentity.setItem(itemstack);
+                    eyeofenderentity.signalTo(blockpos);
+                    p_77659_1_.addFreshEntity(eyeofenderentity);
+                    if (p_77659_2_ instanceof ServerPlayerEntity) {
+                        CriteriaTriggers.USED_ENDER_EYE.trigger((ServerPlayerEntity)p_77659_2_, blockpos);
                     }
 
-                    worldIn.playSound((PlayerEntity)null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.ENTITY_ENDER_EYE_LAUNCH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    worldIn.playEvent((PlayerEntity)null, 1003, playerIn.getPosition(), 0);
-                    if (!playerIn.abilities.isCreativeMode) {
+                    p_77659_1_.playSound((PlayerEntity)null, p_77659_2_.getX(), p_77659_2_.getY(), p_77659_2_.getZ(), SoundEvents.CHORUS_FLOWER_GROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                    p_77659_1_.levelEvent((PlayerEntity)null, 1003, p_77659_2_.blockPosition(), 0);
+                    if (!p_77659_2_.abilities.instabuild) {
                         itemstack.shrink(1);
                     }
 
-                    playerIn.addStat(Stats.ITEM_USED.get(this));
-                    playerIn.swing(handIn, true);
-                    return ActionResult.resultSuccess(itemstack);
+                    p_77659_2_.awardStat(Stats.ITEM_USED.get(this));
+                    p_77659_2_.swing(p_77659_3_, true);
+                    return ActionResult.success(itemstack);
                 }
             }
 
-            return ActionResult.resultConsume(itemstack);
+            return ActionResult.consume(itemstack);
         }
     }
-
 }

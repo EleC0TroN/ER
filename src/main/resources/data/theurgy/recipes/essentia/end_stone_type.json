@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+  		"type": "forge:mod_loaded",
+ 		"modid": "theurgy"
+ 	   }
+      ],
+      "recipe": {
+        "type": "theurgy:essentia",
+        "ingredient": {
+          "tag": "endreborn:end_stone_type"
+        },
+        "essentia": [
+          {
+            "item": "theurgy:aer_essentia",
+            "count": 10
+          }
+        ]
+      }
+    }
+  ]
+}

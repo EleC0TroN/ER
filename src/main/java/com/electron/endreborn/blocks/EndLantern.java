@@ -9,9 +9,9 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class EndLantern extends LanternBlock implements IForgeBlock {
 
     public EndLantern() {
-        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(3.25f, 5.5f).setLightLevel((state) -> {
-            return 10;
-        }).sound(SoundType.STONE));
+        super(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F).sound(SoundType.LANTERN).lightLevel((p_235447_0_) -> {
+            return 12;
+        }).noOcclusion());
 
     }
 

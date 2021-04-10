@@ -2,25 +2,23 @@ package com.electron.endreborn.items.materials;
 
 import com.electron.endreborn.ModItems;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements IItemTier {
     TUNGSTEN(2, 200, 7.0F, 2.5F, 0, () -> {
-        return Ingredient.fromItems(ModItems.TUNGSTEN_INGOT.get());
+        return Ingredient.of(ModItems.TUNGSTEN_INGOT.get());
     }),
     ENDORIUM(3, 1200, 9.0F, 4.0F, 16, () -> {
-        return Ingredient.fromItems(ModItems.ENDORIUM_INGOT.get());
+        return Ingredient.of(ModItems.ENDORIUM_INGOT.get());
     }),
     ENDORIUM_FLEXIBILITY(3, 1200, 10.8F, 4.0F, 16, () -> {
-        return Ingredient.fromItems(ModItems.ENDORIUM_INGOT.get());
+        return Ingredient.of(ModItems.ENDORIUM_INGOT.get());
     }),
     ENDSTONE(1, 180, 3.0F, 1.0F, 10, () -> {
-        return Ingredient.fromItems(ModItems.END_STONE_SMOOTH.get());
+        return Ingredient.of(ModItems.END_STONE_SMOOTH.get());
     });
 
     private final int harvestLevel;
@@ -39,27 +37,27 @@ public enum ModToolMaterials implements IItemTier {
         this.repairMaterial = new LazyValue<>(repairMaterialIn);
     }
 
-    public int getMaxUses() {
+    public int getUses() {
         return this.maxUses;
     }
 
-    public float getEfficiency() {
+    public float getSpeed() {
         return this.efficiency;
     }
 
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
-    public int getHarvestLevel() {
+    public int getLevel() {
         return this.harvestLevel;
     }
 
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 }

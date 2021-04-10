@@ -24,25 +24,25 @@ public class ModBlocks {
 	public static final RegistryObject<Block> END_STONE_PILLAR = BLOCKS.register("end_stone_pillar", PillarBlock::new);
 	public static final RegistryObject<Block> PURPUR_LANTERN = BLOCKS.register("purpur_lantern", EndLantern::new);
 	public static final RegistryObject<Block> CRACKED_PURPUR = BLOCKS.register("cracked_purpur", RockBlock::new);
-	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
-	public static final RegistryObject<Block> OBSIDIAN_GLASS_PANE = BLOCKS.register("obsidian_glass_pane", () -> new PaneBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(40.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
-	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS_PANE = BLOCKS.register("framed_obsidian_glass_pane", () -> new PaneBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(40.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
+	public static final RegistryObject<Block> OBSIDIAN_GLASS = BLOCKS.register("obsidian_glass", () -> new GlassBlock(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK).strength(50.0f, 1200.0f).sound(SoundType.GLASS).noOcclusion()));
+	public static final RegistryObject<Block> OBSIDIAN_GLASS_PANE = BLOCKS.register("obsidian_glass_pane", () -> new PaneBlock(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK).strength(40.0f, 1200.0f).sound(SoundType.GLASS).noOcclusion()));
+	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS_PANE = BLOCKS.register("framed_obsidian_glass_pane", () -> new PaneBlock(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK).strength(40.0f, 1200.0f).sound(SoundType.GLASS).noOcclusion()));
 
 	public static final RegistryObject<Block> END_MOSS_BLOCK = BLOCKS.register("end_moss_block", EndMoss::new);
-	public static final RegistryObject<Block> PURPUR_CHAIN = BLOCKS.register("purpur_chain", () -> new ChainBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.AIR).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.CHAIN).notSolid()));
+	public static final RegistryObject<Block> PURPUR_CHAIN = BLOCKS.register("purpur_chain", () -> new ChainBlock(AbstractBlock.Properties.of(Material.METAL, MaterialColor.NONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion()));
 	public static final RegistryObject<Block> TUNGSTEN_ORE = BLOCKS.register("tungsten_ore", RockBlock::new);
 	public static final RegistryObject<Block> TUNGSTEN_END_ORE = BLOCKS.register("end_tungsten_ore", RockBlock::new);
 
 	public static final RegistryObject<Block> END_CORAL = BLOCKS.register("end_coral", EndstonePlant::new);
 	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", MetalBlock::new);
-	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0f, 0.0f).notSolid()));
+	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 	public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", MetalBlock::new);
 
 	public static final RegistryObject<Block> ENDORIUM_SHEETMETAL = BLOCKS.register("sheetmetal_endorium", MetalBlock::new);
 	public static final RegistryObject<Block> TUNGSTEN_SHEETMETAL = BLOCKS.register("sheetmetal_tungsten", MetalBlock::new);
-	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS = BLOCKS.register("framed_obsidian_glass", () -> new GlassBlock(Block.Properties.create(Material.GLASS, MaterialColor.OBSIDIAN).hardnessAndResistance(50.0f, 6000.0f).sound(SoundType.GLASS).notSolid()));
-	public static final RegistryObject<Block> PURPUR_WALL = BLOCKS.register("purpur_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE).notSolid()));
-	public static final RegistryObject<Block> ENDSTONE_BUTTON = BLOCKS.register("end_stone_button", () -> new CustomButtonBlock(Block.Properties.create(Material.ROCK, MaterialColor.PURPLE).hardnessAndResistance(2.55f, 3.5f).sound(SoundType.STONE).notSolid()));
+	public static final RegistryObject<Block> FRAMED_OBSIDIAN_GLASS = BLOCKS.register("framed_obsidian_glass", () -> new GlassBlock(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(50.0f, 600.0f).sound(SoundType.GLASS).noOcclusion()));
+	public static final RegistryObject<Block> PURPUR_WALL = BLOCKS.register("purpur_wall", () -> new WallBlock(Block.Properties.of(Material.STONE, MaterialColor.COLOR_PURPLE).strength(2.55f, 3.5f).sound(SoundType.STONE).noOcclusion()));
+	public static final RegistryObject<Block> ENDSTONE_BUTTON = BLOCKS.register("end_stone_button", () -> new StoneButtonBlock(Block.Properties.of(Material.STONE, MaterialColor.COLOR_PURPLE).strength(2.55f, 3.5f).sound(SoundType.STONE).noOcclusion()));
 
 	public static final RegistryObject<Block> XORCITE = BLOCKS.register("xorcite", RockBlock::new);
 	public static final RegistryObject<Block> XORCITE_DECORATIVE = BLOCKS.register("decorative_xorcite", RockBlock::new);
@@ -64,6 +64,6 @@ public class ModBlocks {
 		renderCutout(FRAMED_OBSIDIAN_GLASS_PANE.get());
 	}
 	private static void renderCutout(Block block) {
-		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(block, RenderType.cutout());
 	}
 }

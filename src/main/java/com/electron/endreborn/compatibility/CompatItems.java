@@ -16,25 +16,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CompatItems {
 
-    public static final Item ENDORIUM_PLATE = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item ENDORIUM_ROD = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item ENDORIUM_DUST = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_PLATE = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_ROD = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_CRYSTAL = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_SHARD = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_DUST = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_DIRTY = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_CLUMP = new Item(new Item.Properties().group(EndReborn.ENDOMPAT));
+    public static final Item ENDORIUM_PLATE = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item ENDORIUM_ROD = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item ENDORIUM_DUST = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_PLATE = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_ROD = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_CRYSTAL = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_SHARD = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_DUST = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_DIRTY = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_CLUMP = new Item(new Item.Properties().tab(EndReborn.ENDOMPAT));
 
-    public static final Item ENDORIUM_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item TUNGSTEN_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 5, -2.4f, new Item.Properties().group(EndReborn.ENDOMPAT));
-    public static final Item RIZIKI_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, 1, 0, new Item.Properties().group(null));
-    public static final Item HVILA_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6, -2.4f, 0, 1, new Item.Properties().group(null));
+    public static final Item ENDORIUM_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item TUNGSTEN_PAXEL = new PaxelItem(ModToolMaterials.ENDORIUM, 5, -2.4f, new Item.Properties().tab(EndReborn.ENDOMPAT));
+    public static final Item RIZIKI_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM, 6, -2.4f, 1, 0, new Item.Properties().tab(null));
+    public static final Item HVILA_ENDORIUM_PAXEL = new UpgradablePaxelItem(ModToolMaterials.ENDORIUM_FLEXIBILITY, 6, -2.4f, 0, 1, new Item.Properties().tab(null));
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerItems(RegistryEvent.Register<Item> event) {
-
         if (ImmersiveEngineering.isInstalled()) {
             registerItem(ENDORIUM_PLATE, "endorium_plate");
             registerItem(ENDORIUM_ROD, "endorium_rod");

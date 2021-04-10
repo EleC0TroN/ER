@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [ ],
+  "optional": [
+    "endreborn:endorium_plate",
+    "endreborn:tungsten_plate"
+  ]
+}

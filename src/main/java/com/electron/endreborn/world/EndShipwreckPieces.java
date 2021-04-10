@@ -2,7 +2,6 @@ package com.electron.endreborn.world;
 
 import com.electron.endreborn.EndReborn;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.util.Mirror;
@@ -62,32 +61,32 @@ public class EndShipwreckPieces {
         }
 
         private void setupPiece(TemplateManager templateManager) {
-            Template template = templateManager.getTemplateDefaulted(this.resourceLocation);
-            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(BlockPos.ZERO).addProcessor(BlockIgnoreStructureProcessor.AIR_AND_STRUCTURE_BLOCK);
+            Template template = templateManager.get(this.resourceLocation);
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(BlockPos.ZERO).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_AND_AIR);
             this.setup(template, this.templatePosition, placementsettings);
         }
 
-        protected void readAdditional(CompoundNBT tagCompound) {
-            super.readAdditional(tagCompound);
+        protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+            super.addAdditionalSaveData(tagCompound);
             tagCompound.putString("Template", this.resourceLocation.toString());
             tagCompound.putString("Rot", this.rotation.name());
         }
 
         protected void handleDataMarker(String function, BlockPos pos, IServerWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if (function.startsWith("Chest")) {
-                BlockPos blockpos = pos.down();
-                if (sbb.isVecInside(blockpos)) {
+                BlockPos blockpos = pos.below();
+                if (sbb.isInside(blockpos)) {
                     LockableLootTileEntity.setLootTable(worldIn, rand, blockpos, EndReborn.END_SHIPWRECK_LOOT);
                 }
             }
         }
         @Override
-        public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             BlockPos blockpos = this.template.getSize();
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
-            this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
+            this.templatePosition.offset(Template.calculateRelativePosition(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
 
-            boolean flag = super.func_230383_a_(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
+            boolean flag = super.postProcess(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
             return flag;
         }
     }

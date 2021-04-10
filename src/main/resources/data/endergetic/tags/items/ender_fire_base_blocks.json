@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [],
+  "optional": [
+    "endreborn:end_moss_block",
+    "endreborn:end_moss"
+  ]
+}

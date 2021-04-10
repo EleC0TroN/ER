@@ -70,12 +70,12 @@ public class NatureGen {
 
     private static void addFirstFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
         if (feature != null) {
-            generation.withFeature(GenerationStage.Decoration.RAW_GENERATION, feature);
+            generation.addFeature(GenerationStage.Decoration.RAW_GENERATION, feature);
         }
     }
     private static void addSecondFeature(BiomeGenerationSettingsBuilder generation, @Nullable ConfiguredFeature<?, ?> feature) {
         if (feature != null) {
-            generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature);
+            generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature);
         }
     }
 }

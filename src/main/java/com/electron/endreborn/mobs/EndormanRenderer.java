@@ -32,9 +32,9 @@ public class EndormanRenderer extends MobRenderer<EndormanMob, EndermanModel<End
         int i = entityIn.getEndorSize();
         float f = 1.0F + (0.1F * (float)i) - 0.1F;
         matrixStackIn.scale(f, f, f);
-        EndermanModel<EndormanMob> endermanmodel = this.getEntityModel();
-        endermanmodel.isCarrying = blockstate != null;
-        endermanmodel.isAttacking = entityIn.isScreaming();
+        EndermanModel<EndormanMob> endermanmodel = this.getModel();
+        endermanmodel.carrying = blockstate != null;
+        endermanmodel.creepy = entityIn.isScreaming();
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
     }
     public static class RenderFactory implements IRenderFactory<EndormanMob>
@@ -53,12 +53,8 @@ public class EndormanRenderer extends MobRenderer<EndormanMob, EndermanModel<End
             return super.getRenderOffset(p_225627_1_, p_225627_2_);
         }
     }
-    /**
-     * Returns the location of an entity's texture.
-     */
-    public ResourceLocation getEntityTexture(EndormanMob entity) {
+
+    public ResourceLocation getTextureLocation(EndormanMob entity) {
         return ENDERMAN_TEXTURES;
     }
-
-
 }

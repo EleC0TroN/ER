@@ -9,8 +9,9 @@ public class EndTab extends ItemGroup {
 	public EndTab() {
 		super("endgroup"); 
 	}
+
 	@Override
-	public ItemStack createIcon() {
+	public ItemStack makeIcon() {
 		return new ItemStack(ModItems.CRACKED_END_BRICKS.get());
-	}	
+	}
 }

@@ -3,10 +3,10 @@ loaderVersion="[35,)" #mandatory
 license="All rights reserved"
 [[mods]] #mandatory
 modId="endreborn" #mandatory
-version="0.8.0" #mandatory
+version="0.8.2" #mandatory
 displayName="End: Reborn" #mandatory
 logoFile="logo.png" #optional
-credits="Mod for MC." #optional
+credits="Just a mod for Minecraft." #optional
 authors="EleC0TroN" #optional
 description="Simple mod with purpose to decorate The End experience."
 [[dependencies.examplemod]] #optional

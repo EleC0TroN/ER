@@ -22,8 +22,8 @@ import java.util.Map;
 public class NatureStructures {
     public static final DeferredRegister<Structure<?>> STRUCTURE_FEATURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, EndReborn.MODID);
 
-    public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = STRUCTURE_FEATURES.register("end_shipwreck", () -> new EndShipwreckStructure(NoFeatureConfig.field_236558_a_));
-    public static final RegistryObject<Structure<NoFeatureConfig>> END_CRYPT = STRUCTURE_FEATURES.register("end_crypt", () -> new EndCryptStructure(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Structure<NoFeatureConfig>> END_SHIPWRECK = STRUCTURE_FEATURES.register("end_shipwreck", () -> new EndShipwreckStructure(NoFeatureConfig.CODEC));
+    public static final RegistryObject<Structure<NoFeatureConfig>> END_CRYPT = STRUCTURE_FEATURES.register("end_crypt", () -> new EndCryptStructure(NoFeatureConfig.CODEC));
 
     public static void setupStructures() {
         setupStructure(END_SHIPWRECK.get(), new StructureSeparationSettings(22, 1, 22620210), false);
@@ -31,12 +31,12 @@ public class NatureStructures {
     }
 
     public static <F extends Structure<?>> void setupStructure(F structure, StructureSeparationSettings structureSeparationSettings, boolean transformSurroundingLand) {
-        Structure.NAME_STRUCTURE_BIMAP.put(structure.getRegistryName().toString(), structure);
+        Structure.STRUCTURES_REGISTRY.put(structure.getRegistryName().toString(), structure);
         if (transformSurroundingLand) {
-            Structure.field_236384_t_ = ImmutableList.<Structure<?>>builder().addAll(Structure.field_236384_t_).add(structure).build();
+            Structure.NOISE_AFFECTING_FEATURES = ImmutableList.<Structure<?>>builder().addAll(Structure.NOISE_AFFECTING_FEATURES).add(structure).build();
         }
-        DimensionStructuresSettings.field_236191_b_ = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
-                .putAll(DimensionStructuresSettings.field_236191_b_)
+        DimensionStructuresSettings.DEFAULTS = ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
+                .putAll(DimensionStructuresSettings.DEFAULTS)
                 .put(structure, structureSeparationSettings)
                 .build();
     }
@@ -48,11 +48,11 @@ public class NatureStructures {
     public static void addDimensionSpacing(WorldEvent.Load event) {
         if (event.getWorld() instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) event.getWorld();
-            if (!(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator) && serverWorld.getDimensionKey().equals(World.THE_END)) {
-                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
-                tempMap.put(END_SHIPWRECK.get(), DimensionStructuresSettings.field_236191_b_.get(END_SHIPWRECK.get()));
-                tempMap.put(END_CRYPT.get(), DimensionStructuresSettings.field_236191_b_.get(END_CRYPT.get()));
-                serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+            if (!(serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator) && serverWorld.dimension().equals(World.END)) {
+                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
+                tempMap.put(END_SHIPWRECK.get(), DimensionStructuresSettings.DEFAULTS.get(END_SHIPWRECK.get()));
+                tempMap.put(END_CRYPT.get(), DimensionStructuresSettings.DEFAULTS.get(END_CRYPT.get()));
+                serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
             }
         }
     }

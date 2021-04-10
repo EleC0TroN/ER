@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 public class Mekanism {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, EndReborn.MODID);
 
-    public static final RegistryObject<Item> TUNGSTEN_QIO_DRIVE = ITEMS.register("tungsten_qio_drive", () -> new ItemCompatQIO(QIOCompatTier.ENDOMATIC, new Item.Properties().group(EndReborn.ENDOMPAT)));
+    public static final RegistryObject<Item> TUNGSTEN_QIO_DRIVE = ITEMS.register("tungsten_qio_drive", () -> new ItemCompatQIO(QIOCompatTier.ENDOMATIC, new Item.Properties().tab(EndReborn.ENDOMPAT)));
 
     @Nonnull
     public static final Slurry CLEAN_TUNGSTEN_SLURRY = new TungstenCleanSlurry();

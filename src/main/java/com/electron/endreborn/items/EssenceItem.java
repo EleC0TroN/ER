@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class EssenceItem extends Item {
     public EssenceItem() {
-        super(new Item.Properties().group(EndReborn.ENDGROUP));
+        super(new Item.Properties().tab(EndReborn.ENDGROUP));
     }
 
     @Override

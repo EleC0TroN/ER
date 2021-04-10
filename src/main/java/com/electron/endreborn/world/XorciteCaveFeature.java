@@ -16,8 +16,7 @@ public class XorciteCaveFeature extends Feature<NoFeatureConfig> {
         super(codec);
     }
 
-    @Override
-    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         double chance = rand.nextDouble();
 
         if (chance > 0.68D) {
@@ -27,14 +26,14 @@ public class XorciteCaveFeature extends Feature<NoFeatureConfig> {
 
             if (pos.getY() <= 44 && pos.getY() > 31) {
 
-                    for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-o, -o, -o), pos.add(o, o, o))) {
-                        if (blockpos.distanceSq(pos) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == Blocks.END_STONE) {
-                            reader.setBlockState(blockpos, NatureFeatures.XORCITE, 2);
+                    for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-o, -o, -o), pos.offset(o, o, o))) {
+                        if (blockpos.distSqr(pos) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == Blocks.END_STONE) {
+                            reader.setBlock(blockpos, NatureFeatures.XORCITE, 2);
                         }
                     }
-                    for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-o1, -o1, -o1), pos.add(o1, o1, o1))) {
-                        if (o1 > 1 && blockpos.distanceSq(pos) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == ModBlocks.XORCITE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.TUNGSTEN_END_ORE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.END_CORAL.get()) {
-                            reader.setBlockState(blockpos, NatureFeatures.AIR, 2);
+                    for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-o1, -o1, -o1), pos.offset(o1, o1, o1))) {
+                        if (o1 > 1 && blockpos.distSqr(pos) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == ModBlocks.XORCITE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.TUNGSTEN_END_ORE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.END_CORAL.get()) {
+                            reader.setBlock(blockpos, NatureFeatures.AIR, 2);
                         }
                     }
                 }

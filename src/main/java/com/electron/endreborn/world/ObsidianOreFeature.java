@@ -1,6 +1,5 @@
 package com.electron.endreborn.world;
 
-import com.electron.endreborn.EndReborn;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,15 +17,15 @@ public class ObsidianOreFeature extends Feature<NoFeatureConfig> {
 	}
 
 
-	public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		int i = 0;
 			int u = rand.nextInt(3);
-			BlockState blockstate = Blocks.CRYING_OBSIDIAN.getDefaultState();
+			BlockState blockstate = Blocks.CRYING_OBSIDIAN.defaultBlockState();
 			if (u>=2) {
 				for (int j = 0; j < 196; ++j) {
-					BlockPos blockpos = pos.add(rand.nextInt(4) - rand.nextInt(2), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(2));
+					BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(2), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(2));
 					if (worldIn.getBlockState(blockpos).getBlock() == Blocks.OBSIDIAN) {
-						worldIn.setBlockState(blockpos, blockstate, 2);
+						worldIn.setBlock(blockpos, blockstate, 2);
 						++i;
 					}
 				}

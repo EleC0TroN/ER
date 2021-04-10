@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+  		"type": "forge:mod_loaded",
+ 		"modid": "theurgy"
+ 	   }
+      ],
+      "recipe": {
+        "type": "theurgy:essentia",
+        "ingredient": {
+          "tag": "endreborn:essence"
+        },
+        "essentia": [
+          {
+            "item": "theurgy:ignis_essentia",
+            "count": 100
+          },
+          {
+            "item": "theurgy:aer_essentia",
+            "count": 100
+          }
+        ]
+      }
+    }
+  ]
+}

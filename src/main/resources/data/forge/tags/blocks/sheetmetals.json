@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [ ],
+  "optional": [
+    "endreborn:sheetmetal_endorium",
+    "endreborn:sheetmetal_tungsten"
+  ]
+}

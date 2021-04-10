@@ -11,8 +11,9 @@ public class CompatTab extends ItemGroup {
     public CompatTab() {
         super("endcompatgroup");
     }
+
     @Override
-    public ItemStack createIcon() {
+    public ItemStack makeIcon() {
         return new ItemStack(ModItems.ENDORIUM_BLOCK.get());
     }
 }

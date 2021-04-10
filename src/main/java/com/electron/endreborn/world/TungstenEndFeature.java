@@ -17,14 +17,14 @@ public class TungstenEndFeature extends Feature<NoFeatureConfig> {
         super(p_i231932_1_);
     }
 
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int i = 0;
-            BlockState blockstate = ModBlocks.TUNGSTEN_END_ORE.get().getDefaultState();
-            if (pos.getY() <= 70 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE) {
+            BlockState blockstate = ModBlocks.TUNGSTEN_END_ORE.get().defaultBlockState();
+            if (pos.getY() <= 70 && worldIn.getBlockState(pos.below()).getBlock() == Blocks.END_STONE) {
                 for (int j = 0; j < rand.nextInt(6); ++j) {
-                    BlockPos blockpos = pos.add(rand.nextInt(2), rand.nextInt(2), rand.nextInt(2));
+                    BlockPos blockpos = pos.offset(rand.nextInt(2), rand.nextInt(2), rand.nextInt(2));
                     if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE) {
-                        worldIn.setBlockState(blockpos, blockstate, 2);
+                        worldIn.setBlock(blockpos, blockstate, 2);
                         ++i;
                     }
                 }

@@ -14,7 +14,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class MetalBlock extends Block implements IForgeBlock {
 
     public MetalBlock() {
-        super(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.25f, 5.5f).sound(SoundType.METAL));
+        super(Block.Properties.of(Material.METAL, MaterialColor.METAL).strength(5.25f, 5.5f).sound(SoundType.METAL));
     }
 
     @Override

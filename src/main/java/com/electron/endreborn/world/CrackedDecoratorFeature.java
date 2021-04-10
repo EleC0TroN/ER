@@ -18,18 +18,18 @@ public class CrackedDecoratorFeature extends Feature<NoFeatureConfig> {
         super(p_i231932_1_);
     }
 
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int i = 0;
-        BlockState brickstate = ModBlocks.CRACKED_END_BRICKS.get().getDefaultState();
-        BlockState blockstate = ModBlocks.CRACKED_PURPUR.get().getDefaultState();
+        BlockState brickstate = ModBlocks.CRACKED_END_BRICKS.get().defaultBlockState();
+        BlockState blockstate = ModBlocks.CRACKED_PURPUR.get().defaultBlockState();
         for(int j = 0; j < 512; ++j) {
-            BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(6));
+            BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(6), rand.nextInt(8) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(6));
             if (worldIn.getBlockState(blockpos).getBlock() == Blocks.PURPUR_BLOCK) {
-                worldIn.setBlockState(blockpos, blockstate, 2);
+                worldIn.setBlock(blockpos, blockstate, 2);
                 ++i;
             }
-            if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE_BRICKS && blockstate.isValidPosition(worldIn, blockpos) && !worldIn.isAirBlock(blockpos)) {
-                worldIn.setBlockState(blockpos, brickstate, 2);
+            if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE_BRICKS && blockstate.canSurvive(worldIn, blockpos) && !worldIn.isEmptyBlock(blockpos)) {
+                worldIn.setBlock(blockpos, brickstate, 2);
                 ++i;
             }
         }

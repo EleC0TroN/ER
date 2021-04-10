@@ -12,7 +12,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class PillarBlock extends RotatedPillarBlock implements IForgeBlock {
 
     public PillarBlock() {
-        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(3.25f, 5.5f).sound(SoundType.STONE));
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.25f, 5.5f).sound(SoundType.STONE));
     }
 
     @Override

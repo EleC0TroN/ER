@@ -13,6 +13,7 @@ public class MobSpawnEgg extends SpawnEggItem {
         super(null, primaryColorIn, secondaryColorIn, builder);
         this.typeIn = Lazy.of(typemIn);
     }
+
     @Override
     public EntityType<?> getType(CompoundNBT nbt) {
         return this.typeIn.get();

@@ -10,6 +10,6 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 
 public class PlantBlock extends FlowerBlock implements IForgeBlock {
 	public PlantBlock() {
-        super(Effects.LEVITATION, 5, Block.Properties.create(Material.PLANTS, MaterialColor.GRASS).doesNotBlockMovement().sound(SoundType.PLANT));
+        super(Effects.LEVITATION, 5, Block.Properties.of(Material.PLANT, MaterialColor.GRASS).noCollission().sound(SoundType.GRASS));
     }
 }

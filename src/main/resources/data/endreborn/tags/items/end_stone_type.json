@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "endreborn:end_moss_block",
+    "endreborn:burned_end_stone",
+    "endreborn:chiseled_end_bricks",
+    "endreborn:end_stone_pillar"  
+    ]
+}

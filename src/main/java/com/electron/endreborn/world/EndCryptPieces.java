@@ -14,6 +14,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.structure.IglooPieces;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
@@ -41,15 +42,15 @@ public class EndCryptPieces {
 
         BlockPos rotationOffSet = new BlockPos(0, 0, 0).rotate(rotation);
         BlockPos rotationOffSet1 = new BlockPos(-1, 0, -1).rotate(rotation);
-        BlockPos blockpos = rotationOffSet.add(x, pos.getY(), z);
-        BlockPos blockpos1 = rotationOffSet1.add(x, pos.getY(), z);
+        BlockPos blockpos = rotationOffSet.offset(x, pos.getY(), z);
+        BlockPos blockpos1 = rotationOffSet1.offset(x, pos.getY(), z);
         pieceList.add(new EndCryptPieces.Piece(templateManager, TOP, blockpos1, rotation));
         for (int j = r; j > 0; --j) {
             int r1 = random.nextInt(13);
             if (r1 >= 0 && r1 < 7) {
                 c = c+1;
                 rotationOffSet = new BlockPos(0, 0, -7 * c).rotate(rotation);
-                blockpos = rotationOffSet.add(x, pos.getY(), z);
+                blockpos = rotationOffSet.offset(x, pos.getY(), z);
                 pieceList.add(new EndCryptPieces.Piece(templateManager, FRONT, blockpos, rotation));
             } else if (r1 >= 7 && r1 < 13) {
                 c = c+1;
@@ -60,19 +61,19 @@ public class EndCryptPieces {
                 int c2 = 0;
 
                 rotationOffSet = new BlockPos(0, 0, -7 * c).rotate(rotation);
-                blockpos = rotationOffSet.add(x, pos.getY(), z);
+                blockpos = rotationOffSet.offset(x, pos.getY(), z);
                 pieceList.add(new EndCryptPieces.Piece(templateManager, CROSS, blockpos, rotation));
                 if (r3 >= 3) {
                     for (int k = t; k > 0; --k) {
                         if (r2 >= 1 && r2 < 5) {
                             c1 = c1 + 1;
                             rotationOffSet = new BlockPos(-7 * c1, 0, -7 * c).rotate(rotation);
-                            blockpos = rotationOffSet.add(x, pos.getY(), z);
+                            blockpos = rotationOffSet.offset(x, pos.getY(), z);
                             pieceList.add(new EndCryptPieces.Piece(templateManager, LEFT, blockpos, rotation));
                         } else if (r2 >= 7 && r2 <= 10) {
                             c1 = c1 + 1;
                             rotationOffSet = new BlockPos(-7 * c1, 0, -7 * c).rotate(rotation);
-                            blockpos = rotationOffSet.add(x, pos.getY(), z);
+                            blockpos = rotationOffSet.offset(x, pos.getY(), z);
                             pieceList.add(new EndCryptPieces.Piece(templateManager, ROOM, blockpos, rotation));
                             k = 0;
                         }
@@ -83,12 +84,12 @@ public class EndCryptPieces {
                         if (r4 > 1) {
                             c2 = c2 + 1;
                             rotationOffSet = new BlockPos(7 * c2, 0, -7 * c).rotate(rotation);
-                            blockpos = rotationOffSet.add(x, pos.getY(), z);
+                            blockpos = rotationOffSet.offset(x, pos.getY(), z);
                             pieceList.add(new EndCryptPieces.Piece(templateManager, LEFT, blockpos, rotation));
                         } else if (r4 <=1){
                             c2 = c2 + 1;
                             rotationOffSet = new BlockPos(7 * c2, 0, -7 * c).rotate(rotation);
-                            blockpos = rotationOffSet.add(x, pos.getY(), z);
+                            blockpos = rotationOffSet.offset(x, pos.getY(), z);
                             pieceList.add(new EndCryptPieces.Piece(templateManager, ROOM, blockpos, rotation));
                             i = 0;
                         }
@@ -119,32 +120,32 @@ public class EndCryptPieces {
         }
 
         private void setupPiece(TemplateManager templateManager) {
-            Template template = templateManager.getTemplateDefaulted(this.resourceLocation);
-            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setCenterOffset(BlockPos.ZERO).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
+            Template template = templateManager.get(this.resourceLocation);
+            PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(BlockPos.ZERO).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             this.setup(template, this.templatePosition, placementsettings);
         }
 
-        protected void readAdditional(CompoundNBT tagCompound) {
-            super.readAdditional(tagCompound);
+        protected void addAdditionalSaveData(CompoundNBT tagCompound) {
+            super.addAdditionalSaveData(tagCompound);
             tagCompound.putString("Template", this.resourceLocation.toString());
             tagCompound.putString("Rot", this.rotation.name());
         }
 
         protected void handleDataMarker(String function, BlockPos pos, IServerWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if (function.startsWith("Chest")) {
-                BlockPos blockpos = pos.up();
-                if (sbb.isVecInside(blockpos)) {
-                    LockableLootTileEntity.setLootTable(worldIn, rand, blockpos, LootTables.CHESTS_END_CITY_TREASURE);
+                BlockPos blockpos = pos.above();
+                if (sbb.isInside(blockpos)) {
+                    LockableLootTileEntity.setLootTable(worldIn, rand, blockpos, LootTables.END_CITY_TREASURE);
                 }
             }
         }
         @Override
-        public boolean func_230383_a_(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
+        public boolean postProcess(ISeedReader worldIn, StructureManager p_230383_2_, ChunkGenerator chunk, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos, BlockPos blockPos) {
             BlockPos blockpos = this.template.getSize();
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
-            this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
+            this.templatePosition.offset(Template.calculateRelativePosition(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
 
-            boolean flag = super.func_230383_a_(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
+            boolean flag = super.postProcess(worldIn, p_230383_2_, chunk, randomIn, structureBoundingBoxIn, chunkPos, blockPos);
             return flag;
         }
     }

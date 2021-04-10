@@ -16,19 +16,19 @@ public class ModMobs {
 
     public static final RegistryObject<EntityType<EndGuardMob>> ENDGUARD = ENTITY_TYPES
             .register("endguard", () -> EntityType.Builder
-                    .create(EndGuardMob::new, EntityClassification.MONSTER)
-                    .immuneToFire()
+                    .of(EndGuardMob::new, EntityClassification.MONSTER)
+                    .fireImmune()
                     .setTrackingRange(32)
                     .setUpdateInterval(3)
                     .setShouldReceiveVelocityUpdates(true)
-                    .size(1.55f, 3.4f)
+                    .sized(1.55f, 3.4f)
                     .build(prefix("endguard")));
     public static final RegistryObject<EntityType<EndormanMob>> ENDOR = ENTITY_TYPES
             .register("enderman", () -> EntityType.Builder
-                    .create(EndormanMob::new, EntityClassification.MONSTER)
+                    .of(EndormanMob::new, EntityClassification.MONSTER)
                     .setTrackingRange(32)
                     .setUpdateInterval(3)
                     .setShouldReceiveVelocityUpdates(true)
-                    .size(0.6F, 2.9F)
+                    .sized(0.6F, 2.9F)
                     .build(prefix("enderman")));
 }

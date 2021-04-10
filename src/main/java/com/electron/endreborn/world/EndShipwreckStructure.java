@@ -11,6 +11,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.IglooStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -23,7 +24,7 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
         super(codec);
     }
 
-    public String getStructureName() {
+    public String getName() {
         return EndReborn.MODID + ":end_shipwreck";
     }
 
@@ -35,7 +36,7 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
 
     @Nonnull
     @Override
-    public GenerationStage.Decoration getDecorationStage() {
+    public GenerationStage.Decoration step() {
         return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
@@ -46,14 +47,14 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
 
         @Override
         @ParametersAreNonnullByDefault
-        public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
-            int surfaceY = generator.getHeight(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
+        public void generatePieces(DynamicRegistries p_230364_1_, ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
+            int surfaceY = generator.getBaseHeight(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
             if (surfaceY >= 58) {
                 BlockPos blockpos = new BlockPos(chunkX * 16, surfaceY-3, chunkZ * 16);
-                Rotation rotation = Rotation.values()[this.rand.nextInt(Rotation.values().length)];
-                EndShipwreckPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
+                Rotation rotation = Rotation.values()[this.random.nextInt(Rotation.values().length)];
+                EndShipwreckPieces.start(templateManagerIn, blockpos, rotation, this.pieces, this.random);
             }
-            this.recalculateStructureSize();
+            this.calculateBoundingBox();
         }
     }
 }

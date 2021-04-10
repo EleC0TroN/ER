@@ -19,7 +19,10 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class UpgradableShovelItem extends ShovelItem {
@@ -41,61 +44,63 @@ public class UpgradableShovelItem extends ShovelItem {
         return this.flexibility;
     }
 
+    public ITextComponent getName(ItemStack p_200295_1_) {
+        return new TranslationTextComponent("item.endreborn.endorium_shovel");
+    }
+
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-        World world = context.getWorld();
-        BlockPos blockpos = context.getPos();
+    public ActionResultType useOn(ItemUseContext p_195939_1_) {
+        World world = p_195939_1_.getLevel();
+        BlockPos blockpos = p_195939_1_.getClickedPos();
         BlockState blockstate = world.getBlockState(blockpos);
-        if (context.getFace() == Direction.DOWN) {
+        if (p_195939_1_.getClickedFace() == Direction.DOWN) {
             return ActionResultType.PASS;
         } else {
-            PlayerEntity playerentity = context.getPlayer();
-            BlockState blockstate1 = blockstate.getToolModifiedState(world, blockpos, playerentity, context.getItem(), net.minecraftforge.common.ToolType.SHOVEL);
+            PlayerEntity playerentity = p_195939_1_.getPlayer();
+            BlockState blockstate1 = blockstate.getToolModifiedState(world, blockpos, playerentity, p_195939_1_.getItemInHand(), net.minecraftforge.common.ToolType.SHOVEL);
             BlockState blockstate2 = null;
-            if (blockstate1 != null && world.isAirBlock(blockpos.up())) {
-                world.playSound(playerentity, blockpos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            if (blockstate1 != null && world.isEmptyBlock(blockpos.above())) {
+                world.playSound(playerentity, blockpos, SoundEvents.SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 blockstate2 = blockstate1;
-            } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.get(CampfireBlock.LIT)) {
-                if (!world.isRemote()) {
-                    world.playEvent((PlayerEntity)null, 1009, blockpos, 0);
+            } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.getValue(CampfireBlock.LIT)) {
+                if (!world.isClientSide()) {
+                    world.levelEvent((PlayerEntity)null, 1009, blockpos, 0);
                 }
 
-                CampfireBlock.extinguish(world, blockpos, blockstate);
-                blockstate2 = blockstate.with(CampfireBlock.LIT, Boolean.valueOf(false));
+                CampfireBlock.dowse(world, blockpos, blockstate);
+                blockstate2 = blockstate.setValue(CampfireBlock.LIT, Boolean.valueOf(false));
             }
 
             if (blockstate2 != null) {
-                if (!world.isRemote) {
-                    world.setBlockState(blockpos, blockstate2, 11);
+                if (!world.isClientSide) {
+                    world.setBlock(blockpos, blockstate2, 11);
                     if (playerentity != null) {
-                        context.getItem().damageItem(1 - this.sharpness, playerentity, (player) -> {
-                            player.sendBreakAnimation(context.getHand());
+                        p_195939_1_.getItemInHand().hurtAndBreak(1 - this.sharpness, playerentity, (p_220041_1_) -> {
+                            p_220041_1_.broadcastBreakEvent(p_195939_1_.getHand());
                         });
                     }
                 }
 
-                return ActionResultType.func_233537_a_(world.isRemote);
+                return ActionResultType.sidedSuccess(world.isClientSide);
             } else {
                 return ActionResultType.PASS;
             }
         }
     }
-
-    @Override
-    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new TranslationTextComponent("tooltip.relic").mergeStyle(TextFormatting.GRAY));
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(@Nonnull ItemStack stack, World world, @Nonnull List<ITextComponent> tooltip, @Nonnull ITooltipFlag flag) {
+        tooltip.add(new TranslationTextComponent("tooltip.relic").withStyle(TextFormatting.GRAY));
         if (this.sharpness > 0) {
-            tooltip.add(new TranslationTextComponent("tooltip.shovel_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.shovel_sharpness").withStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").withStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").withStyle(TextFormatting.DARK_GRAY));
         }
     }
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damageItem(1 + this.flexibility, attacker, (p_220045_0_) -> {
-            p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+    public boolean hurtEnemy(ItemStack p_77644_1_, LivingEntity p_77644_2_, LivingEntity p_77644_3_) {
+        p_77644_1_.hurtAndBreak(2 + this.flexibility, p_77644_3_, (p_220039_0_) -> {
+            p_220039_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
         });
         return true;
     }
-
 }

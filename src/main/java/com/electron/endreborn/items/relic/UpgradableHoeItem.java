@@ -12,7 +12,10 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class UpgradableHoeItem extends HoeItem {
@@ -34,27 +37,30 @@ public class UpgradableHoeItem extends HoeItem {
         return this.flexibility;
     }
 
+    public ITextComponent getName(ItemStack p_200295_1_) {
+        return new TranslationTextComponent("item.endreborn.endorium_hoe");
+    }
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
         Material material = state.getMaterial();
-        return material != Material.TALL_PLANTS && material != Material.LEAVES ? 1.0F : 1.0F + this.sharpness;
+        return material != Material.REPLACEABLE_PLANT && material != Material.LEAVES ? 1.0F : 1.0F + this.sharpness;
     }
 
-    @Override
-    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new TranslationTextComponent("tooltip.relic").mergeStyle(TextFormatting.GRAY));
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(@Nonnull ItemStack stack, World world, @Nonnull List<ITextComponent> tooltip, @Nonnull ITooltipFlag flag) {
+        tooltip.add(new TranslationTextComponent("tooltip.relic").withStyle(TextFormatting.GRAY));
         if (this.sharpness > 0) {
-            tooltip.add(new TranslationTextComponent("tooltip.hoe_sharpness").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.hoe_sharpness").withStyle(TextFormatting.DARK_GRAY));
         } else if (this.flexibility > 0){
-            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").mergeStyle(TextFormatting.DARK_GRAY));
-            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").mergeStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility").withStyle(TextFormatting.DARK_GRAY));
+            tooltip.add(new TranslationTextComponent("tooltip.uni_flexibility_n").withStyle(TextFormatting.DARK_GRAY));
         }
     }
 
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damageItem(1 + this.flexibility, attacker, (p_220045_0_) -> {
-            p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+    public boolean hurtEnemy(ItemStack p_77644_1_, LivingEntity p_77644_2_, LivingEntity p_77644_3_) {
+        p_77644_1_.hurtAndBreak(2 + this.flexibility, p_77644_3_, (p_220039_0_) -> {
+            p_220039_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
         });
         return true;
     }
