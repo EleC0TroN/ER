@@ -1,6 +1,3 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "endreborn:block/essence_block"
-  }
+    "parent": "endreborn:block/essence_block"
 }

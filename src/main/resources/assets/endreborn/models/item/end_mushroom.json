@@ -1,8 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "bottom": "endreborn:block/end_mushroom_down",
-        "top": "endreborn:block/end_mushroom",
-        "side": "endreborn:block/end_mushroom"
-    }
-}

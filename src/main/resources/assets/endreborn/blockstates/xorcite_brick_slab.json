@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "endreborn:block/xorcite_brick_slab"
+    },
+    "type=double": {
+      "model": "endreborn:block/xorcite_bricks"
+    },
+    "type=top": {
+      "model": "endreborn:block/xorcite_brick_slab_top"
+    }
+  }
+}

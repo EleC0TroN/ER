@@ -31,10 +31,10 @@ public class EndGuardRenderer extends MobRenderer<EndGuardMob, EndGuardModel<End
     }
     protected void setupRotations(EndGuardMob p_225621_1_, MatrixStack p_225621_2_, float p_225621_3_, float p_225621_4_, float p_225621_5_) {
         super.setupRotations(p_225621_1_, p_225621_2_, p_225621_3_, p_225621_4_, p_225621_5_);
-        if (!((double)p_225621_1_.animationSpeed < 0.01D)) {
+
             float f1 = p_225621_1_.animationPosition - p_225621_1_.animationSpeed * (1.0F - p_225621_5_) + 6.0F;
             float f2 = (Math.abs(f1 % 13.0F - 6.5F) - 3.25F) / 3.25F;
             p_225621_2_.mulPose(Vector3f.ZP.rotationDegrees(1.5F * f2));
-        }
+
     }
 }

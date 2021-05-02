@@ -20,45 +20,43 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
     private final ModelRenderer bipedLeftArm;
 
     public EndGuardModel() {
-        int i = 128;
-        int j = 128;
-        this.bipedLeftLeg = (new ModelRenderer(this, 68, 50)).setTexSize(128, 128);;
+
+        this.bipedLeftLeg = (new ModelRenderer(this, 52, 100)).setTexSize(128, 128);;
         this.bipedLeftLeg.mirror = true;
         this.bipedLeftLeg.setPos(5.0F, 6.0F, 0.0F);
-        this.bipedLeftLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
+        this.bipedLeftLeg.addBox(-4.0F, -1.0F, -4.0F, 8.0F, 19.0F, 8.0F, 0.0F);
 
-        this.bipedRightLeg = (new ModelRenderer(this, 68, 50)).setTexSize(128, 128);;
+        this.bipedRightLeg = (new ModelRenderer(this, 52, 100)).setTexSize(128, 128);;
         this.bipedRightLeg.setPos(-5.0F, 6.0F, 0.0F);
-        this.bipedRightLeg.addBox(-4.0F, 0.0F, -4.0F, 8.0F, 18.0F, 8.0F, 0.0F);
+        this.bipedRightLeg.addBox(-4.0F, -1.0F, -4.0F, 8.0F, 19.0F, 8.0F, 0.0F);
 
-        this.bipedBody = (new ModelRenderer(this, 0, 33)).setTexSize(128, 128);;
-        this.bipedBody.setPos(-1.0F, -7.0F, -3.0F);
-        this.bipedBody.addBox(-9.0F, 7.0F, -2.0F, 20.0F, 6.0F, 10.0F, 0.0F);
+        this.bipedBody = (new ModelRenderer(this, 68, 16)).setTexSize(128, 128);;
+        this.bipedBody.setPos(0.0F, 14.75F, 0.0F);
+        this.bipedBody.addBox(-8.0F, -14.75F, -5.0F, 16.0F, 7.0F, 10.0F, 0.0F);
 
         this.chest = (new ModelRenderer(this)).setTexSize(128, 128);;
-        this.chest.setPos(1.0F, 9.0F, 3.0F);
+        this.chest.setPos(0.0F, -14.75F, 0.0F);
         this.bipedBody.addChild(chest);
-        this.setRotationAngle(chest, 0.1745F, 0.0F, 0.0F);
-        this.chest.texOffs(0, 0).addBox(-11.0F, -21.6548F, -6.0547F, 22.0F, 21.0F, 12.0F, 0.0F);
+        this.setRotationAngle(chest, 0.0436F, 0.0F, 0.0F);
+        this.chest.texOffs(0, 0).addBox(-11.0F, -19.0F, -5.5F, 22.0F, 20.0F, 12.0F, 0.0F);
 
         this.bipedHead = (new ModelRenderer(this)).setTexSize(128, 128);
-        this.bipedHead.setPos(0.0F, -17.0F, -7.0F);
-        this.bipedHead.texOffs(0, 49).addBox(-5.0F, -10.0F, -5.0F, 10.0F, 9.0F, 10.0F, 0.0F);
-        this.bipedHead.texOffs(0, 68).addBox(-5.5F, -2.0F, -6.0F, 11.0F, 2.0F, 9.0F, 0.0F);
+        this.bipedHead.setPos(0.0F, -19.0F, -4.0F);
+        this.setRotationAngle(bipedHead, 0.0436F, 0.0F, 0.0F);
+        this.bipedHead.texOffs(0, 50).addBox(-5.0F, -10.0F, -5.0F, 10.0F, 10.0F, 10.0F, 0.0F);
+        this.bipedHead.texOffs(0, 70).addBox(-5.5F, -3.0F, -6.0F, 11.0F, 3.0F, 9.0F, 0.0F);
 
         this.bipedLeftArm = (new ModelRenderer(this)).setTexSize(128, 128);;
-        this.bipedLeftArm.mirror = true;
-        this.bipedLeftArm.setPos(11.0F, -14.0F, -4.0F);
-        this.bipedLeftArm.texOffs(68, 0).addBox(0.0F, -4.0F, -4.0F, 8.0F, 42.0F, 8.0F, 0.0F);
-        this.bipedLeftArm.texOffs(0, 79).addBox(0.0F, -9.0F, 0.0F, 8.0F, 5.0F, 0.0F, 0.0F);
-        this.bipedLeftArm.texOffs(0, 71).addBox(4.0F, -9.0F, -4.0F, 0.0F, 5.0F, 8.0F, 0.0F);
+        this.bipedLeftArm.setPos(11.0F, -13.0F, 0.0F);
+        this.bipedLeftArm.texOffs(85, 50).addBox(0.0F, -8.0F, -4.0F, 8.0F, 42.0F, 8.0F, 0.0F);
+        this.bipedLeftArm.texOffs(0, 79).addBox(4.0F, -9.0F, 3.0F, 0.0F, 6.0F, 3.0F, 0.0F);
 
         this.bipedRightArm = (new ModelRenderer(this)).setTexSize(128, 128);;
-        this.bipedRightArm.setPos(-11.0F, -14.0F, -4.0F);
-        this.bipedRightArm.texOffs(68, 0).addBox(-8.0F, -4.0F, -4.0F, 8.0F, 42.0F, 8.0F, 0.0F);
-        this.bipedRightArm.texOffs(0, 79).addBox(-8.0F, -9.0F, 0.0F, 8.0F, 5.0F, 0.0F, 0.0F);
-        this.bipedRightArm.texOffs(0, 71).addBox(-4.0F, -9.0F, -4.0F, 0.0F, 5.0F, 8.0F, 0.0F);
-    } 
+        this.bipedRightArm.setPos(-11.0F, -13.0F, 0.0F);
+        this.bipedRightArm.texOffs(52, 50).addBox(-8.0F, -8.0F, -4.0F, 8.0F, 42.0F, 8.0F, 0.0F);
+        this.bipedRightArm.texOffs(0, 79).addBox(-4.0F, -9.0F, 3.0F, 0.0F, 6.0F, 3.0F, 0.0F);
+
+    }
 
     public Iterable<ModelRenderer> parts() {
         return ImmutableList.of(this.bipedHead, this.bipedBody, this.bipedLeftLeg, this.bipedRightLeg, this.bipedRightArm, this.bipedLeftArm, this.chest);
@@ -88,8 +86,8 @@ public class EndGuardModel <T extends EndGuardMob> extends SegmentedModel<T> {
         this.bipedRightArm.yRot = 0.0F;
         float f = MathHelper.sin(this.attackTime * -(float)Math.PI);
         float f1 = -MathHelper.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
-        this.bipedRightArm.xRot += f * 1.1F - f1 * 0.4F;
-        this.bipedRightArm.yRot += f * 1.0F - f1 * 0.4F;
+        this.bipedRightArm.xRot += f - f1 * 0.3F;
+        this.bipedRightArm.yRot += f * 0.9F - f1 * 0.3F;
     }
 
     private float triangleWave(float p_78172_1_, float p_78172_2_) {

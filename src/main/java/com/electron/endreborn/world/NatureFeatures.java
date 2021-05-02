@@ -21,6 +21,7 @@ public class NatureFeatures {
 	protected static final BlockState END_CORAL = ModBlocks.END_CORAL.get().defaultBlockState();
 	protected static final BlockState DRAGONITE = ModBlocks.DRAGONITE.get().defaultBlockState();
 	protected static final BlockState END_MOSS = ModBlocks.END_MOSS.get().defaultBlockState();
+	protected static final BlockState END_MOSS_BLOCK = ModBlocks.END_MOSS.get().defaultBlockState();
 	protected static final BlockState OGANA = ModBlocks.OGANA_WEED.get().defaultBlockState();
 	protected static final BlockState XORCITE = ModBlocks.XORCITE.get().defaultBlockState();
 	protected static final BlockState AIR = Blocks.AIR.defaultBlockState();
@@ -42,11 +43,11 @@ public class NatureFeatures {
 	public static final Feature<NoFeatureConfig> TUNGSTEN_END_CONFIG = new TungstenEndFeature(NoFeatureConfig.CODEC);
 
 	public static final ConfiguredFeature<?, ?> END_CORAL_FEATURE = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(NatureFeatures.END_CORAL, ImmutableList.of(NatureFeatures.END_STONE), ImmutableList.of(NatureFeatures.AIR), ImmutableList.of(NatureFeatures.AIR)))
-			.decorated(Features.Placements.HEIGHTMAP_DOUBLE).squared().count(13).decorated(Placement.COUNT_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(65, 40.0D, 0.3D)));
+			.decorated(Features.Placements.HEIGHTMAP_DOUBLE).squared().count(13).decorated(Placement.COUNT_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(67, 40.0D, 0.3D)));
 	public static final ConfiguredFeature<?, ?> DRAGONITE_FEATURE = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(NatureFeatures.DRAGONITE, ImmutableList.of(NatureFeatures.GRASS_BLOCK), ImmutableList.of(NatureFeatures.AIR), ImmutableList.of(NatureFeatures.AIR)))
 			.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).squared().count(ModConfigs.COMMON.balance.rarity_dragonite.get()).decorated(Placement.COUNT_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(40, 20.0D, 0.2D)));
-	public static ConfiguredFeature<?, ?> OGANA_FEATURE = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(NatureFeatures.OGANA, ImmutableList.of(NatureFeatures.END_MOSS), ImmutableList.of(NatureFeatures.AIR), ImmutableList.of(NatureFeatures.AIR)))
-			.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).squared().count(ModConfigs.COMMON.balance.rarity_ogana.get()).decorated(Placement.COUNT_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(65, 40.0D, 0.3D)));
+	public static ConfiguredFeature<?, ?> OGANA_FEATURE = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(NatureFeatures.OGANA, ImmutableList.of(NatureFeatures.END_MOSS, NatureFeatures.END_MOSS_BLOCK), ImmutableList.of(NatureFeatures.AIR), ImmutableList.of(NatureFeatures.AIR)))
+			.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).squared().count(ModConfigs.COMMON.balance.rarity_ogana.get()).decorated(Placement.COUNT_NOISE_BIASED.configured(new TopSolidWithNoiseConfig(70, 40.0D, 0.3D)));
 	public static ConfiguredFeature<?, ?> OBSIDIAN_ORE_FEATURE = NatureFeatures.OBSIDIAN_ORE_CONFIG.configured(IFeatureConfig.NONE)
 			.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(ModConfigs.COMMON.balance.rarity_obsidian_ore.get());
 	public static ConfiguredFeature<?, ?> END_DECORATOR_FEATURE = NatureFeatures.END_DECORATOR_CONFIG.configured(IFeatureConfig.NONE)

@@ -19,11 +19,21 @@
               "function": "minecraft:looting_enchant",
               "count": {
                 "min": 0.0,
-                "max": 1.0
+                "max": 2.0
               }
             }
           ],
           "name": "endreborn:purpur_eye"
+        },
+         {
+          "type": "minecraft:item",
+           "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              },
+          "name": "minecraft:purpur_block"
         }
       ],
       "conditions": [
@@ -34,3 +44,15 @@
     }
   ]
 }
+
+,
+         {
+          "type": "minecraft:item",
+           "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              },
+          "name": "minecraft:purpur_block"
+        }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "endreborn:block/xorcite_bricks",
+    "top": "endreborn:block/xorcite_bricks",
+    "side": "endreborn:block/xorcite_bricks"
+  }
+}

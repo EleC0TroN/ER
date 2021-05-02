@@ -2,7 +2,6 @@ package com.electron.endreborn.mobs;
 
 import com.electron.endreborn.ModMobs;
 import com.electron.endreborn.blocks.EndstonePlant;
-import com.electron.endreborn.blocks.OganaPlant;
 import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
@@ -84,7 +83,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     public static AttributeModifierMap.MutableAttribute func_234200_m_() {
-        return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 200.0D).add(Attributes.MOVEMENT_SPEED, 0.256D).add(Attributes.ATTACK_KNOCKBACK, 1.0D).add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.ATTACK_DAMAGE, 13.5D);
+        return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 200.0D).add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.MOVEMENT_SPEED, 0.256D).add(Attributes.ATTACK_KNOCKBACK, 1.0D).add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.ATTACK_DAMAGE, 13.0D);
     }
 
     protected int decreaseAirSupply(int air) { return air; }
@@ -127,7 +126,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
             for(BlockPos blockpos : BlockPos.betweenClosed(MathHelper.floor(axisalignedbb.minX), MathHelper.floor(axisalignedbb.minY), MathHelper.floor(axisalignedbb.minZ), MathHelper.floor(axisalignedbb.maxX), MathHelper.floor(axisalignedbb.maxY), MathHelper.floor(axisalignedbb.maxZ))) {
                 BlockState blockstate = this.level.getBlockState(blockpos);
                 Block block = blockstate.getBlock();
-                if (block instanceof LeavesBlock || block instanceof OganaWeed || block instanceof OganaPlant || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
+                if (block instanceof LeavesBlock || block instanceof OganaWeed || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
                     flag = this.level.destroyBlock(blockpos, true, this) || flag;
                 }
             }
@@ -172,7 +171,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     public boolean doHurtTarget(Entity entityIn) {
-        this.attackTimer = 10;
+        this.attackTimer = 15;
         this.level.broadcastEntityEvent(this, (byte)4);
         float f = this.func_226511_et_();
         float f1 = (int)f > 0 ? f / 2.0F + (float)this.random.nextInt((int)f) : f;
@@ -182,7 +181,7 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
             this.doEnchantDamageEffects(this, entityIn);
         }
 
-        this.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1.0F, 1.0F);
+        this.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1.0F, 0.8F);
         return flag;
     }
 
@@ -194,8 +193,8 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     @OnlyIn(Dist.CLIENT)
     public void handleEntityEvent(byte id) {
         if (id == 4) {
-            this.attackTimer = 27;
-            this.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1.0F, 1.0F);
+            this.attackTimer = 28;
+            this.playSound(SoundEvents.IRON_GOLEM_ATTACK, 0.9F, 0.9F);
         } else {
             super.handleEntityEvent(id);
         }

@@ -65,7 +65,7 @@ public class ModConfigs {
 
                 rarity_obsidian_ore = builder
                         .comment("Crying Obsidian spawn rarity")
-                        .defineInRange("rarity_obsidian_ore", 15, 0, 32);
+                        .defineInRange("rarity_obsidian_ore", 13, 0, 32);
 
                 rarity_moss = builder
                         .comment("End Moss spawn rarity")

@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/framed_obsidian_glass"
-    }
+    "parent": "endreborn:block/framed_obsidian_glass"
 }

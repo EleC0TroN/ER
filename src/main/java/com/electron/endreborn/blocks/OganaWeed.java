@@ -25,7 +25,7 @@ public class OganaWeed extends FlowerBlock implements IForgeBlock {
 	@Override
 	protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		Block block = state.getBlock();
-		return block == ModBlocks.END_MOSS.get();
+		return block == ModBlocks.END_MOSS.get() || block == ModBlocks.END_MOSS_BLOCK.get();
 	}
 	@Override
 	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {

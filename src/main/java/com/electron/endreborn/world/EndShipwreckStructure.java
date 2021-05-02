@@ -11,7 +11,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.IglooStructure;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -49,7 +48,7 @@ public class EndShipwreckStructure extends Structure<NoFeatureConfig> {
         @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries p_230364_1_, ChunkGenerator generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig p_230364_6_) {
             int surfaceY = generator.getBaseHeight(chunkX * 16, chunkZ * 16, Heightmap.Type.WORLD_SURFACE_WG);
-            if (surfaceY >= 58) {
+            if (surfaceY >= 59) {
                 BlockPos blockpos = new BlockPos(chunkX * 16, surfaceY-3, chunkZ * 16);
                 Rotation rotation = Rotation.values()[this.random.nextInt(Rotation.values().length)];
                 EndShipwreckPieces.start(templateManagerIn, blockpos, rotation, this.pieces, this.random);

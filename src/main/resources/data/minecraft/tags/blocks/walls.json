@@ -2,6 +2,7 @@
   "replace": false,
   "values": [ ],
   "optional": [
-    "endreborn:purpur_wall"
+    "endreborn:purpur_wall",
+    "endreborn:xorcite_brick_wall"
   ]
 }

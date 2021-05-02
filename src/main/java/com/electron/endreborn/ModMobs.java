@@ -19,7 +19,7 @@ public class ModMobs {
                     .of(EndGuardMob::new, EntityClassification.MONSTER)
                     .fireImmune()
                     .setTrackingRange(32)
-                    .setUpdateInterval(3)
+                    .setUpdateInterval(2).setShouldReceiveVelocityUpdates(false)
                     .setShouldReceiveVelocityUpdates(true)
                     .sized(1.55f, 3.4f)
                     .build(prefix("endguard")));

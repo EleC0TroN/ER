@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "endreborn:xorcite_bricks"
+  },
+  "result": "endreborn:xorcite_brick_slab",
+  "count": 2
+}

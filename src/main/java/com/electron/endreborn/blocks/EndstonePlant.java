@@ -21,7 +21,7 @@ public class EndstonePlant extends BushBlock implements IForgeBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.END_STONE || block == Blocks.END_STONE_BRICKS || block == ModBlocks.CRACKED_END_BRICKS.get() || block == ModBlocks.END_STONE_SMOOTH.get() || block == ModBlocks.END_STONE_PILLAR.get();
+        return block == Blocks.END_STONE || block == Blocks.END_STONE_BRICKS || block == ModBlocks.CRACKED_END_BRICKS.get() || block == ModBlocks.CHISELED_END_BRICKS.get() || block == ModBlocks.END_STONE_SMOOTH.get() || block == ModBlocks.END_STONE_PILLAR.get();
     }
     @Override
     public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
@@ -33,7 +33,7 @@ public class EndstonePlant extends BushBlock implements IForgeBlock {
     }
 
     public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+        return OffsetType.XYZ;
     }
 
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {

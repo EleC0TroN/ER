@@ -23,7 +23,7 @@ public class XorciteCaveFeature extends Feature<NoFeatureConfig> {
             int o = rand.nextInt(7);
             int o1 = o - 1;
             float f = (float) (o + o + o) * 0.333F + 0.5F;
-
+            BlockPos blockpos_new = pos.offset(0, 1, 0);
             if (pos.getY() <= 44 && pos.getY() > 31) {
 
                     for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-o, -o, -o), pos.offset(o, o, o))) {
@@ -31,8 +31,8 @@ public class XorciteCaveFeature extends Feature<NoFeatureConfig> {
                             reader.setBlock(blockpos, NatureFeatures.XORCITE, 2);
                         }
                     }
-                    for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-o1, -o1, -o1), pos.offset(o1, o1, o1))) {
-                        if (o1 > 1 && blockpos.distSqr(pos) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == ModBlocks.XORCITE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.TUNGSTEN_END_ORE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.END_CORAL.get()) {
+                    for (BlockPos blockpos : BlockPos.betweenClosed(blockpos_new.offset(-o1, -o1, -o1), blockpos_new.offset(o1, o1, o1))) {
+                        if (o1 > 1 && blockpos.distSqr(blockpos_new) <= (double) (f * f) && reader.getBlockState(blockpos).getBlock() == ModBlocks.XORCITE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.TUNGSTEN_END_ORE.get() || reader.getBlockState(blockpos).getBlock() == ModBlocks.END_CORAL.get()) {
                             reader.setBlock(blockpos, NatureFeatures.AIR, 2);
                         }
                     }

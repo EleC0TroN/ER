@@ -1,4 +1,5 @@
 {
+    "ambientocclusion": true,
     "parent": "block/cross",
     "textures": {
         "cross": "endreborn:block/end_coral"
