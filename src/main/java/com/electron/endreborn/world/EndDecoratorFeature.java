@@ -32,7 +32,6 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 
 					if (worldIn.isEmptyBlock(blockpos.below()) && worldIn.isEmptyBlock(blockpos.above())) {
 						worldIn.setBlock(blockpos, blockstate2, 2);
-						int r = rand.nextInt(3);
 						int u = rand.nextInt(6);
 						for (int f = 0; f < u + 1; ++f) {
 							if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK.get()) {
@@ -56,7 +55,6 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 
 					if (worldIn.isEmptyBlock(blockpos.below()) && worldIn.isEmptyBlock(blockpos.above())) {
 						worldIn.setBlock(blockpos, blockstate2, 2);
-						int r = rand.nextInt(3);
 						int u = rand.nextInt(6);
 						for (int f = 0; f < u + 1; ++f) {
 							if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK.get()) {

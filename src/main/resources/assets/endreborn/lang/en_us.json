@@ -1,5 +1,4 @@
 {
-//Misc
  "itemGroup.endgroup": "End: Reborn",
  "itemGroup.endcompatgroup": "End: Reborn Compatibility",
  "tooltip.tungsten_armor": " Immunity to Levitation, Slow Falling",
@@ -22,7 +21,6 @@
  "tooltip.hoe_sharpness": "+100% Efficiency on Tall Plants, Leaves",
  "tooltip.shovel_sharpness": "-100% Flattening Hardness Consume",
 
-//Items
  "item.endreborn.endorium_nugget": "Endorium Nugget",
  "item.endreborn.endorium_ingot": "Endorium Ingot",
  "item.endreborn.essence": "Essence",
@@ -51,14 +49,12 @@
  "item.endreborn.riziki_relic": "Riziki Relic",
  "item.endreborn.hvila_relic": "Hvila Relic",
 
-//Armor
  "item.endreborn.ender_boots": "Ender Boots",
  "item.endreborn.tungsten_boots": "Tungsten Boots",
  "item.endreborn.tungsten_helmet": "Tungsten Helmet",
  "item.endreborn.tungsten_leggings": "Tungsten Leggings",
  "item.endreborn.tungsten_chestplate": "Tungsten Chestplate",
 
-//Tools
  "item.endreborn.end_stone_sword": "End Stone Sword",
  "item.endreborn.end_stone_pickaxe": "End Stone Pickaxe",
  "item.endreborn.end_stone_axe": "End Stone Axe",
@@ -75,21 +71,18 @@
  "item.endreborn.tungsten_shovel": "Tungsten Shovel",
  "item.endreborn.tungsten_pickaxe": "Tungsten Pickaxe",
 
-//Blocks
  "block.endreborn.cracked_purpur": "Cracked Purpur Block",
  "block.endreborn.purpur_lantern": "Purpur Lantern",
- "block.endreborn.mossy_end_bricks": "Mossy End Stone Bricks",
  "block.endreborn.obsidian_glass": "Obsidian Decorated Glass",
  "block.endreborn.obsidian_glass_pane": "Obsidian Decorated Glass Pane",
- "block.endreborn.burned_end_stone": "Burned End Stone",
+ "block.endreborn.burned_end_stone": "Burnt End Stone",
  "block.endreborn.end_moss": "Mossy End Stone",
- "block.endreborn.ogana_fruit": "Ogana Plant",
  "block.endreborn.dragonite": "Dragonite",
  "block.endreborn.ogana_weed": "Ogana Plant",
  "block.endreborn.obsidian_ore": "Essence Ore",
  "block.endreborn.end_stone_pillar": "End Stone Pillar",
- "block.endreborn.cracked_end_bricks": "Cracked End Bricks",
- "block.endreborn.chiseled_end_bricks": "Chiseled End Bricks",
+ "block.endreborn.cracked_end_bricks": "Cracked End Stone Bricks",
+ "block.endreborn.chiseled_end_bricks": "Chiseled End Stone Bricks",
  "block.endreborn.end_moss_block": "End Moss",
  "block.endreborn.end_coral": "End Stone Coral",
  "block.endreborn.endorium_block": "Block of Endorium",
@@ -111,8 +104,7 @@
  "block.endreborn.essence_block": "Essence Block",
  "block.endreborn.xorcite_pillar": "Xorcite Pillar",
  "block.endreborn.sheetmetal_tungsten": "Tungsten Sheetmetal",
- 
-//Advancements
+
  "advancements.endreborn.root.title": "End: Reborn",
  "advancements.endreborn.root.description": "The End is just the beginning",
  "advancements.endreborn.end_stone.title": "Souvenir",

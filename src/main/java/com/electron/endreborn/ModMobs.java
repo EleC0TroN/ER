@@ -19,8 +19,8 @@ public class ModMobs {
                     .of(EndGuardMob::new, EntityClassification.MONSTER)
                     .fireImmune()
                     .setTrackingRange(32)
-                    .setUpdateInterval(2).setShouldReceiveVelocityUpdates(false)
-                    .setShouldReceiveVelocityUpdates(true)
+                    .setUpdateInterval(2)
+                    .setShouldReceiveVelocityUpdates(false)
                     .sized(1.55f, 3.4f)
                     .build(prefix("endguard")));
     public static final RegistryObject<EntityType<EndormanMob>> ENDOR = ENTITY_TYPES

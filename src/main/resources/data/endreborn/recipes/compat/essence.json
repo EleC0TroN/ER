@@ -3,15 +3,12 @@
     "type": "forge:mod_loaded",
     "modid": "vanillaboom"
   }],
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#"
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "endreborn:essence_block"
     }
-  },
+  ],
   "result": {
     "item": "endreborn:essence",
     "count": 9

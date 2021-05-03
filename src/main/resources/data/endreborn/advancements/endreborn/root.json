@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:ender_pearl"
+      "item": "endreborn:purpur_eye"
     },
     "title": {
       "translate": "advancements.endreborn.root.title"

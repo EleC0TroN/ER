@@ -20,7 +20,7 @@ import java.util.List;
 
 public class EnderBoots extends ArmorItem {
 	public EnderBoots(EquipmentSlotType slot) {
-        super(ModArmorMaterials.ENDER, slot, new Properties().tab(EndReborn.ENDGROUP));
+        super(ModArmorMaterials.ENDER, slot, new Properties().tab(EndReborn.ENDGROUP).fireResistant());
 	}
 
 	@OnlyIn(Dist.CLIENT)

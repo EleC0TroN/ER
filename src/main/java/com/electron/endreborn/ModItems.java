@@ -39,7 +39,7 @@ public class ModItems {
 
 	public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", EssenceItem::new);
 	public static final RegistryObject<Item> OBSIDIAN_SHARD = ITEMS.register("obsidian_shard", () -> new Item(new Item.Properties().tab(EndReborn.ENDGROUP)));
-	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().tab(EndReborn.ENDGROUP).defaultDurability(16)));
+	public static final RegistryObject<EnderTransmitter> TRANSMITTER = ITEMS.register("ender_transmitter", () -> new EnderTransmitter(new Item.Properties().tab(EndReborn.ENDGROUP).defaultDurability(16).fireResistant()));
 	public static final RegistryObject<EnderBoots> ENDER_BOOTS = ITEMS.register("ender_boots", () -> new EnderBoots(EquipmentSlotType.FEET));
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS_PANE = ITEMS.register("obsidian_glass_pane", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS_PANE.get(), new Item.Properties().tab(EndReborn.ENDGROUP)));
 	public static final RegistryObject<BlockItem> OBSIDIAN_GLASS = ITEMS.register("obsidian_glass", () -> new BlockItem(ModBlocks.OBSIDIAN_GLASS.get(), new Item.Properties().tab(EndReborn.ENDGROUP)));

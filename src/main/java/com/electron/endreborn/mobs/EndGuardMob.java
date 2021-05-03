@@ -87,9 +87,6 @@ public class EndGuardMob extends MonsterEntity implements IAngerable {
     }
 
     protected int decreaseAirSupply(int air) { return air; }
-    protected void doPush(Entity entityIn) {
-        super.doPush(entityIn);
-    }
 
     public void aiStep() {
         super.aiStep();

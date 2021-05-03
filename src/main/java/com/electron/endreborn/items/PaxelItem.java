@@ -84,7 +84,6 @@ public class PaxelItem extends PickaxeItem {
             } else {
                 return ActionResultType.PASS;
             }
-
         }
     }
 }

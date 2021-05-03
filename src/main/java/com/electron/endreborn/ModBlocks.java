@@ -34,7 +34,7 @@ public class ModBlocks {
 	public static final RegistryObject<Block> TUNGSTEN_END_ORE = BLOCKS.register("end_tungsten_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(2.3F, 6.5F)));
 
 	public static final RegistryObject<Block> END_CORAL = BLOCKS.register("end_coral", EndstonePlant::new);
-	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.5F, 6.0F).sound(SoundType.METAL)));
+	public static final RegistryObject<Block> ENDORIUM_BLOCK = BLOCKS.register("endorium_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.5F, 10.0F).sound(SoundType.METAL)));
 	public static final RegistryObject<Block> POTTED_DRAGONITE = BLOCKS.register("potted_dragonite", () -> new FlowerPotBlock(DRAGONITE.get(), Block.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 	public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.5F, 6.0F).sound(SoundType.METAL)));
 
