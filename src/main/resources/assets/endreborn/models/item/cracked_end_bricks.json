@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/cracked_end_bricks"
-    }
+    "parent": "endreborn:block/cracked_end_bricks"
 }

@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/sheetmetal_endorium"
-    }
+	"parent": "endreborn:block/sheetmetal_endorium"
 }

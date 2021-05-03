@@ -12,7 +12,7 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 public class EndLantern extends LanternBlock implements IForgeBlock {
 
     public EndLantern() {
-        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(3.25f, 5.5f).lightValue(10).sound(SoundType.STONE));
+        super(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(3.25f, 5.5f).lightValue(12).sound(SoundType.STONE));
     }
 
     @Override

@@ -19,8 +19,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.Random;
 import java.util.function.Function;
 
-public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
-{
+public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig> {
     public EndCryptStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> config)
     {
         super(config);
@@ -49,25 +48,19 @@ public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
         return 121812329;
     }
 
-    @Override
-    public boolean func_225558_a_(BiomeManager p_225558_1_, ChunkGenerator<?> chunkGen, Random rand, int chunkPosX, int chunkPosZ, Biome biome)
-    {
+    public boolean canBeGenerated(BiomeManager p_225558_1_, ChunkGenerator<?> chunkGen, Random rand, int chunkPosX, int chunkPosZ, Biome biome) {
         ChunkPos chunkpos = this.getStartPositionForPosition(chunkGen, rand, chunkPosX, chunkPosZ, 0, 0);
 
-        if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z)
-        {
-            if (chunkGen.hasStructure(biome, this))
-            {
+        if (chunkPosX == chunkpos.x && chunkPosZ == chunkpos.z) {
+            if (chunkGen.hasStructure(biome, this)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static class Start extends StructureStart
-    {
-        public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn)
-        {
+    public static class Start extends StructureStart {
+        public Start(Structure<?> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
@@ -80,7 +73,7 @@ public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
             int z = (chunkZ << 4) + 7;
 
             int surfaceY = generator.func_222531_c(x, z, Heightmap.Type.WORLD_SURFACE_WG);
-            if (surfaceY >= 60) {
+            if (surfaceY >= 62) {
                 BlockPos blockpos = new BlockPos(x, surfaceY - 15, z);
 
                 EndCryptPieces.start(templateManagerIn, blockpos, rotation, this.components, this.rand);
@@ -88,6 +81,5 @@ public class EndCryptStructure extends ScatteredStructure<NoFeatureConfig>
                 this.recalculateStructureSize();
             }
         }
-
     }
 }

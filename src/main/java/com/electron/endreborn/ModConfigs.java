@@ -29,6 +29,8 @@ public class ModConfigs {
             public static ConfigValue<Integer> wolframium_rarity;
             public static ConfigValue<Integer> dragonite_rarity;
             public static ConfigValue<Integer> quartz_rarity;
+            public static ConfigValue<Integer> coral_rarity;
+            public static ConfigValue<Integer> ogana_rarity;
             public static ConfigValue<Integer> endshrooms_rarity;
             public static ConfigValue<Boolean> new_structures_end;
             public static ConfigValue<Integer> crypt_size;
@@ -39,19 +41,27 @@ public class ModConfigs {
                 builder.push(name);
                 tungsten_ore_rarity = builder
                         .comment("Tungsten Ore spawn rarity")
-                        .defineInRange("tungsten_rarity", 4, 0, 64);
+                        .defineInRange("tungsten_rarity", 4, 0, 32);
+
+                ogana_rarity = builder
+                        .comment("Ogana spawn rarity")
+                        .defineInRange("tungsten_rarity", 11, 0, 32);
+
+                coral_rarity = builder
+                        .comment("End Stone Coral spawn rarity")
+                        .defineInRange("tungsten_rarity", 8, 0, 32);
 
                 new_structures_end = builder
                         .comment("The End new structures")
                         .define("new_structures_end", true);
 
                 enderman_tweaks = builder
-                        .comment("Random model size | If enabled, server logs can warning about enderman spawning")
+                        .comment("Random model size | If enabled, server logs may warn about endermans spawning")
                         .define("enderman_tweaks", false);
 
                 obsidian_ore_rarity = builder
                         .comment("Obsidian Ore spawn rarity")
-                        .defineInRange("obsidian_ore_rarity", 6, 0, 64);
+                        .defineInRange("obsidian_ore_rarity", 5, 0, 64);
 
                 crypt_size = builder
                         .comment("End Crypt maximum size")
@@ -59,7 +69,7 @@ public class ModConfigs {
 
                 moss_rarity = builder
                         .comment("End Moss spawn rarity")
-                        .defineInRange("moss_rarity", 4, 0, 64);
+                        .defineInRange("moss_rarity", 3, 0, 64);
 
                 decorator_rarity = builder
                         .comment("Cracked Purpur and Cracked End Bricks spawn rarity")

@@ -22,13 +22,12 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 	@Override
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		int i = 0;
-
 		BlockState blockstate = ModBlocks.END_MOSS.get().getDefaultState();
 		BlockState blockstate2 = ModBlocks.END_MOSS_BLOCK.get().getDefaultState();
 
-		for (int j = 0; j < 448; ++j) {
-			BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(7), pos.getY(), rand.nextInt(8) - rand.nextInt(7));
-			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) &&  blockpos.getY() >=55) {
+		for (int j = 0; j < 568; ++j) {
+			BlockPos blockpos = pos.add(rand.nextInt(13) - rand.nextInt(12), pos.getY(), rand.nextInt(13) - rand.nextInt(12));
+			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) && blockpos.getY() >= 50) {
 				if (!worldIn.isAirBlock(blockpos.down()) && !worldIn.isAirBlock(blockpos) && worldIn.isAirBlock(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate, 2);
 				}
@@ -36,7 +35,6 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 
 				if (worldIn.isAirBlock(blockpos.down()) && worldIn.isAirBlock(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate2, 2);
-					int r = rand.nextInt(3);
 					int u = rand.nextInt(6);
 					for (int f = 0; f < u + 1; ++f) {
 						if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK.get()) {
@@ -50,9 +48,9 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 		}
 		BlockPos blockpos_new = pos.add(rand.nextInt(12) - rand.nextInt(4), pos.getY(), rand.nextInt(12) - rand.nextInt(4));
 
-		for (int j = 0; j < 648; ++j) {
+		for (int j = 0; j < 628; ++j) {
 			BlockPos blockpos = blockpos_new.add(rand.nextInt(10) - rand.nextInt(9), pos.getY(), rand.nextInt(10) - rand.nextInt(9));
-			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) &&  blockpos.getY() >=55) {
+			if (worldIn.getBlockState(blockpos).getBlock() == Blocks.END_STONE && blockstate.isValidPosition(worldIn, blockpos) && blockpos.getY() >= 55) {
 				if (!worldIn.isAirBlock(blockpos.down()) && !worldIn.isAirBlock(blockpos) && worldIn.isAirBlock(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate, 2);
 				}
@@ -60,7 +58,6 @@ public class EndDecoratorFeature extends Feature<NoFeatureConfig> {
 
 				if (worldIn.isAirBlock(blockpos.down()) && worldIn.isAirBlock(blockpos.up())) {
 					worldIn.setBlockState(blockpos, blockstate2, 2);
-					int r = rand.nextInt(3);
 					int u = rand.nextInt(6);
 					for (int f = 0; f < u + 1; ++f) {
 						if (worldIn.getBlockState(blockpos).getBlock() == ModBlocks.END_MOSS_BLOCK.get()) {

@@ -1,11 +1,12 @@
 package com.electron.endreborn.mobs;
 
-import com.electron.endreborn.ModMobs;
 import com.electron.endreborn.blocks.EndstonePlant;
-import com.electron.endreborn.blocks.OganaPlant;
 import com.electron.endreborn.blocks.OganaWeed;
 import net.minecraft.block.*;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,8 +32,9 @@ public class EndGuardMob extends MonsterEntity {
 
     public EndGuardMob(EntityType<? extends EndGuardMob> type, World worldIn) {
         super(type, worldIn);
-        this.stepHeight = 1.0F;
+        this.stepHeight = 0.7F;
         this.setPathPriority(PathNodeType.WATER, -1.0F);
+        this.setPathPriority(PathNodeType.LAVA, -1.0F);
     }
 
     protected void registerGoals() {
@@ -52,10 +54,11 @@ public class EndGuardMob extends MonsterEntity {
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_KNOCKBACK).setBaseValue(2.5D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.256D);
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(13.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_KNOCKBACK).setBaseValue(1.0D);
     }
     @OnlyIn(Dist.CLIENT)
     public boolean isAttacking() {
@@ -80,13 +83,13 @@ public class EndGuardMob extends MonsterEntity {
             this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         }
         if (this.attackTimer <= 0) {
-            this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
+            this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.256D);
         }
         if (this.world.isRemote && this.getHealth() <= 50 && this.getHealth() != 0) {
             this.world.addParticle(ParticleTypes.SMOKE, this.getPosX(), this.getPosY() + 2.75D, this.getPosZ(), 0.0D, 0.0D, 0.0D);
         }
         this.setAttacking(this.attackTimer > 0);
-        if (this.isMovementBlocked()) {
+        if (this.isMovementBlocked()|| this.isInWaterOrBubbleColumn()) {
             this.setAttacking(false);
             this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         }
@@ -107,11 +110,10 @@ public class EndGuardMob extends MonsterEntity {
             for(BlockPos blockpos : BlockPos.getAllInBoxMutable(MathHelper.floor(axisalignedbb.minX), MathHelper.floor(axisalignedbb.minY), MathHelper.floor(axisalignedbb.minZ), MathHelper.floor(axisalignedbb.maxX), MathHelper.floor(axisalignedbb.maxY), MathHelper.floor(axisalignedbb.maxZ))) {
                 BlockState blockstate = this.world.getBlockState(blockpos);
                 Block block = blockstate.getBlock();
-                if (block instanceof LeavesBlock || block instanceof OganaWeed || block instanceof OganaPlant || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
-                    flag = this.world.func_225521_a_(blockpos, true, this) || flag;
+                if (block instanceof LeavesBlock || block instanceof OganaWeed || block instanceof EndstonePlant || block instanceof FlowerBlock || block instanceof DoorBlock || block instanceof TallGrassBlock) {
+                    flag = this.world.destroyBlock(blockpos, true, this) || flag;
                 }
             }
-
         }
     }
 
@@ -127,7 +129,7 @@ public class EndGuardMob extends MonsterEntity {
     }
 
     public boolean attackEntityAsMob(Entity entityIn) {
-        this.attackTimer = 10;
+        this.attackTimer = 15;
         this.world.setEntityState(this, (byte)4);
         float f = this.func_226511_et_();
         float f1 = f > 0.0F ? f / 2.0F + (float)this.rand.nextInt((int)f) : 0.0F;
@@ -144,8 +146,8 @@ public class EndGuardMob extends MonsterEntity {
     @OnlyIn(Dist.CLIENT)
     public void handleStatusUpdate(byte id) {
         if (id == 4) {
-            this.attackTimer = 25;
-            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
+            this.attackTimer = 28;
+            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 0.9F, 0.9F);
         } else {
             super.handleStatusUpdate(id);
         }

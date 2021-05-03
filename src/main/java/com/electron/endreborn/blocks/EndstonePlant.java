@@ -5,7 +5,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -23,7 +22,7 @@ public class EndstonePlant extends BushBlock implements IForgeBlock {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.END_STONE || block == Blocks.END_STONE_BRICKS || block == ModBlocks.CRACKED_END_BRICKS.get() || block == ModBlocks.END_STONE_SMOOTH.get() || block == ModBlocks.END_STONE_PILLAR.get();
+        return block == Blocks.END_STONE || block == Blocks.END_STONE_BRICKS || block == ModBlocks.CRACKED_END_BRICKS.get()  || block == ModBlocks.CHISELED_END_BRICKS.get() || block == ModBlocks.END_STONE_SMOOTH.get() || block == ModBlocks.END_STONE_PILLAR.get();
     }
     public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
         return true;
@@ -39,7 +38,7 @@ public class EndstonePlant extends BushBlock implements IForgeBlock {
     }
 
     public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+        return OffsetType.XYZ;
     }
 
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {

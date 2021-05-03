@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/end_moss_top"
-    }
+    "parent": "endreborn:block/end_moss_block"
 }

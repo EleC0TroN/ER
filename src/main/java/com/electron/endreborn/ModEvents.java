@@ -30,7 +30,6 @@ public class ModEvents {
 				int i = entity.world.getRandom().nextInt(5);
 				endor.setEndorSize(i);
 				entity.world.addEntity(endor);
-
 			}
 		}
 	}
@@ -69,7 +68,6 @@ public class ModEvents {
 		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event)
 		{
 			NatureStructures.registerStructures(event);
-			EndReborn.LOGGER.log(Level.INFO, "features/structures registered.");
 		}
 	}
 }

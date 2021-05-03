@@ -1,17 +1,15 @@
 package com.electron.endreborn.items;
 
-import java.util.Random;
-
-import com.electron.endreborn.EndReborn;
-
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nonnull;
+import java.util.Random;
 
 public class IronHammer extends Item {
-	public IronHammer() {
-		super(new Item.Properties().group(EndReborn.ENDGROUP).defaultMaxDamage(32));
+	public IronHammer(Properties builder) {
+		super(builder);
 	}
 	@Override
     public boolean hasContainerItem(ItemStack stack) {
@@ -26,15 +24,6 @@ public class IronHammer extends Item {
 			return ItemStack.EMPTY;
 		else
 			return container;
-	}
-	@Override
-	public boolean isRepairable(ItemStack stack) {
-		return false;
-	}
-
-	@Override
-	public boolean isEnchantable(ItemStack stack) {
-		return false;
 	}
 
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {

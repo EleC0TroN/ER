@@ -1,6 +1,4 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/chiseled_end_bricks"
-    }
+    "parent": "endreborn:block/chiseled_end_bricks"
 }
+

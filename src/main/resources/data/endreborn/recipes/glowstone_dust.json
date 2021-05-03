@@ -5,7 +5,7 @@
       "item": "minecraft:glowstone"
     },
     {
-      "item": "endreborn:iron_hammer",
+      "tag": "endreborn:inventory_hammers",
       "data": 32767
     }
   ],

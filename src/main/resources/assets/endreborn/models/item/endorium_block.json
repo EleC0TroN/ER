@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "endreborn:block/endorium_block"
-    }
+    "parent": "endreborn:block/endorium_block"
 }

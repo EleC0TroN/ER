@@ -1,0 +1,15 @@
+{
+  "conditions": [{
+  "type": "forge:mod_loaded",
+  "modid": "immersiveengineering"
+  }],
+  "type": "immersiveengineering:crusher",
+  "secondaries": [],
+  "result": {
+    "tag": "forge:dusts/tungsten"
+  },
+  "input": {
+    "tag": "forge:ingots/tungsten"
+  },
+  "energy": 5000
+}

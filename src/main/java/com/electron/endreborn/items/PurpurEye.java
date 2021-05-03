@@ -49,7 +49,7 @@ public class PurpurEye extends Item {
                     }
 
                     playerIn.addStat(Stats.ITEM_USED.get(this));
-                    playerIn.func_226292_a_(handIn, true);
+                    playerIn.swing(handIn, true);
                     return ActionResult.resultSuccess(itemstack);
                 }
             }

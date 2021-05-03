@@ -22,8 +22,8 @@ public class TungstenOreFeature extends Feature<NoFeatureConfig> {
 
 
     public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {     int i = 0;
-        BlockState blockstate = ModBlocks.END_WOLFRAMIUM_ORE.get().getDefaultState();
-        BlockState blockstate2 = ModBlocks.WOLFRAMIUM_ORE.get().getDefaultState();
+        BlockState blockstate = ModBlocks.END_TUNGSTEN_ORE.get().getDefaultState();
+        BlockState blockstate2 = ModBlocks.TUNGSTEN_ORE.get().getDefaultState();
 
         if (worldIn.getBiome(pos) != Biomes.END_MIDLANDS && pos.getY() <= 40 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.GRANITE) {
             for (int j = 0; j < rand.nextInt(4); ++j) {

@@ -22,15 +22,17 @@ public class ModMobs {
         registerEntity(ENDOR);
     }
     public static void preInitEntityTypes() {
-        ENDGUARD = setupEntity("endguard", ENDGUARD, EndGuardMob::new, EntityClassification.MONSTER, 32, 1.55f, 3.4f);
-        ENDOR = setupEntity("enderman", ENDOR, EndormanMob::new, EntityClassification.MONSTER, 32, 0.6F, 2.9F);
+        ENDGUARD = setupEntity("endguard", ENDGUARD, EndGuardMob::new, EntityClassification.MONSTER, 32, 1.55f, 3.4f, 2, false);
+        ENDOR = setupEntity("enderman", ENDOR, EndormanMob::new, EntityClassification.MONSTER, 32, 0.6F, 2.9F, 3, true);
     }
 
     public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
-                                                               EntityClassification classification, int range, float width, float height) {
+                                                               EntityClassification classification, int range, float width, float height, int update, boolean velocity) {
         entityType = EntityType.Builder.create(entityTypeFactory, classification)
                 .setTrackingRange(range)
                 .size(width, height)
+                .setUpdateInterval(update)
+                .setShouldReceiveVelocityUpdates(velocity)
                 .build(name);
         entityType.setRegistryName(new ResourceLocation(EndReborn.MODID, name));
 

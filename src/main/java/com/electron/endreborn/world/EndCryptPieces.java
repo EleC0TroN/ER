@@ -35,12 +35,7 @@ public class EndCryptPieces {
 
     private static final Map<ResourceLocation, BlockPos> OFFSET = ImmutableMap.of(TOP, new BlockPos(0, 0, 0), FRONT, new BlockPos(0, 0, 0), LEFT, new BlockPos(0, 0, 0), CROSS, new BlockPos(0, 0, 0), ROOM, new BlockPos(0, 0, 0));
 
-
-    /*
-     * Begins assembling your structure and where the pieces needs to go.
-     */
-    public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random)
-    {
+    public static void start(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> pieceList, Random random) {
         int x = pos.getX();
         int z = pos.getZ();
         int r = random.nextInt(ModConfigs.COMMON.balance.crypt_size.get()) + 2;
@@ -106,13 +101,11 @@ public class EndCryptPieces {
         c = 0;
     }
 
-    public static class Piece extends TemplateStructurePiece
-    {
+    public static class Piece extends TemplateStructurePiece {
         private ResourceLocation resourceLocation;
         private Rotation rotation;
 
-        public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn)
-        {
+        public Piece(TemplateManager templateManagerIn, ResourceLocation resourceLocationIn, BlockPos pos, Rotation rotationIn) {
             super(NatureStructures.END_CRYPT_PIECE, 0);
             this.resourceLocation = resourceLocationIn;
             BlockPos blockpos = EndCryptPieces.OFFSET.get(resourceLocation);
@@ -151,16 +144,13 @@ public class EndCryptPieces {
             }
         }
 
-
         @Override
-        public boolean func_225577_a_(IWorld worldIn, ChunkGenerator<?> p_225577_2_, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos)
-        {
+        public boolean create(IWorld worldIn, ChunkGenerator<?> p_225577_2_, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos) {
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
             BlockPos blockpos = EndCryptPieces.OFFSET.get(this.resourceLocation);
             this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
 
-            return super.func_225577_a_(worldIn, p_225577_2_, randomIn, structureBoundingBoxIn, chunkPos);
+            return super.create(worldIn, p_225577_2_, randomIn, structureBoundingBoxIn, chunkPos);
         }
     }
-
 }
